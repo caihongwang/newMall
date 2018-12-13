@@ -27,7 +27,9 @@
 } 
 page{
   overflow-y:scroll;
-  background-color: #F8F8F8;
+  /* background-color: #F8F8F8; */
+  background-color: #E2E2E2;
+
   height:100%; 
   font-family: PingFang-SC-Regular;
   position: relative;
@@ -90,6 +92,13 @@ page{
   display: flex;
   display: -webkit-flex;
   align-items: center;
+}
+
+.flex-around{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-around
 }
 .mask{
   display: block;

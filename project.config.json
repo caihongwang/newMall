@@ -32,6 +32,16 @@
 		"miniprogram": {
 			"current": -1,
 			"list": [
+          {
+            "id": 0,
+            "name": "名片夹",
+            "pathName": "pages/tabBar/cardFile/cardFile",
+            "query": "",
+            "scene": "1036",
+            "referrerInfo": {
+              "appId": "wx6c12f0ce725b67e8"
+            }
+          },
 				{
 					"id": 0,
 					"name": "三方登录",

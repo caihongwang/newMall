@@ -1,6 +1,6 @@
 <!--这里是活动细则页面  -->
 <view class="warp {{isOverhidden ? 'over': ''}}">
-  <image class="head-image" src='/images/homePage.png'></image>
+  <image class="head-image" src='/images/home.png'></image>
   <view class='express-warp'>
     <view class='express-content'>
       <view class='express-text fz-24'>{{startM}}月{{startD}}日到{{endM}}月{{endD}}日期间，使用财富名片夹只要和50个好友完成名片交换，且排名1-3名的用户自动获得iPhone8手机等大奖，保持该排名至活动结束即可拿走奖品。也可邀请好友组团来参赛。</view>
