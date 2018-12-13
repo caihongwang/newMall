@@ -61,12 +61,8 @@
     {
       "root": "pages/cardFile/",
       "pages": [
-        "batchImport/batchImport",
-        "cardDetail/cardDetail",
-        "receivingCardList/receivingCardList",
-        "myCardList/myCardList",
-        "statement/statement",
-        "query/query"
+        "shopInformation/shopInformation",
+        "payment/payment"
       ]
     },
     {

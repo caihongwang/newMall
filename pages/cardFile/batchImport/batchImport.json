@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "批量导入",
-  "usingComponents": {
-    "dialog": "/pages/component/diolay/diolay",
-    "thirdLoginDialog":"/pages/component/thirdLoginView/thirdLoginView"
-  }
-}

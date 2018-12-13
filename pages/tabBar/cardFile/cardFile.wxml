@@ -9,7 +9,7 @@
    <view class='class iconfont' wx:for="{{sort}}" wx:key="sort" bindtap='clickSort' data-type='{{item.type}}'>{{item.name}}</view>
 </view>
 <view class='list'>
-  <view class='list-content flex2' wx:for="{{list}}" wx:key="list" >
+  <view class='list-content flex2' wx:for="{{list}}" wx:key="list" data-cardinfo="{{item}}" hover-class="click-hover" hover="true" bindtap='goToDetail' >
    <view class='image-warp' >
     <image src="{{item.images}}" class='image-top'></image>
      <image src="{{item.imagesHead}}" class='list-image'></image>

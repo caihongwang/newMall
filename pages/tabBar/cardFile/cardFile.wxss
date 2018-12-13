@@ -1,6 +1,6 @@
 @import "../../../app.wxss";
 page{
-  background: #fff !important;
+  background: #e2e2e2 !important;
   height: 100%;
 }
 /* 头部 */
@@ -24,7 +24,6 @@ page{
   padding: 8rpx;
   font-size: 24rpx;
   color: #e2e2e2;
-
 }
 
 /* 列表名 */
@@ -108,4 +107,8 @@ page{
 }
 .list-content:last-child{
   border: none;
+}
+.click-hover{
+  /* background: red; */
+   background: #F8F8F8; 
 }

@@ -1,0 +1,63 @@
+<!--pages/cardFile/shopInformation/shopInformation.wxml-->
+<view class='warp'>
+<swiper
+  indicator-dots="{{true}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+  circular="{{true}}"
+  class='swiper'
+  wx:if="{{shopInformation.shopInformation[0]}}"
+>
+  <block wx:for="{{shopInformation.wheelImages}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+
+ <view class='list-content flex2' >
+   <view class='image-warp' >
+    <image src="{{shopInformation.images}}" class='image-top'></image>
+     <image src="{{shopInformation.imagesHead}}" class='list-image'></image>
+   </view>
+   <view>
+    <view class='list-name'>{{shopInformation.name}}</view>
+    <view class='hot flex2'>
+     <view class='hot-left flex1'>
+       <image src='/images/home.png' class='hot-image'></image>
+       <text class='how-hot'>热度{{shopInformation.hot}}</text>
+     </view>
+      <view class='flex1 hot-right' >
+      距离： {{shopInformation.distance}}
+     </view>
+     <image src='/images/logo.png' class='phone'></image>
+      
+    </view>
+   </view>
+
+   </view>
+
+
+<button
+  type="warn"
+  class='pay-button'
+  bindtap="payment"
+>
+  付款
+</button>
+
+<view class='address-warp flex'>
+<view class='address'>
+店铺地址: <text class='addrss-text'>2222222222hhhhhhhhcfdddddddddddddddddddddddddddddddddddddddddd2</text>
+</view>
+<image class="icon-address"src='/images/logo.png' bindtap='goMap'></image>
+</view>
+
+
+<view class='brief-warp'>
+  <view class="shop-brief">店铺简介:</view>
+  <view class="brief-content">你好你哈哈你好你哈哈哈啥时候na2211111话水水水水你好你哈哈哈啥时候说实话水水水水你好你哈哈哈啥时候说实话水水水水你好你哈哈哈啥时候说实话水水水水哈啥时候说实话水水水水</view>
+  
+</view>
+</view>

@@ -21,37 +21,37 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
 		"plugin": {
 			"current": -1,
 			"list": []
 		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
 		"miniprogram": {
-			"current": -1,
+			"current": 9,
 			"list": [
-          {
-            "id": 0,
-            "name": "名片夹",
-            "pathName": "pages/tabBar/cardFile/cardFile",
-            "query": "",
-            "scene": "1036",
-            "referrerInfo": {
-              "appId": "wx6c12f0ce725b67e8"
-            }
-          },
-            {
-              "id": 1,
-              "name": "积分商城",
-              "pathName": "pages/tabBar/IntegralMall/IntegralMall",
-              "query": "",
-              "scene": "1036",
-              "referrerInfo": {
-                "appId": "wx6c12f0ce725b67e8"
-              }
-            },
+				{
+					"id": 0,
+					"name": "名片夹",
+					"pathName": "pages/tabBar/cardFile/cardFile",
+					"query": "",
+					"scene": "1036",
+					"referrerInfo": {
+						"appId": "wx6c12f0ce725b67e8"
+					}
+				},
+				{
+					"id": 1,
+					"name": "积分商城",
+					"pathName": "pages/tabBar/IntegralMall/IntegralMall",
+					"query": "",
+					"scene": "1036",
+					"referrerInfo": {
+						"appId": "wx6c12f0ce725b67e8"
+					}
+				},
 				{
 					"id": 0,
 					"name": "三方登录",
@@ -103,6 +103,11 @@
 					"pathName": "pages/activity/pages/teamUser/teamUser",
 					"query": "activityInfo={\"activityId\":\"2\",\"teamId\":\"92\",\"userId\":\"293\"}",
 					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "付款页面",
+					"pathName": "pages/cardFile/shopInformation/shopInformation"
 				}
 			]
 		}

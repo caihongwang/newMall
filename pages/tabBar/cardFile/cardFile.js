@@ -26,35 +26,41 @@ Page({
         imagesHead:'/images/home.png',
         name: '相约楼',
         hot:'521',
-        distance: '1023.3km'
+        distance: '1023.3km',
+        wheelImages: ['/images/logo.png', '/images/logo.png', '/images/logo.png']
       },
       {
         images: '/images/logo.png',
         imagesHead: '/images/home.png',
         name: '相约楼',
         hot: '521',
-        distance: '1023.3km'
+        distance: '1023.3km',
+        wheelImages: ['/images/logo.png', '/images/logo.png', '/images/logo.png']
+        
       },
       {
         images: '/images/logo.png',
         imagesHead: '/images/home.png',
         name: '相约楼',
         hot: '521',
-        distance: '1023.3km'
+        distance: '1023.3km',
+        wheelImages: ['/images/logo.png', '/images/logo.png', '/images/logo.png']
       },
       {
         images: '/images/logo.png',
         imagesHead: '/images/home.png',
         name: '相约楼',
         hot: '521',
-        distance: '1023.3km'
+        distance: '1023.3km',
+        wheelImages: ['/images/logo.png', '/images/logo.png', '/images/logo.png']
       },
       {
         images: '/images/logo.png',
         imagesHead: '/images/home.png',
         name: '相约楼',
         hot: '521',
-        distance: '1023.3km'
+        distance: '1023.3km',
+        wheelImages: ['/images/logo.png', '/images/logo.png', '/images/logo.png']
       }
       
     ]
@@ -79,7 +85,16 @@ Page({
   clickSort:function(e){
     var type = e.currentTarget.dataset.type;
 
-  
+  },
+
+
+  // 点击跳转商户详情
+  goToDetail: function(e){
+    var shopInformation = encodeURIComponent(JSON.stringify(e.currentTarget.dataset.cardinfo));
+      wx.navigateTo({
+        url: '../../cardFile/shopInformation/shopInformation?shopInformation=' + shopInformation
+      });
+    
   },
   
   onReady: function () {

@@ -28,7 +28,7 @@
 page{
   overflow-y:scroll;
   /* background-color: #F8F8F8; */
-  background-color: #E2E2E2;
+  background-color: #fff;
 
   height:100%; 
   font-family: PingFang-SC-Regular;
