@@ -1,0 +1,259 @@
+
+@import "../../../app.wxss";
+/* 以下为zg已经使用的 */
+.cardinfo {
+  background-color:white;
+  /* margin-bottom:128rpx;  */
+  /* height: 100%; */
+}
+.warp{
+  height: 1206rpx;
+  width: 100%;
+}
+.waiting-receive-view {
+  height: 96rpx;
+  background-color: #F3FFF3;
+}
+.center-content-view {
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+}
+.mini-card-image {
+  width: 32rpx;
+  height: 22rpx;
+}
+.waitting-receive-label {
+  line-height: 96rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  text-align: center;
+  color: #09BB07;
+  letter-spacing: 0.5px;
+}
+.card-info {
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  padding: 48rpx 40rpx;
+  /* height: 112rpx; */
+}
+.card-info:last-child {
+  border-bottom: 1rpx solid #fff;
+}
+.card-info .left {
+  width: 136rpx;
+  height: 136rpx;
+}
+.card-info .middle {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  /* padding: 0 24rpx; */
+  margin-left: 28rpx;
+  width: 400rpx;
+}
+
+ .receive-card-button {
+  background: #FFFFFF;
+  border: 1px solid #09BB07;
+  font-size: 20rpx;
+  color: #09BB07;
+  height: 48rpx;
+  line-height: 48rpx;
+  width: 80rpx;
+  padding: 0;
+}
+.card-info .left image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.card-info .left view {
+  width: 100%;
+  height: 136rpx;
+  line-height: 136rpx;
+  text-align: center;
+  border-radius: 50%;
+}
+.middle .i-name {
+  margin-top: 6rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 36rpx;
+  color: #353535;
+}
+.middle .i-job {
+ margin-top: 4rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 24rpx;
+  color: #888888;
+  letter-spacing: 0.2rpx;
+  /* text-align: center; */
+}
+.middle .i-company {
+  margin-top: 4rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 24rpx;
+  color: #888888;
+  letter-spacing: 0.2rpx;
+}
+.edit-label {
+  display: inline-block;
+  margin-top: 8rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  color: #888888;
+}
+.edit-label::before {
+  margin-right: 11rpx;
+  content: '\e636';
+  font-family: 'iconfont';
+  font-size: 32rpx;
+}
+.top-line {
+  background: #F8F8F8;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-bottom: 20rpx; 
+  height: 2rpx;
+}
+.item-cell {
+  height: 96rpx;
+}
+.open-content{
+  display: flex;
+  display: -webkit-flex;
+  align-items:flex-start;
+  margin-top: 56rpx; 
+  width: 100%;
+  /* height: 96rpx;
+  line-height: 96rpx; */
+}
+.open-content1{
+  display: flex;
+  display: -webkit-flex;
+  align-items:flex-start;
+  margin: 32rpx auto; 
+  width: 100%;
+  /* height: 96rpx;
+  line-height: 96rpx; */
+}
+.open-left{
+  margin-left: 40rpx;
+  width: 120rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  color: #888888;
+}
+.open-right{
+  width: 460rpx;
+  margin-left: 50rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  color: #353535;
+  word-break:break-all;
+}
+/* bottom view */
+.bottom-view {
+  display: flex;
+  display: -webkit-flex;
+  position: fixed;
+  bottom: 0;
+  height: 128rpx;
+  width: 100%;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0 -8rpx 12rpx 0 rgba(0,0,0,0.05);
+}
+.bbutton {
+  width: 320rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 12rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 28rpx;
+}
+.back-button {
+  background: #FFFFFF;
+  margin-left: 40rpx;
+  color: #09BB07;
+  text-align: center;
+  border: 2rpx solid #09BB07;
+  border-radius: 12rpx;
+}
+.tran-button::after{
+  border: 0;
+}
+.tran-button {
+  background: #09BB07;
+  margin-left: 30rpx;
+  border: 2rpx solid #09BB07;
+  color: #FFFFFF;
+  text-align: center;
+}
+.iPhoneXbottom {
+  height: 180rpx;
+}
+.bottom-blank-view {
+  width: 100%;
+  height: 64rpx;
+  background-color: #FFFFFF;
+}
+.bottom-blank-view1 {
+  width: 100%;
+  height: 148rpx;
+}
+.firstNameWord1{
+  color:red;
+  font-size:60rpx;
+}
+.back-button-disable {
+  background: #FFFFFF;
+  border: 2rpx solid #D8D8D8;
+  border-radius: 12rpx;
+  margin-left: 40rpx;
+  color: #B2B2B2;
+  text-align: center;
+}
+/* 防止占用屏幕空间 */
+.container {   
+  float: right;
+}
+/* 复制样式 */
+.copy-pos{
+  word-break:break-all;
+  position: relative;
+}
+.copy{
+   width: 120rpx;
+   height: 58rpx;
+   line-height: 58rpx;
+   text-align: center;
+   background: #353535; 
+   color: #fff;
+   position: absolute; 
+   top: -76rpx; 
+   left: 0;
+   font-family: PingFang-SC-Bold;
+   font-size: 24rpx;
+   letter-spacing: 2rpx;
+   border-radius: 8rpx;
+}
+.bot{
+    width:0;
+    height:0;
+    font-size:0; 
+    overflow:hidden; 
+    position:absolute;
+    border-width:20rpx; 
+    border-style:solid dashed dashed; 
+    border-color:#353535 transparent transparent; 
+    left:40rpx; 
+    bottom:-36rpx;
+}
+.copy-address{
+  position: absolute;
+  left: 0;
+  top: -78rpx;
+}

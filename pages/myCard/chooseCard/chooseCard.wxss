@@ -1,0 +1,147 @@
+/* pages/myCard/chooseCard/chooseCard.wxss */
+@import "../../../app.wxss";
+.chosse-warp{
+  padding: 46rpx 40rpx;
+  margin-bottom: 150rpx;
+}
+.have-find{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* position: absolute; */
+  color: #888888;
+  margin-bottom: 38rpx;
+}
+.card{
+  border-radius: 12rpx;
+  width: 670rpx;
+  /* height: 320rpx; */
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+.clice-express{
+  margin-left: 12rpx;
+  display: inline-block;
+  width: 28rpx;
+  height: 28rpx;
+
+}
+
+.card-warp{
+  padding: 36rpx 40rpx 44rpx;
+}
+.name{
+  color: #353535;
+}
+.icon{
+  float:right;
+  top: 0;
+  width: 56rpx;
+  height: 56rpx;
+}
+.work{
+  color: #888888;
+  margin-top: 8rpx;
+}
+.company{
+  color: #353535;
+  margin-top: 20rpx;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 128rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 26px 0 rgba(0,0,0,0.1);
+}
+.button::after{
+  border: 0
+}
+.button{
+  width: 320rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.button1{
+  border: 2rpx solid #09BB07;
+  border-radius: 8rpx;
+  color: #09BB07;
+  margin-left: 40rpx;
+  background: #fff;
+}
+.sure{
+  margin-right: 40rpx;
+  background: #09BB07;
+  border-radius: 8rpx;
+  color: #fff;
+}
+
+.open-content{
+  display: flex;
+  display: -webkit-flex;
+  align-items:flex-start;
+  margin-top: 12rpx;
+  color: #888;
+}
+.open-left{
+  width: 120rpx;
+}
+.open-right{
+  width: 466rpx;
+  word-break:break-all;
+}
+.hover1{
+  background: #179C16;   
+}
+.hover2{
+  background: #EEEEEE;    
+  color: #179C16;
+  border:2rpx solid #179C16;
+}
+
+
+.close{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 40rpx;
+}
+.express{
+  width: 540rpx;
+  margin: 0 auto;
+  background: #fff;
+  z-index: 5000;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.express-title{
+  width: 100%;
+  margin-bottom: 28rpx;
+  text-align: center;
+  color: #353535;
+}
+.express-content{
+  font-family: PingFang-SC-Regular;
+  color: #888888;
+   text-align: justify;
+   line-height: 40rpx;
+}
+
+.express-content1{
+  padding: 46rpx 50rpx 40rpx;
+}
+.know{
+  height: 96rpx;
+  line-height: 96rpx;
+  border-top: 2rpx solid #eee;
+  color: #09BB07;
+  text-align: center;
+}

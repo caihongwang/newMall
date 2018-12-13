@@ -1,0 +1,76 @@
+<page>
+  <view class="top-fix">
+    <view class="cardTop">
+      <view class='chioce-warp '>
+        <image class="chioce-image" src='/images/oneUp.png' bindtap='fastUpload'></image>
+        <view class='chioce-text fz-24'>单张上传</view>
+      </view>
+      <view class='chioce-warp '>
+        <image class="chioce-image" src="/images/moreUp.png" bindtap='batchImport'></image>
+        <view class='chioce-text fz-24'>批量导入</view>
+      </view>
+      <view class='chioce-warp  will-receive'>
+        <!-- <navigator url="../../cardFile/receivingCardList/receivingCardList"> -->
+        <image class="chioce-image" bindtap='goReceive' src="/images/waitingreceive.png">
+          <view wx:if='{{needReceiveCardCount !=0}}' class="{{isOne ? 'count' :'count1'}}">{{needReceiveCardCount}}</view>
+        </image>
+        <!-- </navigator> -->
+        <view class='chioce-text fz-24'>待接收</view>
+      </view>
+    </view>
+    <view class='search-warp' wx:if="{{ifHaveCard}}">
+      <!-- <view class='search' bindinput="searchContent"> -->
+      <navigator class='search' url="../../cardFile/query/query">
+        <image class="search-img" bindtap="search" src="/images/found.png"></image>
+        <text class="search-input fz-24">搜索公司、联系人姓名</text>
+      </navigator>
+
+      <!-- </view> -->
+    </view>
+  </view>
+  <view>
+    <view>
+      <view class="list-view">
+        <view wx:if="{{ifHaveCard}}">
+          <view wx:for="{{cardList}}" wx:key="{{key}}" id="{{item.key[0]}}">
+            <view class="letter-view">{{item.key[0]}}</view>
+            <view wx:for="{{item.values}}" wx:key="{{id}}">
+              <view class="card-cell" bindtap="goToDetail" data-cardinfo="{{item}}" hover-class="click-hover" hover="true">
+                <view class="left">
+                  <image mode='aspectFill' wx:if="{{item.cardHeadImgUrl}}" src="{{item.cardHeadImgUrl}}"></image>
+                  <image mode='aspectFill' wx:elif="{{!item.cardHeadImgUrl}}" src="/images/defaultavatar.png"></image>
+                </view>
+                <view class="middle">
+                  <label class="i-name fb-bond">{{item.cardName}}</label>
+                  <label class="i-job">{{item.cardJob}}</label>
+                  <label class="i-company">{{item.tempCardCompany}}</label>
+                </view>
+                <view class="right">
+                  <view class='flex right1'>
+                    <view wx:if="{{item.rightStatus == 2}}" class="status-common send-status fb-bond">已发送</view>
+                    <view wx:if="{{item.rightStatus == 1}}" class="status-common re-save-status fb-bond">已互存</view>
+                    <image wx:if="{{item.rightStatus == 2}}" src='/images/haveSend.png' class='save-status-image'></image>
+                    <image wx:if="{{item.rightStatus == 1}}" src='/images/haveReacive.png' class='save-status-image'></image>
+                  </view>
+                  <button wx:if="{{item.rightStatus==5}}" data-mid="{{item.id}}" data-receiveUid="{{item.cardUid}}" class="send-card-button fb-bond"
+                    catchtap="sendCardAction">回递名片</button>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <!-- 这里是没有名片时展示的视图 -->
+        <view wx:if="{{!ifHaveCard}}">
+          <view class='not-card fz-36 fb-bond'>还没有好友名片</view>
+          <view class='click-up fz-24 import'>点击上方 单张上传 或 批量导入</view>
+          <view class='click-up fz-24'>轻松完成好友名片添加</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <dialog id='dialog' bind:cancelEvent="_cancelEvent" isOwnCard="0">
+  </dialog>
+
+</page>

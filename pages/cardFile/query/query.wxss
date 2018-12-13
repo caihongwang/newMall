@@ -1,0 +1,199 @@
+/* pages/cardFile/query/query.wxss */
+@import "../../../app.wxss";
+.seach-warp{
+  height: 96rpx;
+  line-height: 96rpx;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.seach-input{
+  width: 566rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  background: #EEEEEE;
+  border-radius: 8rpx;
+  margin: 0rpx 0 0 40rpx;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search-img{
+  width: 36rpx;
+  height: 36rpx;
+  margin:0 12rpx 0 24rpx;
+}
+.search-delete{
+  width: 32rpx;
+  height: 32rpx;
+}
+.input{
+ width: 440rpx;
+ height: 40rpx;
+ line-height: 40rpx;
+ font-family: SourceHanSansSC-Regular;
+ font-size: 28rpx;
+ color: #353535;
+ letter-spacing: 0;
+}
+.palce{
+ font-family: SourceHanSansSC-Regular;
+ font-size: 28rpx;
+ color: #B2B2B2;
+ letter-spacing: 0;
+}
+.sure-search::after{
+  border: 0;
+  border-radius: 0;
+}
+.sure-search{
+  font-family: PingFang-SC-Medium;
+  font-size: 32rpx;
+  width: 142rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #fff; 
+  text-align: center;
+  letter-spacing: -0.82rpx;
+}
+.not-can-search{
+  color: #B2B2B2;
+}
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+   background: #fff; 
+   color: #B2B2B2;
+}
+.can-search{
+  color: #09BB07;
+}
+.card-cell {
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  padding: 32rpx 40rpx;
+  height: 116rpx;
+  border-bottom:2rpx solid #F8F8F8;
+}
+.card-cell:last-child {
+  border-bottom: 1rpx solid #fff;
+}
+.card-cell .left {
+  width: 112rpx;
+  height: 112rpx;
+}
+.card-cell .middle {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  padding: 0 16rpx;
+  width: 390rpx;
+}
+.card-cell .left image{
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+}
+.click-hover{
+  /* background: red; */
+   background: #F8F8F8; 
+}
+.middle .i-name {
+  overflow: hidden;
+ text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 4rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 28rpx;
+  color: #353535;
+}
+.middle .i-job {
+  overflow: hidden;
+ text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 4rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 20rpx;
+  color: #888888;
+  letter-spacing: 0.2rpx;
+  /* text-align: center; */
+}
+.middle .i-company {
+ overflow: hidden;
+ text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 4rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 20rpx;
+  color: #888888;
+  letter-spacing: 0.2rpx;
+}
+.scroll-warp{
+  padding-top: 96rpx;
+}
+
+/* 搜索后的记录 */
+.searchKey{
+  width: 100%;
+  position: fixed;
+  top: 96rpx;
+  left: 0;
+  background: #fff;
+}
+.newSearc{
+  width: 100%;
+  height: 78rpx;
+  line-height: 78rpx;
+}
+.lately-search{
+  height: 78rpx;
+  line-height: 78rpx;
+  padding: 0 40rpx;
+  font-family: PingFang-SC-Medium;
+  color: #888888;
+}
+.lately-list{
+  height: 96rpx;
+  line-height: 96rpx;
+  border-bottom: 2rpx solid #F8F8F8;
+
+}
+.search-list{
+  padding: 0rpx 40rpx;
+}
+.delete-search{
+  height: 32rpx;
+  width: 32rpx;
+}
+.lately-search-name{
+  width: 600rpx;
+  font-family: PingFang-SC-Medium;
+  color: #888888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.delete-all{
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  color: #888888;
+}
+.no-search{
+  text-align: center;
+}
+.no-want{
+  font-family: PingFang-SC-Medium;
+  color: #888888;
+  margin: 272rpx auto 0;
+}
+
+.put-other{
+  font-family: PingFang-SC-Regular;
+  color: #B2B2B2;
+  margin: 14rpx auto;
+}

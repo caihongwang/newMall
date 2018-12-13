@@ -1,0 +1,39 @@
+<!-- 无积分未参团的状态 -->
+<view class='no-integral' wx:if="{{notGoGroup}}">
+  <view class='integral'>{{integralPerson}}</view>
+  <view class='no-user-integral fz-32'>
+    <view>你还没有人脉分，</view>
+    <view>尽快与好友交换名片即可获得人脉分！</view>
+  </view>
+</view>
+
+
+<!-- 有积分未参团的状态 -->
+ <view style='width:100%; height:100%; background:#fff;' > 
+
+ <view class='have-user-integral' wx:if="{{haveIntegral}}"> 
+<!-- <scroll-view class='warp' scroll-y="true" bindscrolltolower="bindMore" > -->
+
+  <view class='have-integral'>{{integralPerson}}</view>
+  <view class='have-integral-type'>
+    <view class='integral-type' wx:for="{{haveIntegralList}}" wx:key="key">
+      <view class='type-left'>
+        <view class='type fz-32'>{{item.operatorName}}</view>
+        <view class='integral-time fz-28'>{{item.createTime}}</view>
+      </view>
+      <view class='get-integral fz-36'>+{{item.integral}}</view>
+    </view>
+  </view>
+  </view>
+<!-- </scroll-view> -->
+<view class='foot'>
+ <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多</view>
+</view>
+  <view class="{{isIpx ? 'iphonex':''}}"></view>
+<!-- </view> -->
+</view>
+
+
+

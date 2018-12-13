@@ -1,0 +1,102 @@
+{
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/cardFile/cardFile",
+    "pages/tabBar/my/my",
+    "pages/shareOpen/index",
+    "pages/activity/index",
+    "pages/component/tabbar/tabbar"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#393939",
+    "navigationBarTitleText": "财富名片夹",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#B2B2B2",
+    "selectedColor": "#09BB07",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "text": "我的名片",
+        "pagePath": "pages/tabBar/index/index",
+        "iconPath": "images/card.png",
+        "selectedIconPath": "images/card_hl.png"
+      },
+      {
+        "text": "名片夹",
+        "pagePath": "pages/tabBar/cardFile/cardFile",
+        "iconPath": "images/cardfolder.png",
+        "selectedIconPath": "images/cardfolder_hl.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/tabBar/my/my",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_hl.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/my/",
+      "pages": [
+        "feedback/index",
+        "howFind/index",
+        "method/index",
+        "aboutUs/index",
+        "privacy/index"
+      ]
+    },
+    {
+      "root": "pages/cardFile/",
+      "pages": [
+        "batchImport/batchImport",
+        "cardDetail/cardDetail",
+        "receivingCardList/receivingCardList",
+        "myCardList/myCardList",
+        "statement/statement",
+        "query/query"
+      ]
+    },
+    {
+      "root": "pages/myCard/",
+      "pages": [
+        "chooseCard/chooseCard"
+      ]
+    },
+    {
+      "root": "pages/commonPage/",
+      "pages": [
+        "clipPicture/index",
+        "handWrite/handWrite",
+        "addMoreMessage/addMoreMessage"
+      ]
+    },
+    {
+      "root": "pages/activity/pages/",
+      "pages": [
+        "rules/rules",
+        "grouprules/grouprules",
+        "prizesExplain/prizesExplain",
+        "integralDetail/integralDetail",
+        "applyPrintCard/applyPrintCard",
+        "ranking/ranking",
+        "createTeam/createTeam",
+        "activitiesRule/activitiesRule",
+        "teamIntegralDetail/teamIntegralDetail",
+        "teamUser/teamUser"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 15000,
+    "connectSocket": 20000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
+  },
+  "debug": true
+}

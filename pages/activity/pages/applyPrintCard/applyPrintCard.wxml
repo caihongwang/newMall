@@ -1,0 +1,68 @@
+<view class="c-view">
+    <view class="image-view">
+        <image class="template-image {{imageLoadSuccess? '': 'display'}}" src="{{templeCardList[0].cardTemplatePositiveImgUrl}}" bindload='imageLoadFinishAction'></image>
+        <view wx:if='{{!imageLoadSuccess}}' class="image-load">
+            <image class="card-image-loading" src="/images/cardLoading.png"> </image>
+            <view class='loading-text'>名片模板加载中...</view>
+        </view>
+    </view>
+    <view wx:if='{{myCardList.length>1}}' class="choose-remind-text">选择要印刷的名片</view>
+    <view class="{{myCardList.length>1 ? 'two-card-class' : 'second-remind-text'}}">请确认印刷的名片信息正确、完整</view>
+    <view class="card-view">
+        <view wx:if='{{myCardList.length>1}}' class="card-head-view">
+            <block wx:for="{{myCardList}}" wx:key="key">
+                <view class="title-item {{myCardList.length==2? 'two-item': 'three-item'}}" data-index='{{item.index}}' bindtap='chooseCardAction'>
+                    <view>名片{{item.index + 1}}</view>
+                    <view class="item-line-view" wx:if="{{item.selected}}"></view>
+                </view>
+            </block>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardName}}' class="open-content">
+            <view class="open-left">姓名</view>
+            <view class="open-right">{{myCardList[currentIndex].cardName}}</view>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardCompany}}' class="open-content">
+            <view class="open-left">公司</view>
+            <view class="open-right">{{myCardList[currentIndex].cardCompany}}</view>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardJob}}' class="open-content">
+            <view class="open-left">职位</view>
+            <view class="open-right">{{myCardList[currentIndex].cardJob}}</view>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardDepartment}}' class="open-content">
+            <view class="open-left">部门</view>
+            <view class="open-right">{{myCardList[currentIndex].cardDepartment}}</view>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardPhone}}' class="open-content">
+            <view class="open-left">手机号</view>
+            <view class="open-right">{{myCardList[currentIndex].cardPhone}}</view>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardEmail}}' class="open-content">
+            <view class="open-left">邮箱</view>
+            <view class="open-right">{{myCardList[currentIndex].cardEmail}}</view>
+        </view>
+        <view wx:if='{{myCardList[currentIndex].cardAddress}}' class="open-content1">
+            <view class="open-left">地址</view>
+            <view class="open-right">{{myCardList[currentIndex].cardAddress}}</view>
+        </view>
+    </view>
+    <view class="confirm-text">请确认收货信息</view>
+    <form bindsubmit="formSubmit">
+        <view class="receive-info-view">
+            <view class="receive-content">
+                <view class="receive-left">姓名</view>
+                <input name="inputname" bindinput='inputAction' data-type="name" class="receive-right" value="{{myCardList[currentIndex].cardName}}"></input>
+            </view>
+            <view class="receive-content">
+                <view class="receive-left">手机号</view>
+                <input name="inputphone" bindinput='inputAction' data-type="phone" class="receive-right" value='{{myCardList[currentIndex].cardPhone}}'></input>
+            </view>
+            <view class="receive-content">
+                <view class="receive-left">收货地址</view>
+                <input name="inputaddress" bindinput='inputAction' data-type="address" class="receive-right" value="{{myCardList[currentIndex].cardAddress}}"></input>
+            </view>
+        </view>
+        <button class="common-btnstyle {{(haveName && havePhone && haveAddress)? 'submit-button' : 'disable-button'}}" formType="submit">确认提交</button>
+    </form>
+    <view class="temp-bottom-view"></view>
+</view>

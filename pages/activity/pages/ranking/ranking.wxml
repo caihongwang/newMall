@@ -1,0 +1,59 @@
+<!--pages/activity/pages/ranking/ranking.wxml-->
+<!-- <view class='warp' > -->
+<view style='width:100%; height:100%;background:#fff;'>
+<!-- <scroll-view class='warp' scroll-y="true" bindscrolltolower="bindMore" > -->
+  <view class='top-warp' >
+    <view class='top'>
+      <text class='top-text'>一</text>
+      <text class='top-text top-text1'>TOP100</text>
+      <text class='top-text top-text1'>一</text>
+    </view>
+    <view class='not-prize-warp'>
+      <view class='not-prize flex' wx:for="{{topList}}" wx:key="key">
+        <view class='ranking-not'>{{item.index}}</view>
+         <view wx:if="{{!item.topAvatarLength || item.topAvatarLength.length == 0}}"> 
+         <view  class='not-image-warp'  >
+          <!-- 没有头像的处理 -->
+            <image class='ranking-not-image1' src='/images/defaultavatar.png'></image> 
+        </view>
+        </view>
+       
+        <view wx:if="{{item.topAvatarLength}}">
+          <!-- 一个人 -->
+          <view class='not-image-warp' wx:if="{{item.topAvatarLength == 1}}">
+            <image class='ranking-not-image1' src='{{item.topAvatarAll[0]}}'></image>
+          </view>
+          <!-- 两个人 -->
+          <view class='not-image-warp' wx:if="{{item.topAvatarLength == 2}}">
+            <image class='not-image2' src='{{item.topAvatarAll[0]}}'></image>
+            <image class='ranking-not-image2' src='{{item.topAvatarAll[1]}}'></image>
+          </view>
+
+          <!-- 多个人 -->
+          <view class='not-image-warp' wx:if="{{item.topAvatarLength == 3}}">
+            <image class='ranking-not-image image-three-one' src='{{item.topAvatarAll[0]}}'></image>
+            <image class='ranking-not-image image-three-two' src='{{item.topAvatarAll[1]}}'></image>
+            <image class='ranking-not-image image-three-three' src='{{item.topAvatarAll[2]}}'></image>
+          </view>
+        </view>
+
+        <view class='wx-name-not fz-28'>{{item.topName}}</view>
+        <view class='wx-name-not-number fz-40'>{{item.topIntegral}}
+          <text class='wx-name-not-text fz-24'>分</text>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+<!-- </scroll-view> -->
+<view class='foot'>
+ <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多</view>
+</view>
+  <view class="{{isIpx ? 'iphonex':''}}"></view>
+</view>
+

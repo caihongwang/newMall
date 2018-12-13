@@ -1,0 +1,15 @@
+<!-- <view class="bigTitle common">
+    免责条款</view>
+<view class="secondTitle common">尊敬的用户：</view>
+<view class="thirdTitle common">您好！</view>
+<view class="mainContent common">
+    　　您在使用深圳数趣信息科技有限公司（“深圳数趣”）提供的财富名片软件产品时，您需承诺并保证您进行的信息收集、传输、导出、存储等行为不存在损害国家安全、社会公共利益、第三方合法权益的情形；不存在涉黄、涉毒、反党反政府危害社会稳定的情形，不存在侵犯他人个人信息等合法权益的的情形，不存在其他任何违反法律法规的行为。深圳数趣对您从事的上述行为及所涉及的信息不承担任何形式的审查责任。
+</view>
+<view class="lastBefore common">
+    　　如您违反上述约定造成的法律责任由您全权承担，同时应承担深圳数趣因此造成的全部损失。
+</view>
+<view class="last common">
+    　　您点击“确认”按钮或者实际使用财富名片提供的服务表示您自愿接受上述条款。
+</view> -->
+
+   <web-view src="https://mini.shuqudata.com/card/src/p/statement/index.html"></web-view>

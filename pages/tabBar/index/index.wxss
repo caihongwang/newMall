@@ -1,0 +1,45 @@
+@import "../../../app.wxss";
+
+/*新增授权弹窗 */
+.authorization{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  border: 0;
+  padding: 0;
+  background: #fff; 
+}
+.tips{
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 100rpx auto 0;
+}
+.tips-text{
+  padding: 100rpx 60rpx 100rpx;
+  font-size: 32rpx;
+  text-align: center;
+  color: #5f5656;
+}
+.map{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.hotline{
+ position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+}
+.phone{
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin:  0 auto;
+  }

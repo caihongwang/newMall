@@ -1,0 +1,21 @@
+<!--component/selectUpload.wxml-->
+<view wx:if="{{isShow}}" class='mask'>
+  <view class="mask-warp {{isIpx ? 'mask-warp1':''}}" animation="{{animationData}}">
+    <view class='creat-type fz-24 ls-24'>请选择创建方式</view>
+    <view class='chioce-type flex'>
+      <view class='chioce-warp chioce1'>
+        <image class="chioce-image" src="/images/takephotoimage.png" bindtap="photoUp"></image>
+        <text class='chioce-text fz-24'>拍照上传</text>
+      </view>
+      <view class='chioce-warp chioce2'>
+        <image class="chioce-image" src="/images/choosefromalbum.png" bindtap="albumSletion"></image>
+        <text class='chioce-text fz-24'>相册选取</text>
+      </view>
+      <view class='chioce-warp chioce3'>
+        <image class="chioce-image" src="/images/handinput.png" bindtap="handWriting"></image>
+        <text class='chioce-text fz-24'>手动输入</text>
+      </view>
+    </view>
+    <view class="cancel fz-32 ls-24 {{isIpx ? 'fix-iphonex-button':''}}" catchtap="_cancelEvent">取消</view>
+  </view>
+</view>

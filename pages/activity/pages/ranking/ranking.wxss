@@ -1,0 +1,153 @@
+/* pages/activity/pages/ranking/ranking.wxss */
+@import "../../../../app.wxss";
+.warp{
+  width: 100%;
+  height: 1100rpx; 
+  background: #fff;
+}
+.top-warp{
+  width: 100%;
+  /* height: 100%; */
+  background: #fff;
+  overflow-y: scroll;
+}
+.top{
+  padding-top: 36rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 40rpx;
+  color: #353535;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 52rpx;
+}
+.top-text1{
+  margin-left: 20rpx;
+}
+.not-prize-warp{
+  /* padding: 36rpx 64rpx 0; */
+    padding: 36rpx 64rpx 30rpx;
+
+}
+.not-prize{
+  height: 96rpx;
+  border-bottom: 2rpx solid rgba(121,100,244,0.10);
+
+}
+.ranking-not{
+  color: #4F4F4F;
+  width: 80rpx;
+  text-align: center;
+    font-family: PingFang-SC-Medium;
+
+}
+.not-image-warp{
+  width: 68rpx;
+  height: 68rpx;
+  margin-right: 24rpx;
+  position: relative;
+}
+.ranking-not-image{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 35rpx;
+  border: 2rpx solid #fff;
+}
+.wx-name-not{
+  width: 280rpx;
+  font-family: PingFang-SC-Medium;
+color: #4F4F4F;
+letter-spacing: 0;
+line-height: 28rpx;
+}
+.wx-name-not-number{
+  width: 170rpx;
+  font-family: PingFang-SC-Medium;
+color: #4F4F4F;
+letter-spacing: 0;
+text-align: right;
+line-height: 40px;
+}
+.wx-name-not-text{
+  font-family: PingFangSC-Light;
+color: #4F4F4F;
+letter-spacing: 0;
+text-align: right;
+line-height: 24rpx;
+}
+.not-image-warp{
+  width: 68rpx;
+  height: 68rpx;
+  position: relative;
+}
+.not-image2{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  border-radius: 25rpx;
+  border: 2rpx solid #fff;
+}
+.ranking-not-image1{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 34rpx;
+}
+.ranking-not-image2{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  z-index: 1;
+  border-radius: 25rpx;
+  border: 2rpx solid #fff;
+}
+.ranking-not-image{
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 19rpx;
+}
+
+.image-three-one{
+   position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.image-three-two{
+   position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.image-three-three{
+   position: absolute;
+  left: 15rpx;
+  top: 0;
+  z-index: 2;
+}
+.add-more{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  color: #9D9D9D;
+  letter-spacing: 0;
+  text-align: center;
+  /* margin-top: 30rpx; */
+}
+
+
+.not-prize-warp .not-prize:last-child {
+  border: 0
+
+}
+.foot{
+  height: 106rpx;
+  line-height: 106rpx;
+  width: 100%;
+  background: #fff;
+}
+.iphonex{
+  width: 100%;
+  height: 68rpx;
+  background: #fff;
+}

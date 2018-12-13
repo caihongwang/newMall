@@ -1,0 +1,93 @@
+@import "../../../app.wxss";
+.chosse-warp{
+  padding: 40rpx 40rpx;
+  margin-bottom: 150rpx;
+}
+.have-find{
+  color: #888888;
+  margin-bottom: 20rpx;
+}
+.card{
+  width: 670rpx;
+  height: 320rpx;
+  margin: auto;
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+.card-warp{
+  padding: 32rpx 40rpx;
+}
+.name{
+  color: #353535;
+}
+.icon{
+  float:right;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+}
+.work{
+  color: #888888;
+  margin-top: 8rpx;
+}
+.company{
+  color: #353535;
+  margin-top: 20rpx;
+}
+.phone{
+  color: #888888;
+  margin-top: 14rpx;
+}
+.email{
+  color: #888888;
+  margin-top: 10rpx;
+}
+ .phone::before{
+  font-family: 'iconfont';
+  font-weight: 500;
+  font-style: normal;
+  content: '\e680';
+  font-size: 24rpx;
+  color: red;
+  margin-right: 10rpx;
+} 
+ .email::before{
+  font-family: 'iconfont';
+  font-weight: 500;
+  font-style: normal;
+  content: '\e680';
+  font-size: 24rpx;
+  color: red;
+  margin-right: 10rpx;
+} 
+.footer{
+  width: 100%;
+  height: 128rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+/* .button::after{
+  border: 0
+} */
+.button{
+  width: 670rpx;
+  height: 88rpx;
+  background-color: #09BB07;
+  border-radius: 8rpx;
+  color: #fff;
+}
+.open-content{
+  display: flex;
+  display: -webkit-flex;
+  align-items:flex-start;
+  margin-top: 12rpx;
+  color: #888;
+}
+.open-left{
+  width: 120rpx;
+}
+.open-right{
+  width: 466rpx;
+  word-break:break-all;
+}

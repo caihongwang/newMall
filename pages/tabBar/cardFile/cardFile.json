@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "dialog": "../../component/selectUpload/selectUpload"
+  },
+  "navigationBarTitleText":"财富名片夹",
+  "enablePullDownRefresh": true
+}

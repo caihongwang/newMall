@@ -1,0 +1,22 @@
+<page>
+  <view class='header'>
+    <image class="userAvatarUrl" src="{{userInfo.avatarUrl}}"></image>
+     <view class='userName fz-32 ls-24' >{{userInfo.nickName}}</view> 
+  </view>
+  <view class='table'>
+    <block wx:for="{{tableData}}" wx:key="{{item.id}}">
+      <navigator url="/pages/{{item.page}}" class="navigator">
+        <view class="navigator-text">{{item.name}}</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </block>
+  </view>
+  <form bindsubmit="formSubmit" report-submit="{{true}}">
+  <button formType="submit"  class="open-speak"open-type='contact' 
+  size="40"
+  session-from="sobot|{{userInfo.nickName}}|{{userInfo.avatarUrl}}">
+  <text class='my'></text>
+  我的客服</button>
+  </form>
+
+</page>

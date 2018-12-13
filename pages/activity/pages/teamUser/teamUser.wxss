@@ -1,0 +1,79 @@
+.p-body {
+    /* float: left; */
+    margin: 0 auto 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;  
+    padding-bottom: 60rpx;
+    background: #fff;
+    overflow: hidden;
+    padding: 0 70rpx 0 70rpx;
+}
+.warp{
+    width: 100%;
+    height: 1100rpx; 
+    background: #fff;
+}
+.item {
+    text-align: center;
+    width: 25%;
+    padding-top: 50rpx;
+}
+.item image {
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 80rpx;
+}
+.image-view-warp{
+    display: inline-block;
+    position: relative; 
+    height: 80rpx;
+    width: 80rpx;
+}
+.nickname {
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #7A7A7A;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 28rpx;
+}
+.leader-view {
+    background: #FFCA6A;
+    border: 2rpx solid #FFFFFF;
+    border-radius: 200rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #CB8A15;
+    letter-spacing: 0;
+    width: 56rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+.team-name-view {
+  padding-top: 50rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 40rpx;
+    color: #353535;
+    letter-spacing: 0;
+    text-align: center;
+}
+.foot{
+  height: 106rpx;
+  line-height: 106rpx;
+  width: 100%;
+  background: #fff;
+}
+.add-more{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  color: #9D9D9D;
+  letter-spacing: 0;
+  text-align: center;
+}

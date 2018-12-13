@@ -1,0 +1,105 @@
+/* pages/activity/pages/IntegralDetail/IntegralDetail.wxss */
+@import "../../../../app.wxss";
+/* 无积分未参团的状态 */
+.no-integral{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.integral{
+font-family: PingFangSC-Semibold;
+font-size: 72rpx;
+color: #7964F4;
+letter-spacing: 0;
+text-align: center;
+padding-top: 104rpx;
+}
+.no-user-integral{
+  font-family: PingFangSC-Regular;
+color: #353535;
+letter-spacing: -0.4rpx;
+text-align: center;
+line-height: 44rpx;
+margin-top: 44rpx;
+}
+.warp{
+  width: 100%;
+  height: 1100rpx; 
+  background: #fff;
+}
+ /* 有积分未参团的状态 */
+ .have-user-integral{
+
+  background: #fff;
+} 
+.have-integral{
+  font-family: PingFangSC-Semibold;
+font-size: 72rpx;
+color: #7964F4;
+letter-spacing: 0;
+text-align: center;
+padding-top: 48rpx;
+}
+.have-integral-type{
+  padding: 52rpx 40rpx 0rpx;
+}
+.integral-type{
+  width: 670rpx;
+  height: 126rpx;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  font-family: PingFangSC-Regular;
+  border-bottom: 2rpx solid rgba(121,100,244,0.10)
+}
+.type-left{
+  width: 570rpx;
+  height: 88rpx;
+ 
+}
+.type{
+color: #353535;
+letter-spacing: -0.4rpx;
+line-height: 44rpx;
+ text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
+}
+.integral-time{
+color: #D1D1D1;
+letter-spacing: -0.4rpx;
+line-height: 44rpx;
+}
+.get-integral{
+  width: 118rpx;
+color: #353535;
+letter-spacing: 0;
+text-align: right;
+line-height: 88rpx;
+}
+.have-integral-type .integral-type:last-child{
+  border: 0
+}
+.iphonex{
+  width: 100%;
+  height: 68rpx;
+  background: #fff;
+}
+.foot{
+  height: 106rpx;
+  line-height: 106rpx;
+  width: 100%;
+  background: #fff;
+}
+.add-more{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  color: #9D9D9D;
+  letter-spacing: 0;
+  text-align: center;
+  /* margin-top: 30rpx; */
+}
+
+ 

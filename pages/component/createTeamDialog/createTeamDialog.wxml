@@ -1,0 +1,13 @@
+<view class="wx-create-team-view" wx:if="{{isShow}}">
+    <view class="mask-view"></view>
+    <view class="create-dailog">
+        <view class="bigTitle">{{title}}</view>
+        <input wx:if="{{!isRemind}}" maxlength="8" placeholder-class='pholder-class' class="my-input" placeholder="{{placeHolderText}}" bindinput='inputAction'></input>
+        <view  wx:if="{{!isRemind}}" class="remind-view">{{bottomText}}</view>
+        <view  wx:if="{{isRemind}}" class="center-text-view">{{centerText}}</view>
+        <view class="button-view">
+            <view class="cancel-button" catchtap='_cancelShowEvent'>{{cancelButtonText}}</view>
+            <view  class="ok-button" catchtap='_confirmShowEvent'>{{okButtonText}}</view>
+        </view>
+    </view>
+</view>

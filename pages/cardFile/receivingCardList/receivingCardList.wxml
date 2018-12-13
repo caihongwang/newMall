@@ -1,0 +1,30 @@
+<page>
+  <!-- 这里是名片列表展示区 -->
+  <scroll-view wx:if="{{!noReceive}}">
+    <view class="list-view">
+      <view>
+        <block wx:for="{{cardList}}" wx:key="{{id}}">
+          <view class="card-cell">
+            <view class="left">
+                <image mode='aspectFill' wx:if="{{item.cardHeadImgUrl}}" src="{{item.cardHeadImgUrl}}"></image>
+                <image mode='aspectFill' wx:elif="{{!item.cardHeadImgUrl}}" src="/images/defaultavatar.png"></image>
+            </view>
+            <view class="middle">
+              <label class="i-name fb-bond">{{item.cardName}}</label>
+              <label class="i-job">{{item.cardJob}}</label>
+              <label class="i-company">{{item.tempCardCompany}}</label>
+            </view>
+            <view class="right">
+              <button data-mappingid="{{item.id}}" data-cardId="{{item.cardId}}" data-sendUId="{{item.sendUid}}" class="receive-card-button fb-bond" catchtap="receiveCardAction">接收</button>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+
+  <view wx:if="{{noReceive}}" class='no-receive-bac'>
+    <view class='no-receive'>您暂无待接收名片</view>
+  </view>
+</page>

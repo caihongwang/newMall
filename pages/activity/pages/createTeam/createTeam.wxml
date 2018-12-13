@@ -1,0 +1,97 @@
+<view class="p-body" scroll-y='true'>
+    <toast id='toast' my-class="toast1" inputToast="{{inputToast}}" time="{{time}}"></toast>
+    <view class="background-image-view">
+        <image class="back-image" src='/images/people.png'>
+            <view class='one'>
+                <view class="big-title">组团参加召集令</view>
+                <view class="axis-view">
+                    <image src='/images/axis.png'>
+                    </image>
+                </view>
+                 <view class="axis-bottom-view"> 
+                    <image  src='/images/axis-bottom-shadow.png'> <view wx:if='{{ifInTeam}}' wx:if='{{teamInfo.teamName}}' class="second-title">{{teamInfo.teamName}}团队人脉积分</view></image>
+                 </view> 
+            </view>
+        </image>
+    </view>
+    <view wx:if='{{ifInTeam}}' class="team-container-view">
+         <!-- <view wx:if='{{teamInfo.teamName}}' class="second-title">{{teamInfo.teamName}}团队人脉积分</view>  -->
+        <view class="round-score-view">{{teamInfo.teamIntegral}}</view>
+        <view class="team-score-view">
+            <label bindtap='goTeamRuleDetailAction'>团队积分明细</label>
+        </view>
+        <view class="current-people-count-view">已经加入团队成员：{{teamInfo.teamMemberNum}}人</view>
+        <!-- 这里展示队员 -->
+        <view class="people-list-view">
+            <block wx:for='{{teamIndex}}' wx:key='key'>
+                <view class="user-item-view">
+                    <view wx:if='{{item < teamMemberList.length && item<4}}'>
+                        <image src='{{teamMemberList[item].avatarUrl}}' class="avatar-image">
+                            <!-- //TODO -->
+                            <view class="leader-view" wx:if='{{item==0}}'>团长</view>
+                        </image>
+                    </view>
+                    <view wx:elif='{{item>=teamMemberList.length && teamMemberList.length<=4}}'>
+                        <image src='/images/noteamuser.png'></image>
+                    </view>
+                    <view wx:elif='{{teamMemberList.length>4 && item == 4}}'>
+                        <image bindtap='seeMoreAction' src='/images/seemore.png'></image>
+                    </view>
+                    <view wx:else>
+                        <image src='/images/noteamuser.png'></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <button wx:if='{{!ifInByShare}}' class="create-button" open-type='share'>召集好友</button>
+        <button wx:if='{{ifInByShare && joinButtonEnable}}' class="create-button" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>加入本团</button>
+        <button wx:if='{{ifInByShare && !joinButtonEnable}}' class="dis-create-button">已加入</button>
+        <view class="rule-view" bindtap='goGroupRuleDetail'>组团规则</view>
+    </view>
+    <!-- 未创建团队 -->
+    <view wx:if='{{!ifInTeam}}' class="noteam-container-view">
+        <view class="center-image-view">
+            <image src="/images/zprize.png"></image>
+        </view>
+        <button class="create-button" bindtap='createTeamAction'>创建团队</button>
+        <view class="rule-view" bindtap='goGroupRuleDetail'>组团规则</view>
+    </view>
+    <view class="racktagle-view">
+        <image src='/images/axis-bottom-angle.png'></image>
+    </view>
+    <button wx:if='{{ifInByShare}}' class="go-activity-button"  open-type='getUserInfo' bindgetuserinfo='goActivityPageAction'><text class='go-activity-button-text'>点击活动拿iPhone8</text></button>
+    <view wx:if='{{ifInByShare}}' class="temp-bottom-view"></view>
+
+    <view class="{{isIpx ? 'iphonex':''}}"></view>
+
+</view>
+
+<createDialog id="createDailog" isRemind="{{isRemind}}" title="{{title}}" okButtonText="确定" placeHolderText="请输入你的团队名称" bottomText="*团队名称创建后不可修改"
+    cancelButtonText="取消" bind:confirmShowEvent="_confirmShowEvent" bind:cancelShowEvent="_cancelShowEvent"></createDialog>
+
+
+
+<view class='mask' wx:if="{{showSingUp}}">
+    <view class='sign-success'>
+        <view class='success-head fz-40'>提醒</view>
+        <view class='success-dic fz-28'>加入该团队后，不可退团，且个人分数将计入团队总分，确认加入？</view>
+        <view class='not-free-foot'>
+            <view class='cancel-free free-foot fz-32' bindtap='cancelSingUp'>取消</view>
+            <view class='free-go-creat  free-foot fz-32' bindtap='sureSingUp'>确定</view>
+        </view>
+    </view>
+</view>
+
+<view class='mask' wx:if="{{ifShowJoinActiviy}}">
+    <view class='sign-success'>
+        <view class='success-head fz-40'>提醒</view>
+        <view class='success-dic fz-28'>你还没有参加报名，点击确认报名</view>
+        <view class='not-free-foot'>
+            <view class='cancel-free free-foot fz-32' bindtap='cancelJoinActivityUp'>取消</view>
+            <view class='free-go-creat  free-foot fz-32' bindtap='sureJoinActivityUp'>确认</view>
+        </view>
+    </view>
+</view>
+
+<!-- 
+<view class='author-click' wx:if="{{isAuthorization}}" catchtap='authorization'></view> -->
