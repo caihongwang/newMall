@@ -5,7 +5,8 @@
     "pages/tabBar/my/my",
     "pages/shareOpen/index",
     "pages/activity/index",
-    "pages/component/tabbar/tabbar"
+    "pages/component/tabbar/tabbar",
+    "pages/tabBar/IntegralMall/IntegralMall"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -31,6 +32,12 @@
         "pagePath": "pages/tabBar/cardFile/cardFile",
         "iconPath": "images/cardfolder.png",
         "selectedIconPath": "images/cardfolder_hl.png"
+      },
+      {
+        "text": "积分商城",
+        "pagePath": "pages/tabBar/IntegralMall/IntegralMall",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_hl.png"
       },
       {
         "text": "我的",
@@ -99,5 +106,4 @@
     "downloadFile": 30000
   },
   "debug": true
-    
 }
