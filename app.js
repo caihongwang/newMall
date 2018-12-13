@@ -10,6 +10,7 @@ App({
     editCard: []
   },
   onLaunch: function () {
+    console.log('判断当前用户是否已经授权~控制按钮是否可以点击');
     //判断当前用户是否已经授权~控制按钮是否可以点击
     if (wx.getStorageSync('isAuthorization')) {
     } else{

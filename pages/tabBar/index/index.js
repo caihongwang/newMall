@@ -12,6 +12,14 @@ Page({
     isAuthorization: false, //判断授权弹窗是否展示
     latitude: 23.099994,  //经纬度
     longitude: 113.324520,
+    markers: [{
+      iconPath: '/images/logo.png',
+      id: 0,
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50
+    }],
   },
   onLoad: function (options) {
     // app.globalData.isRefreshTagForIndex = true;    //从分享页面过来刷新
@@ -30,6 +38,9 @@ Page({
    var that = this;
     // 是否已经授权
     var authorization = wx.getStorageSync('USERINFO');
+    console.log(authorization);
+    console.log('是否已经授权');
+
     if (!authorization) {
       this.setData({
         isAuthorization:true
@@ -54,7 +65,6 @@ Page({
         // const accuracy = res.accuracy
       }
     })
-
 
   },
   onShow: function () {
