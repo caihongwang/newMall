@@ -11,6 +11,7 @@
 </view>
 
 <map
+ wx-if="{{!isAuthorization}}"
 class='map'
   longitude="{{longitude}}"
   latitude="{{latitude}}"
