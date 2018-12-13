@@ -1,3 +1,4 @@
+<view class='warp'>
 <view class="head flex">
  <view>附近共{{howShops}}家店铺</view>
  <view class='back-map' bindtap='backMap'>返回地图</view>
@@ -7,3 +8,29 @@
 <view class='tab flex-around'  >
    <view class='class iconfont' wx:for="{{sort}}" wx:key="sort" bindtap='clickSort' data-type='{{item.type}}'>{{item.name}}</view>
 </view>
+<view class='list'>
+  <view class='list-content flex2' wx:for="{{list}}" wx:key="list" >
+   <view class='image-warp' >
+    <image src="{{item.images}}" class='image-top'></image>
+     <image src="{{item.imagesHead}}" class='list-image'></image>
+   </view>
+   <view>
+    <view class='list-name'>{{item.name}}</view>
+    <view class='hot flex2'>
+     <view class='hot-left flex1'>
+       <image src='/images/home.png' class='hot-image'></image>
+       <text class='how-hot'>热度{{item.hot}}</text>
+     </view>
+      <view class='flex1 hot-right' >
+      距离： {{item.distance}}
+     </view>
+      
+    </view>
+   </view>
+
+   </view>
+
+</view>
+
+</view>
+

@@ -93,6 +93,11 @@ page{
   display: -webkit-flex;
   align-items: center;
 }
+.flex2{
+  display: flex;
+  display: -webkit-flex;
+  
+}
 
 .flex-around{
   display: flex;

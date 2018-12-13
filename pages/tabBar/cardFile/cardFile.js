@@ -19,7 +19,46 @@ Page({
         name: '热度',
         type: 3
       }
+    ],
+    list: [
+      {
+        images: '/images/logo.png',
+        imagesHead:'/images/home.png',
+        name: '相约楼',
+        hot:'521',
+        distance: '1023.3km'
+      },
+      {
+        images: '/images/logo.png',
+        imagesHead: '/images/home.png',
+        name: '相约楼',
+        hot: '521',
+        distance: '1023.3km'
+      },
+      {
+        images: '/images/logo.png',
+        imagesHead: '/images/home.png',
+        name: '相约楼',
+        hot: '521',
+        distance: '1023.3km'
+      },
+      {
+        images: '/images/logo.png',
+        imagesHead: '/images/home.png',
+        name: '相约楼',
+        hot: '521',
+        distance: '1023.3km'
+      },
+      {
+        images: '/images/logo.png',
+        imagesHead: '/images/home.png',
+        name: '相约楼',
+        hot: '521',
+        distance: '1023.3km'
+      }
+      
     ]
+
    
   },
   onLoad: function (options) {
