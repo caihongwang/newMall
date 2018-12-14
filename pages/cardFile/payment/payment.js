@@ -1,11 +1,17 @@
 // pages/cardFile/payment/payment.js
+var network = require('../../../utils/network.js');
+var util = require('../../../utils/util.js');
+var requestUrl = require('../../../config.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    chooseWechat: true, //是否选中了微信支付
+    payingBill: false,//是否选中了买单支付
+    isAgreement: false,//是否同意协议
   },
 
   /**

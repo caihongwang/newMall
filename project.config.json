@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": 0,
@@ -107,7 +107,13 @@
 				{
 					"id": -1,
 					"name": "付款页面",
-					"pathName": "pages/cardFile/shopInformation/shopInformation"
+					"pathName": "pages/cardFile/shopInformation/shopInformation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "微信付款页面",
+					"pathName": "pages/cardFile/payment/payment"
 				}
 			]
 		}

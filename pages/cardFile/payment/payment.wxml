@@ -1,2 +1,44 @@
 <!--pages/cardFile/payment/payment.wxml-->
-<text>pages/cardFile/payment/payment.wxml</text>
+<view class='warp'>
+  <view class='pay-type'>
+    <view class="pay-warp flex1">
+      <image class="pay-image"  src='/images/logo.png'></image>
+      <view class='pay-text'>微信支付</view>
+      <image class="image-choose"  src='/images/logo.png' wx:if="{{chooseWechat}}"></image>
+      <image class="image-choose"  src='/images/home.png' wx:if="{{!chooseWechat}}"></image>
+    </view>
+      <view class="pay-warp flex1">
+      <image class="pay-image"  src='/images/logo.png'></image>
+      <view class='pay-text1'>买单币支付</view>
+      <view class='can-use'>可用买单币0.00个</view>
+      <image class="image-choose"  src='/images/logo.png' wx:if="{{payingBill}}"></image>
+      <image class="image-choose"  src='/images/home.png' wx:if="{{!payingBill}}"></image>
+    </view>
+  </view>
+
+  <view class='pay-money'>
+   <view class="money-text">请输入你需要的付款金额</view>
+   <view class='imput-warp'>
+    <input class='input-money'></input>
+    <view class="body-view flex">
+        <switch  bindchange="switchChange" />
+        <view class='arrive-case'>积分抵现</view>
+        <view class='flex'>
+                <input class='case-input'></input>个
+        </view>
+        <view class='arrive-money'>0.00</view>
+    </view>
+
+    <view class='express'>（使用积分抵扣后将不返还积分及余额，本次最多可使用付款金额的20%进行积分抵扣）</view>
+
+      <view class='actual-payment'>实际需支付： <text class='actual-text'>￥0</text></view>
+   </view>
+  </view>
+    <view class='flex1 agreement'> 
+     <image class="image-agreement"  src='/images/logo.png' wx:if="{{isAgreement}}"></image>
+      <image class="image-agreement"  src='/images/home.png' wx:if="{{!isAgreement}}"></image>
+   <view class="agreement-text">同意并阅读</view>
+         <!-- <navigator class='open-rule fz-28' hover-class="none" url="/pages/activity/pages/activitiesRule/activitiesRule"> -->
+
+</view>
+</view>
