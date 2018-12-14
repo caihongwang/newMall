@@ -21,6 +21,36 @@
 <view class='foot flex' >
   <view class='should-pay'>应付金额：<text class='integral-left'>￥{{detail.price}}+{{detail.integral}}积分 </text></view>
   <view class="now-buy" bindtap='nowBuy'>立即购买</view>
+</view>
+
+<view class="commodity_screen"  bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class='modal-head flex3'  >
+    <image class='modal-image' src="{{detail.images}}"></image>
+   <view class='modal-integral  fz-28'> 
+       <view class='model-price'>￥{{detail.price}}+{{detail.integral}}积分</view>
+      <view class='model-stock '>库存：{{detail.stock}}件</view>
+       <view class='model-describe  '>已选：{{detail.describe}}</view>
+   </view>
+
+   <image class='close' src='/images/home.png' bindtap='closeModel'></image>
+  </view>
+   
+   <view class='modal-head fz-28'>
+    <view>   <text>选择规格：</text>
+      <view class='specifications'>{{detail.describe}}</view></view>
+   
+        <view class='buy-nummber flex'>
+          <view class='numbur'>购买数量</view>
+        <view class='stepper'>
+          <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'>-</text>
+          <input bindinput='bindManual' value='{{num}}'></input>
+          <text bindtap='bindPlus'>+</text>
+        </view>
+  </view>
+
+   </view>
 
 
 </view>

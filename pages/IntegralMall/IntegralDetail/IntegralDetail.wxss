@@ -62,12 +62,10 @@ page{
    width: 100%;
    height: 200rpx;
    border-top: 1px solid #e2e2e2;
-   padding: 0 0 0 24rpx;
-   box-sizing: border-box;
    
 }
 .should-pay{
-  
+  margin-left: 24rpx;
 }
 .now-buy{
   width: 200rpx;
@@ -76,5 +74,99 @@ page{
   text-align: center;
   height: 200rpx;
   line-height: 200rpx;
+}
 
+
+/* 底部弹窗 */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  /* opacity: 0.5; */
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  /* height: 300rpx; */
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+}
+.modal-head{
+  padding: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+  border:1px solid #e2e2e2;
+}
+.modal-image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.modal-integral{
+  margin-top: 30rpx;
+  width: 400rpx;
+}
+.model-price{
+  color: red;
+}
+.close{
+  width: 60rpx;
+  height: 60rpx;
+}
+.model-stock{
+  color: #e2e2e2;
+ margin: 20rpx 0rpx;
+}
+.specifications{
+  display: inline-block;
+  background: red;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+
+.buy-nummber{
+  width: 100%;
+}
+/*主容器*/
+.stepper {
+  width:80px;
+  height:26px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/*加号和减号*/
+.stepper text {
+  float: left;
+  width: 19px;
+  line-height: 26px;
+  text-align: center;
+}
+/*数值*/
+.stepper input {
+  width: 40px;
+  height: 26px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+/*普通样式*/
+.stepper .normal {
+  color:black;
+}
+/*禁用样式*/
+.stepper .disable {
+  color: #ccc;
 }
