@@ -87,3 +87,7 @@
   margin: 0 24rpx;
   font-size: 24rpx;
 }
+.open-rule{
+  color: red;
+
+}

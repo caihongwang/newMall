@@ -1,2 +1,23 @@
 <!--pages/tabBar/IntegralMall/IntegralMall.wxml-->
-<text>pages/tabBar/IntegralMall/IntegralMall.wxml</text>
+<view class='input-warp flex'>
+ <view class='seach-input'>
+        <image class="search-img" src="/images/found.png"></image>
+        <input class="input fz-24" bindinput='focus' focus="{{isFocus}}" value="{{searchValue}}" placeholder-class="palce" confirm-type="done"
+          bindconfirm="sureSearch" placeholder="输入搜索商品名称" confirm-hold="true" maxlength="30"></input>
+ </view>
+ <button class="sure-search" hover-class="hover-sure">确定</button>
+</view>
+
+<image class='banner' src="/images/home.png"></image>
+<view class='wheel-warp'>
+  <view class='wheel'>
+     <view class='wheel-planting'>
+     <view wx:for-index="i" wx:key="screen" class="wheel-text {{currentItem == i?'active-tag':''}}" wx:for="{{screen}}"  bindtap='filter' data-index="{{i}}" >{{item}}</view>
+       
+
+
+   </view>
+  </view>
+
+
+</view>

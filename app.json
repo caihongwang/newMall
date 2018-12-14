@@ -62,7 +62,8 @@
       "root": "pages/cardFile/",
       "pages": [
         "shopInformation/shopInformation",
-        "payment/payment"
+        "payment/payment",
+        "agreement/agreement"
       ]
     },
     {

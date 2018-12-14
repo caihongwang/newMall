@@ -1,2 +1,83 @@
 /* pages/tabBar/IntegralMall/IntegralMall.wxss */
 @import "../../../app.wxss";
+page{
+  background: #e2e2e2 !important;
+}
+.input-warp{
+  background: blue;
+  height: 120rpx;
+  padding: 0 24rpx;
+}
+.seach-input{
+  width: 500rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #F2F2F2;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search-img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 33rpx;
+}
+.input{
+  width: 350rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #353535;
+  letter-spacing: 0;
+  background: #F2F2F2;
+  padding-left: 4rpx;
+}
+.palce{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #999999;
+  letter-spacing: -0.28rpx;
+}
+.sure-search{
+     width: 150rpx;
+     height: 100rpx;
+     line-height: 100rpx;
+     color: #fff;
+     background: dodgerblue; 
+     font-size: 28rpx;
+}
+.hover-sure{
+
+}
+.banner{
+  width: 100%;
+  height: 400rpx;
+}
+.wheel-warp{
+  background: #fff;
+  height: 120rpx;
+}
+.wheel{
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 24rpx;
+}
+.wheel-planting{
+    white-space: nowrap;       
+    overflow: auto;      
+}
+.wheel-text{
+  display: inline-block;
+  margin: 0 28rpx;
+  font-size: 24rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 10rpx 20rpx;
+}
+.active-tag{
+  background: red;
+  border-radius: 20rpx;
+}

@@ -100,7 +100,7 @@ App({
             console.log(res.data.data.sessionKey);
             console.log(res.data.data.uid);
 
-            // console.log("登录成功");
+            console.log("登录成功");
             //登录成功，将uid和session保存
             that.saveInfo(res.data.data.sessionKey, res.data.data.uid);
             // console.log(res.data.data.sessionKey + "-----" + res.data.data.uid);

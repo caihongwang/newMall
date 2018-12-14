@@ -1,32 +1,13 @@
-// pages/tabBar/IntegralMall/IntegralMall.js
-//logs.js
-var network = require('../../../utils/network.js')
-const requestUrl = require('../../../config')
-const util = require('../../../utils/util.js')
-
-var app = getApp();
+// pages/cardFile/agreement/agreement.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // MOCKDATA
-    screen: ['全部', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理'],
-    currentItem: 0,//当前选中的索引
 
   },
 
-  filter:function(e){
-    var index = e.currentTarget.dataset.index;
-    this.setData({
-      currentItem:index
-    })
-
-    //调用筛选接口
-
-
-  },
   /**
    * 生命周期函数--监听页面加载
    */
