@@ -1,0 +1,27 @@
+<!--pages/IntegralMall/IntegralDetail/IntegralDetail.wxml-->
+<view class='head'>
+  <image class='image' src="{{detail.images}}"></image>
+  <view class='describe'>{{detail.describe}}</view>
+</view>
+
+<view class='price flex'>
+  <view class='integral-left'>￥{{detail.price}}+{{detail.integral}}积分</view>
+    <view class='integral-right'>库存： {{detail.stock}}</view>
+</view>
+
+<view class='detail'>
+  <image class="detail-icon"  src="/images/home.png"></image>
+  <text class='detail-text'>详情</text>
+</view>
+
+<view class='imageList-warp'>
+ <image class='imageList'  wx:for="{{detail.imageList}}" wx:key="imageList"  src='{{item}}'></image>
+</view>
+
+<view class='foot flex' >
+  <view class='should-pay'>应付金额：<text class='integral-left'>￥{{detail.price}}+{{detail.integral}}积分 </text></view>
+  <view class="now-buy" bindtap='nowBuy'>立即购买</view>
+
+
+</view>
+

@@ -20,7 +20,7 @@
   </view>
 
   <view class=list-warp">
-      <view  wx:for="{{list}}" wx:key="list"  class="list  {{index % 2 ==  0?'active':''   }}" >
+      <view  wx:for="{{list}}" wx:key="list"  class="list  {{index % 2 ==  0?'active':''   }}"  data-index = "{{item.id}}"bindtap='goDetail'>
         <image  class="list-image"  src="{{item.images}}"></image>
         <view class='describe'>{{item.describe}}</view>
           <view class='price'>￥{{item.price}}+{{item.integral}}积分</view>

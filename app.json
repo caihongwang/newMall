@@ -66,6 +66,12 @@
         "agreement/agreement"
       ]
     },
+{
+  "root": "pages/IntegralMall/",
+  "pages": [
+    "IntegralDetail/IntegralDetail"
+  ]
+},
     {
       "root": "pages/myCard/",
       "pages": [

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -119,7 +119,13 @@
 				{
 					"id": -1,
 					"name": "用户协议",
-					"pathName": "pages/cardFile/agreement/agreement"
+					"pathName": "pages/cardFile/agreement/agreement",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城列表详情",
+					"pathName": "pages/IntegralMall/IntegralDetail/IntegralDetail"
 				}
 			]
 		}

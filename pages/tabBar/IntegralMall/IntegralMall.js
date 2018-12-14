@@ -15,48 +15,61 @@ Page({
     screen: ['全部', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理'],
     list: [
       {
+        id: 1,
         images:'/images/home.png',
         describe:'面部护理',
         price:'3000',
         integral:' 3020'
       },
       {
+        id: 2,
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
         integral: ' 3020'
       },
       {
+        id: 2,
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
         integral: ' 3020'
       },
       {
+        id: 2,
+
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
         integral: ' 3020'
       },
       {
+        id: 2,
+
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
         integral: ' 3020'
       },
       {
+        id: 2,
+
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
         integral: ' 3020'
       },
       {
+        id: 2,
+
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
         integral: ' 3020'
       },
       {
+        id: 2,
+
         images: '/images/home.png',
         describe: '面部护理',
         price: '3000',
@@ -77,6 +90,15 @@ Page({
 
     //调用筛选接口
 
+
+  },
+
+  //点击跳转到详情页
+  goDetail:function(e){
+    var id = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '../../IntegralMall/IntegralDetail/IntegralDetail?id=' + id
+    })
 
   },
   /**

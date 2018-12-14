@@ -1,0 +1,80 @@
+/* pages/IntegralMall/IntegralDetail/IntegralDetail.wxss */
+@import "../../../app.wxss";
+page{
+  background: #e2e2e2 !important;
+}
+.head{
+  background: #fff;
+  padding: 24rpx;
+  border-bottom: 1px solid #e2e2e2;
+}
+.image{
+  width: 100%;
+  height: 500rpx;
+}
+.describe{
+  font-size: 24rpx;
+}
+.price{
+  width: 100%;
+  height: 100rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+    font-size: 24rpx;
+}
+.integral-left{
+  color: red;
+}
+.integral-right{
+    color: #e2e2e2;
+}
+
+.detail{
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+}
+
+.detail-icon{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align:middle;
+}
+.detail-text{
+  font-size: 28rpx;
+  color: #fff;
+}
+.imageList-warp{
+  padding-bottom: 200rpx;
+}
+.imageList{
+  display: block;
+  height: 200rpx;
+  width: 100%;
+}
+
+.foot{
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   background: #fff;
+   width: 100%;
+   height: 200rpx;
+   border-top: 1px solid #e2e2e2;
+   padding: 0 0 0 24rpx;
+   box-sizing: border-box;
+   
+}
+.should-pay{
+  
+}
+.now-buy{
+  width: 200rpx;
+  background: red;
+  color: #fff;
+  text-align: center;
+  height: 200rpx;
+  line-height: 200rpx;
+
+}
