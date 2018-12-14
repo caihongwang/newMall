@@ -10,7 +10,7 @@ Page({
    */
   data: {
     // MOCKDATA
-    showModalStatus: true,//是否展示付款弹窗
+    showModalStatus: false,//是否展示付款弹窗
     detail:{
       images:'/images/home.png',
       describe: '面部护理',
@@ -104,6 +104,13 @@ Page({
       num: num,
       minusStatus: minusStatus
     })
+  },
+// 点击确定按钮
+  sureBuy:function(){
+    var orderInfo = {};
+        wx.navigateTo({
+          url: '/pages/commonPage/placeOrder/placeOrder?orderInfo=' + orderInfo,
+        })
   },
   /**
    * 生命周期函数--监听页面加载

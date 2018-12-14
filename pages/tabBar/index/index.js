@@ -81,6 +81,7 @@ Page({
   onGotUserInfo: function(e){
     var that = this;
     wx.setStorageSync("USERINFO", e.detail.userInfo);
+    app.globalData.userInfo = e.detail.userInfo;
     wx.showTabBar({
       success: function (res) {
         that.setData({

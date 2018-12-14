@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -125,7 +125,25 @@
 				{
 					"id": -1,
 					"name": "积分商城列表详情",
-					"pathName": "pages/IntegralMall/IntegralDetail/IntegralDetail"
+					"pathName": "pages/IntegralMall/IntegralDetail/IntegralDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/commonPage/placeOrder/placeOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/commonPage/addressManage/addressManage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/tabBar/my/my"
 				}
 			]
 		}

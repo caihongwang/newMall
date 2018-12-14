@@ -1,0 +1,20 @@
+<!--pages/commonPage/addressManage/addressManage.wxml-->
+<view class='warp' wx:if="{{address}}">
+<view  wx:for="{{address}}"  wx:for-index="i" wx:key="screen" class="address flex"   bindtap='filter' data-index="{{i}}">
+
+   <image class='address-icon' src="/images/logo.png" wx:if="{{currentItem == i}}"></image>
+   <image class='address-icon' src="/images/home.png" wx:if="{{currentItem != i}}"></image>
+   <view class='address-detail'>
+       <view  class='name fz-28'>{{item.name}}</view>
+       <view  class='address-choose fz-24'>{{item.address}}</view>
+   </view>
+   <image class='address-right' src="/images/logo.png" bindtap='deleteAddress'></image>
+</view>
+</view>
+
+<view class='no-warp  fz-32'   wx:if="{{!address}}">
+  暂无收货地址
+</view>
+
+
+<view class="add-address" bindtap='addNewAddress'>+新增收货地址</view>

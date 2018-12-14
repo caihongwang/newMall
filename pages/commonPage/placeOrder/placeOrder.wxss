@@ -1,0 +1,76 @@
+/* pages/commonPage/placeOrder/placeOrder.wxss */
+@import "../../../app.wxss";
+page{
+  background: #e2e2e2 !important;
+}
+.address{
+  width: 100%;
+  height: 200rpx;
+  padding:  24rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.address-icon{
+  width: 60rpx;
+  height: 60rpx;
+}
+.address-detail{
+  width: 600rpx;
+}
+.name{
+  /* height: 30rpx; */
+}
+.address-choose{
+  color: #e2e2e2;
+}
+.address-right{
+    width: 60rpx;
+  height: 60rpx;
+}
+
+.address1{
+  background: #fff;
+  margin-top: 24rpx;
+  padding: 24rpx;
+}
+.goods-icon{
+  width: 140rpx;
+  height: 140rpx;
+}
+.goods-detail{
+  width: 500rpx;
+}
+.good-name{
+
+
+}
+.good{
+
+}
+.rule{
+  color: #e2e2e2;
+}
+.good-price{
+  color: red;
+}
+.number{
+  text-align: right;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+}
+.foot-price{
+  margin-left: 24rpx;
+}
+.sure-pay{
+  width: 260rpx;
+  background: red;
+  color: #fff;
+  text-align: center;
+}

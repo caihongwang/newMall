@@ -1,22 +1,19 @@
 <page>
-  <view class='header'>
+  <view class='header flex'>
     <image class="userAvatarUrl" src="{{userInfo.avatarUrl}}"></image>
-     <view class='userName fz-32 ls-24' >{{userInfo.nickName}}</view> 
+    <view class='user'>
+         <view class='userName fz-32 ls-24' >{{userInfo.nickName}}</view> 
+       <view class="userInfo fz-28">个人用户</view>
+    </view>
+
+    <view class="setting-warp flex" >
+       <image class="setting"  src="/images/logo.png"></image>
+       <view  class="setting-text" >设置</view>
+        <image class="setting-right"  src="/images/logo.png"></image>
+    </view>
   </view>
-  <view class='table'>
-    <block wx:for="{{tableData}}" wx:key="{{item.id}}">
-      <navigator url="/pages/{{item.page}}" class="navigator">
-        <view class="navigator-text">{{item.name}}</view>
-        <view class="navigator-arrow"></view>
-      </navigator>
-    </block>
-  </view>
-  <form bindsubmit="formSubmit" report-submit="{{true}}">
-  <button formType="submit"  class="open-speak"open-type='contact' 
-  size="40"
-  session-from="sobot|{{userInfo.nickName}}|{{userInfo.avatarUrl}}">
-  <text class='my'></text>
-  我的客服</button>
-  </form>
+
+<image class='setting-banner' src="/images/home.png"></image>
+  
 
 </page>

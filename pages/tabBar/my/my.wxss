@@ -5,7 +5,10 @@
   width: 100%;
   height: 300rpx;
   text-align: center;
-  background: #393939;
+  background: blue;
+  padding: 24rpx;
+   color: #fff;
+   box-sizing: border-box;
 }
 .table {
   margin-top: 40rpx;
@@ -15,62 +18,37 @@
   width: 140rpx;
   height: 140rpx;
   border-radius: 50% 50%;
-  margin: 40rpx auto 12rpx;
 }
 .userName{
-  margin: 0 auto;
   font-family: PingFang-SC-Bold;
-  color: #FFFFFF;
 }
-.content{
-  width: 100%;
-  height: 336rpx;
-  background: #fff;
-  margin-top: 40rpx;
+.user{
+  width: 400rpx;
+  text-align: left;
 }
-.intro{
-  padding: 0 40rpx;
-  height: 112rpx;
-  display: -webkit-flex;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.icon-right{
-  width: 48rpx;
-  height: 48rpx;
-}
-.line{
-  border-bottom: 2rpx solid #F8F8F8;
-}
-.intro-text{
-  font-family: PingFang-SC-Medium;
-  color: #353535;
-}
-.open-speak::after{
-  border: 0;
-  border-radius: 0;
-}
-.open-speak{
-  width: 232rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  margin: 60rpx auto;
-  border-radius: 200rpx;
-  background: #fff;
-  border: 2rpx solid #EEEEEE;
-  font-family: PingFang-SC-Medium;
-  font-size: 28rpx;
-  color: #353535;
-  letter-spacing: 0.3rpx;
+.userInfo{
+  width: 200rpx;
+  border: 1rpx solid #fff;
+  padding: 10rpx  20rpx;
+  border-radius: 20rpx;
   text-align: center;
- }
-.my{
-  display: inline-block；
 }
-.my::after {
-  margin-right: 4rpx;
-  content: '\e64b';
-  font-family: 'iconfont';
-  font-size: 28rpx;
+.setting-warp{
+    width: 200rpx;
+  border: 1rpx solid #fff;
+  padding: 10rpx  20rpx;
+  border-radius: 20rpx;
+  text-align: center;
+}
+.setting{
+  width: 40rpx;
+  height: 40rpx;
+}
+.setting-right{
+  width: 20rpx;
+  height: 20rpx;
+}
+.setting-banner{
+  width: 100%;
+  height: 300rpx;
 }

@@ -1,0 +1,60 @@
+/* pages/commonPage/addressManage/addressManage.wxss */
+@import "../../../app.wxss";
+.warp{
+  padding-bottom: 200rpx;
+}
+.address{
+  width: 100%;
+  height: 200rpx;
+  padding:  24rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.address-icon{
+  width: 60rpx;
+  height: 60rpx;
+}
+.address-detail{
+  width: 600rpx;
+}
+.name{
+  /* height: 30rpx; */
+}
+.address-choose{
+  color: #e2e2e2;
+}
+.address-right{
+    width: 60rpx;
+  height: 60rpx;
+}
+
+.address1{
+  background: #fff;
+  margin-top: 24rpx;
+  padding: 24rpx;
+}
+.goods-icon{
+  width: 140rpx;
+  height: 140rpx;
+}
+.goods-detail{
+  width: 500rpx;
+}
+.no-warp{
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  color: #e2e2e2;
+
+}
+.add-address{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+  background: red;
+   text-align: center;
+   color: #fff;
+}

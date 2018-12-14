@@ -66,12 +66,12 @@
         "agreement/agreement"
       ]
     },
-{
-  "root": "pages/IntegralMall/",
-  "pages": [
-    "IntegralDetail/IntegralDetail"
-  ]
-},
+    {
+      "root": "pages/IntegralMall/",
+      "pages": [
+        "IntegralDetail/IntegralDetail"
+      ]
+    },
     {
       "root": "pages/myCard/",
       "pages": [
@@ -81,9 +81,8 @@
     {
       "root": "pages/commonPage/",
       "pages": [
-        "clipPicture/index",
-        "handWrite/handWrite",
-        "addMoreMessage/addMoreMessage"
+        "placeOrder/placeOrder",
+        "addressManage/addressManage"
       ]
     },
     {

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "完善名片信息",
-  "usingComponents": {
-    "toast": "../../component/showToast/showToast"
-  }
-}
