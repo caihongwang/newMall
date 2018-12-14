@@ -170,3 +170,12 @@ page{
 .stepper .disable {
   color: #ccc;
 }
+.sure-buy{
+  width: 100%;
+  height:  160rpx;
+}
+.warn{
+  display: block;
+  width: 680rpx;
+  margin: 40rpx  auto 0;
+}

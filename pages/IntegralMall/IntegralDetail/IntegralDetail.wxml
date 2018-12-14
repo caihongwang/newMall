@@ -51,6 +51,10 @@
   </view>
 
    </view>
+     <view class='sure-buy'>
+       <button class='warn' type='warn'> 确定</button>
+       
+     </view>
 
 
 </view>
