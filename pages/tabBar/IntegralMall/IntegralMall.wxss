@@ -81,3 +81,31 @@ page{
   background: red;
   border-radius: 20rpx;
 }
+.list-warp{
+  padding: 48rpx  24rpx;
+}
+.list{
+   display: inline-block;
+   width: 338rpx;
+   height: 460rpx;
+   background: #fff;
+   margin-top: 24rpx;
+   padding: 0 24rpx;
+   box-sizing: border-box;
+}
+.active{
+  margin-right: 24rpx;
+}
+.list-image{
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    margin: 30rpx auto 0;
+}
+.describe{
+  font-size: 28rpx;
+}
+.price{
+    font-size: 28rpx;
+    color:  red;
+}
