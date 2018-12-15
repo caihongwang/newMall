@@ -1,0 +1,21 @@
+/* pages/my/myOrder/myOrder.wxss */
+@import "../../../app.wxss";
+page{
+  background: #e2e2e2;
+}
+.lst-warp{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+}
+.list{
+  flex: 1;
+  text-align: center;
+}
+.chosse{
+  border-bottom: 1px solid red;
+}

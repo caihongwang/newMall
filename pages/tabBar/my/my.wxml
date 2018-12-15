@@ -24,7 +24,7 @@
 
 <view class='integral-list'>
  <view class='flex list-top'>  
- <view class='top-left flex1'>
+ <view class='top-left flex1' bindtap='waitWard' >
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
         <view class='wite fz-32'>等待奖励</view>
@@ -32,10 +32,10 @@
      </view>
  </view>
   <view class='top-line'></view>
- <view class='top-left flex1'>
+ <view class='top-left flex1' bindtap='waitList'>
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
-        <view class='wite fz-32'>等待奖励</view>
+        <view class='wite fz-32'>奖励列表</view>
          <view class='wite-how fz-28 '>共0单</view>
      </view>
  </view>
@@ -46,7 +46,7 @@
  <view class='top-left flex1'>
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
-        <view class='wite fz-32'>等待奖励</view>
+        <view class='wite fz-32'>我的积分</view>
          <view class='wite-how fz-28 '>共0单</view>
      </view>
  </view>
@@ -54,7 +54,7 @@
  <view class='top-left flex1'>
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
-        <view class='wite fz-32'>等待奖励</view>
+        <view class='wite fz-32'>我的买单币</view>
          <view class='wite-how fz-28 '>共0单</view>
      </view>
  </view>

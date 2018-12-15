@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 18,
 			"list": [
 				{
 					"id": 0,
@@ -155,7 +155,13 @@
 				{
 					"id": -1,
 					"name": "个人提现",
-					"pathName": "pages/my/personalCash/personalCash"
+					"pathName": "pages/my/personalCash/personalCash",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/my/myOrder/myOrder"
 				}
 			]
 		}

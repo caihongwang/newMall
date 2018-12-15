@@ -7,7 +7,7 @@
     "pages/activity/index",
     "pages/component/tabbar/tabbar",
     "pages/tabBar/IntegralMall/IntegralMall"
-      ],
+  ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#393939",
@@ -57,7 +57,8 @@
         "aboutUs/index",
         "privacy/index",
         "personalSetting/personalSetting",
-          "personalCash/personalCash"
+        "personalCash/personalCash",
+          "myOrder/myOrder"
       ]
     },
     {

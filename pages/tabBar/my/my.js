@@ -51,11 +51,32 @@ Page({
      })
 
   },
+  
 
   // 点击领取
   receive:function(){
     wx: wx.navigateTo({
       url: '/pages/my/personalCash/personalCash',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+// 点击等待奖励
+  waitWard:function(){
+    let id = 1;
+    wx.navigateTo({
+      url: '/pages/my/myOrder/myOrder?id='+id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+// 点击奖励列表
+  waitList:function(){
+    let id = 2;
+    wx.navigateTo({ 
+      url: '/pages/my/myOrder/myOrder?id=' + id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
