@@ -1,6 +1,9 @@
 @import "../../../app.wxss";
 
  @import "../../common/index.wxss"; 
+ page{
+   background: #e2e2e2 !important;
+ }
 .header{
   width: 100%;
   height: 300rpx;
@@ -51,4 +54,110 @@
 .setting-banner{
   width: 100%;
   height: 300rpx;
+}
+.balance{
+  width: 702rpx;
+  height: 100rpx;
+  padding: 24rpx;
+  background: #fff;
+}
+.balance-money{
+  color: red;
+  width: 240rpx;
+}
+.receive{
+  color: red;
+  padding: 10rpx 40rpx;
+  border: 1px solid red;
+  border-radius: 12rpx;
+}
+.balance-e{
+  color: #e2e2e2;
+  padding: 10rpx 40rpx;
+  border: 1px solid #e2e2e2;
+  border-radius: 12rpx;
+}
+.integral-list{
+  margin-top: 40rpx;
+  background: #fff;
+}
+.list-top{
+  width: 100%;
+  height: 200rpx;
+  border-bottom: 1px solid #e2e2e2;
+  box-sizing: border-box;
+}
+.top-left{
+  width: 374rpx;
+  padding: 24rpx;
+
+}
+.top-line{
+  width: 2rpx;
+  height: 100%;
+  background: #e2e2e2;
+
+}
+.top-icon{
+  width: 80rpx;
+  height: 80rpx;
+}
+.wite-warp{
+  margin-left: 24rpx;
+}
+.wite-how{
+  color: #e2e2e2;
+  margin-top:  12rpx;
+}
+.list-bottom{
+  border: none;
+}
+
+
+.table {
+  margin-top: 40rpx;
+  background-color: #fff;
+}
+.navigator{
+  margin-top: 24rpx;
+  background: #fff;
+}
+.phone{
+  color: red;
+}
+.have-join{
+  flex: 1
+}
+.join{
+  padding: 10rpx 20rpx;
+  color: #fff;
+  background: red;
+  border-radius: 10rpx;
+}
+.tips{
+   padding: 24rpx;
+   margin-top: 20rpx;
+}
+.expree{
+  width: 100%;
+  height: 20x0rpx;
+  margin-top: 20rpx;
+}
+.express-warp{
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.express{
+  position: absolute;
+  left: 0;
+  top: 20rpx;
+}
+.express-top{
+  width: 100%;
+  text-align: center;
+}
+.express-top1{
+  padding: 0 48rpx;
+  color: #fff;
 }

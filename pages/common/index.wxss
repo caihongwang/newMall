@@ -1,5 +1,5 @@
 .navigator {
-  padding: 20rpx 40rpx;
+  padding: 24rpx;
   position: relative;
   display: flex;
   display: -webkit-flex;
@@ -50,4 +50,12 @@
   font-family: 'iconfont';
   font-size: 46rpx;
   color: #B2B2B2;
+}
+.navigator-imag{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+.navigator-phone{
+  color: red;
 }
