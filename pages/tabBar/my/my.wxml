@@ -32,7 +32,7 @@
      </view>
  </view>
   <view class='top-line'></view>
- <view class='top-left flex1' bindtap='waitList'>
+ <view class='top-left flex1' bindtap='waitList' >
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
         <view class='wite fz-32'>奖励列表</view>
@@ -43,7 +43,7 @@
 
 
   <view class='flex list-top list-bottom '>  
- <view class='top-left flex1'>
+ <view class='top-left flex1' bindtap='integralRecord'>
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
         <view class='wite fz-32'>我的积分</view>
@@ -51,7 +51,7 @@
      </view>
  </view>
   <view class='top-line'></view>
- <view class='top-left flex1'>
+ <view class='top-left flex1' bindtap='myCion'>
     <image class='top-icon' src='/images/home.png'></image>
      <view class='wite-warp'>
         <view class='wite fz-32'>我的买单币</view>
@@ -73,7 +73,7 @@
 
   <view class='navigator fz-28'>
        <view class='have-join'>已参与人次：<text class="phone">200人</text></view>
-      <view class="join">我要加盟</view>
+      <view class="join" bindtap="myJoin">我要加盟</view>
   </view>
 
   <view class='tips fz-28'>参与有惊喜，最高奖励90%，惊喜包括（红包、积分、商品）活动规则和解释权归商家所有，本工具只提供营销服务</view>

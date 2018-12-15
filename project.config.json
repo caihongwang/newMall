@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 23,
 			"list": [
 				{
 					"id": 0,
@@ -161,7 +161,38 @@
 				{
 					"id": -1,
 					"name": "我的订单",
-					"pathName": "pages/my/myOrder/myOrder"
+					"pathName": "pages/my/myOrder/myOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/my/integralRecord/integralRecord",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的买单币",
+					"pathName": "pages/my/myCoin/myCoin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分兑换订单",
+					"pathName": "pages/my/intergralOrder/intergralOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现明细",
+					"pathName": "pages/my/presenDetails/presenDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我要加盟",
+					"pathName": "pages/my/joinShop/joinShop",
+					"query": ""
 				}
 			]
 		}

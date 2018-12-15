@@ -1,0 +1,7 @@
+<!--pages/my/intergralOrder/intergralOrder.wxml-->
+<!--pages/my/myOrder/myOrder.wxml-->
+<view class='lst-warp'>
+  <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}}"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.name}}</view>
+</view>
+
+<view class='no-order'>没有更多订单了</view>

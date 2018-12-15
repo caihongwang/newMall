@@ -1,0 +1,7 @@
+<!--pages/my/integralRecord/integralRecord.wxml-->
+<view class='head'>
+  <view class='my-integral fz-28'>我的积分</view>
+  <view class='money fz-40'>0.00</view>
+</view>
+
+<view class="no-record">暂无积分记录</view>

@@ -19,14 +19,14 @@ Page({
       {
         "id": "2",
         "name": "积分订单列表",
-        "page": "my/howFind/index",
+        "page": "my/intergralOrder/intergralOrder",
         "image": '/images/logo.png'
 
       },
       {
         "id": "3",
         "name": "提现明细",
-        "page": "my/feedback/index",
+        "page": "my/presenDetails/presenDetails",
         "image": '/images/logo.png'
       },
       {
@@ -49,8 +49,8 @@ Page({
        fail: function(res) {},
        complete: function(res) {},
      })
-
   },
+
   
 
   // 点击领取
@@ -77,6 +77,35 @@ Page({
     let id = 2;
     wx.navigateTo({ 
       url: '/pages/my/myOrder/myOrder?id=' + id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  // 点击我的积分
+  integralRecord:function(){
+    wx.navigateTo({
+      url: '/pages/my/integralRecord/integralRecord' ,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  // 点击我的买单币
+  myCion:function(){
+    wx.navigateTo({
+      url: '/pages/my/myCoin/myCoin',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  // 点击我要加盟
+  myJoin:function(){
+    wx.navigateTo({
+      url: '/pages/my/joinShop/joinShop',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

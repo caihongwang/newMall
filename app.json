@@ -51,14 +51,17 @@
     {
       "root": "pages/my/",
       "pages": [
-        "feedback/index",
-        "howFind/index",
         "method/index",
         "aboutUs/index",
         "privacy/index",
         "personalSetting/personalSetting",
         "personalCash/personalCash",
-          "myOrder/myOrder"
+        "myOrder/myOrder",
+        "integralRecord/integralRecord",
+        "myCoin/myCoin",
+        "intergralOrder/intergralOrder",
+        "presenDetails/presenDetails",
+         "joinShop/joinShop"
       ]
     },
     {
