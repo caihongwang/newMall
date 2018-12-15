@@ -4,10 +4,53 @@ page{
   background: #e2e2e2 !important;
 }
 .cash{
-  padding: 24rpx;
+  padding: 24rpx 24rpx 10rpx;
   margin-top: 48rpx;
   background: #FFF;
+  border-bottom: 1px solid #e2e2e2;
 }
 .cash-text{
 
+}
+.input{
+  display: inline-block;
+}
+.input-warp{
+  height: 100rpx;
+  vertical-align: bottom;
+}
+.input-place{
+  color: #e2e2e2;
+  font-size: 28rpx;
+}
+.now-cash{
+  background: #fff;
+  padding: 24rpx;
+}
+.now-left{
+  color: #e2e2e2;
+}
+.now-left text{
+  color:red;
+}
+.now-right{
+  color: blue;
+}
+.tips{
+  padding: 48rpx 24rpx 24rpx;
+  color: red;
+
+}
+.disclaimer{
+  padding: 24rpx;
+
+}
+.button-cash{
+
+}
+.cashRecord{
+  width: 100%;
+  text-align: center;
+  color: blue;
+  margin-top: 20rpx;
 }

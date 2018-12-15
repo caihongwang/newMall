@@ -10,7 +10,14 @@ Page({
   data: {
 
   },
+// 点击全部提现
+  allGet:function(){
 
+  },
+  // 点击提现
+  buttonCash:function(){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

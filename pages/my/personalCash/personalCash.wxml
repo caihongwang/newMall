@@ -1,5 +1,23 @@
 <!--pages/my/personalCash/personalCash.wxml-->
 <view class='cash'>
    <view class='cash-tex fz-28'>提现金额</view>
-   <input class='input'></input>
+   <view class='input-warp flex1'> 
+   <view>   ￥</view>
+   <input class='input' placeholder='请输入提现金额' placeholder-style="input-place"></input>
+   </view>
 </view>
+
+<view class='now-cash flex fz-28'>
+  <view class='now-left'>
+   当前可提现金额：<text>￥1000</text>
+  </view>
+  <view class='now-right' bindtap='allGet'>全部提现</view>
+</view>
+
+<view class='fz-28 tips'>提示：最低提现金额为1元，奖励提现手续费9%，转账时自动扣除。</view>
+<view class='fz-28 disclaimer'>提示：最低提现金额为1元，奖励提现手续费9%，转账时自动扣除。</view>
+
+
+<button type='warn' class="button-cash" bindtap='buttonCash'>提现</button>
+
+<navigator url="" class="cashRecord">提现记录</navigator>
