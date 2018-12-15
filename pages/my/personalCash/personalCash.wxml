@@ -1,0 +1,5 @@
+<!--pages/my/personalCash/personalCash.wxml-->
+<view class='cash'>
+   <view class='cash-tex fz-28'>提现金额</view>
+   <input class='input'></input>
+</view>

@@ -1,0 +1,7 @@
+<!--pages/my/personalSetting/personalSetting.wxml-->
+<view class='open flex'> 
+   <view class='fz-28 open-text'>开启自动提现：</view>
+   <switch bindchange="switchChange" ></switch>
+</view>
+
+<button type='warn' class="save fz-28" bindtap='saveSet'>保存设置</button>

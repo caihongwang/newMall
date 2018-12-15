@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -143,7 +143,19 @@
 				{
 					"id": -1,
 					"name": "个人中心",
-					"pathName": "pages/tabBar/my/my"
+					"pathName": "pages/tabBar/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人设置",
+					"pathName": "pages/my/personalSetting/personalSetting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人提现",
+					"pathName": "pages/my/personalCash/personalCash"
 				}
 			]
 		}

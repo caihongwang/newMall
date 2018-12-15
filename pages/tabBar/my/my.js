@@ -40,6 +40,27 @@ Page({
     userInfo: {},
 
   }, 
+
+  // 点击个人设置
+  personalSetting:function(){
+     wx:wx.navigateTo({
+       url: '/pages/my/personalSetting/personalSetting',
+       success: function(res) {},
+       fail: function(res) {},
+       complete: function(res) {},
+     })
+
+  },
+
+  // 点击领取
+  receive:function(){
+    wx: wx.navigateTo({
+      url: '/pages/my/personalCash/personalCash',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   onLoad: function () {
     console.log('1111');
 

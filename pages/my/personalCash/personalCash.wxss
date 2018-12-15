@@ -1,0 +1,13 @@
+/* pages/my/personalCash/personalCash.wxss */
+@import "../../../app.wxss";
+page{
+  background: #e2e2e2 !important;
+}
+.cash{
+  padding: 24rpx;
+  margin-top: 48rpx;
+  background: #FFF;
+}
+.cash-text{
+
+}

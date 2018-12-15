@@ -1,0 +1,22 @@
+/* pages/my/personalSetting/personalSetting.wxss */
+
+@import "../../../app.wxss";
+page{
+  background: #e2e2e2 !important;
+}
+.open{
+  background: #fff;
+  padding: 24rpx;
+  margin-top: 24rpx;
+
+}
+.open-text{
+   
+}
+
+.save{
+  color: #fff;
+  margin-top: 80rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
