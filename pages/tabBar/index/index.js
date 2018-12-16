@@ -61,11 +61,57 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude
         })  
+        console.log('获取地理位置成功')
         // const speed = res.speed
         // const accuracy = res.accuracy
+      },
+      fail(res){
+         wx.showModal({
+      title: '温馨提示',
+       content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
+      showCancel: false,
+      success: function () {
+        that.openSetting();
       }
     })
-
+      }
+    })
+  },
+    openSetting: function () {   //打开设置
+    var that = this;
+    wx.openSetting({
+      success: function (res) {
+        console.log(res);
+        if (res.authSetting["scope.userLocation"]) {   //用户打开了用户信息授权
+          wx.getLocation({
+            type: 'wgs84',
+            success(res) {
+              that.setData({
+                latitude: res.latitude,
+                longitude: res.longitude
+              })
+              console.log('获取地理位置成功')
+              // const speed = res.speed
+              // const accuracy = res.accuracy
+            }
+          })    
+            
+             } else {    //用户没有打开用户信息授权
+          that.showForceToast();
+        }
+      }
+    })
+  },
+    showForceToast: function () {     //弹出强制强制授权弹框
+    var that = this;
+    wx.showModal({
+      title: '温馨提示',
+      content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
+      showCancel: false,
+      success: function () {
+        that.openSetting();
+      }
+    })
   },
   onShow: function () {
     // app.globalData.saveCardId = '';
