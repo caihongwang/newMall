@@ -59,7 +59,13 @@ Page({
     provinces: [],
     citys: [],
     areas: [],
-    areaInfo: ''
+    areaInfo: '',
+
+
+    isEdit: true,//是否是点击编辑过来
+    inputName: '',
+    inputPhone: '',
+    detailAddress: ''
   },
 
   /**
@@ -152,6 +158,48 @@ Page({
     console.log('switch1 发生 change 事件，携带值为', e.detail.value)
 
   },
+
+  delete:function(){
+    // 调用删除接口
+
+  },
+
+
+// 输入姓名
+  bindName:function(e){
+    this.setData({
+      inputName: e.detail.value
+    })
+  },
+    deleteName:function(){
+      this.setData({
+        inputName: ''
+      })
+  },
+
+  // 输入电话
+  bindPhone: function (e) {
+    this.setData({
+      inputPhone: e.detail.value
+    })
+  },
+  deletePhone: function () {
+    this.setData({
+      inputPhone: ''
+    })
+  },
+// 输入详细地址
+  detailAddress: function (e) {
+    this.setData({
+      detailAddress: e.detail.value
+    })
+  },
+  deleteDetail: function () {
+    this.setData({
+      detailAddress: ''
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

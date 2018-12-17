@@ -1,15 +1,14 @@
 <!--pages/commonPage/addAddress/addAddress.wxml-->
 <view class=' warp-padding input-warp flex fz-28'>
     <view class='name'>姓名</view>
-    <input class='input' placeholder='请输入姓名' placeholder-style='place'></input>
-    <image class="clear" src="/images/logo.png"></image>
+    <input class='input' placeholder='请输入姓名' placeholder-style='place' bindinput="bindName" value="{{inputName}}"></input>
+    <image class="clear" src="/images/logo.png" bindtap='deleteName'></image>
      
 </view>
 <view class=' warp-padding input-warp flex fz-28'>
     <view class='name'>电话</view>
-    <input class='input input' placeholder='请输入姓名' placeholder-style='place'></input>
-    <image class="clear" src="/images/logo.png"></image>
-
+    <input class='input input' placeholder='请输入姓名' placeholder-style='place'  bindinput="bindPhone" value="{{inputPhone}}"></input>
+    <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
 </view>
 <view class=' warp-padding input-warp flex fz-28'>
     <view class='name'>地址</view>
@@ -45,8 +44,8 @@
   
 <view class=' warp-padding input-warp flex3 fz-28 textarea-warp '>
     <view class='address-detail'>详细地址</view>
-  <textarea  class="textarea"  bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
-  <image class="clear" src="/images/logo.png"></image>
+  <textarea  class="textarea"  bindblur="bindTextAreaBlur" auto-height placeholder="自动变高"   bindinput="detailAddress" value="{{detailAddress}}"/>
+  <image class="clear" src="/images/logo.png" bindtap='deleteDetail'></image>
 
 </view>
 
@@ -56,4 +55,6 @@
      <switch checked bindchange="switchChange" />
 </view>
 
-<button class="sure" type='warn'>确认</button>
+<button class="sure" type='primary'>确认</button>
+
+<button class=" sure " type='warn' bindtap='delete' bwx:if="{{isEdit}}">删除地址</button>
