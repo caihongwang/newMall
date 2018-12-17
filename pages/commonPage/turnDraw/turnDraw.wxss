@@ -136,4 +136,68 @@ page {
   border-bottom-color: #b07a7b;
 }
 
+/* 中奖后的弹窗 */
+.winningTips{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  
+}
+.win-warp{
+  position: absolute;
+  top: 200rpx;
+  left: 0;
+  right: 0;
+}
+.win-img{
+  display: block;
+  width: 500rpx;
+  height: 800rpx;
+  margin: 0 auto;
+}
+.absolt{
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.congratulations{
+  top: 20rpx;
+  text-align: center;
+  color: #fff;
+ 
+}
+.congratulation1{
+  top: 200rpx;
 
+  text-align: center;
+  color: #fff;
+}
+.congratulation2{
+  top: 400rpx;
+
+  text-align: center;
+  color: #fff;
+  width: 300rpx;
+  margin: 0 auto;
+}
+
+.sure{
+  top: 400rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 200rpx;
+  background: yellow;
+  margin: 0 auto;
+  border-radius: 100rpx;
+  text-align: center;
+  color: #fff;
+}
+.close{
+  width: 100rpx;
+  height: 100rpx;
+  top: 600rpx;
+  margin: 0 auto;
+}

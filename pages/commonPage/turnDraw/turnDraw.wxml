@@ -25,3 +25,18 @@
 		</view>
 	</view>
 </view>
+
+
+
+<view class='winningTips' wx:if="{{success}}">
+	<view class="win-warp">
+	    <image class="win-img" src="/images/logo.png"></image>
+		<view class="congratulations fz-48 absolt">恭喜您！</view>	
+		<view class="congratulation1 fz-48 absolt">恭喜您获得</view>	
+		<view class="congratulation2 absolt">恭喜您获得{{content}}</view>
+		<view class="absolt sure"  bindtap="sure">确定</view>
+		<image class="close absolt" bindtap="sure" src="/images/logo.png"></image>
+		
+	</view>
+
+</view>

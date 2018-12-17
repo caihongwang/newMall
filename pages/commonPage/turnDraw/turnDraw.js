@@ -12,12 +12,12 @@ Page({
   awardsConfig: {
     chance: true,
     awards: [
-      { 'index': 0, 'name': '1元红包' },
-      { 'index': 1, 'name': '5元话费' },
-      { 'index': 2, 'name': '6元红包' },
-      { 'index': 3, 'name': '8元红包' },
-      { 'index': 4, 'name': '10元话费' },
-      { 'index': 5, 'name': '10元红包' }
+      { 'index': 0, 'name': '10%' },
+      { 'index': 1, 'name': '20%' },
+      { 'index': 2, 'name': '30%' },
+      { 'index': 3, 'name': '50%' },
+      { 'index': 4, 'name': '70%' },
+      { 'index': 5, 'name': '90%' }
     ]
   },
 
@@ -25,7 +25,8 @@ Page({
     awardsList: {},
     animationData: {},
     btnDisabled: '',
-
+    content:'',
+    success: false,//是否抽奖成功，初始成功
   },
 
   //画抽奖圆盘
@@ -33,7 +34,6 @@ Page({
     var awards = this.awardsConfig.awards;
     var awardsList = [];
     var turnNum = 1 / awards.length;  // 文字旋转 turn 值
-
     // 奖项列表
     for (var i = 0; i < awards.length; i++) {
       awardsList.push({ turn: i * turnNum + 'turn', lineTurn: i * turnNum + turnNum / 2 + 'turn', award: awards[i].name });
@@ -47,7 +47,9 @@ Page({
 
   playReward: function () {
     //中奖index
-    var awardIndex = 2;
+    var awardIndex = 3;  //决定的是抽中了那个奖品
+
+
     var runNum = 8;//旋转8周
     var duration = 4000;//时长
 
@@ -68,15 +70,22 @@ Page({
     // 中奖提示
     var awardsConfig = this.awardsConfig;
     setTimeout(function () {
-      wx.showModal({
-        title: '恭喜',
-        content: '获得' + (awardsConfig.awards[awardIndex].name),
-        showCancel: false
-      });
+      // wx.showModal({
+      //   title: '恭喜',
+      //   content: '获得' + (awardsConfig.awards[awardIndex].name),
+      //   showCancel: false
+      // });
       this.setData({
-        btnDisabled: ''
+        btnDisabled: '',
+        content: awardsConfig.awards[awardIndex].name,//初始内容
+        success: true
       });
     }.bind(this), duration);
+
+  },
+
+  // 点击抽奖成功之后的弹窗
+  sure:function(){
 
   },
   /**
