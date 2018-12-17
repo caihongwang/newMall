@@ -1,0 +1,22 @@
+<!--pages/my/orderQueue/orderQueue.wxml-->
+<view class="flex1 warp-padding shop">
+    <image src="/images/home.png" class="shop-image"></image>
+    <view class="shop-name">唐人街烤羊腿</view>
+</view>
+
+<view class="shop-list">
+
+        <view class="warp-padding  my-alignment">我的对列</view>
+        <view class="list-warp flex fz-28" bindtap='goOrder'>
+                <image src="/images/logo.png" class="logo-image"></image>
+                <view class='center'>
+                   <view class='flex center-top'>
+                    <view class='name'> 唐人街烤羊腿  </view>
+                     <view  class='price'> ￥0.02 </view>
+                   </view>
+                   <view class='time'>时间：2018-08-09 12：04：02</view>
+                   <view class='repay'>待返还￥0.07（共返还￥0.07）</view>
+                </view>
+                <image src="/images/logo.png" class="icon"></image>
+        </view>
+</view>

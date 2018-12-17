@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 24,
 			"list": [
 				{
 					"id": 0,
@@ -192,6 +192,12 @@
 					"id": -1,
 					"name": "我要加盟",
 					"pathName": "pages/my/joinShop/joinShop",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "排队中订单",
+					"pathName": "pages/my/orderQueue/orderQueue",
 					"query": ""
 				}
 			]

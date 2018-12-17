@@ -1,0 +1,57 @@
+/* pages/my/orderQueue/orderQueue.wxss */
+@import "../../../app.wxss";
+page{
+    background: #e2e2e2 !important;
+}
+.shop{
+    background: #fff;
+}
+.shop-image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    
+}
+
+.shop-name{
+ margin-left: 24rpx;
+}
+.shop-list{
+    background: #fff;
+    margin-top: 48rpx;
+}
+.my-alignment{
+    height: 200rpx;
+    line-height: 200rpx;
+    border-bottom: 1px solid #e2e2e2;
+    
+}
+
+.list-warp{
+    width: 100%;
+    padding: 24rpx;
+    box-sizing: border-box;
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  .logo-image{
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .center{
+    margin-left: 20rpx;
+  }
+  .center{
+    width: 540rpx;
+  }
+  .price{
+    color: red;
+  }
+  .repay{
+    color: red;
+  }
+  .icon{
+    width: 30rpx;
+    height: 30rpx;
+  }

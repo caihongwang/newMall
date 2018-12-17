@@ -22,13 +22,13 @@
     "position": "bottom",
     "list": [
       {
-        "text": "我的名片",
+        "text": "首页",
         "pagePath": "pages/tabBar/index/index",
         "iconPath": "images/card.png",
         "selectedIconPath": "images/card_hl.png"
       },
       {
-        "text": "名片夹",
+        "text": "附近商家",
         "pagePath": "pages/tabBar/cardFile/cardFile",
         "iconPath": "images/cardfolder.png",
         "selectedIconPath": "images/cardfolder_hl.png"
@@ -40,7 +40,7 @@
         "selectedIconPath": "images/my_hl.png"
       },
       {
-        "text": "我的",
+        "text": "个人中心",
         "pagePath": "pages/tabBar/my/my",
         "iconPath": "images/my.png",
         "selectedIconPath": "images/my_hl.png"
@@ -61,7 +61,8 @@
         "myCoin/myCoin",
         "intergralOrder/intergralOrder",
         "presenDetails/presenDetails",
-         "joinShop/joinShop"
+        "joinShop/joinShop",
+         "orderQueue/orderQueue"
       ]
     },
     {

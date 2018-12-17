@@ -1,56 +1,22 @@
-// pages/my/myOrder/myOrder.js
+// pages/my/orderQueue/orderQueue.js
 var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')
 var app = getApp();
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     list:[
-       {
-         name:'我的奖励',
-         id:0
-       },
-       {
-         name: '我的奖励',
-         id: 1
-       },
-       {
-         name: '我的奖励',
-         id: 2
-       },
-     ],
-    chosseId: 0
-  },
-  chooseList:function(e){
-    let index = e.currentTarget.dataset.index;
-    this.setData({
-      chosseId:index
-    })
 
   },
-// 点击某一项跳转
-  goOrder:function(){
-    wx.navigateTo({
-      url: '/pages/my/orderQueue/orderQueue',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  
 
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      chosseId:options.id
-    })
+
   },
 
   /**

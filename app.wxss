@@ -146,6 +146,10 @@ page{
   left: 0;
   top: 0;
   z-index: 30;
+}
+.warp-padding{
+  padding: 24rpx;
+  box-sizing: border-box;
 
 }
 

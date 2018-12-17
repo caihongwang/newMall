@@ -19,3 +19,37 @@ page{
 .chosse{
   border-bottom: 1px solid red;
 }
+.no-order{
+  text-align: center;
+  margin-top: 30rpx;
+}
+.list-warp{
+  width: 100%;
+  padding: 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid #e2e2e2;
+}
+.list-warp:last-child{
+  border: none;
+}
+.logo-image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.center{
+  margin-left: 20rpx;
+}
+.center{
+  width: 540rpx;
+}
+.price{
+  color: red;
+}
+.repay{
+  color: red;
+}
+.icon{
+  width: 30rpx;
+  height: 30rpx;
+}
