@@ -62,7 +62,7 @@ Page({
     areaInfo: '',
 
 
-    isEdit: true,//是否是点击编辑过来
+    isEdit: false,//是否是点击编辑过来
     inputName: '',
     inputPhone: '',
     detailAddress: ''
@@ -144,12 +144,18 @@ Page({
   onLoad: function (options) {
     // 让他把value给我
     // 默认联动显示北京
-    var id = address.provinces[0].id
-    this.setData({
-      provinces: address.provinces,
-      citys: address.citys[id],
-      areas: address.areas[address.citys[id][0].id],
-    })
+
+    // 通过点击编辑过来的
+    if (options.address){
+      let address = JSON.parse(options.address);
+      var id = address.provinces[0].id
+      this.setData({
+        provinces: address.provinces,
+        citys: address.citys[id],
+        areas: address.areas[address.citys[id][0].id],
+        isEdit: true
+      })
+    }
   },
 
 
@@ -164,6 +170,10 @@ Page({
 
   },
 
+  sureSave:function(){
+    // 调用保存按钮
+
+  },
 
 // 输入姓名
   bindName:function(e){

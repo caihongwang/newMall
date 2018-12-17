@@ -55,6 +55,6 @@
      <switch checked bindchange="switchChange" />
 </view>
 
-<button class="sure" type='primary'>确认</button>
+<button class="sure" type='primary'  bindtap='sureSave'>确认</button>
 
 <button class=" sure " type='warn' bindtap='delete' bwx:if="{{isEdit}}">删除地址</button>

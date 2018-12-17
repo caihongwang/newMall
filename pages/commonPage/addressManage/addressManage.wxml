@@ -8,7 +8,7 @@
        <view  class='name fz-28'>{{item.name}}</view>
        <view  class='address-choose fz-24'>{{item.address}}</view>
    </view>
-   <image class='address-right' src="/images/logo.png" bindtap='deleteAddress'></image>
+   <view class='address-right'  catchtap='editAddress'  data-index="{{i}}">编辑</view>
 </view>
 </view>
 

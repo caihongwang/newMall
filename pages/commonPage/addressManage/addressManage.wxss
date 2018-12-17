@@ -23,8 +23,7 @@
   color: #e2e2e2;
 }
 .address-right{
-    width: 60rpx;
-  height: 60rpx;
+    width: 100rpx;
 }
 
 .address1{

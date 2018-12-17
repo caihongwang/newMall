@@ -59,21 +59,35 @@ Page({
       })
   },
 
-  // 删除地址
-  deleteAddress:function(){
-    wx.showModal({
-      title: '提示',
-      content: '是否删除吗?',
-      success(res) {
-        if (res.confirm) {
-          //  TODO调用删除接口 重新刷新页面
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+  // // 删除地址
+  // deleteAddress:function(){
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '是否删除吗?',
+  //     success(res) {
+  //       if (res.confirm) {
+  //         //  TODO调用删除接口 重新刷新页面
+  //       } else if (res.cancel) {
+  //         console.log('用户点击取消')
+  //       }
+  //     }
+  //   })
 
+  // },
+
+  // 点击编辑跳转到编辑页面
+  editAddress:function(e){
+    // e.currentTarget.dataset.index
+    let index = e.currentTarget.dataset.index;
+    let address = JSON.stringify(this.data.address[index]);
+    wx.navigateTo({
+      url: '/pages/commonPage/addAddress/addAddress?address=' + address,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
+
 
   /**
    * 生命周期函数--监听页面加载
