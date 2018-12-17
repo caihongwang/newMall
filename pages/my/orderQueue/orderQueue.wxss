@@ -10,7 +10,6 @@ page{
     width: 100rpx;
     height: 100rpx;
     border-radius: 100rpx;
-    
 }
 
 .shop-name{
@@ -21,10 +20,9 @@ page{
     margin-top: 48rpx;
 }
 .my-alignment{
-    height: 200rpx;
-    line-height: 200rpx;
+    height: 160rpx;
+    line-height: 118rpx;
     border-bottom: 1px solid #e2e2e2;
-    
 }
 
 .list-warp{
