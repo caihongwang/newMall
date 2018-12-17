@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 26,
 			"list": [
 				{
 					"id": 0,
@@ -204,6 +204,12 @@
 					"id": -1,
 					"name": "新增收货地址",
 					"pathName": "pages/commonPage/addAddress/addAddress",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "转盘抽奖",
+					"pathName": "pages/commonPage/turnDraw/turnDraw",
 					"query": ""
 				}
 			]

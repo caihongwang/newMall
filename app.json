@@ -90,7 +90,8 @@
       "pages": [
         "placeOrder/placeOrder",
         "addressManage/addressManage",
-        "addAddress/addAddress"
+        "addAddress/addAddress",
+          "turnDraw/turnDraw"
       ]
     },
     {
