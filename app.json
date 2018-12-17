@@ -62,7 +62,7 @@
         "intergralOrder/intergralOrder",
         "presenDetails/presenDetails",
         "joinShop/joinShop",
-         "orderQueue/orderQueue"
+        "orderQueue/orderQueue"
       ]
     },
     {
@@ -89,7 +89,8 @@
       "root": "pages/commonPage/",
       "pages": [
         "placeOrder/placeOrder",
-        "addressManage/addressManage"
+        "addressManage/addressManage",
+        "addAddress/addAddress"
       ]
     },
     {

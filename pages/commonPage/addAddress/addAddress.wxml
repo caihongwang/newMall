@@ -1,0 +1,59 @@
+<!--pages/commonPage/addAddress/addAddress.wxml-->
+<view class=' warp-padding input-warp flex fz-28'>
+    <view class='name'>姓名</view>
+    <input class='input' placeholder='请输入姓名' placeholder-style='place'></input>
+    <image class="clear" src="/images/logo.png"></image>
+     
+</view>
+<view class=' warp-padding input-warp flex fz-28'>
+    <view class='name'>电话</view>
+    <input class='input input' placeholder='请输入姓名' placeholder-style='place'></input>
+    <image class="clear" src="/images/logo.png"></image>
+
+</view>
+<view class=' warp-padding input-warp flex fz-28'>
+    <view class='name'>地址</view>
+    <input class='input '  bindtap='select' placeholder='请选择地址' placeholder-style='place' value='{{areaInfo}}' ></input>
+    <image class="clear" src="/images/logo.png"></image>
+
+</view>
+
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+    <!-- 确认取消按钮 -->
+    <view class='btn'>
+        <text catchtap="cityCancel">取消</text>
+        <text style="float: right" catchtap="citySure">确定</text>
+    </view>
+    <!-- 选择地址 -->
+    <picker-view class='cont' bindchange="cityChange" value="{{value}}" wx:key="">
+    <!-- 省 -->
+        <picker-view-column>
+            <view wx:for="{{provinces}}" class="picker-item" wx:key="{{index}}">{{item.name}}</view>
+        </picker-view-column>
+<!-- 市 -->
+        <picker-view-column>
+            <view wx:for="{{citys}}" class="picker-item" wx:key="index">{{item.name}}</view>
+        </picker-view-column>
+<!-- 区 -->
+        <picker-view-column>
+            <view wx:for="{{areas}}" class="picker-item" wx:key="index">{{item.name}}</view>
+        </picker-view-column>
+    </picker-view>
+
+    
+</view>
+  
+<view class=' warp-padding input-warp flex3 fz-28 textarea-warp '>
+    <view class='address-detail'>详细地址</view>
+  <textarea  class="textarea"  bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
+  <image class="clear" src="/images/logo.png"></image>
+
+</view>
+
+
+<view class=' warp-padding input-warp flex fz-28 default-address '>
+    <view class='name'>设为默认地址</view>
+     <switch checked bindchange="switchChange" />
+</view>
+
+<button class="sure" type='warn'>确认</button>

@@ -1,5 +1,4 @@
 /* pages/commonPage/addressManage/addressManage.wxss */
-@import "../../../app.wxss";
 .warp{
   padding-bottom: 200rpx;
 }

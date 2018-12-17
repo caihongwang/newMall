@@ -1,0 +1,97 @@
+/* pages/commonPage/addAddress/addAddress.wxss */
+@import "../../../app.wxss";
+page{
+  background: #e2e2e2 !important;
+}
+
+
+.input-warp{
+  background: #fff;
+    height: 120rpx;
+    border-bottom: 1px solid #e2e2e2;
+}
+.input-warp:last-child{
+  border: none;
+}
+.name{
+  margin-right: 30rpx;
+}
+.input{
+   width: 500rpx;
+
+}
+.place{
+   color: #e2e2e2;
+}
+.clear{
+    width: 20rpx;
+    height: 20rpx;
+}
+
+
+
+
+.picker-view {
+    width: 100%;
+    display: flex;
+    z-index:12;
+    background-color: #fff;
+    background: rgba(0, 0, 0, .2);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0rpx;
+    height: 40vh;
+}
+.btn {
+    width: 100%;
+    height: 90rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    line-height: 90rpx;
+    text-align: center;
+    display: flex;
+    background: rgba(255,255,255,.8);
+    justify-content: space-between;
+}
+.cont {
+    width: 100%;
+    height: 389rpx;
+}
+.picker-item {
+    line-height: 70rpx;
+    margin-left: 5rpx;
+    margin-right: 5rpx;
+    text-align: center;
+}
+.address {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+
+.address-detail{
+  width: 200rpx;
+}
+.textarea-warp{
+  height: 130rpx;
+}
+.textarea{
+  width: 400rpx;
+
+}
+.default-address{
+  margin-top: 100rpx;
+  border: none;
+  
+}
+.sure{
+  width: 702rpx;
+  margin: 24rpx  auto;
+
+}

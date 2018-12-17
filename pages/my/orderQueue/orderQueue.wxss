@@ -32,7 +32,9 @@ page{
     background: #fff;
     border-bottom: 1px solid #e2e2e2;
   }
-
+.rank{
+    margin-right: 20rpx;
+}
   .logo-image{
     width: 100rpx;
     height: 100rpx;

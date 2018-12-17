@@ -51,7 +51,12 @@ Page({
   },
   // 点击新增收货地址
   addNewAddress:function(){
-
+      wx.navigateTo({
+        url: '/pages/commonPage/addAddress/addAddress',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
   },
 
   // 删除地址

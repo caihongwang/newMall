@@ -25,6 +25,7 @@
 
         <view class="warp-padding  my-alignment">我的对列</view>
         <view class="list-warp flex fz-28" bindtap='goOrder'>
+                <view class="rank">26</view>
                 <image src="/images/logo.png" class="logo-image"></image>
                 <view class='center'>
                    <view class='flex center-top'>
