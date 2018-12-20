@@ -6,16 +6,24 @@ const util = require('../../../utils/util.js')
 var app = getApp();
 Page({
   data: {
+    isShowFilter: false,//是否展示筛选弹窗
     howShops: 0,//共多少家店铺
-
+    filterList:{
+      type:['2','3','4','5'],
+      distance:['1000','200','3000'],
+      hot:['100','100','100','100']
+  },
     // MOCKDATA
     sort:[
-      {name: '分类',
-      type: 1},
+      {
+        name: '分类',
+        type: 1
+      },
       {
         name: '距离',
         type: 2
-      }, {
+      }, 
+      {
         name: '热度',
         type: 3
       }

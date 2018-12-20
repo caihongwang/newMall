@@ -15,7 +15,6 @@
      <view class='wheel-planting'>
      <view wx:for-index="i" wx:key="screen" class="wheel-text {{currentItem == i?'active-tag':''}}" wx:for="{{screen}}"  bindtap='filter' data-index="{{i}}" >{{item}}</view>
 
-
    </view>
   </view>
 

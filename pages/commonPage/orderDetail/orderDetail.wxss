@@ -1,0 +1,25 @@
+/* pages/commonPage/orderDetail/orderDetail.wxss */
+@import "../../../app.wxss";
+page{
+  background: #f8f8f8 !important;
+}
+.warp{
+  background: #fff;
+  margin-top: 30rpx;
+}
+.list{
+  border-bottom: 1px solid #e2e2e2;
+}
+.list:last-child{
+  border: none;
+}
+.name{
+}
+.value{
+  color: red;
+}
+.index{
+  text-align: center;
+  margin: 20rpx auto;
+  color: blue;
+}

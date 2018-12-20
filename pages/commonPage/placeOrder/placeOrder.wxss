@@ -1,7 +1,7 @@
 /* pages/commonPage/placeOrder/placeOrder.wxss */
 @import "../../../app.wxss";
 page{
-  background: #e2e2e2 !important;
+  background: #f8f8f8 !important;
 }
 .address{
   width: 100%;

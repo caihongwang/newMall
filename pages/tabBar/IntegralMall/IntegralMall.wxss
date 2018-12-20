@@ -1,10 +1,10 @@
 /* pages/tabBar/IntegralMall/IntegralMall.wxss */
 @import "../../../app.wxss";
 page{
-  background: #e2e2e2 !important;
+  background: #f8f8f8 !important;
 }
 .input-warp{
-  background: blue;
+  background: rgba(6, 105, 254, 1);
   height: 120rpx;
   padding: 0 24rpx;
 }

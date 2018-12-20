@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 29,
 			"list": [
 				{
 					"id": 0,
@@ -211,6 +211,23 @@
 					"name": "转盘抽奖",
 					"pathName": "pages/commonPage/turnDraw/turnDraw",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/commonPage/orderDetail/orderDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "附近商家",
+					"pathName": "pages/tabBar/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "附近商家",
+					"pathName": "pages/tabBar/cardFile/cardFile"
 				}
 			]
 		}

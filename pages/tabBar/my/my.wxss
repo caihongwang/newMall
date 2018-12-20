@@ -2,7 +2,7 @@
 
  @import "../../common/index.wxss"; 
  page{
-   background: #e2e2e2 !important;
+   background: #f8f8f8 !important;
  }
 .header{
   width: 100%;

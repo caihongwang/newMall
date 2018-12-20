@@ -4,7 +4,7 @@
 .warp{
   height: 100%;
   width: 100%;
-  background: #e2e2e2 ;
+  background: #f8f8f8 ;
 }
 
 .swiper{

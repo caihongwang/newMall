@@ -1,0 +1,41 @@
+<!--pages/commonPage/orderDetail/orderDetail.wxml-->
+<view class='warp'>
+    <view class='warp-padding list flex fz-28'>
+       <view class='name '>购买人员： <text class='value'>{{list.name}}</text></view>
+    </view>
+       <view class='warp-padding list flex fz-28'>
+       <view class='name '>购买店铺： <text class='value'>{{list.shop}}</text></view>
+    </view>
+       <view class='warp-padding list flex fz-28'>
+       <view class='name '>订单编号： <text class='value'>{{list.order}}</text></view>
+    </view>
+       <view class='warp-padding list flex fz-28'>
+       <view class='name '>订单金额： <text class='value'>{{list.loan}}</text></view>
+    </view>
+       <view class='warp-padding list flex fz-28'>
+       <view class='name '>购买时间： <text class='value'>{{list.time}}</text></view>
+    </view>
+       <view class='warp-padding list flex fz-28'>
+       <view class='name '>返还类型： <text class='value'>{{list.type}}</text></view>
+    </view>
+       <view class='warp-padding list flex fz-28'>
+       <view class='name '>返还余额总量： <text class='value'>{{list.number}}</text></view>
+    </view>
+        <view class='warp-padding list flex fz-28'>
+       <view class='name '>待返还余额： <text class='value'>{{lsit.willback}}</text></view>
+    </view>
+        <view class='warp-padding list flex fz-28'>
+       <view class='name '>支付方式： <text class='value'>{{list.paytype}}</text></view>
+    </view>
+        <view class='warp-padding list flex fz-28'>
+       <view class='name '>待返还： <text class='value'>{{list.repay}}</text></view>
+    </view>
+  </view>
+
+    <navigator
+    class='index'
+    url="/pages/tabBar/index/index"
+    open-type="switchTab"
+    hover-class="other-navigator-hover"
+    >返回首页</navigator
+  >

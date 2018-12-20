@@ -1,7 +1,7 @@
 /* pages/my/myOrder/myOrder.wxss */
 @import "../../../app.wxss";
 page{
-  background: #e2e2e2;
+  background: #f8f8f8;
 }
 .lst-warp{
   display: flex;
