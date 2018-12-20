@@ -7,7 +7,7 @@
        </view>
        
        <view class='tab flex-around'  >
-          <view   wx:for="{{sort}}" class='class iconfont {{states== index?'all-act':''}}' wx:key="sort" bindtap='clickSort' data-type='{{item.type}}'>
+          <view   wx:for="{{sort}}" class='class iconfont' wx:key="sort" bindtap='clickSort' data-type='{{item.type}}'>
             {{item.name}}
             <image class="filter-img" src="/images/logo.png"></image>
           </view>

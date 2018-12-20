@@ -1,7 +1,7 @@
 /* pages/my/personalCash/personalCash.wxss */
 @import "../../../app.wxss";
 page{
-  background: #e2e2e2 !important;
+  background: #f8f8f8 !important;
 }
 .cash{
   padding: 24rpx 24rpx 10rpx;

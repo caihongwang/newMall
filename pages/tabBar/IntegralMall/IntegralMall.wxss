@@ -4,19 +4,20 @@ page{
   background: #f8f8f8 !important;
 }
 .input-warp{
-  background: rgba(6, 105, 254, 1);
+  background: #1E90FF;
   height: 120rpx;
-  padding: 0 24rpx;
+  padding: 0 48rpx;
+
 }
 .seach-input{
-  width: 500rpx;
-  height: 100rpx;
   line-height: 100rpx;
   background: #F2F2F2;
   display: flex;
   display: -webkit-flex;
   justify-content: flex-start;
   align-items: center;
+
+
 }
 .search-img{
   width: 40rpx;
@@ -32,7 +33,8 @@ page{
   color: #353535;
   letter-spacing: 0;
   background: #F2F2F2;
-  padding-left: 4rpx;
+  padding:0  24rpx 0 4rpx;
+
 }
 .palce{
   font-family: PingFangSC-Regular;
@@ -41,12 +43,13 @@ page{
   letter-spacing: -0.28rpx;
 }
 .sure-search{
-     width: 150rpx;
-     height: 100rpx;
-     line-height: 100rpx;
+     width: 120rpx;
+     height: 76rpx;
+     line-height: 76rpx;
      color: #fff;
-     background: dodgerblue; 
+     background: rgb(0, 89, 255); 
      font-size: 28rpx;
+     margin-left: 54rpx;
 }
 .hover-sure{
 
@@ -71,15 +74,16 @@ page{
 }
 .wheel-text{
   display: inline-block;
-  margin: 0 28rpx;
+  margin: 0 14rpx;
   font-size: 24rpx;
   height: 60rpx;
   line-height: 60rpx;
-  padding: 10rpx 20rpx;
+  padding: 8rpx 30rpx;
 }
 .active-tag{
-  background: red;
-  border-radius: 20rpx;
+  background: #FF4C4B;
+  border-radius: 40rpx;
+  color: #fff;
 }
 .list-warp{
   padding: 48rpx  24rpx;

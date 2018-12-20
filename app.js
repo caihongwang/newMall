@@ -99,10 +99,12 @@ App({
             }
             console.log(res.data.data.sessionKey);
             console.log(res.data.data.uid);
+            // var openid = res.data.openid;
+
 
             console.log("登录成功");
             //登录成功，将uid和session保存
-            that.saveInfo(res.data.data.sessionKey, res.data.data.uid);
+            that.saveInfo(res.data.data.sessionKey, res.data.data.uid,res.data.openid);
             // console.log(res.data.data.sessionKey + "-----" + res.data.data.uid);
           }
         })
@@ -188,18 +190,20 @@ App({
   //     }
   //   })
   // },
-  saveInfo: function (session, uid, getActivityData) {   //将登录获取的数据保存
+  saveInfo: function (session, uid, openId) {   //将登录获取的数据保存
     // console.log("开始保存用户信息");
 
     try {
       wx.setStorageSync("SESSIONKEY", session);
       wx.setStorageSync("UIDKEY", uid);
+      wx.setStorageSync("OPENID", openId);
       // wx.setStorageSync("getActivityData", getActivityData);
     } catch (e) {
       // console.log("存储session失败");
     }
     this.globalData.session = session;
     this.globalData.uid = uid;
+    this.globalData.openId = openId;
 
     // console.log("保存用户信息成功：保存的session为：" + wx.getStorageSync('SESSIONKEY'));
     if (this.userInfoReadyCallBack) {
