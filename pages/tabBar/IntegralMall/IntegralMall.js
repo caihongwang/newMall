@@ -12,69 +12,71 @@ Page({
    */
   data: {
     // MOCKDATA
-    screen: ['全部', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理'],
+    screen: [],
+
+    // screen: ['全部', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理'],
     list: [
-      {
-        id: 1,
-        images:'/images/home.png',
-        describe:'面部护理',
-        price:'3000',
-        integral:' 3020'
-      },
-      {
-        id: 2,
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      },
-      {
-        id: 2,
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      },
-      {
-        id: 2,
+      // {
+      //   id: 1,
+      //   images:'/images/home.png',
+      //   describe:'面部护理',
+      //   price:'3000',
+      //   integral:' 3020'
+      // },
+      // {
+      //   id: 2,
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // },
+      // {
+      //   id: 2,
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // },
+      // {
+      //   id: 2,
 
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      },
-      {
-        id: 2,
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // },
+      // {
+      //   id: 2,
 
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      },
-      {
-        id: 2,
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // },
+      // {
+      //   id: 2,
 
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      },
-      {
-        id: 2,
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // },
+      // {
+      //   id: 2,
 
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      },
-      {
-        id: 2,
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // },
+      // {
+      //   id: 2,
 
-        images: '/images/home.png',
-        describe: '面部护理',
-        price: '3000',
-        integral: ' 3020'
-      }
+      //   images: '/images/home.png',
+      //   describe: '面部护理',
+      //   price: '3000',
+      //   integral: ' 3020'
+      // }
 
     ],
 
@@ -84,10 +86,41 @@ Page({
 
 
   filter:function(e){
-    var index = e.currentTarget.dataset.index;
+    if(e){
+      var index = e.currentTarget.dataset.index;
+    }else{
+      var index = 0;
+    }
     this.setData({
       currentItem:index
     })
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.category = this.data.screen[index].categoryCode;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getSimpleProductByCondition,
+        success: function (res) {
+          console.log(res.data);
+          if (res.data.code == 0) {
+            console.log(res.data.data);
+            console.log(123);
+            console.log(res.data.data[0].describeImgUrl)
+            that.setData({
+              list: res.data.data
+            })
+
+          } else {
+
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
 
     //调用筛选接口
 
@@ -124,7 +157,11 @@ Page({
           console.log(res.data);
           boo ? wx.stopPullDownRefresh() : wx.hideLoading();
           if (res.data.code == 0) {
-        
+             console.log(res.data.data)
+             that.setData({
+               screen:res.data.data
+             })
+            that.filter();
           } else {
 
           }

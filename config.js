@@ -7,9 +7,9 @@
 
 // var host = "https://card.shuqudata.com/card"  //名片夹线上
 
-// var host = "https://www.91caihongwang.com/newMall"  //线上
+var host = "https://www.91caihongwang.com/newMall"  //线上
 
-var host = "http://192.168.43.196:8080/newMall" //宏旺
+// var host = "http://192.168.43.196:8080/newMall" //宏旺
 
 // var host = "http://192.168.0.144:8080/card"  //宏旺
 
@@ -71,8 +71,7 @@ var config = {
   getShopByCondition: `${host}/wxShop/getShopByCondition.do`,  //获取商家具体信息
   wxAppLoginUrl: `${host}/wxUser/login.do`,   //检测登录
   checkSession: `${host}/wxUser/checkSession.do`,   //检测session是否过期
-  getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城列表
-
-  
+  getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城类型列表
+  getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取积分商城列表
 }
 module.exports = config
