@@ -82,6 +82,7 @@ Page({
 
   },
 
+
   filter:function(e){
     var index = e.currentTarget.dataset.index;
     this.setData({
@@ -99,6 +100,42 @@ Page({
     wx.navigateTo({
       url: '../../IntegralMall/IntegralDetail/IntegralDetail?id=' + id
     })
+
+  },
+
+
+  // 获取积分类型
+  getType:function(boo){
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'category';
+    if (!boo) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      });
+    }
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getProductTypeList,
+        success: function (res) {
+          console.log(res.data);
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          if (res.data.code == 0) {
+        
+          } else {
+
+          }
+
+        },
+        fail: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+
 
   },
   /**
@@ -119,6 +156,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getType(false);
 
   },
 

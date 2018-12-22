@@ -1,6 +1,6 @@
 @import "../../../app.wxss";
 page{
-  background: #f8f8f8 !important;
+  background: #fff !important;
   height: 100%;
 }
 /* 头部 */
@@ -11,6 +11,7 @@ page{
   z-index: 100;
   background: #E2E2E2;
   width: 100%;
+  border-bottom: 1px solid #e2e2e2;
 }
 .warp{
   background: #E2E2E2;
@@ -71,7 +72,7 @@ page{
 } */
 /* 列表数据 */
 .list{
-  margin-top: 90rpx;
+  margin-top: 100rpx;
   /* background: #fff; */
   background: #e2e2e2;
   width: 100%;
@@ -139,4 +140,24 @@ page{
 .click-hover{
   /* background: #FF4C4B; */
    background: #F8F8F8; 
+}
+
+
+.foot{
+  height: 106rpx;
+  line-height: 106rpx;
+  width: 100%;
+  background: #fff;
+}
+.add-more{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  color: #9D9D9D;
+  letter-spacing: 0;
+  text-align: center;
+  /* margin-top: 30rpx; */
+}
+.no-list{
+  margin-top: 200rpx;
+  text-align: center;
 }

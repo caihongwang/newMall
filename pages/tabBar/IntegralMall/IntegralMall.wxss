@@ -74,11 +74,10 @@ page{
 }
 .wheel-text{
   display: inline-block;
-  margin: 0 14rpx;
-  font-size: 24rpx;
+  margin: 0 10rpx;
   height: 60rpx;
   line-height: 60rpx;
-  padding: 8rpx 30rpx;
+  padding: 4rpx 30rpx;
 }
 .active-tag{
   background: #FF4C4B;
@@ -102,14 +101,17 @@ page{
 }
 .list-image{
     display: block;
-    width: 100rpx;
-    height: 100rpx;
+    width: 240rpx;
+    height: 260rpx;
     margin: 30rpx auto 0;
 }
 .describe{
-  font-size: 28rpx;
+  font-size: 24rpx;
+  color: #2D2D2D;
+  margin-top: 8rpx;
 }
 .price{
     font-size: 28rpx;
     color:  #FF4C4B;
+    margin-top: 24rpx;
 }

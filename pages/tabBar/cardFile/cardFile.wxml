@@ -20,29 +20,36 @@
 </view>
 <view class="mask" wx:if="{{isShowFilter}}"></view> -->
 
+<view class='no-list fz-28' wx:if="{{list.length  == 0}}">附近暂无商家</view>
 
-
-<view class='list'>
+<view class='list'  wx:if="{{list.length != 0}}">
   <view class='list-content flex2' wx:for="{{list}}" wx:key="list" data-cardinfo="{{item}}" hover-class="click-hover" hover="true" bindtap='goToDetail' >
    <view class='image-warp' >
-    <image src="{{item.images}}" class='image-top'></image>
-     <image src="{{item.imagesHead}}" class='list-image'></image>
+    <image src="{{item.shopHeadImgUrl}}" class='image-top'></image>
+     <image src="{{item.shopDescribeImgUrl}}" class='list-image'></image>
    </view>
    <view>
-    <view class='list-name'>{{item.name}}</view>
+    <view class='list-name'>{{item.shopTitle}}</view>
     <view class='hot flex2'>
      <view class='hot-left flex1'>
        <image src='/images/home.png' class='hot-image'></image>
        <text class='how-hot'>热度{{item.hot}}</text>
      </view>
       <view class='flex1 hot-right' >
-      距离： {{item.distance}}
+      距离： {{item.shopDistance}}km
      </view>
       
     </view>
    </view>
 
    </view>
+</view>
+
+
+<view class='foot'>
+ <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多</view>
 </view>
 
 <!-- </view> -->

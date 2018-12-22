@@ -5,9 +5,12 @@
 // var host = "https://dymapi.xiaqiu.cn/card"  //日常
 
 
-// var host = "https://card.shuqudata.com/card"  //线上
+// var host = "https://card.shuqudata.com/card"  //名片夹线上
 
-var host = "https://www.91caihongwang.com/newMall"  //线上
+// var host = "https://www.91caihongwang.com/newMall"  //线上
+
+var host = "http://192.168.43.196:8080/newMall" //宏旺
+
 // var host = "http://192.168.0.144:8080/card"  //宏旺
 
 // var host = "http://192.168.1.131:8080/card"  //建世
@@ -23,7 +26,6 @@ var config = {
   // getVerificationCodeUrl: `${host}/user/getVerificationCode.do`, //据手机号获取验证码
   // getCheckVerificationCodeUrl: `${host}/user/getCheckVerificationCode.do`,//对手机验证码进行校验
   // getTag: `${host}/card/getTag.do`, //更多信息时的标签
-  checkSession: `${host}/user/checkSession.do`,   //检测session是否过期
   // getSimpleCardByConditionUrl: `${host}/card/getSimpleCardByCondition.do`,   //获取自己的名片列表
   // addCardUrl: `${host}/card/addCard.do`, //添加名片列表
   // updateCardUrl: `${host}/card/updateCard.do`, //修改名片列表
@@ -63,10 +65,14 @@ var config = {
   // addFormIdUrl: `${host}/userFormMapping/addUserFormMapping.do`,   //保存formid
   // checkActivityDoingUrl:`${host}/activity/checkActivity.do`  //检测活动是否正在进行
 
+// 微信积分商场接口
 
-  getShopByConditionUrl: `${host}/wxShop/getShopByCondition.do`,    //首页获取商家列表
+  getSimpleShopByCondition: `${host}/wxShop/getSimpleShopByCondition.do`,    //首页获取商家列表
+  getShopByCondition: `${host}/wxShop/getShopByCondition.do`,  //获取商家具体信息
+  wxAppLoginUrl: `${host}/wxUser/login.do`,   //检测登录
+  checkSession: `${host}/wxUser/checkSession.do`,   //检测session是否过期
+  getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城列表
 
-  wxAppLoginUrl: `${host}/wxUser.do`,   //检测登录
-
+  
 }
 module.exports = config

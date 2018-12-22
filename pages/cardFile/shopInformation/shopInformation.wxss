@@ -45,11 +45,13 @@
 }
 .list-name{
   font-size: 32rpx;
+  color: #2d2d2d;
 }
 .hot{
   margin-top: 46rpx;
    height: 60rpx;
   line-height: 60rpx;
+
 }
 .hot-left{
    width: 180rpx;
@@ -63,11 +65,12 @@
 .how-hot{
   font-size: 28rpx;
   color: #FF4C4B;
+  margin-left: 6rpx;
 
 }
 .hot-right{
   font-size: 28rpx;
-  color: #e2e2e2;
+  color: #727272;
 }
 .phone{
   width: 80rpx;
@@ -82,6 +85,7 @@
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;
+color: #4a4a4a;
 }
 .address-warp{
   height: 80rpx;

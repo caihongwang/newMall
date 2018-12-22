@@ -43,6 +43,37 @@ Page({
   },
 
 
+  getShopCondition: function () {
+    var that = this;
+    var params = new Object();
+    params.shopId = '';
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getShopByCondition,
+        success: function (res) {
+          console.log(res.data);
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          if (res.data.code == 0) {
+            console.log(res.data.data)
+            that.setData({
+              list: res.data.data,
+              howShops: res.data.recordsFiltered
+            })
+
+          } else {
+
+          }
+
+        },
+        fail: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -67,6 +98,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getShopByCondition();
 
   },
 

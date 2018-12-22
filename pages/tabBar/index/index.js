@@ -61,9 +61,8 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude
         })  
-        app.globalData.latitude = latitude;
-        app.globalData.longitude = longitude;
-
+        app.globalData.latitude = res.latitude;
+        app.globalData.longitude =res.longitude;
         console.log('获取地理位置成功')
         // const speed = res.speed
         // const accuracy = res.accuracy

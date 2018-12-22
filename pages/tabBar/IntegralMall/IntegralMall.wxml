@@ -13,7 +13,7 @@
 <view class='wheel-warp'>
   <view class='wheel'>
      <view class='wheel-planting'>
-     <view wx:for-index="i" wx:key="screen" class="wheel-text {{currentItem == i?'active-tag':''}}" wx:for="{{screen}}"  bindtap='filter' data-index="{{i}}" >{{item}}</view>
+     <view wx:for-index="i" wx:key="screen" class="wheel-text {{currentItem == i?'active-tag':''}} fz-28" wx:for="{{screen}}"  bindtap='filter' data-index="{{i}}" >{{item}}</view>
 
    </view>
   </view>
@@ -22,13 +22,7 @@
       <view  wx:for="{{list}}" wx:key="list"  class="list  {{index % 2 ==  0?'active':''   }}"  data-index = "{{item.id}}"bindtap='goDetail'>
         <image  class="list-image"  src="{{item.images}}"></image>
         <view class='describe'>{{item.describe}}</view>
-          <view class='price'>￥{{item.price}}+{{item.integral}}积分</view>
+          <view class='price'>￥{{item.price}} +{{item.integral}}积分</view>
       </view>
-
-      
-
-  
   </view>
-
-
 </view>
