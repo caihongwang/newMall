@@ -85,7 +85,7 @@ function chooseWxImage(type, isFirst,number, isOwnCard, userPhone, isGoWrite, be
           var tempFilePath = JSON.stringify(isNewAdd);
 
           if (isFirst == 1){
-            wx.redirectTo({
+            wx.navigateTo({
               url: '/pages/commonPage/handWrite/handWrite?tempFilePath=' + tempFilePath
             })
             return;

@@ -16,7 +16,7 @@ page{
 .name{
 }
 .value{
-  color: red;
+  color: #FF4C4B;
 }
 .index{
   text-align: center;

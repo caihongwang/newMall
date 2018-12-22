@@ -30,7 +30,6 @@
     </view>
 
     <view class='express'>（使用积分抵扣后将不返还积分及余额，本次最多可使用付款金额的20%进行积分抵扣）</view>
-
       <view class='actual-payment'>实际需支付： <text class='actual-text'>￥0</text></view>
    </view>
   </view>

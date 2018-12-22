@@ -54,7 +54,7 @@
   width: 100%;
   height: 200rpx;
   line-height: 200rpx;
-  background: red;
+  background: #FF4C4B;
    text-align: center;
    color: #fff;
 }

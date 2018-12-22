@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 30,
 			"list": [
 				{
 					"id": 0,
@@ -227,7 +227,13 @@
 				{
 					"id": -1,
 					"name": "附近商家",
-					"pathName": "pages/tabBar/cardFile/cardFile"
+					"pathName": "pages/tabBar/cardFile/cardFile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分记录",
+					"pathName": "pages/my/integralRecord/integralRecord"
 				}
 			]
 		}

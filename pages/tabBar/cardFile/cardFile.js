@@ -72,15 +72,52 @@ Page({
       }
       
     ]
-
-   
   },
+
+getShopList:function(boo){
+  var that = this;
+  var params = new Object();
+  params.uid = wx.getStorageSync("UIDKEY");
+  params.shopStatus = 1;
+
+  params.currentLon = app.globalData.latitude ;
+  params.currentLat = app.globalData.longitude;
+  params.dis = 100;
+
+  if (!boo) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+  }
+  network.POST(
+    {
+      params: params,
+      requestUrl: requestUrl.getShopByConditionUrl,
+      success: function (res) {
+        console.log(res.data);
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        if (res.data.code == 0) {
+          
+          } else {
+      
+          }
+      
+      },
+      fail: function (res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
+
+},
+
   onLoad: function (options) {
-    app.globalData.isRefreshTagForCardFile = true;    //
   },
   onShow: function (res) {
-   
+    this.getShopList(false);
   },
+
   onHide: function () {
   },
   // 点击返回地图

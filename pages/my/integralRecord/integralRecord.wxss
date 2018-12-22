@@ -22,3 +22,33 @@ color: #fff;
   margin-top: 48rpx;
   color: #fff;
 }
+
+.list-warp{
+  background: #fff;
+  padding: 24rpx 48rpx;
+   border-bottom: 1px solid #AFAFAF;
+}
+.list-warp:last-child{
+  border: none;
+}
+.type{
+  color: #2d2d2d;
+}
+
+.money{
+  color: #FF4C4B;
+}
+.time{
+  color: #727272;
+}
+.record-image{
+  width: 40rpx;
+  height: 40rpx;  
+}
+.record{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content:center;
+  height: 120rpx;
+}

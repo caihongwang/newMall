@@ -128,7 +128,7 @@
     width: 1px;
     top: 0;
     height: 100%;
-    background-color:red; 
+    background-color:#FF4C4B; 
 }
 .wx-cropper-line-left{
     left: 0;

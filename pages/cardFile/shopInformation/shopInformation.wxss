@@ -62,7 +62,7 @@
 }
 .how-hot{
   font-size: 28rpx;
-  color: red;
+  color: #FF4C4B;
 
 }
 .hot-right{

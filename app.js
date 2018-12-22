@@ -247,5 +247,10 @@ App({
     getActivityData: {},//获取正在进行的活动信息
     isJoinTeamInActivityPage: false,    //是否是加入我们页面调起活动页，主要用在加团页面的我要拿iPhone8
 
+
+
+  // 新的获取经纬度
+    latitude: null,//经度
+    longitude: null,//纬度
   },
 })

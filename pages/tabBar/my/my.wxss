@@ -62,13 +62,13 @@
   background: #fff;
 }
 .balance-money{
-  color: red;
+  color: #FF4C4B;
   width: 240rpx;
 }
 .receive{
-  color: red;
+  color: #FF4C4B;
   padding: 10rpx 40rpx;
-  border: 1px solid red;
+  border: 1px solid #FF4C4B;
   border-radius: 12rpx;
 }
 .balance-e{
@@ -123,7 +123,7 @@
   background: #fff;
 }
 .phone{
-  color: red;
+  color: #FF4C4B;
 }
 .have-join{
   flex: 1
@@ -131,7 +131,7 @@
 .join{
   padding: 10rpx 20rpx;
   color: #fff;
-  background: red;
+  background: #FF4C4B;
   border-radius: 10rpx;
 }
 .tips{

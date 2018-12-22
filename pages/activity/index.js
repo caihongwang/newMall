@@ -611,7 +611,7 @@ Page({
         }
       })
   },
-  getMoreDicByCondition: function (uid, boo) {
+  getMoredicByCondition: function (uid, boo) {
     var that = this;
     var params = new Object();
     params.dicTypes = 'prize,integralRule';
@@ -625,7 +625,7 @@ Page({
     network.POST(
       {
         params: params,
-        requestUrl: requestUrl.getMoreDicByConditionUrl,//奖品展示列表和积分获取方式列表
+        requestUrl: requestUrl.getMoredicByConditionUrl,//奖品展示列表和积分获取方式列表
         success: function (res) {
           if (res.data.code == 0) {
             var integralRule = JSON.parse(res.data.data.integralRule);
@@ -694,7 +694,7 @@ Page({
               getActivityData.startTime = app.globalData.getActivityData.startTime;
               that.countTime(app.globalData.uid, getActivityData);
               that.isSingUp(app.globalData.uid, getActivityData, false);
-              that.getMoreDicByCondition(app.globalData.uid, false);
+              that.getMoicByCondition(app.globalData.uid, false);
             }
           }
         }
@@ -706,7 +706,7 @@ Page({
         getActivityData.startTime = app.globalData.getActivityData.startTime;
         that.countTime(app.globalData.uid, getActivityData);
         that.isSingUp(app.globalData.uid, getActivityData, false);
-        that.getMoreDicByCondition(app.globalData.uid, false);
+        that.getMoredicByCondition(app.globalData.uid, false);
       }
     } else {
       app.userInfoReadyCallBack = (uid, session) => {
@@ -714,7 +714,7 @@ Page({
         app.userActivityReadyCallBack = (getActivityData) => {
           this.countTime(uid, getActivityData);
           this.isSingUp(uid, getActivityData, false);
-          this.getMoreDicByCondition(uid, false);
+          this.getMoredicByCondition(uid, false);
         }
       }
     }
@@ -751,7 +751,7 @@ Page({
   onPullDownRefresh: function () {
     this.countTime(app.globalData.uid, app.globalData.getActivityData);
     this.isSingUp(app.globalData.uid, app.globalData.getActivityData, true);
-    this.getMoreDicByCondition(app.globalData.uid, true);
+    this.getMoredicByCondition(app.globalData.uid, true);
   },
   onHide: function () {
     clearInterval(this.data.setTime);

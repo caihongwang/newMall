@@ -1,4 +1,4 @@
-<view class='warp'>
+<!-- <view class='warp'> -->
 
 <view class="fixed">
     <view class="head flex">
@@ -6,18 +6,19 @@
         <view class='back-map' bindtap='backMap'>返回地图</view>
        </view>
        
-       <view class='tab flex-around'  >
+       <!-- 中间筛选项目 -->
+       <!-- <view class='tab flex-around'  >
           <view   wx:for="{{sort}}" class='class iconfont' wx:key="sort" bindtap='clickSort' data-type='{{item.type}}'>
             {{item.name}}
             <image class="filter-img" src="/images/logo.png"></image>
           </view>
-       </view>
+       </view> -->
 </view>
 
-<view class="filter-list">
+<!-- <view class="filter-list">
   <view  class="filter {{states== index?'all-act':''}}" wx:if="{{isShowFilter}}" wx:for="{{filterList.distance}}">{{item}}</view>
 </view>
-<view class="mask" wx:if="{{isShowFilter}}"></view>
+<view class="mask" wx:if="{{isShowFilter}}"></view> -->
 
 
 
@@ -44,5 +45,5 @@
    </view>
 </view>
 
-</view>
+<!-- </view> -->
 

@@ -31,14 +31,14 @@ page{
   color: #e2e2e2;
 }
 .now-left text{
-  color:red;
+  color:#FF4C4B;
 }
 .now-right{
   color: blue;
 }
 .tips{
   padding: 48rpx 24rpx 24rpx;
-  color: red;
+  color: #FF4C4B;
 
 }
 .disclaimer{

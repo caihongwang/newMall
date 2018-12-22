@@ -24,7 +24,7 @@ page{
     font-size: 24rpx;
 }
 .integral-left{
-  color: red;
+  color: #FF4C4B;
 }
 .integral-right{
     color: #e2e2e2;
@@ -69,7 +69,7 @@ page{
 }
 .now-buy{
   width: 200rpx;
-  background: red;
+  background: #FF4C4B;
   color: #fff;
   text-align: center;
   height: 200rpx;
@@ -116,7 +116,7 @@ page{
   width: 400rpx;
 }
 .model-price{
-  color: red;
+  color: #FF4C4B;
 }
 .close{
   width: 60rpx;
@@ -128,7 +128,7 @@ page{
 }
 .specifications{
   display: inline-block;
-  background: red;
+  background: #FF4C4B;
   padding: 10rpx 20rpx;
   border-radius: 20rpx;
 }

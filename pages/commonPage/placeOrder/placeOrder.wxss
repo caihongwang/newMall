@@ -51,7 +51,7 @@ page{
   color: #e2e2e2;
 }
 .good-price{
-  color: red;
+  color: #FF4C4B;
 }
 .number{
   text-align: right;
@@ -70,7 +70,7 @@ page{
 }
 .sure-pay{
   width: 260rpx;
-  background: red;
+  background: #FF4C4B;
   color: #fff;
   text-align: center;
 }

@@ -13,7 +13,9 @@ Page({
     payingBill: false,//是否选中了买单支付
     isAgreement: false,//是否同意协议
   },
-
+  switchChange:function(e){
+    console.log('switch1 发生 change 事件，携带值为', e.detail.value)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -70,3 +72,6 @@ Page({
 
   }
 })
+
+
+

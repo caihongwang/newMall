@@ -1,7 +1,22 @@
 <!--pages/my/integralRecord/integralRecord.wxml-->
 <view class='head'>
-  <view class='my-integral fz-28'>我的积分</view>
+  <view class='my-integral fz-28'>我的买单币</view>
   <view class='money fz-40'>0.00</view>
 </view>
 
-<view class="no-record">暂无积分记录</view>
+<view class='list'  wx:if="{{wardList}}">
+   <view class='record  '>
+   <image class="record-image"  src='/images/logo.png'></image>
+   <view class='intergral'>积分记录</view>
+
+   </view>
+    <view class='list-warp'  wx:for="{{wardList}}"  wx:key="list" >
+      <view class='type fz-28 flex'>
+      <view>{{item.type}}</view>
+       <view class='money fz-24'>{{item.money}}</view>
+      </view>
+      <view class='time fz-24'>{{item.time}}</view>
+    </view>
+</view>
+
+<view class="no-record" wx:if="{{!wardList}}">暂无买单币记录</view>

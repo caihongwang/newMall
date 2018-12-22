@@ -57,5 +57,5 @@
   margin-right: 20rpx;
 }
 .navigator-phone{
-  color: red;
+  color: #FF4C4B;
 }

@@ -46,10 +46,10 @@ page{
     width: 540rpx;
   }
   .price{
-    color: red;
+    color: #FF4C4B;
   }
   .repay{
-    color: red;
+    color: #FF4C4B;
   }
   .icon{
     width: 30rpx;

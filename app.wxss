@@ -127,7 +127,7 @@ page{
 .firstNameWord {
   display: block;
   margin: 20rpx auto 0;
-  color: red;
+  color: #FF4C4B;
   font-size: 60rpx;
   text-align: center;
   line-height: 100%;
