@@ -1,0 +1,1052 @@
+{
+	"info": {
+		"_postman_id": "bc242395-0e4e-4bfe-a165-74260c34d9ec",
+		"name": "新商城",
+		"description": "新商城",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "收货地址",
+			"item": [
+				{
+					"name": "默认获取中国省份列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getProvinceList.do?uid=1&dicType=province&sessionKey=15b59475-1eb3-466f-a4b7-92e8990168f2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getProvinceList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "dicType",
+									"value": "province",
+									"description": "默认使用 dicType=province"
+								},
+								{
+									"key": "sessionKey",
+									"value": "15b59475-1eb3-466f-a4b7-92e8990168f2"
+								}
+							]
+						},
+						"description": "默认获取中国省份列表"
+					},
+					"response": []
+				},
+				{
+					"name": "根据省份ID获取城市列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getCityList.do?uid=2&dicType=city&provinceId=130000",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getCityList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "dicType",
+									"value": "city",
+									"description": "默认使用 dicType=city"
+								},
+								{
+									"key": "provinceId",
+									"value": "130000",
+									"description": "省份 ID"
+								}
+							]
+						},
+						"description": "根据省份ID获取城市列表"
+					},
+					"response": []
+				},
+				{
+					"name": "根据城市ID获取地区列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getRegionList.do?uid=1&dicType=region&cityId=131100",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getRegionList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "dicType",
+									"value": "region",
+									"description": "默认使用 dicType=region"
+								},
+								{
+									"key": "cityId",
+									"value": "131100",
+									"description": "城市I D"
+								}
+							]
+						},
+						"description": "根据城市ID获取地区列表"
+					},
+					"response": []
+				},
+				{
+					"name": "根据地区ID获取街道列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getStreetList.do?uid=1&dicType=street&regionId=131102",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getStreetList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "dicType",
+									"value": "street",
+									"description": "默认使用 dicType=street"
+								},
+								{
+									"key": "regionId",
+									"value": "131102",
+									"description": "区域 ID"
+								}
+							]
+						},
+						"description": "根据地区ID获取街道列表"
+					},
+					"response": []
+				},
+				{
+					"name": "获取当前用户的收货地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getSimpleAddressByCondition.do?uid=1&start=0&size=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getSimpleAddressByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "获取当前用户的收货地址"
+					},
+					"response": []
+				},
+				{
+					"name": "获取当前用户的默认收货地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getSimpleAddressByCondition.do?uid=1&isDefaultAddress=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getSimpleAddressByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "isDefaultAddress",
+									"value": "1",
+									"description": "默认为1"
+								}
+							]
+						},
+						"description": "获取当前用户的默认收货地址"
+					},
+					"response": []
+				},
+				{
+					"name": "设置\b\b\b默认地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/setDefaultAddress.do?uid=1&id=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"setDefaultAddress.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "收货地址ID，"
+								}
+							]
+						},
+						"description": "设置默认地址"
+					},
+					"response": []
+				},
+				{
+					"name": "添加地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/addAddress.do?uid=1&name=御景西城贵公子&phone=17701359899&provinceId=130000&provinceName=河北省&cityId=131100&cityName=衡水市&regionId=131102&regionName=桃城区&streetId=130131102&streetName=温塘镇&detailAddress=兆丰家园 14-03",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"addAddress.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "御景西城贵公子",
+									"description": "收货姓名"
+								},
+								{
+									"key": "phone",
+									"value": "17701359899",
+									"description": "收货电话"
+								},
+								{
+									"key": "provinceId",
+									"value": "130000",
+									"description": "省份ID"
+								},
+								{
+									"key": "provinceName",
+									"value": "河北省",
+									"description": "省份名称"
+								},
+								{
+									"key": "cityId",
+									"value": "131100",
+									"description": "城市ID"
+								},
+								{
+									"key": "cityName",
+									"value": "衡水市",
+									"description": "城市名称"
+								},
+								{
+									"key": "regionId",
+									"value": "131102",
+									"description": "区域ID"
+								},
+								{
+									"key": "regionName",
+									"value": "桃城区",
+									"description": "区域名称"
+								},
+								{
+									"key": "streetId",
+									"value": "130131102",
+									"description": "街道ID"
+								},
+								{
+									"key": "streetName",
+									"value": "温塘镇",
+									"description": "街道名称"
+								},
+								{
+									"key": "detailAddress",
+									"value": "兆丰家园 14-03",
+									"description": "详细地址"
+								}
+							]
+						},
+						"description": "添加地址"
+					},
+					"response": []
+				}
+			],
+			"description": "收货地址"
+		},
+		{
+			"name": "\b积分商品",
+			"item": [
+				{
+					"name": "获取积分商品列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxProduct/getSimpleProductByCondition.do?uid=2&category=perfumeMakeUp&start=0&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxProduct",
+								"getSimpleProductByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "category",
+									"value": "perfumeMakeUp",
+									"description": "不填，默认参数是recommend"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "获取积分商品列表"
+					},
+					"response": []
+				},
+				{
+					"name": "获取积分商品\b类型列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://www.91caihongwang.com/newMall/wxProduct/getProductTypeList.do?uid=2&dicType=category",
+							"protocol": "http",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxProduct",
+								"getProductTypeList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "dicType",
+									"value": "category"
+								}
+							]
+						},
+						"description": "获取积分商品类型列表"
+					},
+					"response": []
+				}
+			],
+			"description": "\b积分商品"
+		},
+		{
+			"name": "抽奖",
+			"item": [
+				{
+					"name": "获取抽奖的产品列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getLuckDrawProductList.do?uid=2&dicType=luckDraw",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getLuckDrawProductList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "dicType",
+									"value": "luckDraw",
+									"description": "默认使用 dicType=luckDraw"
+								}
+							]
+						},
+						"description": "获取抽奖的产品列表"
+					},
+					"response": []
+				},
+				{
+					"name": "抽奖即添加抽奖信息",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/addLuckDraw.do?uid=2&wxOrderId=fd0fe3e433114da19b2c3c6f28f95d8e",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"addLuckDraw.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "wxOrderId",
+									"value": "fd0fe3e433114da19b2c3c6f28f95d8e"
+								}
+							]
+						},
+						"description": "抽奖即添加抽奖信息"
+					},
+					"response": []
+				}
+			],
+			"description": "抽奖",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "商家",
+			"item": [
+				{
+					"name": "获取单一的商家列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxShop/getSimpleShopByCondition.do?uid=2&shopStatus=1&currentLon=39&currentLat=116&dis=1000&start=0&sessoinKey=9e5d203e-1748-4f9c-866d-ef48e1daeb20&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxShop",
+								"getSimpleShopByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "shopStatus",
+									"value": "1",
+									"description": "店铺状态，默认\b为已签约，1"
+								},
+								{
+									"key": "currentLon",
+									"value": "39",
+									"description": "当前位置的经度"
+								},
+								{
+									"key": "currentLat",
+									"value": "116",
+									"description": "当前位置的纬度"
+								},
+								{
+									"key": "dis",
+									"value": "1000",
+									"description": "默认当前地址100公里范围"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "sessoinKey",
+									"value": "9e5d203e-1748-4f9c-866d-ef48e1daeb20",
+									"description": "sessiionKey"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "获取单一的商家列表"
+					},
+					"response": []
+				},
+				{
+					"name": "获取商家相关信息列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxShop/getShopByCondition.do?uid=2&shopId=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxShop",
+								"getShopByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "shopStatus",
+									"value": "1",
+									"description": "店铺状态，默认\b为已签约，1",
+									"disabled": true
+								},
+								{
+									"key": "currentLon",
+									"value": "100",
+									"description": "当前位置的经度",
+									"disabled": true
+								},
+								{
+									"key": "currentLat",
+									"value": "120",
+									"description": "当前位置的纬度",
+									"disabled": true
+								},
+								{
+									"key": "dis",
+									"value": "1000",
+									"description": "默认当前地址100公里范围",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "第几页",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "每页条数",
+									"disabled": true
+								},
+								{
+									"key": "shopId",
+									"value": "1",
+									"description": "店铺ID"
+								}
+							]
+						},
+						"description": "获取商家相关信息列表"
+					},
+					"response": []
+				},
+				{
+					"name": "获取商家小程序码",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxShop/getMiniProgramCode.do?uid=1&page=pages/tabBar/todayOilPrice/todayOilPrice",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxShop",
+								"getMiniProgramCode.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "pages/tabBar/todayOilPrice/todayOilPrice"
+								}
+							]
+						},
+						"description": "获取商家小程序码"
+					},
+					"response": []
+				}
+			],
+			"description": "商家",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "订单",
+			"item": [
+				{
+					"name": "付款",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxOrder/payTheBillInMiniProgram.do?uid=1&payMoney=1&shopId=1&useBalanceFlag=true",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxOrder",
+								"payTheBillInMiniProgram.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "购买用户的uid"
+								},
+								{
+									"key": "payMoney",
+									"value": "1",
+									"description": "付款金额"
+								},
+								{
+									"key": "shopId",
+									"value": "1",
+									"description": "店铺ID"
+								},
+								{
+									"key": "useBalanceFlag",
+									"value": "true",
+									"description": "使用余额付款标志位"
+								}
+							]
+						},
+						"description": "付款"
+					},
+					"response": []
+				},
+				{
+					"name": "购买商品",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxOrder/purchaseProductInMiniProgram.do?uid=1&shopId=1&payMoney=50&useBalanceFlag=true&spbillCreateIp=https://www.91caihongwang.com",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxOrder",
+								"purchaseProductInMiniProgram.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "shopId",
+									"value": "1"
+								},
+								{
+									"key": "payMoney",
+									"value": "50"
+								},
+								{
+									"key": "useBalanceFlag",
+									"value": "true",
+									"description": "使用余额标志位"
+								},
+								{
+									"key": "spbillCreateIp",
+									"value": "https://www.91caihongwang.com"
+								}
+							]
+						},
+						"description": "购买商品"
+					},
+					"response": []
+				}
+			],
+			"description": "订单",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "用户",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxUser/login.do?code=011xwwai21LVEB0AK6bi2rUpai2xwwag",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxUser",
+								"login.do"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "011xwwai21LVEB0AK6bi2rUpai2xwwag",
+									"description": "小程序端的一个码值"
+								}
+							]
+						},
+						"description": "登录"
+					},
+					"response": []
+				},
+				{
+					"name": "检测登录会话",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxUser/checkSession.do?sessionKey=6509c295-470d-4922-9d11-84012c305a15&sessionCheck=1&uid=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxUser",
+								"checkSession.do"
+							],
+							"query": [
+								{
+									"key": "sessionKey",
+									"value": "6509c295-470d-4922-9d11-84012c305a15"
+								},
+								{
+									"key": "sessionCheck",
+									"value": "1"
+								},
+								{
+									"key": "uid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "检测登录会话"
+					},
+					"response": []
+				}
+			],
+			"description": "用户",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8acc1e7b-6517-4353-ad6a-87b6d453b4ff",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2485e7b7-32c6-4b3c-8c71-f9023615b14b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
