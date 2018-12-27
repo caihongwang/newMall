@@ -73,5 +73,9 @@ var config = {
   checkSession: `${host}/wxUser/checkSession.do`,   //检测session是否过期
   getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城类型列表
   getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取积分商城列表
+  getProvinceListUrl: `${host}/wxAddress/getProvinceList.do`,   //获取省份地址
+  getCityListUrl: `${host}/wxAddress/getCityList.do`,   //获取市区地址
+
+
 }
 module.exports = config

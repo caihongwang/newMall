@@ -14,11 +14,10 @@ page{
   border: none;
 }
 .name{
-  margin-right: 30rpx;
+  width: 140rpx;
 }
 .input{
    width: 500rpx;
-
 }
 .place{
    color: #e2e2e2;
@@ -27,6 +26,22 @@ page{
     width: 20rpx;
     height: 20rpx;
 }
+
+.picker{
+  width: 500rpx;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

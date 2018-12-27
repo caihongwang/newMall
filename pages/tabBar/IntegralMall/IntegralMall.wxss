@@ -89,7 +89,7 @@ page{
 }
 .list{
    display: inline-block;
-   width: 338rpx;
+   width: 334rpx;
    height: 460rpx;
    background: #fff;
    margin-top: 24rpx;

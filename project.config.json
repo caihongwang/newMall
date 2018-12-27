@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 30,
+			"current": 31,
 			"list": [
 				{
 					"id": 0,
@@ -233,7 +233,13 @@
 				{
 					"id": -1,
 					"name": "积分记录",
-					"pathName": "pages/my/integralRecord/integralRecord"
+					"pathName": "pages/my/integralRecord/integralRecord",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新增收货地址",
+					"pathName": "pages/commonPage/addAddress/addAddress"
 				}
 			]
 		}

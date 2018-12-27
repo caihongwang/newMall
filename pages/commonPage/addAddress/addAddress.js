@@ -55,11 +55,19 @@ Page({
   data: {
     animationAddressMenu: {},
     addressMenuIsShow: false,
-    value: [0, 0, 0],
+    provincesIndex: 0,
     provinces: [],
     citys: [],
+    citysIndex:0,
     areas: [],
     areaInfo: '',
+    isProvinces: true,
+    isCitys: false,
+    isAreas:false,
+    isCitysChoose:true,
+    isareasChoose:true,
+
+
 
 
     isEdit: false,//是否是点击编辑过来
@@ -68,17 +76,159 @@ Page({
     detailAddress: ''
   },
 
+
+getProvince:function(){
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'province';
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getProvinceListUrl,
+        success: function (res) {
+          console.log(res.data.data);
+         
+        
+          if (res.data.code == 0) {
+            that.setData({
+              provinces: res.data.data
+            })
+            console.log(that.data.provinces[0].provinceName);
+          } else {
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+
+  
+},
+  getCity: function (provinceId){
+  var that = this;
+  var params = new Object();
+  params.uid = wx.getStorageSync("UIDKEY");
+  params.dicType = 'city';
+  params.provinceId = that.data.provinces[this.data.provincesIndex].provinceId;
+  network.POST(
+    {
+      params: params,
+      requestUrl: requestUrl.getCityListUrl,
+      success: function (res) {
+        console.log(res.data.data);
+        if (res.data.code == 0) {
+          let cityName = {
+            cityName:'请选择'
+          }   
+          res.data.data.unshift(cityName)
+          that.setData({
+            citys: res.data.data
+          })
+        } else {
+
+        }
+      },
+      fail: function (res) {
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
+
+},
+  getRegionList:function(){
+
+  },
+
+  
+  
+  // 选择省
+  provincesTap:function(){
+    this.setData({
+      isProvinces:false,
+    });
+  },
+  cancelProvinces:function(){
+    if(!this.data.selectProvinces){
+      this.setData({
+        isProvinces:true,
+      });
+    }
+  },
+
+  provincesChange:function(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      provincesIndex: e.detail.value,
+      selectProvinces:true,
+      isCitys: true,
+    })
+    this.getCity();
+  },
+
+
+
+
+// 选择市区
+
+citysTap:function(){
+  this.setData({
+    isCitysChoose:false,
+  });
+},
+cancelCitys:function(){
+  if(!this.data.selectCitys){
+    this.setData({
+      isProvinces:true,
+    });
+  }
+},
+citysChange:function(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      citysIndex: e.detail.value,
+      selectCitys:true,
+      isAreas: true,
+    })
+    this.getRegionList();
+},
+
+// 选择县
+areasTap:function(){
+  this.setData({
+    isCitysChoose:false,
+  });
+},
+cancelAreas:function(){
+  if(!this.data.selectAreas){
+    this.setData({
+      isProvinces:true,
+    });
+  }
+},
+areasChange:function(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      citysIndex: e.detail.value,
+      selectareas:true
+    })
+},
+
+
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   // 点击所在地区弹出选择框
-  select: function (e) {
+  selectProvinces: function (e) {
     // 如果已经显示，不在执行显示动画
     if (this.data.addressMenuIsShow) {
       return false;
     } else {
       // 执行显示动画
-      this.startAddressAnimation(true)
+      this.startAddressAnimation(true);
     }
   },
   // 执行动画
@@ -112,6 +262,7 @@ Page({
   },
   // 处理省市县联动逻辑
   cityChange: function (e) {
+    console.log(e);
     var value = e.detail.value
     var provinces = this.data.provinces
     var citys = this.data.citys
@@ -225,6 +376,10 @@ Page({
       timingFunction: 'linear',
     })
     this.animation = animation
+
+
+
+    this.getProvince();
   },
 
   /**
