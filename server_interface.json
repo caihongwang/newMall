@@ -181,6 +181,128 @@
 					"response": []
 				},
 				{
+					"name": "获取当前用户的收货地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getSimpleAddressByCondition.do?uid=1&start=0&size=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getSimpleAddressByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "获取当前用户的收货地址"
+					},
+					"response": []
+				},
+				{
+					"name": "获取当前用户的默认收货地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/getSimpleAddressByCondition.do?uid=1&isDefaultAddress=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"getSimpleAddressByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "isDefaultAddress",
+									"value": "1",
+									"description": "默认为1"
+								}
+							]
+						},
+						"description": "获取当前用户的默认收货地址"
+					},
+					"response": []
+				},
+				{
+					"name": "设置\b\b\b默认地址",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxAddress/setDefaultAddress.do?uid=1&id=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxAddress",
+								"setDefaultAddress.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "当前用户的uid"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "收货地址ID，"
+								}
+							]
+						},
+						"description": "设置默认地址"
+					},
+					"response": []
+				},
+				{
 					"name": "添加地址",
 					"request": {
 						"method": "POST",
@@ -402,6 +524,563 @@
 						"description": "获取抽奖的产品列表"
 					},
 					"response": []
+				},
+				{
+					"name": "【等待奖励】获取待领取奖励的商家列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getWaitLuckDrawShopByCondition.do?uid=1&start=0&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getWaitLuckDrawShopByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "【等待奖励】获取待领取奖励的商家列表"
+					},
+					"response": []
+				},
+				{
+					"name": "【等待奖励】获取某商家下待领取奖励的队列",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getWaitLuckDrawRankByCondition.do?uid=1&start=0&size=10&shopId=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getWaitLuckDrawRankByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								},
+								{
+									"key": "shopId",
+									"value": "1",
+									"description": "店铺ID"
+								}
+							]
+						},
+						"description": "【等待奖励】获取某商家下待领取奖励的队列"
+					},
+					"response": []
+				},
+				{
+					"name": "【获得奖励】获取已领取奖励的商家列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getRecevicedLuckDrawShopByCondition.do?uid=1&start=0&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getRecevicedLuckDrawShopByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "【获得奖励】获取已领取奖励的商家列表"
+					},
+					"response": []
+				},
+				{
+					"name": "【获得奖励】获取某商家下已领取奖励的队列",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getRecevicedLuckDrawRankByCondition.do?uid=1&start=0&size=10&shopId=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getRecevicedLuckDrawRankByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								},
+								{
+									"key": "shopId",
+									"value": "1",
+									"description": "店铺ID"
+								}
+							]
+						},
+						"description": "【获得奖励】获取某商家下已领取奖励的队列"
+					},
+					"response": [
+						{
+							"name": "【获得奖励】获取某商家下已领取奖励的队列",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getRecevicedLuckDrawRankByCondition.do?uid=1&start=0&size=10&shopId=1",
+									"protocol": "https",
+									"host": [
+										"www",
+										"91caihongwang",
+										"com"
+									],
+									"path": [
+										"newMall",
+										"wxLuckDraw",
+										"getRecevicedLuckDrawRankByCondition.do"
+									],
+									"query": [
+										{
+											"key": "uid",
+											"value": "1"
+										},
+										{
+											"key": "start",
+											"value": "0",
+											"description": "从第几条开始"
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"description": "展示总条数"
+										},
+										{
+											"key": "shopId",
+											"value": "1",
+											"description": "店铺ID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.10.3 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Dec 2018 07:41:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://www.rongshu.cn"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"recordsFiltered\": 1,\n    \"code\": 0,\n    \"data\": {\n        \"shopMap\": \"{\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\"}\",\n        \"my_waitGetLuckDrawRankList\": \"[{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"0\\\",\\\"payMoney\\\":\\\"200\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 10:53:56.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"已发放\\\",\\\"luckDrawMoney\\\":\\\"60.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"1\\\"}]\",\n        \"all_waitGetLuckDrawRankList\": \"[{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"0\\\",\\\"payMoney\\\":\\\"200\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 10:53:56.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"已发放\\\",\\\"luckDrawMoney\\\":\\\"60.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"1\\\"}]\"\n    },\n    \"message\": \"成功\"\n}"
+						}
+					]
+				},
+				{
+					"name": "【全部奖励】获取领取过奖励的商家列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getAllLuckDrawShopByCondition.do?uid=1&start=0&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getAllLuckDrawShopByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "【全部奖励】获取领取过奖励的商家列表"
+					},
+					"response": []
+				},
+				{
+					"name": "【全部奖励】获取某商家参与领取奖励的队列",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getAllLuckDrawRankByCondition.do?uid=1&shopId=1&start=0&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"getAllLuckDrawRankByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "shopId",
+									"value": "1",
+									"description": "店铺ID"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "【全部奖励】获取某商家参与领取奖励的队列"
+					},
+					"response": [
+						{
+							"name": "【全部奖励】获取某商家参与领取奖励的队列",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getAllLuckDrawRankByCondition.do?uid=1&shopId=1&start=0&size=10",
+									"protocol": "https",
+									"host": [
+										"www",
+										"91caihongwang",
+										"com"
+									],
+									"path": [
+										"newMall",
+										"wxLuckDraw",
+										"getAllLuckDrawRankByCondition.do"
+									],
+									"query": [
+										{
+											"key": "uid",
+											"value": "1"
+										},
+										{
+											"key": "shopId",
+											"value": "1",
+											"description": "店铺ID"
+										},
+										{
+											"key": "start",
+											"value": "0",
+											"description": "从第几条开始"
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"description": "展示总条数"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.10.3 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Dec 2018 07:42:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://www.rongshu.cn"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"recordsFiltered\": 5,\n    \"code\": 0,\n    \"data\": {\n        \"shopMap\": \"{\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\"}\",\n        \"my_waitGetLuckDrawRankList\": \"[{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"0\\\",\\\"payMoney\\\":\\\"50\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-25 19:50:09.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"5.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"2\\\",\\\"payMoney\\\":\\\"200\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 10:53:56.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"已发放\\\",\\\"luckDrawMoney\\\":\\\"60.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"1\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"4\\\",\\\"payMoney\\\":\\\"140\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-28 00:17:57.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"98.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"}]\",\n        \"all_waitGetLuckDrawRankList\": \"[{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"0\\\",\\\"payMoney\\\":\\\"50\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-25 19:50:09.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"5.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"2\\\",\\\"rankIndex\\\":\\\"1\\\",\\\"payMoney\\\":\\\"70\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 00:17:57.0\\\",\\\"nickName\\\":\\\"陈秀婷\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"21.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"2\\\",\\\"payMoney\\\":\\\"200\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 10:53:56.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"已发放\\\",\\\"luckDrawMoney\\\":\\\"60.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"1\\\"},{\\\"uid\\\":\\\"3\\\",\\\"rankIndex\\\":\\\"3\\\",\\\"payMoney\\\":\\\"110\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-27 00:17:57.0\\\",\\\"nickName\\\":\\\"何金蓉\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"55.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"4\\\",\\\"payMoney\\\":\\\"140\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-28 00:17:57.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"98.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"}]\"\n    },\n    \"message\": \"成功\"\n}"
+						}
+					]
+				},
+				{
+					"name": "奖励转换积分",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/convertIntegral.do?uid=1&wxOrderId=24aa84a13c974dc6bfcbd38af00f3b78",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLuckDraw",
+								"convertIntegral.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "wxOrderId",
+									"value": "24aa84a13c974dc6bfcbd38af00f3b78",
+									"description": "微信订单编号"
+								}
+							]
+						},
+						"description": "奖励转换积分"
+					},
+					"response": [
+						{
+							"name": "【全部奖励】获取某商家参与领取奖励的队列",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getAllLuckDrawRankByCondition.do?uid=1&shopId=1&start=0&size=10",
+									"protocol": "https",
+									"host": [
+										"www",
+										"91caihongwang",
+										"com"
+									],
+									"path": [
+										"newMall",
+										"wxLuckDraw",
+										"getAllLuckDrawRankByCondition.do"
+									],
+									"query": [
+										{
+											"key": "uid",
+											"value": "1"
+										},
+										{
+											"key": "shopId",
+											"value": "1",
+											"description": "店铺ID"
+										},
+										{
+											"key": "start",
+											"value": "0",
+											"description": "从第几条开始"
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"description": "展示总条数"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.10.3 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Dec 2018 07:42:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://www.rongshu.cn"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"recordsFiltered\": 5,\n    \"code\": 0,\n    \"data\": {\n        \"shopMap\": \"{\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\"}\",\n        \"my_waitGetLuckDrawRankList\": \"[{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"0\\\",\\\"payMoney\\\":\\\"50\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-25 19:50:09.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"5.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"2\\\",\\\"payMoney\\\":\\\"200\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 10:53:56.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"已发放\\\",\\\"luckDrawMoney\\\":\\\"60.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"1\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"4\\\",\\\"payMoney\\\":\\\"140\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-28 00:17:57.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"98.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"}]\",\n        \"all_waitGetLuckDrawRankList\": \"[{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"0\\\",\\\"payMoney\\\":\\\"50\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-25 19:50:09.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"5.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"2\\\",\\\"rankIndex\\\":\\\"1\\\",\\\"payMoney\\\":\\\"70\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 00:17:57.0\\\",\\\"nickName\\\":\\\"陈秀婷\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"21.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"2\\\",\\\"payMoney\\\":\\\"200\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-26 10:53:56.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"已发放\\\",\\\"luckDrawMoney\\\":\\\"60.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"1\\\"},{\\\"uid\\\":\\\"3\\\",\\\"rankIndex\\\":\\\"3\\\",\\\"payMoney\\\":\\\"110\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-27 00:17:57.0\\\",\\\"nickName\\\":\\\"何金蓉\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"55.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"},{\\\"uid\\\":\\\"1\\\",\\\"rankIndex\\\":\\\"4\\\",\\\"payMoney\\\":\\\"140\\\",\\\"avatarUrl\\\":\\\"https://www.91caihongwang.com\\\",\\\"createTime\\\":\\\"2018-12-28 00:17:57.0\\\",\\\"nickName\\\":\\\"蔡红旺\\\",\\\"luckDrawStatusName\\\":\\\"未发放\\\",\\\"luckDrawMoney\\\":\\\"98.0\\\",\\\"shopTitle\\\":\\\"外婆家0\\\",\\\"shopHeadImgUrl\\\":\\\"https://www.91caihongwang.com/resourceOfNewMall/product/宠物生活/伟嘉宠物成猫猫粮海洋鱼味3600g/headImg.jpg\\\",\\\"luckDrawStatusCode\\\":\\\"0\\\"}]\"\n    },\n    \"message\": \"成功\"\n}"
+						}
+					]
 				},
 				{
 					"name": "抽奖即添加抽奖信息",
@@ -687,7 +1366,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://www.91caihongwang.com/newMall/wxOrder/payTheBillInMiniProgram.do?uid=1&shopId=1&payMoney=50&useBalanceFlag=true&spbillCreateIp=https://www.91caihongwang.com",
+							"raw": "https://www.91caihongwang.com/newMall/wxOrder/payTheBillInMiniProgram.do?uid=1&payMoney=1&shopId=1&useBalanceFlag=true",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -702,24 +1381,23 @@
 							"query": [
 								{
 									"key": "uid",
-									"value": "1"
-								},
-								{
-									"key": "shopId",
-									"value": "1"
+									"value": "1",
+									"description": "购买用户的uid"
 								},
 								{
 									"key": "payMoney",
-									"value": "50"
+									"value": "1",
+									"description": "付款金额"
+								},
+								{
+									"key": "shopId",
+									"value": "1",
+									"description": "店铺ID"
 								},
 								{
 									"key": "useBalanceFlag",
 									"value": "true",
-									"description": "使用余额标志位"
-								},
-								{
-									"key": "spbillCreateIp",
-									"value": "https://www.91caihongwang.com"
+									"description": "使用余额付款标志位"
 								}
 							]
 						},
@@ -882,6 +1560,159 @@
 				}
 			],
 			"description": "用户",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "加盟",
+			"item": [
+				{
+					"name": "获取加盟类型列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLeague/getLeagueTypeList.do?uid=1&dicType=leagueType",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLeague",
+								"getLeagueTypeList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "dicType",
+									"value": "leagueType",
+									"description": "默认 dicType=leagueType"
+								}
+							]
+						},
+						"description": "获取加盟类型列表"
+					},
+					"response": []
+				},
+				{
+					"name": "获取当前所有加盟刘表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLeague/getSimpleLeagueByCondition.do?uid=1&isQueryListFlag=false",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLeague",
+								"getSimpleLeagueByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "isQueryListFlag",
+									"value": "false",
+									"description": "是否查询加盟名单，默认isQueryListFlag=false"
+								}
+							]
+						},
+						"description": "获取当前所有加盟刘表"
+					},
+					"response": []
+				},
+				{
+					"name": "添加加盟",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxLeague/addLeague.do?uid=1&phone=18685679555&name=御景西城贵公子&leagueTypeCode=1&remark=我才是正牌.",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxLeague",
+								"addLeague.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "phone",
+									"value": "18685679555"
+								},
+								{
+									"key": "name",
+									"value": "御景西城贵公子"
+								},
+								{
+									"key": "leagueTypeCode",
+									"value": "1"
+								},
+								{
+									"key": "remark",
+									"value": "我才是正牌."
+								}
+							]
+						},
+						"description": "添加加盟"
+					},
+					"response": []
+				}
+			],
+			"description": "加盟",
 			"event": [
 				{
 					"listen": "prerequest",
