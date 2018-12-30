@@ -4,13 +4,17 @@ page{
   background: #f8f8f8 !important;
 }
 
-
 .input-warp{
   background: #fff;
     height: 120rpx;
     border-bottom: 1px solid #e2e2e2;
 }
-.input-warp:last-child{
+.input-warp1{
+    background: #fff;
+   min-height:   120rpx;
+    border-bottom: 1px solid #e2e2e2;
+}
+.warp-padding:last-child{
   border: none;
 }
 .name{
@@ -26,26 +30,11 @@ page{
     width: 20rpx;
     height: 20rpx;
 }
-
 .picker{
   width: 500rpx;
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 
 .picker-view {
     width: 100%;
     display: flex;
@@ -88,8 +77,6 @@ page{
     text-align: center;
     border-bottom: 1rpx solid #f1f1f1;
 }
-
-
 .address-detail{
   width: 200rpx;
 }
@@ -98,15 +85,24 @@ page{
 }
 .textarea{
   width: 400rpx;
-
 }
 .default-address{
   margin-top: 100rpx;
   border: none;
-  
+}
+ */
+
+.address-detail{
+  width: 140rpx;
+}
+.textarea{
+  width: 500rpx;
 }
 .sure{
   width: 702rpx;
   margin: 24rpx  auto;
+}
 
+.delete{
+  margin-bottom: 64rpx;
 }

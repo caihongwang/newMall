@@ -59,6 +59,8 @@ Page({
     provinces: [],
     citys: [],
     citysIndex:0,
+    regionIndex:0,
+    streetIndex:0,
     areas: [],
     areaInfo: '',
     isProvinces: true,
@@ -66,6 +68,7 @@ Page({
     isAreas:false,
     isCitysChoose:true,
     isareasChoose:true,
+    isStreetChoose:true,
 
 
 
@@ -88,8 +91,6 @@ getProvince:function(){
         requestUrl: requestUrl.getProvinceListUrl,
         success: function (res) {
           console.log(res.data.data);
-         
-        
           if (res.data.code == 0) {
             that.setData({
               provinces: res.data.data
@@ -103,41 +104,83 @@ getProvince:function(){
           util.toast("网络异常, 请稍后再试");
         }
       });
-
-  
 },
   getCity: function (provinceId){
-  var that = this;
-  var params = new Object();
-  params.uid = wx.getStorageSync("UIDKEY");
-  params.dicType = 'city';
-  params.provinceId = that.data.provinces[this.data.provincesIndex].provinceId;
-  network.POST(
-    {
-      params: params,
-      requestUrl: requestUrl.getCityListUrl,
-      success: function (res) {
-        console.log(res.data.data);
-        if (res.data.code == 0) {
-          let cityName = {
-            cityName:'请选择'
-          }   
-          res.data.data.unshift(cityName)
-          that.setData({
-            citys: res.data.data
-          })
-        } else {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'city';
+    params.provinceId = that.data.provinces[this.data.provincesIndex].provinceId;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getCityListUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            that.setData({
+              citys: res.data.data
+            })
+          } else {
 
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
         }
-      },
-      fail: function (res) {
-        util.toast("网络异常, 请稍后再试");
-      }
     });
 
 },
   getRegionList:function(){
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'region';
+    params.cityId = that.data.citys[this.data.citysIndex].cityId;
 
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getRegionListUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            that.setData({
+              regins: res.data.data
+            })
+          } else {
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+
+  getStreetList: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'street';
+    params.regionId = that.data.regins[this.data.regionIndex].regionId;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getStreetListUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            that.setData({
+              street: res.data.data
+            })
+          } else {
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
   },
 
   
@@ -179,13 +222,14 @@ citysTap:function(){
 cancelCitys:function(){
   if(!this.data.selectCitys){
     this.setData({
-      isProvinces:true,
+      isCitysChoose:true,
     });
   }
 },
 citysChange:function(e){
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
+    console.log('picker发送选择改变，携带值为', e.detail.value);
+  console.log(e.detail.value);
+   this.setData({
       citysIndex: e.detail.value,
       selectCitys:true,
       isAreas: true,
@@ -196,102 +240,60 @@ citysChange:function(e){
 // 选择县
 areasTap:function(){
   this.setData({
-    isCitysChoose:false,
+    isareasChoose:false,
   });
+
+
 },
 cancelAreas:function(){
   if(!this.data.selectAreas){
     this.setData({
-      isProvinces:true,
+      isareasChoose:true,
     });
   }
+  console.log(22222222);
 },
 areasChange:function(e){
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      citysIndex: e.detail.value,
-      selectareas:true
-    })
+  console.log('picker发送选择改变，携带值为', e.detail.value);
+  console.log(e.detail.value);
+  this.setData({
+    regionIndex: e.detail.value,
+    selectareas: true,
+    isStreet: true,
+  })
+  
+  console.log(this.data.isareasChoose);
+  console.log('11111111');
+
+  this.getStreetList();
 },
 
 
-
-
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  // 点击所在地区弹出选择框
-  selectProvinces: function (e) {
-    // 如果已经显示，不在执行显示动画
-    if (this.data.addressMenuIsShow) {
-      return false;
-    } else {
-      // 执行显示动画
-      this.startAddressAnimation(true);
-    }
-  },
-  // 执行动画
-  startAddressAnimation: function (isShow) {
-    if (isShow) {
-      // vh是用来表示尺寸的单位，高度全屏是100vh
-      this.animation.translateY(0 + 'vh').step()
-    } else {
-      this.animation.translateY(40 + 'vh').step()
-    }
+  // 选择街道
+  streetTap: function () {
     this.setData({
-      animationAddressMenu: this.animation.export(),
-      addressMenuIsShow: isShow,
-    })
+      isStreetChoose: false,
+    });
   },
-  // 点击地区选择取消按钮
-  cityCancel: function (e) {
-    this.startAddressAnimation(false)
-  },
-  // 点击地区选择确定按钮
-  citySure: function (e) {
-    var that = this
-    var city = that.data.city
-    var value = that.data.value
-    this.startAddressAnimation(false)
-    // 将选择的城市信息显示到输入框
-    var areaInfo = that.data.provinces[value[0]].name + '·' + that.data.citys[value[1]].name + '·' + that.data.areas[value[2]].name
-    that.setData({
-      areaInfo: areaInfo,
-    })
-  },
-  // 处理省市县联动逻辑
-  cityChange: function (e) {
-    console.log(e);
-    var value = e.detail.value
-    var provinces = this.data.provinces
-    var citys = this.data.citys
-    var areas = this.data.areas
-    var provinceNum = value[0]
-    var cityNum = value[1]
-    var countyNum = value[2]
-    // 如果省份选择项和之前不一样，表示滑动了省份，此时市默认是省的第一组数据，
-    if (this.data.value[0] != provinceNum) {
-      var id = provinces[provinceNum].id
+  cancelAreas: function () {
+    if (!this.data.selectStreet) {
       this.setData({
-        value: [provinceNum, 0, 0],
-        citys: address.citys[id],
-        areas: address.areas[address.citys[id][0].id],
-      })
-    } else if (this.data.value[1] != cityNum) {
-      // 滑动选择了第二项数据，即市，此时区显示省市对应的第一组数据
-      var id = citys[cityNum].id
-      this.setData({
-        value: [provinceNum, cityNum, 0],
-        areas: address.areas[citys[cityNum].id],
-      })
-    } else {
-      // 滑动选择了区
-      this.setData({
-        value: [provinceNum, cityNum, countyNum]
-      })
+        isStreetChoose: true,
+      });
     }
   },
+  streetChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value);
+    console.log(e.detail.value);
+    this.setData({
+      streetIndex: e.detail.value,
+      selectStreet: true,
+      isAreas: true,
+    })
+  },
+
+
+
   onLoad: function (options) {
     // 让他把value给我
     // 默认联动显示北京
@@ -313,7 +315,11 @@ areasChange:function(e){
 // 点击是否默认
   switchChange:function(e){
     console.log('switch1 发生 change 事件，携带值为', e.detail.value)
-
+    if (e.detail.value){
+      this.setData({
+        isDefault: true
+      })
+    }
   },
 
   delete:function(){

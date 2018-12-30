@@ -11,47 +11,6 @@
     <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
 </view>
 
-<!-- <view class=' warp-padding input-warp flex fz-28' wx:if="{{isProvinces}}">
-    <view class='name'>省会</view>
-    <input class='input '  bindtap='selectProvinces' placeholder='请选择地址' placeholder-style='place' value='{{areaInfo}}' ></input>
-    <image class="clear" src="/images/logo.png"></image>
-</view> -->
-
-
-<!-- <view class=' warp-padding input-warp flex fz-28'  wx:if="{{isCitys}}">
-        <view class='name'>市区</view>
-        <input class='input '  bindtap='select' placeholder='请选择地址' placeholder-style='place' value='{{areaInfo}}' ></input>
-        <image class="clear" src="/images/logo.png"></image>
-</view> -->
-
-
-
-<!-- <view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}"> -->
-    <!-- 确认取消按钮 -->
-    <!-- <view class='btn'>
-        <text catchtap="cityCancel">取消</text>
-        <text style="float: right" catchtap="citySure">确定</text>
-    </view> -->
-    <!-- 选择地址 -->
-    <!-- <picker-view class='cont' bindchange="cityChange" value="{{value}}" wx:key=""> -->
-    <!-- 省 -->
-        <!-- <picker-view-column  wx:if="{{isProvinces}}">
-            <view wx:for="{{provinces}}" class="picker-item" wx:key="{{index}}">{{item.provinceName}}</view>
-        </picker-view-column> -->
-    <!-- 市 -->
-        <!-- <picker-view-column wx:if="{{isCitys}}">
-            <view wx:for="{{citys}}" class="picker-item" wx:key="index">{{item.name}}</view>
-        </picker-view-column> -->
-    <!-- 区 -->
-        <!-- <picker-view-column wx:if="{{isAreas}}">
-            <view wx:for="{{areas}}" class="picker-item" wx:key="index">{{item.name}}</view>
-        </picker-view-column>
-    </picker-view>
-    
-</view> -->
-  
-
-
 
 <view class="warp-padding input-warp flex fz-28 " >
         <view class="name">选择省：</view>
@@ -67,7 +26,6 @@
 
         <picker bindchange="citysChange" value="{{citysIndex}}" range="{{citys}}" range-key="cityName" bindcancel="cancelCitys">
           <view class="picker" bindtap='citysTap' wx:if="{{isCitysChoose}}">请选择</view>
-
           <view class="picker" wx:if="{{!isCitysChoose}}">{{citys[citysIndex].cityName}}</view>
         </picker>
         <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
@@ -75,18 +33,26 @@
 
 <view class="warp-padding input-warp flex fz-28" wx:if="{{isAreas}}">
         <view class="name">选择区：</view>
-        <picker bindchange="areasChange" value="{{provincesIndex}}" range="{{provinces}}" range-key="dicName" bindcancel="cancelAreas">
+        <picker bindchange="areasChange" value="{{regionIndex}}" range="{{regins}}" range-key="regionName" bindcancel="cancelAreas">
             <view class="picker" bindtap='areasTap' wx:if="{{isareasChoose}}">请选择</view>
-
-          <view class="picker" wx:if="{{!isareasChoose}}">{{provinces[index].provinceName}}</view>
+          <view class="picker" wx:if="{{!isareasChoose}}">{{regins[regionIndex].regionName}}</view>
         </picker>
         <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
+</view>
 
+
+<view class="warp-padding input-warp flex fz-28" wx:if="{{isStreet}}">
+        <view class="name">选择街道：</view>
+        <picker bindchange="streetChange" value="{{streetIndex}}" range="{{street}}" range-key="streetName" bindcancel="cancelStreet">
+            <view class="picker" bindtap='streetTap' wx:if="{{isStreetChoose}}">请选择</view>
+          <view class="picker" wx:if="{{!isStreetChoose}}">{{street[streetIndex].streetName}}</view>
+        </picker>
+        <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
 </view>
 
 
 
-<view class=' warp-padding input-warp flex3 fz-28 textarea-warp '>
+<view class=' warp-padding input-warp1 flex3 fz-28 textarea-warp '>
     <view class='address-detail'>详细地址</view>
   <textarea  class="textarea"  bindblur="bindTextAreaBlur" auto-height placeholder="自动变高"   bindinput="detailAddress" value="{{detailAddress}}"/>
   <image class="clear" src="/images/logo.png" bindtap='deleteDetail'></image>
@@ -101,4 +67,4 @@
 
 <button class="sure" type='primary'  bindtap='sureSave'>确认</button>
 
-<button class=" sure " type='warn' bindtap='delete' bwx:if="{{isEdit}}">删除地址</button>
+<button class=" sure  delete" type='warn' bindtap='delete' bwx:if="{{isEdit}}">删除地址</button>

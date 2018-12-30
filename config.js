@@ -75,6 +75,8 @@ var config = {
   getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取积分商城列表
   getProvinceListUrl: `${host}/wxAddress/getProvinceList.do`,   //获取省份地址
   getCityListUrl: `${host}/wxAddress/getCityList.do`,   //获取市区地址
+  getRegionListUrl: `${host}/wxAddress/getRegionList.do`,   //获取街道地址
+  getStreetListUrl: `${host}/wxAddress/getStreetList.do`,   //获取街道地址
 
 
 }
