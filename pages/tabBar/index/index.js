@@ -145,8 +145,8 @@ Page({
   callHotline:function(){
     console.log(22222);
     wx.makePhoneCall({
-      phoneNumber: '111111111' // 仅为示例，并非真实的电话号码
-    })
+      phoneNumber: '17701359899' // 仅为示例，并非真实的电话号码
+    });
 
   },
   /**
