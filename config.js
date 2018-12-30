@@ -74,6 +74,9 @@ var config = {
   getAddressListUrl: `${host}/wxAddress/getSimpleAddressByCondition.do`,   //获取用户当前收货地址
 
   addAddressUrl: `${host}/wxAddress/addAddress.do`,   //添加收货地址
+  updateAddressUrl: `${host}/wxAddress/updateAddress.do`,   //添加收货地址
+
+  
 
 
 }
