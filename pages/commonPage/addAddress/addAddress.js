@@ -102,6 +102,8 @@ getProvince:function(){
                   that.setData({
                     isProvinces:false,
                     provincesIndex: i,
+                    isProvinces:false,
+                    provincesIndex: i,
                   })
                 }  
               }
@@ -138,8 +140,13 @@ getProvince:function(){
             })
 
             if (that.data.cityId) {
+              console.log(that.data.cityId);
+              console.log(3266666666666666);
+
               for (var i in that.data.citys) {//x = index
                 if (that.data.cityId == that.data.citys[i].id) {
+                  console.log(32666666666666661111111111);
+
                   that.setData({
                     isCitys: true,
                     isCitysChoose: false,
@@ -488,8 +495,8 @@ areasChange:function(e){
     params.provinceId = this.data.provinces[this.data.provincesIndex].provinceId;
     params.provinceName = this.data.provinces[this.data.provincesIndex].provinceName;
 
-    params.cityId = this.data.provinces[this.data.provincesIndex].provinceId;
-    params.cityName = this.data.provinces[this.data.provincesIndex].provinceName;
+    params.cityId = this.data.citys[this.data.citysIndex].cityId;
+    params.cityName = this.data.citys[this.data.citysIndex].cityName;
 
     params.regionId = this.data.regins[this.data.regionIndex].regionId;
     params.regionName = this.data.regins[this.data.regionIndex].regionName;
@@ -532,8 +539,9 @@ areasChange:function(e){
     params.provinceId = this.data.provinces[this.data.provincesIndex].provinceId;
     params.provinceName = this.data.provinces[this.data.provincesIndex].provinceName;
 
-    params.cityId = this.data.provinces[this.data.provincesIndex].provinceId;
-    params.cityName = this.data.provinces[this.data.provincesIndex].provinceName;
+    params.cityId = this.data.citys[this.data.citysIndex].cityId;
+    params.cityName = this.data.citys[this.data.citysIndex].cityName;
+
 
     params.regionId = this.data.regins[this.data.regionIndex].regionId;
     params.regionName = this.data.regins[this.data.regionIndex].regionName;
