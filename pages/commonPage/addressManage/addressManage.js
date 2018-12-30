@@ -41,6 +41,41 @@ Page({
 
   },
 
+  getAddressList: function () {
+    var that = this;
+    var params = new Object();
+    // params.uid = wx.getStorageSync("UIDKEY");
+    params.uid = '1';
+    params.start = 0;
+    params.size = 2;  //能直接获取全部吗
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getAddressListUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            that.setData({
+              address: res.data.data
+            })
+          } else {
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+
+
+
+
+
+
+
+
 // 选择地址列表
   filter: function (e) {
     var index = e.currentTarget.dataset.index;
@@ -107,6 +142,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getAddressList();
 
   },
 

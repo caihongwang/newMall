@@ -5,18 +5,12 @@
 // var host = "https://dymapi.xiaqiu.cn/card"  //日常
 
 
-// var host = "https://card.shuqudata.com/card"  //名片夹线上
 
-var host = "https://www.91caihongwang.com/newMall"  //线上
+// var host = "https://www.91caihongwang.com/newMall"  //线上
 
-// var host = "http://192.168.43.196:8080/newMall" //宏旺
+var host = "http://192.168.43.196:8080/newMall" //宏旺
 
-// var host = "http://192.168.0.144:8080/card"  //宏旺
 
-// var host = "http://192.168.1.131:8080/card"  //建世
-
-// var host = "http://iburap.k'.com/mockjs/26"
-//这里用来配置所有请求地址
 var config = {
   host,
   getSessionUrl: `${host}/card/getSession.do`,    //获取session
@@ -77,6 +71,9 @@ var config = {
   getCityListUrl: `${host}/wxAddress/getCityList.do`,   //获取市区地址
   getRegionListUrl: `${host}/wxAddress/getRegionList.do`,   //获取街道地址
   getStreetListUrl: `${host}/wxAddress/getStreetList.do`,   //获取街道地址
+  getAddressListUrl: `${host}/wxAddress/getSimpleAddressByCondition.do`,   //获取用户当前收货地址
+
+  addAddressUrl: `${host}/wxAddress/addAddress.do`,   //添加收货地址
 
 
 }

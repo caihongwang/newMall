@@ -62,7 +62,7 @@
 
 <view class=' warp-padding input-warp flex fz-28 default-address '>
     <view class='name'>设为默认地址</view>
-     <switch checked bindchange="switchChange" />
+     <switch checked="{{checked}}" bindchange="switchChange" />
 </view>
 
 <button class="sure" type='primary'  bindtap='sureSave'>确认</button>

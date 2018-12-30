@@ -95,6 +95,21 @@ getProvince:function(){
             that.setData({
               provinces: res.data.data
             })
+
+            if (that.data.provinceId){
+              for (var i in that.data.provinces) {//x = index
+                if (that.data.provinceId == that.data.provinces[i].id){
+                  that.setData({
+                    isProvinces:false,
+                    provincesIndex: i,
+                  })
+                }  
+              }
+              that.getCity();
+            }
+
+         
+
             console.log(that.data.provinces[0].provinceName);
           } else {
           }
@@ -121,6 +136,22 @@ getProvince:function(){
             that.setData({
               citys: res.data.data
             })
+
+            if (that.data.cityId) {
+              for (var i in that.data.citys) {//x = index
+                if (that.data.cityId == that.data.citys[i].id) {
+                  that.setData({
+                    isCitys: true,
+                    isCitysChoose: false,
+                    citysIndex: i,
+                  })
+                  that.getRegionList();
+
+                }
+              }
+            }
+
+
           } else {
 
           }
@@ -148,6 +179,20 @@ getProvince:function(){
             that.setData({
               regins: res.data.data
             })
+
+            if (that.data.regionId) {
+              for (var i in that.data.regins) {//x = index
+                if (that.data.regionId == that.data.regins[i].id) {
+                  that.setData({
+                    isAreas: true,
+                    isareasChoose: false,
+                    regionIndex: i,
+                  })
+                  that.getStreetList();
+                }
+              }
+            }
+
           } else {
           }
         },
@@ -174,6 +219,22 @@ getProvince:function(){
             that.setData({
               street: res.data.data
             })
+
+            if (that.data.streetId) {
+              console.log(that.data.streetId);
+              console.log(that.data.street);
+              for (var i in that.data.street) {//x = index
+              
+                if (that.data.streetId == that.data.street[i].id) {
+                  that.setData({
+                    isStreet: true,
+                    isStreetChoose: false,
+                    streetIndex: i,
+                  })
+                }
+              }
+            }
+
           } else {
           }
         },
@@ -299,16 +360,26 @@ areasChange:function(e){
     // 默认联动显示北京
 
     // 通过点击编辑过来的
+
+    console.log(options.address);
+
     if (options.address){
       let address = JSON.parse(options.address);
-      var id = address.provinces[0].id
       this.setData({
-        provinces: address.provinces,
-        citys: address.citys[id],
-        areas: address.areas[address.citys[id][0].id],
+        provinceId: address.provinceId,
+        cityId: address.cityId,
+        regionId: address.regionId,
+        streetId: address.streetId,
+        inputName: address.name,
+        inputPhone: address.phone,
+        detailAddress: address.detailAddress,
+        checked: address.isDefaultAddress == '1',
         isEdit: true
       })
     }
+    this.getProvince();
+
+
   },
 
 
@@ -327,8 +398,71 @@ areasChange:function(e){
 
   },
 
+  save: function () {
+    var that = this;
+    var params = new Object();
+    // params.uid = wx.getStorageSync("UIDKEY");
+    params.uid = '1';
+    params.start = 0;
+    params.size = 2;  //能直接获取全部吗
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getAddressListUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            that.setData({
+              address: res.data.data
+            })
+          } else {
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+  addAddressUrl: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.name = this.data.inputName;
+    params.phone = this.data.inputPhone;
+    params.provinceId = this.data.provinces[this.data.provincesIndex].provinceId;
+    params.provinceName = this.data.provinces[this.data.provincesIndex].provinceName;
+
+    params.cityId = this.data.provinces[this.data.provincesIndex].provinceId;
+    params.cityName = this.data.provinces[this.data.provincesIndex].provinceName;
+
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.addAddressUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            that.setData({
+              address: res.data.data
+            })
+          } else {
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+
   sureSave:function(){
     // 调用保存按钮
+    this.addAddressUrl();
+
+
   },
 
 // 输入姓名
@@ -385,7 +519,6 @@ areasChange:function(e){
 
 
 
-    this.getProvince();
   },
 
   /**

@@ -5,8 +5,8 @@
    <image class='address-icon' src="/images/logo.png" wx:if="{{currentItem == i}}"></image>
    <image class='address-icon' src="/images/home.png" wx:if="{{currentItem != i}}"></image>
    <view class='address-detail'>
-       <view  class='name fz-28'>{{item.name}}</view>
-       <view  class='address-choose fz-24'>{{item.address}}</view>
+       <view  class='name fz-28'><text class="defult" wx:if="{{item.isDefaultAddress == '1'}}">默认</text>{{item.name}}</view>
+       <view  class='address-choose fz-24'>{{item.provinceName}}{{item.cityName}}{{item.regionName}}{{item.detailAddress}}</view>
    </view>
    <view class='address-right'  catchtap='editAddress'  data-index="{{i}}">编辑</view>
 </view>
