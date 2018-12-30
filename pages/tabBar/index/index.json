@@ -2,6 +2,6 @@
   "usingComponents": {
     "dialog": "../../component/selectUpload/selectUpload"
   },
-    "navigationBarTitleText": "财富名片夹",    
+    "navigationBarTitleText": "寻找附近的商家",    
     "enablePullDownRefresh": true
 }

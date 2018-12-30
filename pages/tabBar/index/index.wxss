@@ -45,3 +45,7 @@
   height: 100rpx;
   margin:  0 auto;
   }
+  .hotline-phone{
+    color: red;
+    font-size: 28rpx;
+  }

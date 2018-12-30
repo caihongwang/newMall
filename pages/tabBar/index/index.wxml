@@ -25,8 +25,8 @@ class='map'
   show-location
 >
 <cover-view class='hotline' bindtap='callHotline'>
-<cover-view class='hotline-phone'>投诉电话</cover-view>
- <cover-image  class="phone" src="/images/logo.png" bindtap='callHotline'></cover-image>
+<cover-view class='hotline-phone'>热线电话</cover-view>
+ <cover-image  class="phone" src="/images/hotlinePhone.png" bindtap='callHotline'></cover-image>
 </cover-view> 
        <!-- <cover-image src='/images/logo.png'  class="phone" ></cover-image> -->
 
