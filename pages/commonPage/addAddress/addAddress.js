@@ -425,30 +425,50 @@ areasChange:function(e){
     }
   },
 
-  delete:function(){
-    // 调用删除接口
 
-    // 删除成功返回上一页页面
-     wx.navigateBack() 
-  },
 
-  save: function () {
+  deleteAddress: function () {
     var that = this;
     var params = new Object();
-    // params.uid = wx.getStorageSync("UIDKEY");
+    params.uid = wx.getStorageSync("UIDKEY");
     params.uid = '1';
     params.start = 0;
     params.size = 2;  //能直接获取全部吗
     network.POST(
       {
         params: params,
-        requestUrl: requestUrl.getAddressListUrl,
+        requestUrl: requestUrl.deleteAddressUrl,
         success: function (res) {
           console.log(res.data.data);
           if (res.data.code == 0) {
             that.setData({
               address: res.data.data
             })
+          } else {
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+  // 删除收货地址
+  deleteAddress: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.id = this.data.id;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.deleteAddressUrl,
+        success: function (res) {
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+           wx.navigateBack({
+           })
           } else {
           }
 
@@ -599,6 +619,8 @@ areasChange:function(e){
 
 
   },
+
+ 
 
 // 输入姓名
   bindName:function(e){

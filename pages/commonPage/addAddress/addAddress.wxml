@@ -67,4 +67,4 @@
 
 <button class="sure" type='primary'  bindtap='sureSave'>确认</button>
 
-<button class=" sure  delete" type='warn' bindtap='delete' bwx:if="{{isEdit}}">删除地址</button>
+<button class=" sure  delete" type='warn' bindtap='deleteAddress' wx:if="{{isEdit}}">删除地址</button>

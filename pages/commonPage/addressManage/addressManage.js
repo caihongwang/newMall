@@ -45,8 +45,6 @@ Page({
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    // params.start = 0;
-    // params.size = 2;  //能直接获取全部吗
     network.POST(
       {
         params: params,
