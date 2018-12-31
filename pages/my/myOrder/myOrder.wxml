@@ -3,15 +3,18 @@
   <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}} fz-24"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.name}}</view>
 </view>
 
-<view class="list-warp flex fz-28" bindtap='goOrder'  wx:for="{{listLuck}}"  wx:key="listLuck">
+<view class="list-warp flex fz-28" bindtap='goOrder'  wx:for="{{listLuck}}"  wx:key="listLuck" >
     <image src="{{item.shopHeadImgUrl}}" class="logo-image"></image>
     <view class='center'>
        <view class='flex center-top'>
         <view class='name'> {{item.shopTitle}}  </view>
-         <view  class='price'> ￥{{item.luckDrawMoney}} </view>
+         <view  class='price'> ￥{{item.payMoney}} </view>
        </view>
        <view class='time'>时间：{{item.createTime}}</view>
-       <view class='repay'>待返还￥0.07（共返还￥0.07）</view>
+       <view class='repay' wx:if="{{chosseId == 1}}">待奖励￥{{item.luckDrawMoney? item.luckDrawMoney : '0'}}</view>
+
+        <view class='repay' wx:if="{{chosseId == 2}}">已奖励￥{{item.luckDrawMoney? item.luckDrawMoney : '0'}}</view>
+
     </view>
     <image src="/images/logo.png" class="icon"></image>
 </view>

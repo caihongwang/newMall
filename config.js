@@ -82,7 +82,7 @@ var config = {
   deleteAddressUrl: `${host}/wxAddress/deleteAddress.do`,   //删除收货地址
 
 // 抽奖奖励
-
+  getAllLuckDrawUrl: `${host}/wxLuckDraw/getAllLuckDrawShopByCondition.do`,   //获取商家全部订单
   getWaitLuckDrawUrl: `${host}/wxLuckDraw/getWaitLuckDrawShopByCondition.do`,   //获取等待奖励的商家列表
   getRecevicedLuckDrawUrl: `${host}/wxLuckDraw/getRecevicedLuckDrawShopByCondition.do`,   //获取已领取奖励的商家列表
 
