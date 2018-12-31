@@ -98,7 +98,7 @@ var config = {
 
   // 调用支付接口
   payTheBillInMiniUrl: `${host}/wxOrder/payTheBillInMiniProgram.do`,   //添加加盟商
-
+  getUserBaseInfoUrl: `${host}/wxUser/getUserBaseInfo.do`,   //获取积分等数据
 
   
 
