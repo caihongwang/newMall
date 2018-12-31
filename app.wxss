@@ -153,3 +153,21 @@ page{
 
 }
 
+
+
+
+/* 上拉更多之后的展示更多的样式 */
+.foot{
+  height: 106rpx;
+  line-height: 106rpx;
+  width: 100%;
+  background: #fff;
+}
+.add-more{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  color: #9D9D9D;
+  letter-spacing: 0;
+  text-align: center;
+  /* margin-top: 30rpx; */
+}

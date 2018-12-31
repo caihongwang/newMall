@@ -10,7 +10,7 @@ Page({
     isNoShowMore: false,//显示加载更多
     loading: false,//加载中。。。false为隐藏      底部的分页加载
     
-    havePageAllt: 0, //已经加载的页数
+    havePageAll: 0, //已经加载的页数
     pageindexAll: 10,//总共加载的总条数
 
     isShowFilter: false,//是否展示筛选弹窗
@@ -55,7 +55,7 @@ getShopList:function(boo){
   params.currentLon = app.globalData.latitude ;
   params.currentLat = app.globalData.longitude;
   params.dis = 1000;
-  params.start = this.data.havePageAllt;
+  params.start = this.data.havePageAll;
   params.size = this.data.pageindexAll;
   if (!boo) {
     wx.showLoading({
@@ -83,8 +83,8 @@ getShopList:function(boo){
             howShops:res.data.recordsFiltered
           })
 
-          that.data.havePageAllt += res.data.data.length;
-          if (that.data.havePageAllt < res.data.recordsFiltered ) {
+          that.data.havePageAll += res.data.data.length;
+          if (that.data.havePageAll < res.data.recordsFiltered ) {
             that.setData({
               isShowMore: true,
               loading: false,

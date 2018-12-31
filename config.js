@@ -63,19 +63,31 @@ var config = {
 
   getSimpleShopByCondition: `${host}/wxShop/getSimpleShopByCondition.do`,    //首页获取商家列表
   getShopByCondition: `${host}/wxShop/getShopByCondition.do`,  //获取商家具体信息
+  // 登录机制
   wxAppLoginUrl: `${host}/wxUser/login.do`,   //检测登录
   checkSession: `${host}/wxUser/checkSession.do`,   //检测session是否过期
+
+  // 商城积分
   getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城类型列表
   getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取积分商城列表
+
+  // 地址管理
   getProvinceListUrl: `${host}/wxAddress/getProvinceList.do`,   //获取省份地址
   getCityListUrl: `${host}/wxAddress/getCityList.do`,   //获取市区地址
   getRegionListUrl: `${host}/wxAddress/getRegionList.do`,   //获取街道地址
   getStreetListUrl: `${host}/wxAddress/getStreetList.do`,   //获取街道地址
   getAddressListUrl: `${host}/wxAddress/getSimpleAddressByCondition.do`,   //获取用户当前收货地址
-
   addAddressUrl: `${host}/wxAddress/addAddress.do`,   //添加收货地址
   updateAddressUrl: `${host}/wxAddress/updateAddress.do`,   //更新收货地址
   deleteAddressUrl: `${host}/wxAddress/deleteAddress.do`,   //删除收货地址
+
+// 抽奖奖励
+
+  getWaitLuckDrawUrl: `${host}/wxLuckDraw/getWaitLuckDrawShopByCondition.do`,   //获取等待奖励的商家列表
+  getRecevicedLuckDrawUrl: `${host}/wxLuckDraw/getRecevicedLuckDrawShopByCondition.do`,   //获取已领取奖励的商家列表
+
+
+
 
 }
 module.exports = config

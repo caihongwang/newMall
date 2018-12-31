@@ -1,34 +1,28 @@
 <!--pages/my/myOrder/myOrder.wxml-->
 <view class='lst-warp'>
-  <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}}"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.name}}</view>
+  <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}} fz-24"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.name}}</view>
 </view>
 
-<view class="list-warp flex fz-28" bindtap='goOrder'>
-    <image src="/images/logo.png" class="logo-image"></image>
+<view class="list-warp flex fz-28" bindtap='goOrder'  wx:for="{{listLuck}}"  wx:key="listLuck">
+    <image src="{{item.shopHeadImgUrl}}" class="logo-image"></image>
     <view class='center'>
        <view class='flex center-top'>
-        <view class='name'> 唐人街烤羊腿  </view>
-         <view  class='price'> ￥0.02 </view>
+        <view class='name'> {{item.shopTitle}}  </view>
+         <view  class='price'> ￥{{item.luckDrawMoney}} </view>
        </view>
-       <view class='time'>时间：2018-08-09 12：04：02</view>
+       <view class='time'>时间：{{item.createTime}}</view>
        <view class='repay'>待返还￥0.07（共返还￥0.07）</view>
     </view>
     <image src="/images/logo.png" class="icon"></image>
 </view>
 
-<view class="list-warp flex fz-28">
-    <image src="/images/logo.png" class="logo-image"></image>
-    <view class='center'>
-       <view class='flex center-top'>
-        <view class='name'> 唐人街烤羊腿  </view>
-         <view  class='price'> ￥0.02 </view>
-       </view>
-       <view class='time'>时间：2018-08-09 12：04：02</view>
-       <view class='repay'>待返还￥0.07（共返还￥0.07）</view>
-    </view>
-    <image src="/images/logo.png" class="icon"></image>
 
+
+
+
+<view class='foot'>
+ <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多订单了</view>
 </view>
-
-<view class='no-order'>没有更多订单了</view>
 
