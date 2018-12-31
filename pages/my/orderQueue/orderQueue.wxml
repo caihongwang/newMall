@@ -19,7 +19,7 @@
                        <view class="repay">换{{item.luckDrawMoney}}积分</view>
                     </view>
                 </view>
-                <image src="/images/logo.png" class="icon"></image>
+                <image src="/images/logo.png" class="icon" wx:if="{{listIndex != 2}}"></image>
         </view>
 
 
@@ -36,11 +36,9 @@
                        <view>时间：{{item.createTime}}</view>
                        <view class="repay" wx:if="{{item.luckDrawStatusCode == 0}}">待奖励</view>
                        <view class="repay" wx:if="{{item.luckDrawStatusCode == 1}}">已奖励</view>
-
                        <!-- <view class="repay">换{{luckDrawMoney}}积分</view> -->
                     </view>
                 </view>
-                <image src="/images/logo.png" class="icon"></image>
         </view>
 </view>
 

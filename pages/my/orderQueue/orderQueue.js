@@ -24,17 +24,25 @@ Page({
     let that = this;
     let index = e.currentTarget.dataset.index;
     console.log(e.currentTarget.dataset.index);
-    wx.showModal({
-      title: '提示',
-      content: '您确定把该订单换成积分吗？',
-      success(res) {
-        if (res.confirm) {
-          that.convertIntegral(that.data.myList[index].wxOrderId, that.data.myList[index].wxAAppId);
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+    if (this.data.listIndex == 2){
+      return;
+    }
+    if (that.data.myList[index].luckDrawStatusCode == 1){ //已经奖励
+       util.toast("已兑换奖励");
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '您确定把该订单换成积分吗？',
+        success(res) {
+          if (res.confirm) {
+            that.convertIntegral(that.data.myList[index].wxOrderId, that.data.myList[index].wxAAppId);
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
         }
-      }
-    })
+      })
+    }
+   
 
   },
 
@@ -54,9 +62,9 @@ Page({
               havePageAll: 0,
               pageindexAll: 10
             })
-            if(that.data.index == 0){
+            if (that.data.listIndex == 0){
               that.getAllLuckDraw(false);
-            }else if(that.data.index == 1){
+            } else if (that.data.listIndex == 1){
               that.getWaitLuckDraw(false)
             }else{
               that.getRecevicedLuckDraw(false)
@@ -262,9 +270,9 @@ Page({
         isShowMore: false,
         isNoShowMore: false
       })
-      if (that.data.index == 0) {
+      if (that.data.listIndex == 0) {
         that.getAllLuckDraw(false);
-      } else if (that.data.index == 1) {
+      } else if (that.data.listIndex == 1) {
         that.getWaitLuckDraw(false)
       } else {
         that.getRecevicedLuckDraw(false)
@@ -278,7 +286,7 @@ Page({
     console.log(options);
     this.setData({
       shopId: options.shopId,
-      index: options.index
+      listIndex: options.index
     })
     if (options.index == 0){
       this.getAllLuckDraw(false);
