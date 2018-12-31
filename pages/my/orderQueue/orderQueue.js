@@ -19,6 +19,54 @@ Page({
     shopMap:{},
 
   },
+// 点击我的对列里的列表
+  goOrder:function(e){
+    let that = this;
+    let index = e.currentTarget.dataset.index;
+    console.log(e.currentTarget.dataset.index);
+    wx.showModal({
+      title: '提示',
+      content: '您确定把该订单换成积分吗？',
+      success(res) {
+        if (res.confirm) {
+          that.convertIntegral(that.data.myList[index].wxOrderId, that.data.myList[index].wxAAppId);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  },
+
+
+  convertIntegral: function (wxOrderId,wxAAppId) {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.wxOrderId = wxOrderId;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.convertIntegralUrl,
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({
+              havePageAll: 0,
+              pageindexAll: 10
+            })
+            that.getAllLuckDrawl();
+          } else {
+            util.toast(res.data.message);
+          }
+
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+
 
   getAllLuckDrawl: function (boo) {
     var that = this;
@@ -39,12 +87,10 @@ Page({
         requestUrl: requestUrl.getAllLuckDrawUrl,
         success: function (res) {
           boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-
-
-          res.data.data.all_allGetLuckDrawRankList = JSON.parse(res.data.data.all_allGetLuckDrawRankList);
-          res.data.data.my_allGetLuckDrawRankList = JSON.parse(res.data.data.my_allGetLuckDrawRankList);
-          res.data.data.shopMap = JSON.parse(res.data.data.shopMap);
           if (res.data.code == 0) {
+            res.data.data.all_allGetLuckDrawRankList = JSON.parse(res.data.data.all_allGetLuckDrawRankList);
+            res.data.data.my_allGetLuckDrawRankList = JSON.parse(res.data.data.my_allGetLuckDrawRankList);
+            res.data.data.shopMap = JSON.parse(res.data.data.shopMap);
             for (var i in res.data.data.all_allGetLuckDrawRankList) {
               that.data.listLuck.push(res.data.data.all_allGetLuckDrawRankList[i]);
             }

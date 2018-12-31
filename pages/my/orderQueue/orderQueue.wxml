@@ -6,7 +6,7 @@
 
 <view class="shop-list">
         <view class="warp-padding  my-alignment">我的对列</view>
-        <view class="list-warp flex fz-28" bindtap='goOrder' wx:for = "{{myList}}"  wx:key="myList">
+        <view class="list-warp flex fz-28" bindtap='goOrder' wx:for = "{{myList}}"  wx:key="myList" data-index= "{{index}}">
                 <view class="rank">{{item.rankIndex}}</view>
                 <image src="{{item.shopHeadImgUrl}}" class="logo-image"></image>
                 <view class='center'>
@@ -16,7 +16,7 @@
                    </view>
                    <view class='time flex fz-24'>
                        <view>时间：{{item.createTime}}</view>
-                       <view class="repay">换{{luckDrawMoney}}积分</view>
+                       <view class="repay">换{{item.luckDrawMoney}}积分</view>
                     </view>
                 </view>
                 <image src="/images/logo.png" class="icon"></image>
@@ -34,7 +34,10 @@
                    </view>
                    <view class='time flex fz-24'>
                        <view>时间：{{item.createTime}}</view>
-                       <view class="repay">换{{luckDrawMoney}}积分</view>
+                       <view class="repay" wx:if="{{item.luckDrawStatusCode == 0}}">待奖励</view>
+                       <view class="repay" wx:if="{{item.luckDrawStatusCode == 1}}">已奖励</view>
+
+                       <!-- <view class="repay">换{{luckDrawMoney}}积分</view> -->
                     </view>
                 </view>
                 <image src="/images/logo.png" class="icon"></image>

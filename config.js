@@ -87,8 +87,10 @@ var config = {
   getRecevicedLuckDrawUrl: `${host}/wxLuckDraw/getRecevicedLuckDrawShopByCondition.do`,   //获取已领取奖励的商家列表
 
   getAllLuckDrawUrl: `${host}/wxLuckDraw/getAllLuckDrawRankByCondition.do`,   //【全部奖励】获取某商家参与领取奖励的队列
+  convertIntegralUrl: `${host}/wxLuckDraw/convertIntegral.do`,   //奖励转换用户积分
 
 
+  
 
 }
 module.exports = config
