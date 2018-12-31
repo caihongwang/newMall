@@ -14,7 +14,8 @@ Page({
     isAgreement: false,//是否同意协议
     useIntegralFlag:false,//是否积分抵现
     useBalanceFlag: false,//是否余额抵现
-
+    integralInput:0,
+    payBalance:0,
   },
   switchChange:function(e){
     this.setData({
@@ -124,59 +125,7 @@ inputMoney:function(e){
         requestUrl: requestUrl.payTheBillInMiniUrl,
         success: function (res) {
           if (res.data.code == 0) {
-            wxPayUnifiedOrder: function (param) {        //点击付款/打赏，向微信服务器进行付款
-              //使用小程序发起微信支付
-              wx.requestPayment({
-                timeStamp: param.data.timeStamp,//记住，这边的timeStamp一定要是字符串类型的，不然会报错，我这边在java后端包装成了字符串类型了
-                nonceStr: param.data.nonceStr,
-                package: param.data.package,
-                signType: 'MD5',      //小程序发起微信支付，暂时只支持“MD5”
-                paySign: param.data.paySign,
-                success: function (event) {
-                  wx.showToast({              //支付成功
-                    title: '支付成功',
-                    icon: 'success',
-                    duration: 2000,
-                    complete: function () {   //支付成功后发送模板消息
-                      console.log("模板消息已发送");
-                      return;
-                      var templateMessageParam = new Object();
-                      // 整理模板消息需要的参数
-                      // 整理模板消息需要的参数
-                      // 整理模板消息需要的参数
-                      // 整理模板消息需要的参数
-                      // 整理模板消息需要的参数
-                      // 整理模板消息需要的参数
-                      templateMessageParam.data = JSON.stringify(that.data.data);
-                      //发送模板消息，如果失败了也不给用户提示
-                      network.POST({
-                        params: templateMessageParam,
-                        requestUrl: requestUrl.sendTemplateMessageUrl,
-                        success: function (res) {
-
-                        },
-                        fail: function (res) {
-
-                        }
-                      });
-                    }
-                  });
-                },
-                fail: function (error) {      //支付失败
-                  console.log("支付失败");
-                  console.log(error);
-                  wx.showModal({
-                    title: '提示',
-                    content: '支付被取消.',
-                    showCancel: false
-                  });
-                },
-                complete: function () {       //不管支付成功或者失败之后都要处理的方法，类似与final
-                  console.log("支付完成");
-                }
-              });
-            }
-         
+            that.wxPayUnifiedOrder(res.data);
           } else {
             util.toast(res.data.message);
           }
@@ -188,6 +137,58 @@ inputMoney:function(e){
   },
 
 
+  wxPayUnifiedOrder: function (param) {        //点击付款/打赏，向微信服务器进行付款
+    //使用小程序发起微信支付
+    wx.requestPayment({
+      timeStamp: param.data.timeStamp,//记住，这边的timeStamp一定要是字符串类型的，不然会报错，我这边在java后端包装成了字符串类型了
+      nonceStr: param.data.nonceStr,
+      package: param.data.package,
+      signType: 'MD5',      //小程序发起微信支付，暂时只支持“MD5”
+      paySign: param.data.paySign,
+      success: function (event) {
+        wx.showToast({              //支付成功
+          title: '支付成功',
+          icon: 'success',
+          duration: 2000,
+          complete: function () {   //支付成功后发送模板消息
+            console.log("模板消息已发送");
+            return;
+            var templateMessageParam = new Object();
+            // 整理模板消息需要的参数
+            // 整理模板消息需要的参数
+            // 整理模板消息需要的参数
+            // 整理模板消息需要的参数
+            // 整理模板消息需要的参数
+            // 整理模板消息需要的参数
+            templateMessageParam.data = JSON.stringify(that.data.data);
+            //发送模板消息，如果失败了也不给用户提示
+            network.POST({
+              params: templateMessageParam,
+              requestUrl: requestUrl.sendTemplateMessageUrl,
+              success: function (res) {
+
+              },
+              fail: function (res) {
+
+              }
+            });
+          }
+        });
+      },
+      fail: function (error) {      //支付失败
+        console.log("支付失败");
+        console.log(error);
+        wx.showModal({
+          title: '提示',
+          content: '支付被取消.',
+          showCancel: false
+        });
+      },
+      complete: function () {       //不管支付成功或者失败之后都要处理的方法，类似与final
+        console.log("支付完成");
+      }
+    });
+  },
 
 
 
