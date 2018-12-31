@@ -61,7 +61,7 @@ Page({
         requestUrl: requestUrl.getLeagueTypeUrl,
         success: function (res) {
           if (res.data.code == 0) {
-            this.setData({
+            that.setData({
               list: res.data.data
             })
           } else {
@@ -78,19 +78,20 @@ Page({
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    // params.phone = this.data.inputPhone;
-    // params.name = userInfo.nickName;
-    // params.leagueTypeCode = this.data.list[this.data.chosseId].leagueTypeCode ;
-    // params.remark = this.data.list[this.data.chosseId].remark ;
+    params.phone = this.data.inputPhone;
+    params.name =this.data. userInfo.nickName;
+    params.leagueTypeCode = this.data.list[this.data.chosseId].leagueTypeCode ;
+    params.remark = this.data.list[this.data.chosseId].remark ;
     network.POST( 
       {
         params: params,
         requestUrl: requestUrl.addLeagueUrl,
         success: function (res) {
           if (res.data.code == 0) {
-            this.setData({
-              list: res.data.data
-            })
+            util.toast("已经收到您的加盟意愿");
+            setTimeout(function () {
+              wx.navigateBack({})
+            }, 2000);
           } else {
             util.toast(res.data.message);
           }

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 31,
+			"current": 32,
 			"list": [
 				{
 					"id": 0,
@@ -239,7 +239,13 @@
 				{
 					"id": -1,
 					"name": "新增收货地址",
-					"pathName": "pages/commonPage/addAddress/addAddress"
+					"pathName": "pages/commonPage/addAddress/addAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付界面",
+					"pathName": "pages/cardFile/payment/payment"
 				}
 			]
 		}

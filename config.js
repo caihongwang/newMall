@@ -96,6 +96,10 @@ var config = {
   getLeagueTypeUrl: `${host}/wxLeague/getLeagueTypeList.do`,   //获取加盟类型列表
   addLeagueUrl: `${host}/wxLeague/addLeague.do`,   //添加加盟商
 
+  // 调用支付接口
+  payTheBillInMiniUrl: `${host}/wxOrder/payTheBillInMiniProgram.do`,   //添加加盟商
+
+
   
 
 

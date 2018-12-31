@@ -12,15 +12,84 @@ Page({
     chooseWechat: true, //是否选中了微信支付
     payingBill: false,//是否选中了买单支付
     isAgreement: false,//是否同意协议
+    useIntegralFlag:false,//是否积分抵现
+    useBalanceFlag: false,//是否余额抵现
+
   },
   switchChange:function(e){
-    console.log('switch1 发生 change 事件，携带值为', e.detail.value)
+    this.setData({
+      useBalanceFlag: e.detail.value
+    })
+  },
+  switchChange1: function (e) {
+    this.setData({
+      useIntegralFlag: e.detail.value
+    })
+  },
+
+  weChatPay:function(){
+    this.setData({
+      chooseWechat:true,
+      payingBill:false,
+    })
+  },
+  selectLoan: function () {
+    this.setData({
+      chooseWechat: false,
+      payingBill: true,
+    })
+  },
+  
+inputMoney:function(){
+
+  },
+  interInput:function(){
+
+  },
+  balanceInput:function(){
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
 
+
+  
+  payTheBillInMiniUrl: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.payMoney = this.data.payMoney ;
+    params.shopId = this.data.shopId;
+    params.useBalanceFlag = this.data.useBalanceFlag;
+    params.useIntegralFlag = this.data.useIntegralFlag;
+    params.payIntegral = this.data, payIntegral;
+    params.payBalance = this.data.payBalance;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.payTheBillInMiniUrl,
+        success: function (res) {
+          if (res.data.code == 0) {
+         
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+  surePay:function(){
+   this. payTheBillInMiniUrl();
+  },
+
+  onLoad: function (options) {
+    this.setData({
+      shopId: options.shopId
+    })
   },
 
   /**

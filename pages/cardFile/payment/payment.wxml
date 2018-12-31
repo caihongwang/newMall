@@ -1,16 +1,16 @@
 <!--pages/cardFile/payment/payment.wxml-->
 <view class='warp'>
   <view class='pay-type'>
-    <view class="pay-warp flex1">
+    <view class="pay-warp flex1" bindtap='weChatPay'>
       <image class="pay-image"  src='/images/logo.png'></image>
       <view class='pay-text'>微信支付</view>
       <image class="image-choose"  src='/images/logo.png' wx:if="{{chooseWechat}}"></image>
       <image class="image-choose"  src='/images/home.png' wx:if="{{!chooseWechat}}"></image>
     </view>
-      <view class="pay-warp flex1">
+      <view class="pay-warp flex1" bindtap='selectLoan'>
       <image class="pay-image"  src='/images/logo.png'></image>
-      <view class='pay-text1'>买单币支付</view>
-      <view class='can-use'>可用买单币0.00个</view>
+      <view class='pay-text'>余额支付</view>
+      <!-- <view class='can-use'>可用买单币0.00个</view> -->
       <image class="image-choose"  src='/images/logo.png' wx:if="{{payingBill}}"></image>
       <image class="image-choose"  src='/images/home.png' wx:if="{{!payingBill}}"></image>
     </view>
@@ -19,14 +19,23 @@
   <view class='pay-money'>
    <view class="money-text">请输入你需要的付款金额</view>
    <view class='imput-warp'>
-    <input class='input-money'></input>
-    <view class="body-view flex">
+    <input class='input-money' bindinput='inputMoney' ></input>
+    <view class="body-view flex"  wx:if="{{chooseWechat}}">
         <switch  bindchange="switchChange" />
         <view class='arrive-case'>积分抵现</view>
         <view class='flex'>
-                <input class='case-input'></input>个
+                <input class='case-input' bindinput='interInput'></input>个
         </view>
         <view class='arrive-money'>0.00</view>
+    </view>
+
+        <view class="body-view flex" wx:if="{{payingBill}}">
+        <switch  bindchange="switchChange1" />
+        <view class='arrive-case'>余额抵现</view>
+        <view class='flex'>
+                <input class='case-input' bindinput='balanceInput'></input>个
+        </view>
+        <view class='arrive-money'>00</view>
     </view>
 
     <view class='express'>（使用积分抵扣后将不返还积分及余额，本次最多可使用付款金额的20%进行积分抵扣）</view>
@@ -42,4 +51,6 @@
          </navigator>
 
 </view>
+<button class='sure-pay' type='warn' bindtap='surePay'>确认支付</button>
 </view>
+
