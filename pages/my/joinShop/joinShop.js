@@ -43,7 +43,6 @@ Page({
       this.addLeague();
     }
   },
-
   inputValue:function(e){
     console.log(e.detail.value);
     this.setData({

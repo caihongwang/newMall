@@ -94,7 +94,7 @@ var config = {
 
   // 加盟
   getLeagueTypeUrl: `${host}/wxLeague/getLeagueTypeList.do`,   //获取加盟类型列表
-  addLeagueUrl: `${host}/wxLeague/addLeague.do`,   //t添加加盟商
+  addLeagueUrl: `${host}/wxLeague/addLeague.do`,   //添加加盟商
 
   
 

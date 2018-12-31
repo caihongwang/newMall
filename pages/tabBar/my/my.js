@@ -13,7 +13,7 @@ Page({
       {
         "id": "1",
         "name": "收货地址管理",
-        "page": "my/method/index",
+        "page": "commonPage/addressManage/addressManage",
         "image":'/images/logo.png'
       },
       {
