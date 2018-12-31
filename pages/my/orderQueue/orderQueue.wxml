@@ -1,7 +1,7 @@
 <!--pages/my/orderQueue/orderQueue.wxml-->
 <view class="flex1 warp-padding shop">
-    <image src="/images/home.png" class="shop-image"></image>
-    <view class="shop-name">唐人街烤羊腿</view>
+    <image src="{{shopMap.shopHeadImgUrl}}" class="shop-image"></image>
+    <view class="shop-name">{{shopMap.shopTitle}}</view>
 </view>
 
 <view class="shop-list">
@@ -23,7 +23,7 @@
         </view>
 
 
-        <view class="warp-padding  my-alignment">我的对列</view>
+        <view class="warp-padding  my-alignment">全部对列</view>
         <view class="list-warp flex fz-28" bindtap='goOrder' wx:for ="{{listLuck}}" wx:key="listLuck">
                 <view class="rank">{{item.rankIndex}}</view>
                 <image src="{{item.shopHeadImgUrl}}" class="logo-image"></image>

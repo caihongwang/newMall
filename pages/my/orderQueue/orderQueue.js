@@ -16,6 +16,7 @@ Page({
     howShops: 0,//共多少条列表数据
     listLuck:[],//全部对列
     myList:[], //我的对列
+    shopMap:{},
 
   },
 
@@ -38,8 +39,11 @@ Page({
         requestUrl: requestUrl.getAllLuckDrawUrl,
         success: function (res) {
           boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          console.log(res.data.data);
 
+
+          res.data.data.all_allGetLuckDrawRankList = JSON.parse(res.data.data.all_allGetLuckDrawRankList);
+          res.data.data.my_allGetLuckDrawRankList = JSON.parse(res.data.data.my_allGetLuckDrawRankList);
+          res.data.data.shopMap = JSON.parse(res.data.data.shopMap);
           if (res.data.code == 0) {
             for (var i in res.data.data.all_allGetLuckDrawRankList) {
               that.data.listLuck.push(res.data.data.all_allGetLuckDrawRankList[i]);
@@ -48,9 +52,10 @@ Page({
             that.setData({
               listLuck: that.data.listLuck,
               howShops: res.data.recordsFiltered,
-              myList: res.data.data.my_allGetLuckDrawRankList
+              myList: res.data.data.my_allGetLuckDrawRankList,
+              shopMap: res.data.data.shopMap
             })
-            console.log(this.data.myList);
+            
             that.data.havePageAll += res.data.data.length;
             if (that.data.havePageAll < res.data.recordsFiltered) {
               that.setData({

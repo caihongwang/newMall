@@ -6,9 +6,9 @@
 
 
 
-// var host = "https://www.91caihongwang.com/newMall"  //线上
+var host = "https://www.91caihongwang.com/newMall"  //线上
 
-var host = "http://192.168.43.196:8080/newMall" //宏旺
+// var host = "http://192.168.43.196:8080/newMall" //宏旺
 
 
 var config = {
