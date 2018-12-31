@@ -133,9 +133,10 @@ getShopList:function(boo){
 
   // 点击跳转商户详情
   goToDetail: function(e){
-    var shopInformation = encodeURIComponent(JSON.stringify(e.currentTarget.dataset.cardinfo));
+    let index = e.currentTarget.dataset.index;
+    let shopId = this.data.list[index].id;
       wx.navigateTo({
-        url: '../../cardFile/shopInformation/shopInformation?shopInformation=' + shopInformation
+        url: '../../cardFile/shopInformation/shopInformation?shopId=' + shopId
       });
     
   },

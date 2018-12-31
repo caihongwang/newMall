@@ -23,7 +23,7 @@
 <view class='no-list fz-28' wx:if="{{list.length  == 0}}">附近暂无商家</view>
 
 <view class='list'  wx:if="{{list.length != 0}}">
-  <view class='list-content flex2' wx:for="{{list}}" wx:key="list" data-cardinfo="{{item}}" hover-class="click-hover" hover="true" bindtap='goToDetail' >
+  <view class='list-content flex2' wx:for="{{list}}" wx:key="list" data-index="{{index}}" hover-class="click-hover" hover="true" bindtap='goToDetail' >
    <view class='image-warp' >
     <image src="{{item.shopHeadImgUrl}}" class='image-top'></image>
      <image src="{{item.shopDescribeImgUrl}}" class='list-image'></image>

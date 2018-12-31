@@ -10,11 +10,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopInformation: {},
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    shopInformation:{},
   },
  
 // 点击付款
@@ -46,28 +46,23 @@ Page({
   getShopCondition: function () {
     var that = this;
     var params = new Object();
-    params.shopId = '';
+    params.shopId = this.data.shopId;
     network.POST(
       {
         params: params,
         requestUrl: requestUrl.getShopByCondition,
         success: function (res) {
           console.log(res.data);
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
           if (res.data.code == 0) {
             console.log(res.data.data)
             that.setData({
-              list: res.data.data,
-              howShops: res.data.recordsFiltered
+              shopInformation: res.data.data,
             })
-
           } else {
-
+            util.toast(res.data.message);
           }
-
         },
         fail: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
           util.toast("网络异常, 请稍后再试");
         }
       });
@@ -79,12 +74,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var shopInformation = decodeURIComponent(options.shopInformation);
-    shopInformation = JSON.parse(shopInformation);
+    console.log(options);
       this.setData({
-        shopInformation: shopInformation,
+        shopId: options.shopId,
       })
-    console.log(shopInformation.wheelImages);
   },
 
   /**
@@ -98,7 +91,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getShopByCondition();
+    this.getShopCondition();
 
   },
 
