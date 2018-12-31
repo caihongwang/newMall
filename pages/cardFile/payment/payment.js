@@ -19,12 +19,12 @@ Page({
   },
   switchChange:function(e){
     this.setData({
-      useBalanceFlag: e.detail.value
+      useIntegralFlag: e.detail.value
     })
   },
   switchChange1: function (e) {
     this.setData({
-      useIntegralFlag: e.detail.value
+      useBalanceFlag: e.detail.value
     })
   },
 
