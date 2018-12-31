@@ -2,7 +2,7 @@
     <image class="userAvatarUrl" src="{{userInfo.avatarUrl}}"></image>
     <view class='userName fz-32 ls-24' >{{userInfo.nickName}}</view> 
 
-    <input class='input fz-32 ' placeholder='请输入手机号码' placeholder-style='place'></input>
+    <input class='input fz-32 ' placeholder='请输入手机号码' placeholder-style='place'  maxlength = '11'  bindinput	="inputValue"></input>
 
     <view class="choose">选择加盟意愿</view>
 
