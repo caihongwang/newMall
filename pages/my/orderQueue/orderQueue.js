@@ -54,7 +54,13 @@ Page({
               havePageAll: 0,
               pageindexAll: 10
             })
-            that.getAllLuckDrawl();
+            if(that.data.index == 0){
+              that.getAllLuckDraw(false);
+            }else if(that.data.index == 1){
+              that.getWaitLuckDraw(false)
+            }else{
+              that.getRecevicedLuckDraw(false)
+            }
           } else {
             util.toast(res.data.message);
           }
@@ -68,7 +74,7 @@ Page({
 
 
 
-  getAllLuckDrawl: function (boo) {
+  getAllLuckDraw: function (boo) {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -84,7 +90,7 @@ Page({
     network.POST(
       {
         params: params,
-        requestUrl: requestUrl.getAllLuckDrawUrl,
+        requestUrl: requestUrl.getAllLuckDrawRankUrl,
         success: function (res) {
           boo ? wx.stopPullDownRefresh() : wx.hideLoading();
           if (res.data.code == 0) {
@@ -94,7 +100,6 @@ Page({
             for (var i in res.data.data.all_allGetLuckDrawRankList) {
               that.data.listLuck.push(res.data.data.all_allGetLuckDrawRankList[i]);
             }
-            // console.log(res.data.data.my_allGetLuckDrawRankList);
             that.setData({
               listLuck: that.data.listLuck,
               howShops: res.data.recordsFiltered,
@@ -128,6 +133,127 @@ Page({
         }
       });
   },
+  getWaitLuckDraw: function (boo) {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.start = this.data.havePageAll;
+    params.size = this.data.pageindexAll;
+    params.shopId = this.data.shopId;
+    if (!boo) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      });
+    }
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getWaitLuckDrawRankUrl,
+        success: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          if (res.data.code == 0) {
+            
+            res.data.data.all_waitGetLuckDrawRankList = JSON.parse(res.data.data.all_waitGetLuckDrawRankList);
+            res.data.data.my_waitGetLuckDrawRankList = JSON.parse(res.data.data.my_waitGetLuckDrawRankList);
+            res.data.data.shopMap = JSON.parse(res.data.data.shopMap);
+            for (var i in res.data.data.all_waitGetLuckDrawRankList) {
+              that.data.listLuck.push(res.data.data.all_waitGetLuckDrawRankList[i]);
+            }
+            that.setData({
+              listLuck: that.data.listLuck,
+              howShops: res.data.recordsFiltered,
+              myList: res.data.data.my_waitGetLuckDrawRankList,
+              shopMap: res.data.data.shopMap
+            })
+
+            that.data.havePageAll += res.data.data.length;
+            if (that.data.havePageAll < res.data.recordsFiltered) {
+              that.setData({
+                isShowMore: true,
+                loading: false,
+                isNoShowMore: false,
+              })
+            } else {
+              that.setData({
+                isShowMore: false,
+                loading: false,
+                isNoShowMore: true,
+              })
+            }
+            console.log(that.data.listLuck);
+          } else {
+            util.toast(res.data.message);
+          }
+
+        },
+        fail: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+  getRecevicedLuckDraw: function (boo) {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.start = this.data.havePageAll;
+    params.size = this.data.pageindexAll;
+    params.shopId = this.data.shopId;
+    if (!boo) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      });
+    }
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getRecevicedLuckDrawRankUrl,
+        success: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          if (res.data.code == 0) {
+
+            res.data.data.all_recevicedGetLuckDrawRankList = JSON.parse(res.data.data.all_recevicedGetLuckDrawRankList);
+            res.data.data.my_recevicedGetLuckDrawRankList = JSON.parse(res.data.data.my_recevicedGetLuckDrawRankList);
+            res.data.data.shopMap = JSON.parse(res.data.data.shopMap);
+            for (var i in res.data.data.all_recevicedGetLuckDrawRankList) {
+              that.data.listLuck.push(res.data.data.all_recevicedGetLuckDrawRankList[i]);
+            }
+            that.setData({
+              listLuck: that.data.listLuck,
+              howShops: res.data.recordsFiltered,
+              myList: res.data.data.my_recevicedGetLuckDrawRankList,
+              shopMap: res.data.data.shopMap
+            })
+
+            that.data.havePageAll += res.data.data.length;
+            if (that.data.havePageAll < res.data.recordsFiltered) {
+              that.setData({
+                isShowMore: true,
+                loading: false,
+                isNoShowMore: false,
+              })
+            } else {
+              that.setData({
+                isShowMore: false,
+                loading: false,
+                isNoShowMore: true,
+              })
+            }
+            console.log(that.data.listLuck);
+          } else {
+            util.toast(res.data.message);
+          }
+
+        },
+        fail: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
   bindMore: function () {
     console.log(123123);
     if (this.data.pageindexAll < this.data.howShops) {
@@ -136,7 +262,13 @@ Page({
         isShowMore: false,
         isNoShowMore: false
       })
-      this.getAllLuckDrawl(false);
+      if (that.data.index == 0) {
+        that.getAllLuckDraw(false);
+      } else if (that.data.index == 1) {
+        that.getWaitLuckDraw(false)
+      } else {
+        that.getRecevicedLuckDraw(false)
+      }
     }
   },
   /**
@@ -145,9 +277,16 @@ Page({
   onLoad: function (options) {
     console.log(options);
     this.setData({
-      shopId: options.shopId
+      shopId: options.shopId,
+      index: options.index
     })
-    this.getAllLuckDrawl(false);
+    if (options.index == 0){
+      this.getAllLuckDraw(false);
+    } else if (options.index == 1){
+      this.getWaitLuckDraw(false);
+    }else{
+      this.getRecevicedLuckDraw(false)
+    }
 
   },
 

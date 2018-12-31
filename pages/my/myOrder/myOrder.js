@@ -58,8 +58,9 @@ Page({
     console.log(e);
     let index = e.currentTarget.dataset.index;
     let shopId = this.data.listLuck[index].shopId;
+    let chosseId = this.data.chosseId;
     wx.navigateTo({
-      url: '/pages/my/orderQueue/orderQueue?shopId=' + shopId,
+      url: '/pages/my/orderQueue/orderQueue?shopId=' + shopId + '&index=' + chosseId,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -151,7 +152,9 @@ Page({
               listLuck: res.data.data,
               howShops: res.data.recordsFiltered
             })
-            that.data.havePageAll += res.data.data.length;
+            if (res.data.data){
+              that.data.havePageAll += res.data.data.length;
+            }
             if (that.data.havePageAll < res.data.recordsFiltered) {
               that.setData({
                 isShowMore: true,
