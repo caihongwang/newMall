@@ -38,6 +38,7 @@ Page({
       }
     ],
     userInfo: {},
+    balance: 0 ,//余额 0
 
   }, 
 

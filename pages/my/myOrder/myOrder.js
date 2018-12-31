@@ -54,9 +54,12 @@ Page({
 
   },
 // 点击某一项跳转
-  goOrder:function(){
+  goOrder:function(e){
+    console.log(e);
+    let index = e.currentTarget.dataset.index;
+    let shopId = this.data.listLuck[index].shopId;
     wx.navigateTo({
-      url: '/pages/my/orderQueue/orderQueue',
+      url: '/pages/my/orderQueue/orderQueue?shopId=' + shopId,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

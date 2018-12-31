@@ -4,7 +4,6 @@ var util = require('../../../utils/util.js');
 var requestUrl = require('../../../config.js');
 var app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */

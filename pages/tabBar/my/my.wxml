@@ -17,7 +17,7 @@
   
 <view class='balance flex fz-28 '>
    <view class='balance-text '>我的余额：</view>
-   <view class="balance-money">￥0.00</view>
+   <view class="balance-money">￥{{balance}}</view>
   <view class="receive" bindtap='receive'>领取</view>
     <view class="balance-e">余额</view>
 </view>
