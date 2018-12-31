@@ -52,8 +52,8 @@ getShopList:function(boo){
   var params = new Object();
   params.uid = wx.getStorageSync("UIDKEY");
   params.shopStatus = 1;
-  params.currentLon = app.globalData.latitude ;
-  params.currentLat = app.globalData.longitude;
+  params.currentLon = app.globalData.longitude; 
+  params.currentLat = app.globalData.latitude;
   params.dis = 1000;
   params.start = this.data.havePageAll;
   params.size = this.data.pageindexAll;

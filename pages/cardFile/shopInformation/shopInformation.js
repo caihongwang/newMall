@@ -29,17 +29,32 @@ Page({
   },
   // 调用打开腾讯地图
   goMap: function(){
-    wx.getLocation({//获取当前经纬度
-      type: 'wgs84', //返回可以用于wx.openLocation的经纬度，官方提示bug: iOS 6.3.30 type 参数不生效，只会返回 wgs84 类型的坐标信息  
-      success: function (res) {
-        wx.openLocation({//​使用微信内置地图查看位置。
-          latitude: 22.5542080000,//要去的纬度-地址
-          longitude: 113.8878770000,//要去的经度-地址
-          name: "宝安中心A地铁口",
-          address: '宝安中心A地铁口'
-        })
-      }
+    let that = this;
+    console.log(typeof that.data.shopInformation.shopLat);
+    console.log(typeof parseFloat(that.data.shopInformation.shopLat));
+    console.log(123123);
+    wx.openLocation({
+      latitude: parseFloat(that.data.shopInformation.shopLat),
+      longitude: parseFloat(that.data.shopInformation.shopLon),
+      name: that.data.shopInformation.shopTitle,
+     address: that.data.shopInformation.shopAddress,
     })
+
+
+        // wx.openLocation({     
+        //   latitude:  parseFloat(that.data.shopInformation.shopLat),
+        //   longitude: parseFloat(that.data.shopInformation.shopLon) ,
+        //   name: that.data.shopInformation.shopAddress,
+        //   address: that.data.shopInformation.shopAddress,
+        //   scale: 18,
+        //   success:function(res){
+        //     console.log(res);
+        //   },
+        //   fail:function(res){
+        //     console.log(res);
+
+        //   }
+        // })
   },
 
 
@@ -52,12 +67,14 @@ Page({
         params: params,
         requestUrl: requestUrl.getShopByCondition,
         success: function (res) {
-          console.log(res.data);
           if (res.data.code == 0) {
-            console.log(res.data.data)
+           
+            res.data.data.shopDescribeImgUrl = JSON.parse(res.data.data[0].shopDescribeImgUrl);
             that.setData({
-              shopInformation: res.data.data,
+              shopInformation: res.data.data[0],
+              shopDescribeImgUrl: res.data.data.shopDescribeImgUrl
             })
+            console.log(that.data.shopInformation);
           } else {
             util.toast(res.data.message);
           }

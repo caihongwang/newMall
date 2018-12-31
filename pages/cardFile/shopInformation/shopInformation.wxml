@@ -7,29 +7,30 @@
   duration="{{duration}}"
   circular="{{true}}"
   class='swiper'
-  wx:if="{{shopInformation.shopInformation[0]}}"
+  wx:if="{{shopInformation.shopDescribeImgUrl[0]}}"
 >
-  <block wx:for="{{shopInformation.wheelImages}}">
-    <swiper-item>
+   <block wx:for="{{shopDescribeImgUrl}}" wx:key="iamge" >
+    <swiper-item >
       <image src="{{item}}" class="slide-image" />
     </swiper-item>
-  </block>
+  </block> 
+  
 </swiper>
 
  <view class='list-content flex2' >
    <view class='image-warp' >
-    <image src="{{shopInformation.images}}" class='image-top'></image>
-     <image src="{{shopInformation.imagesHead}}" class='list-image'></image>
+    <image src="{{shopInformation.shopHeadImgUrl}}" class='image-top'></image>
+     <image src="{{shopInformation.shopHeadImgUrl}}" class='list-image'></image>
    </view>
    <view>
-    <view class='list-name'>{{shopInformation.name}}</view>
+    <view class='list-name'>{{shopInformation.shopTitle}}</view>
     <view class='hot flex2'>
-     <view class='hot-left flex1'>
-       <image src='/images/home.png' class='hot-image'></image>
-       <text class='how-hot'>热度{{shopInformation.hot}}</text>
-     </view>
+     <!-- <view class='hot-left flex1'> -->
+       <!-- <image src='/images/home.png' class='hot-image'></image> -->
+       <!-- <text class='how-hot'>热度{{shopInformation. }}</text> -->
+     <!-- </view> -->
       <view class='flex1 hot-right' >
-      距离： {{shopInformation.distance}}
+      距离： {{shopInformation.shopDistance}}
      </view>
      <image src='/images/logo.png' class='phone'></image>
       
@@ -49,7 +50,7 @@
 
 <view class='address-warp flex'>
 <view class='address'>
-店铺地址: <text class='addrss-text'>2222222222hhhhhhhhcfdddddddddddddddddddddddddddddddddddddddddd2</text>
+店铺地址: <text class='addrss-text'>{{shopInformation.shopAddress}}</text>
 </view>
 <image class="icon-address"src='/images/logo.png' bindtap='goMap'></image>
 </view>
