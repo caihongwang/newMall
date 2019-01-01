@@ -33,7 +33,7 @@ Page({
       this.setData({
         chooseWechat: true,
         payingBill: false,
-        integralInput:false,
+        useIntegralFlag:false,
         useBalanceFlag:false
       })
     }
@@ -45,7 +45,7 @@ Page({
       this.setData({
         chooseWechat: false,
         payingBill: true,
-        integralInput: false,
+        useIntegralFlag: false,
         useBalanceFlag: false
       })
     }
