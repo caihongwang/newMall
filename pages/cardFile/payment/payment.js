@@ -29,16 +29,29 @@ Page({
   },
 
   weChatPay:function(){
-    this.setData({
-      chooseWechat:true,
-      payingBill:false,
-    })
+    if (!this.data.chooseWechat){
+      this.setData({
+        chooseWechat: true,
+        payingBill: false,
+        integralInput:false,
+        useBalanceFlag:false
+      })
+    }
+
+ 
   },
   selectLoan: function () {
-    this.setData({
-      chooseWechat: false,
-      payingBill: true,
-    })
+    if (!this.data.payingBill) {
+      this.setData({
+        chooseWechat: false,
+        payingBill: true,
+        integralInput: false,
+        useBalanceFlag: false
+      })
+    }
+   
+
+    
   },
 
 inputMoney:function(e){

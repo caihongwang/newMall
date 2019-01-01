@@ -21,7 +21,7 @@
    <view class='imput-warp'>
     <input class='input-money' bindinput='inputMoney'   value="{{payMoney}}"  type="number" ></input>
     <view class="body-view flex"  wx:if="{{chooseWechat}}">
-        <switch  bindchange="switchChange" />
+        <switch  bindchange="switchChange"  checked	="{{useIntegralFlag}}" />
         <view class='arrive-case'>积分抵现</view>
         <view class='flex'>
                 <input class='case-input' bindinput='interInput' value="{{integralInput}}"  type="number"></input>个
@@ -30,7 +30,7 @@
     </view>
 
         <view class="body-view flex" wx:if="{{payingBill}}">
-        <switch  bindchange="switchChange1" />
+        <switch  bindchange="switchChange1" checked	="{{useBalanceFlag}}"  />
         <view class='arrive-case'>余额抵现</view>
         <view class='flex'>
                 <input class='case-input' bindinput='balanceInput'  value="{{payBalance}}" type="number"></input>个
