@@ -11,6 +11,31 @@ Page({
 
   },
 
+  getSimpleCash: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'cashFee';
+
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getSimpleCashUrl,
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({
+              cashFeeList: res.data.data
+            })
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -29,6 +54,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getSimpleCash();
 
   },
 

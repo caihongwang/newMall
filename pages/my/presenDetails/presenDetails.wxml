@@ -1,2 +1,9 @@
 <!--pages/my/presenDetails/presenDetails.wxml-->
-<text>pages/my/presenDetails/presenDetails.wxml</text>
+<view class='flex warp-List'>
+ <view>
+  <view></view>
+ </view>
+
+<view></view>
+</view>
+<view>没有更多了</view>

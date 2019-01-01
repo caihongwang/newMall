@@ -8,7 +8,7 @@
   width: 100%;
   height: 300rpx;
   text-align: center;
-  background: blue;
+  background: #1E90FF;
   padding: 24rpx;
    color: #fff;
    box-sizing: border-box;
@@ -31,14 +31,14 @@
 }
 .userInfo{
   width: 200rpx;
-  border: 1rpx solid #fff;
+  border: 1px solid #fff;
   padding: 10rpx  20rpx;
   border-radius: 20rpx;
   text-align: center;
 }
 .setting-warp{
     width: 200rpx;
-  border: 1rpx solid #fff;
+  border: 1px solid #fff;
   padding: 10rpx  20rpx;
   border-radius: 20rpx;
   text-align: center;

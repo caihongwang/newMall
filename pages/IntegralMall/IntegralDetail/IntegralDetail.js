@@ -112,11 +112,42 @@ Page({
           url: '/pages/commonPage/placeOrder/placeOrder?orderInfo=' + orderInfo,
         })
   },
+
+// 获取详情
+  getInteralDetail: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.shopId= this.data.shopId;
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getUserBaseInfoUrl, //还没加这个接口
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({
+              balance: res.data.data.balance,
+              integral: res.data.data.integral,
+            })
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options.id)
+    this.setData({
+      shopId: options.shopId
+    })
   },
 
   /**
@@ -130,6 +161,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getInteralDetail();
 
   },
 

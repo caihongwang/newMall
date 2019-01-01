@@ -1,2 +1,8 @@
 /* pages/my/presenDetails/presenDetails.wxss */
 @import "../../../app.wxss";
+page{
+  background: #f8f8f8 !important;
+}
+.warp-List{
+   padding: 24rpx 48rpx;
+}

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 32,
+			"current": 33,
 			"list": [
 				{
 					"id": 0,
@@ -245,7 +245,13 @@
 				{
 					"id": -1,
 					"name": "支付界面",
-					"pathName": "pages/cardFile/payment/payment"
+					"pathName": "pages/cardFile/payment/payment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现明细",
+					"pathName": "pages/my/presenDetails/presenDetails"
 				}
 			]
 		}

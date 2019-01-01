@@ -16,7 +16,59 @@ Page({
   },
   // 点击提现
   buttonCash:function(){
+   this. cashBalance();
+  },
 
+  cashBalance: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'cashFee';
+
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.cashBalanceUrl,
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({
+              cashFeeList: res.data.data
+            })
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+
+
+
+  getCashFeeList: function () {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'cashFee';
+
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getCashFeeListUrl,
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({
+              cashFeeList:res.data.data
+            })
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
   },
   /**
    * 生命周期函数--监听页面加载

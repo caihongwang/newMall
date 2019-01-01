@@ -131,7 +131,7 @@ Page({
   goDetail:function(e){
     var id = e.currentTarget.dataset.index;
     wx.navigateTo({
-      url: '../../IntegralMall/IntegralDetail/IntegralDetail?id=' + id
+      url: '../../IntegralMall/IntegralDetail/IntegralDetail?shopId=' + id
     })
 
   },

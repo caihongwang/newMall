@@ -66,6 +66,7 @@ var config = {
   // 登录机制
   wxAppLoginUrl: `${host}/wxUser/login.do`,   //检测登录
   checkSession: `${host}/wxUser/checkSession.do`,   //检测session是否过期
+  getUserBaseInfoUrl: `${host}/wxUser/getUserBaseInfo.do`,   //获取积分等数据
 
   // 商城积分
   getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城类型列表
@@ -97,13 +98,16 @@ var config = {
   addLeagueUrl: `${host}/wxLeague/addLeague.do`,   //添加加盟商
 
   // 调用支付接口
-  payTheBillInMiniUrl: `${host}/wxOrder/payTheBillInMiniProgram.do`,   //添加加盟商
-  getUserBaseInfoUrl: `${host}/wxUser/getUserBaseInfo.do`,   //获取积分等数据
-
-  
+  payTheBillInMiniUrl: `${host}/wxOrder/payTheBillInMiniProgram.do`,   //调用支付接口
+  purchaseProductUrl: `${host}/wxOrder/purchaseProductInMiniProgram.do`,   //获取积分等数据
 
 
-  
+
+
+  //提现
+  getCashFeeListUrl: `${host}/wxCashLog/getCashFeeList.do`,   //获取提现规则列表
+  getSimpleCashUrl: `${host}/wxCashLog/getSimpleCashLogByCondition.do`,   //获取当前用户的提现列表
+  cashBalanceUrl: `${host}/wxCashLog/cashBalanceToWx.do`,   //提现至微信零钱
 
 }
 module.exports = config
