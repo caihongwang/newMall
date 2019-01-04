@@ -1,15 +1,15 @@
 <!--pages/my/personalCash/personalCash.wxml-->
 <view class='cash'>
    <view class='cash-tex fz-28'>提现金额</view>
-   <view class='input-warp flex1'> 
-   <view>   ￥</view>
-   <input class='input' placeholder='请输入提现金额' placeholder-style="input-place"></input>
-   </view>
+      <view class='input-warp flex1'> 
+        <view>   ￥</view>
+        <input class='input' placeholder='请输入提现金额' placeholder-style="input-place"  value='{{cashMoney}}'  bindinput="inputCash"></input>
+      </view>
 </view>
 
 <view class='now-cash flex fz-28'>
   <view class='now-left'>
-   当前可提现金额：<text>￥1000</text>
+   当前可提现金额：<text>￥{{canCashMoney}}</text>
   </view>
   <view class='now-right' bindtap='allGet'>全部提现</view>
 </view>

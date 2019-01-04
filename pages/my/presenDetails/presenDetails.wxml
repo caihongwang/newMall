@@ -1,9 +1,10 @@
 <!--pages/my/presenDetails/presenDetails.wxml-->
-<view class='flex warp-List'>
- <view>
-  <view></view>
+<view class='flex warp-List' wx:for="{{cashFeeList}}">
+ <view class='left'>
+  <view>{{item.item}}</view>
+  <view>{{item.updateTime}}</view>
  </view>
 
-<view></view>
+<view class='right'>{{item.cashToWxMoney}}</view>
 </view>
-<view>没有更多了</view>
+<view class="money">没有更多了</view>
