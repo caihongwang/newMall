@@ -558,7 +558,8 @@
 								},
 								{
 									"key": "dicType",
-									"value": "category"
+									"value": "category",
+									"description": "不填，默认参数是category"
 								}
 							]
 						},
@@ -1366,7 +1367,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://www.91caihongwang.com/newMall/wxShop/getSimpleShopByCondition.do?uid=2&shopStatus=1&currentLon=116.40717&currentLat=39.90469&dis=1000&start=0&size=10",
+							"raw": "https://www.91caihongwang.com/newMall/wxShop/getSimpleShopByCondition.do?uid=2&shopStatus=1&currentLon=116.40717&currentLat=39.90469&dis=1000&start=0&size=10&orderSortType=shopDistance",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -1413,6 +1414,11 @@
 									"key": "size",
 									"value": "10",
 									"description": "展示总条数"
+								},
+								{
+									"key": "orderSortType",
+									"value": "shopDistance",
+									"description": "排序方式"
 								}
 							]
 						},
@@ -1430,7 +1436,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://www.91caihongwang.com/newMall/wxShop/getShopByCondition.do?uid=2&currentLon=100&currentLat=120&shopId=2",
+							"raw": "https://www.91caihongwang.com/newMall/wxShop/getShopByCondition.do?uid=2&currentLon=100&currentLat=120&orderSortType=shopOrderAmount",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -1461,7 +1467,13 @@
 								{
 									"key": "shopId",
 									"value": "2",
-									"description": "店铺ID"
+									"description": "店铺ID",
+									"disabled": true
+								},
+								{
+									"key": "orderSortType",
+									"value": "shopOrderAmount",
+									"description": "排序方式"
 								}
 							]
 						},
@@ -1503,6 +1515,44 @@
 							]
 						},
 						"description": "获取商家小程序码"
+					},
+					"response": []
+				},
+				{
+					"name": "获取订单排序类型",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxShop/getOrderSortTypeList.do?uid=2&dicType=orderSortType",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxShop",
+								"getOrderSortTypeList.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "dicType",
+									"value": "orderSortType",
+									"description": "不填，默认参数是orderSortType"
+								}
+							]
+						},
+						"description": "获取订单排序类型"
 					},
 					"response": []
 				}
@@ -2036,6 +2086,44 @@
 							]
 						},
 						"description": "检测登录会话"
+					},
+					"response": []
+				},
+				{
+					"name": "设置用户余额是否自动提现",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxUser/checkUserAutoCashBalance.do?uid=2&autoCashToWxFlag=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxUser",
+								"checkUserAutoCashBalance.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "2"
+								},
+								{
+									"key": "autoCashToWxFlag",
+									"value": "1",
+									"description": "0是关闭，1是开启"
+								}
+							]
+						},
+						"description": "设置用户余额是否自动提现"
 					},
 					"response": []
 				}
