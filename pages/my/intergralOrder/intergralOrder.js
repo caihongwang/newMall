@@ -231,9 +231,8 @@ Page({
 
   onLoad: function (options) {
     this.setData({
-      chosseId: options.index;
+      chosseId: options.index
     })
-
   },
 
   /**
