@@ -105,9 +105,15 @@ var config = {
 
 
   //提现
-  getCashFeeListUrl: `${host}/wxCashLog/getCashFeeList.do`,   //获取提现规则列表
+  getCashFeeListUrl: `${host}/wxCashLog/getCashFeeList.do`,   //获取提现规则列表  暂时没调用
   getSimpleCashUrl: `${host}/wxCashLog/getSimpleCashLogByCondition.do`,   //获取当前用户的提现列表
-  cashBalanceUrl: `${host}/wxCashLog/cashBalanceToWx.do`,   //提现至微信零钱
+  cashBalanceUrl: `${host}/wxCashLog/cashBalanceToWx.do`,   //提现至微信零钱  
+
+// 订单管理接口
+  getWaitPayGoodsUrl: `${host}/newMall/getWaitPayGoodsOrder.do`,   //待支付
+  getAlreadyPayGoodsUrl: `${host}/newMall/  getAlreadyPayGoodsOrder.do`,   //已支付
+  getAlreadyDeliverGoodsUrl: `${host}/newMall/getAlreadyDeliverGoodsOrder.do`,   //已支付
+
 
 }
 module.exports = config

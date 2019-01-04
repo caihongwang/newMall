@@ -8,11 +8,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    cashMoney: '',//提现金额
+    canCashMoney: 0,//可提现金额
+  },
+  //  输入提现金额
+  inputCash:function(e){
+    console.log(e.detail.value);
+    if (this.data.canCashMoney <= e.detail.value ){
+      this.setData({
+        cashMoney: this.data.canCashMoney
+      })
+    }else{
+      this.setData({
+        cashMoney: e.detail.value
+      })
+    }
   },
 // 点击全部提现
   allGet:function(){
-
+    this.setData({
+      cashMoney: this.data.canCashMoney
+    });
   },
   // 点击提现
   buttonCash:function(){
@@ -23,7 +39,7 @@ Page({
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    params.dicType = 'cashFee';
+    params.cashToWxMoney = this.data.cashMoney;
 
     network.POST(
       {

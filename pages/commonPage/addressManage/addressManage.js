@@ -68,11 +68,6 @@ Page({
 
 
 
-
-
-
-
-
 // 选择地址列表
   filter: function (e) {
     var index = e.currentTarget.dataset.index;
