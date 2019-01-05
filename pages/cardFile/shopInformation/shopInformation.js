@@ -63,6 +63,8 @@ Page({
     var that = this;
     var params = new Object();
     params.shopId = this.data.shopId;
+    params.currentLon = app.globalData.longitude;
+    params.currentLat = app.globalData.latitude;
     network.POST(
       {
         params: params,

@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/tabBar/shopList/shopList",
     "pages/tabBar/index/index",
-    "pages/tabBar/cardFile/cardFile",
     "pages/tabBar/my/my",
     "pages/shareOpen/index",
     "pages/activity/index",
@@ -29,7 +29,7 @@
       },
       {
         "text": "附近商家",
-        "pagePath": "pages/tabBar/cardFile/cardFile",
+        "pagePath": "pages/tabBar/shopList/shopList",
         "iconPath": "images/cardfolder.png",
         "selectedIconPath": "images/cardfolder_hl.png"
       },

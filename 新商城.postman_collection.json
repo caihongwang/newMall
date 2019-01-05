@@ -1293,7 +1293,7 @@
 					]
 				},
 				{
-					"name": "抽奖即添加抽奖信息",
+					"name": "点击【抽奖】即添加抽奖信息",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1302,7 +1302,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/addLuckDraw.do?uid=2&wxOrderId=fd0fe3e433114da19b2c3c6f28f95d8e",
+							"raw": "https://www.91caihongwang.com/newMall/wxLuckDraw/getLuckDraw.do?uid=2&wxOrderId=fd0fe3e433114da19b2c3c6f28f95d8e",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -1312,7 +1312,7 @@
 							"path": [
 								"newMall",
 								"wxLuckDraw",
-								"addLuckDraw.do"
+								"getLuckDraw.do"
 							],
 							"query": [
 								{
@@ -1325,7 +1325,7 @@
 								}
 							]
 						},
-						"description": "抽奖即添加抽奖信息"
+						"description": "点击【抽奖】即添加抽奖信息"
 					},
 					"response": []
 				}
