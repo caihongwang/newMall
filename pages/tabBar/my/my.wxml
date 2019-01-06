@@ -1,10 +1,10 @@
 <page>
   <!-- 个人信息 -->
-  <view class='header flex'>
-    <image class="userAvatarUrl" src="{{wxUserInfo.avatarUrl}}"></image>
-    <view class='user'>
-      <view class='userName fz-32 ls-24'>{{wxUserInfo.nickName}}</view>
-      <view class="userInfo fz-28">个人用户</view>
+  <view class='userView flex'>
+    <image class="userAvatarUrlView" src="{{userBaseInfo.avatarUrl}}"></image>
+    <view class='userInfoVIew'>
+      <view class='userName fz-32'>{{userBaseInfo.nickName}}</view>
+      <view class="userType">{{userBaseInfo.userType}}</view>
     </view>
     <view class="settingView">
       <image class="settingImg" src="/images/setting.png"></image>
@@ -17,16 +17,16 @@
   <!-- 我的余额 -->
   <view class='balance fz-28 '>
     <view class='balanceTextAndMonneyView'>
-        <view class='balance-text '>我的余额</view>
-        <view class="balance-money">￥ {{userBaseInfo.balance}} 元</view>
+      <view class='balance-text '>我的余额</view>
+      <view class="balance-money">￥ {{userBaseInfo.balance}} 元</view>
     </view>
     <view class='cashedToWxView'>
-        <view class="cashedToWx" bindtap='receive'>提现</view>
+      <view class="cashedToWx" bindtap='receive'>提现</view>
     </view>
   </view>
   <!-- 我的属性: 等待奖励  奖励列表 我的积分 我的余额 -->
   <view class='myAttribute'>
-  <!-- 等待奖励  奖励列表 -->
+    <!-- 等待奖励  奖励列表 -->
     <view class='theTwoAttributeVIew'>
       <view class='theAttributeVIew' bindtap='waitWard' style="border-right: 1rpx solid #e2e2e2;">
         <image class='theAttributeImg' src='/images/waitLuckDraw.png'></image>
@@ -75,7 +75,7 @@
   </view>
   <!-- 加盟 -->
   <view class='navigator fz-28'>
-    <view class='haveJoinLeague'>已参与人次 
+    <view class='haveJoinLeague'>已参与人次
       <text class="leaguePhone">{{userBaseInfo.allLeagueTotal}} 人</text>
     </view>
     <view class="joinLeague" bindtap="myJoin">我要加盟</view>
