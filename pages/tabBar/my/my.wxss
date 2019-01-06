@@ -1,163 +1,235 @@
 @import "../../../app.wxss";
+@import "../../common/index.wxss";
 
- @import "../../common/index.wxss"; 
- page{
-   background: #f8f8f8 !important;
- }
-.header{
+page {
+  background: #f8f8f8 !important;
+}
+
+/* 个人信息 */
+
+.header {
   width: 100%;
   height: 300rpx;
   text-align: center;
-  background: #1E90FF;
+  background: #1e90ff;
   padding: 24rpx;
-   color: #fff;
-   box-sizing: border-box;
+  color: #fff;
+  box-sizing: border-box;
 }
-.table {
-  margin-top: 40rpx;
-  background-color: #fff;
-}
-.userAvatarUrl{
+
+.userAvatarUrl {
   width: 140rpx;
   height: 140rpx;
   border-radius: 50% 50%;
 }
-.userName{
-  font-family: PingFang-SC-Bold;
-}
-.user{
+
+.user {
   width: 400rpx;
   text-align: left;
 }
-.userInfo{
+
+.userName {
+  font-family: PingFang-SC-Bold;
+}
+
+.userInfo {
   width: 200rpx;
   border: 1px solid #fff;
-  padding: 10rpx  20rpx;
+  padding: 10rpx 20rpx;
   border-radius: 20rpx;
   text-align: center;
 }
-.setting-warp{
-    width: 200rpx;
+
+.setting-warp {
+  width: 200rpx;
   border: 1px solid #fff;
-  padding: 10rpx  20rpx;
+  padding: 10rpx 20rpx;
   border-radius: 20rpx;
   text-align: center;
 }
-.setting{
+
+.setting {
   width: 40rpx;
   height: 40rpx;
 }
-.setting-right{
+
+.setting-right {
   width: 20rpx;
   height: 20rpx;
 }
-.setting-banner{
+
+/* banner */
+
+.setting-banner {
   width: 100%;
   height: 300rpx;
 }
-.balance{
-  width: 702rpx;
-  height: 100rpx;
-  padding: 24rpx;
-  background: #fff;
-}
-.balance-money{
-  color: #FF4C4B;
-  width: 240rpx;
-}
-.receive{
-  color: #FF4C4B;
-  padding: 10rpx 40rpx;
-  border: 1px solid #FF4C4B;
-  border-radius: 12rpx;
-}
-.balance-e{
-  color: #e2e2e2;
-  padding: 10rpx 40rpx;
-  border: 1px solid #e2e2e2;
-  border-radius: 12rpx;
-}
-.integral-list{
-  margin-top: 40rpx;
-  background: #fff;
-}
-.list-top{
+
+/* 我的余额 */
+
+.balance {
   width: 100%;
-  height: 200rpx;
+  height: 100rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
+.balanceTextAndMonneyView {
+  border: 0rpx red solid;
+  width: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
+.balance-text {
+  color: #000;
+}
+
+.balance-money {
+  color: #ff4c4b;
+  margin-left: 15rpx;
+}
+
+.cashedToWxView {
+  border: 0rpx red solid;
+  width: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
+.cashedToWx {
+  color: #1afa29;
+  padding: 10rpx 40rpx;
+  border: 1px solid #1afa29;
+  border-radius: 12rpx;
+}
+
+/* 我的属性: 等待奖励  奖励列表 我的积分 我的余额 */
+
+.myAttribute {
+  margin-top: 20rpx;
+  background: #fff;
+  border-bottom: 8rpx solid #e2e2e2;
+}
+
+.theTwoAttributeVIew {
+  border: 0rpx red solid;
+  width: 100%;
+  height: 150rpx;
   border-bottom: 1px solid #e2e2e2;
-  box-sizing: border-box;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
 }
-.top-left{
-  width: 374rpx;
-  padding: 24rpx;
 
-}
-.top-line{
-  width: 2rpx;
+.theAttributeVIew {
+  border: 0rpx red solid;
+  width: 50%;
   height: 100%;
-  background: #e2e2e2;
-
+  margin-left: 8%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中**/
 }
-.top-icon{
+
+.theAttributeImg {
   width: 80rpx;
   height: 80rpx;
 }
-.wite-warp{
+
+.allTheTxt {
+  border: 0px red solid;
   margin-left: 24rpx;
 }
-.wite-how{
+
+.theTxt {
+  color: #080808;
+  margin-top: 7rpx;
+}
+
+.wite-theTxt {
   color: #e2e2e2;
-  margin-top:  12rpx;
-}
-.list-bottom{
-  border: none;
+  margin-top: 10rpx;
 }
 
+/* 我的列表：提现明细 收货地址 积分订单 投诉/加盟电话 */
 
-.table {
-  margin-top: 40rpx;
+.myLists {
+  margin-top: 20rpx;
   background-color: #fff;
 }
-.navigator{
-  margin-top: 24rpx;
+
+.navigator {
+  border: 0px red solid;
+  position: relative;
+  height: 50rpx;
+  width: 100%;
+  margin-top: 2rpx;
   background: #fff;
 }
-.phone{
-  color: #FF4C4B;
+
+.navigator-img {
+  width: 50rpx;
+  height: 50rpx;
 }
-.have-join{
-  flex: 1
+
+.navigator-txt {
+  border: 0px red solid;
+  width: 81%;
+  margin-left: 12rpx;
 }
-.join{
+
+.navigator-theArrow {
+  border: 0px red solid;
+  margin-right: 10rpx;
+}
+
+.navigator-theArrow:after {
+  content: '\e64a';
+  font-family: 'iconfont';
+  font-size: 46rpx;
+  color: #b2b2b2;
+}
+
+/* 加盟 */
+
+.haveJoinLeague {
+  border: 0px red solid;
+  width: 73%;
+}
+
+.leaguePhone {
+  color: #ff4c4b;
+}
+
+.joinLeague {
+  border: 1px red solid;
   padding: 10rpx 20rpx;
   color: #fff;
-  background: #FF4C4B;
+  background: #ff4c4b;
   border-radius: 10rpx;
 }
-.tips{
-   padding: 24rpx;
-   margin-top: 20rpx;
-}
-.expree{
+
+/* 提示 */
+
+.tips {
   width: 100%;
-  height: 20x0rpx;
-  margin-top: 20rpx;
-}
-.express-warp{
-  position: relative;
-  left: 0;
-  top: 0;
-}
-.express{
-  position: absolute;
-  left: 0;
-  top: 20rpx;
-}
-.express-top{
-  width: 100%;
+  color: rgb(163, 158, 158);
+  padding: 15rpx;
+  margin-top: 10rpx;
   text-align: center;
 }
-.express-top1{
-  padding: 0 48rpx;
-  color: #fff;
+
+/* 公司名称 */
+
+.theCompany {
+  width: 100%;
+  color: rgb(163, 158, 158);
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
 }

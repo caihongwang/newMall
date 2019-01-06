@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/tabBar/my/my",
     "pages/tabBar/shopList/shopList",
     "pages/tabBar/index/index",
-    "pages/tabBar/my/my",
     "pages/shareOpen/index",
     "pages/activity/index",
     "pages/component/tabbar/tabbar",

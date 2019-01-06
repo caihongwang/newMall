@@ -1,97 +1,88 @@
 <page>
+  <!-- 个人信息 -->
   <view class='header flex'>
-    <image class="userAvatarUrl" src="{{userInfo.avatarUrl}}"></image>
+    <image class="userAvatarUrl" src="{{wxUserInfo.avatarUrl}}"></image>
     <view class='user'>
-         <view class='userName fz-32 ls-24' >{{userInfo.nickName}}</view> 
-       <view class="userInfo fz-28">个人用户</view>
+      <view class='userName fz-32 ls-24'>{{wxUserInfo.nickName}}</view>
+      <view class="userInfo fz-28">个人用户</view>
     </view>
 
-    <view class="setting-warp flex" >
-       <image class="setting"  src="/images/logo.png"></image>
-       <view  class="setting-text" bindtap='personalSetting' >设置</view>
-        <image class="setting-right"  src="/images/logo.png"></image>
+    <view class="setting-warp flex">
+      <image class="setting" src="/images/logo.png"></image>
+      <view class="setting-text" bindtap='personalSetting'>设置</view>
+      <image class="setting-right" src="/images/logo.png"></image>
     </view>
   </view>
-
-<image class='setting-banner' src="/images/home.png"></image>
-  
-<view class='balance flex fz-28 '>
-   <view class='balance-text '>我的余额：</view>
-   <view class="balance-money">￥{{balance}}</view>
-  <view class="receive" bindtap='receive'>领取</view>
-    <view class="balance-e">余额</view>
-</view>
-
-<view class='integral-list'>
- <view class='flex list-top'>  
- <view class='top-left flex1' bindtap='waitWard' >
-    <image class='top-icon' src='/images/home.png'></image>
-     <view class='wite-warp'>
-        <view class='wite fz-32'>等待奖励</view>
-         <view class='wite-how fz-28 '>共0单</view>
-     </view>
- </view>
-  <view class='top-line'></view>
- <view class='top-left flex1' bindtap='waitList' >
-    <image class='top-icon' src='/images/home.png'></image>
-     <view class='wite-warp'>
-        <view class='wite fz-32'>奖励列表</view>
-         <view class='wite-how fz-28 '>共0单</view>
-     </view>
- </view>
- </view>
-
-
-  <view class='flex list-top list-bottom '>  
- <view class='top-left flex1' bindtap='integralRecord'>
-    <image class='top-icon' src='/images/home.png'></image>
-     <view class='wite-warp'>
-        <view class='wite fz-32'>我的积分</view>
-         <view class='wite-how fz-28 '>共0单</view>
-     </view>
- </view>
-  <view class='top-line'></view>
- <view class='top-left flex1' bindtap='myCion'>
-    <image class='top-icon' src='/images/home.png'></image>
-     <view class='wite-warp'>
-        <view class='wite fz-32'>我的买单币</view>
-         <view class='wite-how fz-28 '>共0单</view>
-     </view>
- </view>
- </view>
-</view>
-
-  <view class='table'>
+  <!-- banner -->
+  <!-- <image class='setting-banner' src="/images/home.png"></image> -->
+  <!-- 我的余额 -->
+  <view class='balance fz-28 '>
+    <view class='balanceTextAndMonneyView'>
+        <view class='balance-text '>我的余额</view>
+        <view class="balance-money">￥ {{userBaseInfo.balance}} 元</view>
+    </view>
+    <view class='cashedToWxView'>
+        <view class="cashedToWx" bindtap='receive'>提现</view>
+    </view>
+  </view>
+  <!-- 我的属性: 等待奖励  奖励列表 我的积分 我的余额 -->
+  <view class='myAttribute'>
+  <!-- 等待奖励  奖励列表 -->
+    <view class='theTwoAttributeVIew'>
+      <view class='theAttributeVIew' bindtap='waitWard' style="border-right: 1rpx solid #e2e2e2;">
+        <image class='theAttributeImg' src='/images/waitLuckDraw.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>等待奖励</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.waitLuckDrawTotal}} 单</view>
+        </view>
+      </view>
+      <view class='theAttributeVIew' bindtap='waitList'>
+        <image class='theAttributeImg' src='/images/recevicedLuckDraw.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>奖励列表</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.recevicedLuckDrawTotal}} 单</view>
+        </view>
+      </view>
+    </view>
+    <!-- 我的积分 我的余额 -->
+    <view class='theTwoAttributeVIew '>
+      <view class='theAttributeVIew' bindtap='integralRecord' style="border-right: 1rpx solid #e2e2e2;">
+        <image class='theAttributeImg' src='/images/myIntegral.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>我的积分</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+        </view>
+      </view>
+      <view class='theAttributeVIew' bindtap='myCion'>
+        <image class='theAttributeImg' src='/images/myBalance.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>我的余额</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.balance}} 元</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 我的列表：提现明细 收货地址 积分订单 投诉/加盟电话 -->
+  <view class='myList'>
     <block wx:for="{{tableData}}" wx:key="{{item.id}}">
       <navigator url="/pages/{{item.page}}" class="navigator">
-      <image  class="navigator-imag" src='{{item.image}}'></image>
-        <view class="navigator-text">{{item.name}}  <text class='navigator-phone' wx:if="{{item.phone}}">({{item.phone}})</text></view>
-        <view class="navigator-arrow"></view>
+        <image class="navigator-img" src='{{item.image}}'></image>
+        <view class="navigator-txt fz-28">{{item.name}}
+          <text class='navigator-phone' wx:if="{{item.phone}}">({{item.phone}})</text>
+        </view>
+        <view class="navigator-theArrow"></view>
       </navigator>
     </block>
   </view>
-
+  <!-- 加盟 -->
   <view class='navigator fz-28'>
-       <view class='have-join'>已参与人次：<text class="phone">200人</text></view>
-      <view class="join" bindtap="myJoin">我要加盟</view>
+    <view class='haveJoinLeague'>已参与人次 
+      <text class="leaguePhone">{{userBaseInfo.allLeagueTotal}} 人</text>
+    </view>
+    <view class="joinLeague" bindtap="myJoin">我要加盟</view>
   </view>
-
-  <view class='tips fz-28'>参与有惊喜，最高奖励90%，惊喜包括（红包、积分、商品）活动规则和解释权归商家所有，本工具只提供营销服务</view>
-
-
-<view class='express-warp'>
-  <image class='expree' src="/images/home.png"></image>
-
-  <view class='express'>
-      <view class='express-top'>积分使用说明</view>
-
-    <view class="express-top1 fz-28">消费者即可通过排队来获得奖励，也可以将奖励换成积分，在平台合作商家抵现消费</view>
-       <view class="express-top1 fz-28">例：某商家约定商家抵现率为50%，消费消费100元只需支付50元+50元积分，此订单不参与其他任何活动，积分也可以在积分商城兑换或抵现购买商品。</view>
-          <view class="express-top1 fz-28">注：活动奖励金全部为商家提供，奖励</view>
-           <view class="express-top1 fz-28">注：活动奖励金全部为商家提供，奖励</view>
-
-  </view>
-
-</view>
-
+  <!-- 提示 -->
+  <view class='tips fz-28'>参与有惊喜，最高奖励90%，惊喜包括（红包、积分、商品）活动规则和解释权归商家所有，本小程序只提供营销服务.</view>
+  <!-- 公司名称 -->
+  <view class='theCompany fz-28'>XOXOXOXOXO有限公司 版权所有</view>
 </page>
