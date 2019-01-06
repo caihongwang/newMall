@@ -40,22 +40,23 @@ page {
   text-align: center;
 }
 
-.setting-warp {
+.settingView {
   width: 200rpx;
   border: 1px solid #fff;
   padding: 10rpx 20rpx;
   border-radius: 20rpx;
-  text-align: center;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
 }
 
-.setting {
+.settingImg {
   width: 40rpx;
   height: 40rpx;
 }
 
-.setting-right {
-  width: 20rpx;
-  height: 20rpx;
+.settingText {
+  margin-left: 20rpx;
 }
 
 /* banner */

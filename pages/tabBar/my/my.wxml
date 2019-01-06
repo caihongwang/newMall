@@ -6,11 +6,10 @@
       <view class='userName fz-32 ls-24'>{{wxUserInfo.nickName}}</view>
       <view class="userInfo fz-28">个人用户</view>
     </view>
-
-    <view class="setting-warp flex">
-      <image class="setting" src="/images/logo.png"></image>
-      <view class="setting-text" bindtap='personalSetting'>设置</view>
-      <image class="setting-right" src="/images/logo.png"></image>
+    <view class="settingView">
+      <image class="settingImg" src="/images/setting.png"></image>
+      <view class="settingText fz-28" bindtap='personalSetting'>设置</view>
+      <!-- <image class="setting-right" src="/images/setting.png"></image> -->
     </view>
   </view>
   <!-- banner -->
