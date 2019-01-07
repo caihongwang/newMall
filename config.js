@@ -63,7 +63,10 @@ var config = {
 
   getSimpleShopByCondition: `${host}/wxShop/getSimpleShopByCondition.do`,    //首页获取商家列表
   getShopByCondition: `${host}/wxShop/getShopByCondition.do`,  //获取商家具体信息
-  // 登录机制
+  getOrderSortTypeList: `${host}/wxShop/getOrderSortTypeList.do`,  //获取商家拍讯类型
+
+  // 登录机制 
+  getUserBaseInfo: `${host}/wxUser/getUserBaseInfo.do`,   //获取用户基本信息
   wxAppLoginUrl: `${host}/wxUser/login.do`,   //检测登录
   checkSession: `${host}/wxUser/checkSession.do`,   //检测session是否过期
   getUserBaseInfoUrl: `${host}/wxUser/getUserBaseInfo.do`,   //获取积分等数据

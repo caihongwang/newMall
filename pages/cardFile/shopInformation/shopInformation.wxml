@@ -58,7 +58,7 @@
 
 <view class='brief-warp'>
   <view class="shop-brief">店铺简介:</view>
-  <view class="brief-content">你好你哈哈你好你哈哈哈啥时候na2211111话水水水水你好你哈哈哈啥时候说实话水水水水你好你哈哈哈啥时候说实话水水水水你好你哈哈哈啥时候说实话水水水水哈啥时候说实话水水水水</view>
+  <view class="brief-content">{{shopInformation.shopDegist}}</view>
   
 </view>
 </view>

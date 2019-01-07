@@ -12,6 +12,10 @@ function timestampToTime(timestamp) {
   return M+D;
 }
 
+function isNull(str) {
+  return !str && str !== 0 && typeof str !== "boolean" ? true : false;
+}
+
 function getNowFormatDate() {
   var date = new Date();
   var seperator1 = "-";

@@ -1,0 +1,34 @@
+<view class="sortTypeView">
+  <view class="sortTypeItem" wx:for="{{sortTypeList}}">
+      <view bindtap='sortShopList' data-type='{{item.orderSortTypeCode}}'>{{item.orderSortTypeName}} 🔽</view>
+    </view>
+</view>
+
+<view class='no-list fz-28' wx:if="{{shopList.length  == 0}}">附近暂无商家</view>
+
+<view class='shopList' wx:if="{{shopList.length != 0}}">
+  <view class='shopListItem' wx:for="{{shopList}}" data-index="{{index}}" hover-class="click-hover" hover="true" bindtap='goToShopDetail'>
+    <view class='shopHeadImgView'>
+      <image src="{{item.shopHeadImgUrl}}" class='shopHeadImg'></image>
+    </view>
+    <view class='shopDesc'>
+      <view class='shopTitle'>{{item.shopTitle}}</view>
+      <view class='shopStar'>⭐️⭐️⭐️⭐️⭐️</view>
+      <view class='hotDegreeAndDistance'>
+        <view class='hotDegreeView'>
+          <image src='/images/hotDegree.png' class='hotDegreeImg'></image>
+          <text class='hotDegreeTxt'>热度 {{item.shopOrderAmount}} 🔥</text>
+        </view>
+        <view class='distanceView'>
+          <image src='/images/distance.png' class='distanceImg'></image>
+          <text class='distanceTxt'>距离 {{item.shopDistance}} ㎞</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='footView'>
+    <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多了</view>
+  </view>
+</view>

@@ -12,32 +12,42 @@ Page({
     tableData: [
       {
         "id": "1",
-        "name": "收货地址管理",
-        "page": "commonPage/addressManage/addressManage",
-        "image":'/images/logo.png'
+        "name": "提现明细",
+        "page": "my/presenDetails/presenDetails",
+        "image": '/images/cashedList.png'
       },
       {
         "id": "2",
-        "name": "积分订单列表",
+        "name": "收货地址",
+        "page": "commonPage/addressManage/addressManage",
+        "image":'/images/receivingAddressList.png'
+      },
+      {
+        "id": "3",
+        "name": "积分订单",
         "page": "my/intergralOrder/intergralOrder",
-        "image": '/images/logo.png'
-
+        "image": '/images/intergralOrderList.png'
       },
       {
-        "id": "3",
-        "name": "提现明细",
-        "page": "my/presenDetails/presenDetails",
-        "image": '/images/logo.png'
-      },
-      {
-        "id": "3",
-        "name": "提现明细",
+        "id": "4",
+        "name": "投诉/加盟电话",
         "page": "my/feedback/index",
-        "image": '/images/logo.png',
-        'phone': '0102377455839' 
+        "image": '/images/complaintAndLeaguePhone.png',
+        'phone': '010-2377455839' 
       }
-    ],
-    userInfo: {},
+    ], 
+    wxUserInfo: {},
+    userBaseInfo: {
+      "avatarUrl": "https://www.91caihongwang.com/resourceOfNewMall/user/default.png",
+      "nickName": "默认",
+      "balance": "0.00",
+      "integral": "0.00",
+      "allLeagueTotal": "200",
+      "userType": "个人用户",
+      "allLuckDrawTotal": "0",
+      "recevicedLuckDrawTotal": "0",
+      "waitLuckDrawTotal": "0"
+    },
     balance: 0 ,//余额 0
 
   }, 
@@ -113,14 +123,38 @@ Page({
     })
   },
   onLoad: function () {
-    console.log('1111');
-
     if (wx.getStorageSync("USERINFO")){
       this.setData({
-        userInfo: wx.getStorageSync("USERINFO"),
+        wxUserInfo: wx.getStorageSync("USERINFO"),
         hasUserInfo: true
       })
-    }  
+    }
+    this.getUserBaseInfo();
+  },
+  /**
+   * 获取用户基本信息
+   */
+  getUserBaseInfo: function () {
+    var that = this;
+    var params = new Object();
+    network.POST({
+        params: params,
+        requestUrl: requestUrl.getUserBaseInfo,
+        success: function (res) {
+          console.log(res.data);
+          if (res.data.code == 0) {
+            console.log(res.data.data)
+            that.setData({
+              userBaseInfo: res.data.data
+            })
+          } else {
+
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
   },
   onShow:function() {
   }
