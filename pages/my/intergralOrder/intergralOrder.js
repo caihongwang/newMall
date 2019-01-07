@@ -171,8 +171,6 @@ Page({
       });
   },
 
-
-
   //已发货
   getAlreadyDeliverGoodsUrl: function (boo) {
     var that = this;

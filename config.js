@@ -112,7 +112,9 @@ var config = {
 // 订单管理接口
   getWaitPayGoodsUrl: `${host}/newMall/getWaitPayGoodsOrder.do`,   //待支付
   getAlreadyPayGoodsUrl: `${host}/newMall/  getAlreadyPayGoodsOrder.do`,   //已支付
-  getAlreadyDeliverGoodsUrl: `${host}/newMall/getAlreadyDeliverGoodsOrder.do`,   //已支付
+  getAlreadyDeliverGoodsUrl: `${host}/newMall/getAlreadyDeliverGoodsOrder.do`,   //  已发货
+  getCompletedGoodsUrl: `${host}/newMall/getCompletedGoodsOrder.do`,   //已完成
+
 
 
 }
