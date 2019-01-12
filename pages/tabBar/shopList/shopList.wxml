@@ -1,7 +1,16 @@
+<!-- 新增授权弹窗 -->
+<view class='authorizationView' wx-if="{{isShowAuthorizationView}}">
+  <image class="authorizationImg" src="/images/authorization.png"></image>
+  <view class="authorizationTxt">为了更好的体验，此应用需要获取您的头像、昵称等基本信息授权.</view>
+  <button type="primary" class="getUserInfoBtn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+    确认授权
+  </button>
+</view>
+<!-- 排序 -->
 <view class="sortTypeView">
   <view class="sortTypeItem" wx:for="{{sortTypeList}}">
-      <view bindtap='sortShopList' data-type='{{item.orderSortTypeCode}}'>{{item.orderSortTypeName}} 🔽</view>
-    </view>
+    <view bindtap='sortShopList' data-type='{{item.orderSortTypeCode}}'>{{item.orderSortTypeName}} 🔽</view>
+  </view>
 </view>
 
 <view class='no-list fz-28' wx:if="{{shopList.length  == 0}}">附近暂无商家</view>

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/tabBar/my/my",
     "pages/tabBar/shopList/shopList",
+    "pages/tabBar/my/my",
     "pages/tabBar/index/index",
     "pages/shareOpen/index",
     "pages/activity/index",
@@ -21,12 +21,6 @@
     "backgroundColor": "#fff",
     "position": "bottom",
     "list": [
-      {
-        "text": "首页",
-        "pagePath": "pages/tabBar/index/index",
-        "iconPath": "images/card.png",
-        "selectedIconPath": "images/card_hl.png"
-      },
       {
         "text": "附近商家",
         "pagePath": "pages/tabBar/shopList/shopList",

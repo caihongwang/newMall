@@ -1,10 +1,33 @@
 <!--pages/my/presenDetails/presenDetails.wxml-->
-<view class='flex warp-List' wx:for="{{cashFeeList}}">
- <view class='left'>
-  <view>{{item.item}}</view>
-  <view>{{item.updateTime}}</view>
- </view>
-
-<view class='right'>{{item.cashToWxMoney}}</view>
+<view class='degistView'>
+  <view class='degistTxtView'>
+    <view class='degistTxt_1'>这是专属于您的账单</view>
+    <view class='degistTxt_2'>等待您的亲自验收>></view>
+    <view class='degistTxt_3'>【提现规则】</view>
+  </view>
+  <view class='accountStatemenView'>
+    <image class="accountStatementImg" src="/images/accountStatement.png"></image>
+  </view>
 </view>
-<view class="money">没有更多了</view>
+<view class='casheView'>
+<view class='flex cashedListView' wx:for="{{cashFeeList}}">
+  <view class='cashedItemView'>
+    <view class='cashImgView'>
+      <image class="cashImg" src="/images/cashLogo.png"></image>
+    </view>
+    <view class='cashedTxtView'>
+      <view class='fromTxtAndMonneyView'>
+        <view class="fromTxtView">提现到零钱-来自余额</view>
+        <view class="moneyView">+ {{item.cashToWxMoney}} 元</view>
+      </view>
+      <view class="createTimeView">{{item.createTime}}</view>
+      <view class="remarkView">{{item.remark}}</view>
+    </view>
+  </view>
+</view>
+</view>
+  <view class='footView'>
+    <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多了</view>
+  </view>

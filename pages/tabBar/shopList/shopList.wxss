@@ -1,5 +1,33 @@
 @import "../../../app.wxss";
-
+/*授权弹窗 */
+.authorizationView{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  background: #fff; 
+  align-items: center; /** 垂直居中*/
+}
+.authorizationImg{
+  border: 0px red solid;
+  display: block;
+  width: 130rpx;
+  height: 130rpx;
+  margin: 100rpx auto 0;
+  padding-top: 15%;
+}
+.authorizationTxt{
+  border: 0px red solid;
+  padding: 15% 100rpx;
+  font-size: 32rpx;
+  text-align: center;
+  color: #5f5656;
+}
+.getUserInfoBtn{
+  width: 75%;
+}
 /* 排序 */
 .sortTypeView{
   position: fixed;
