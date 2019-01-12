@@ -143,7 +143,7 @@ Page({
         success: function (res) {
           console.log(res.data);
           if (res.data.code == 0) {
-            console.log(res.data.data)
+            console.log(res.data.data);
             that.setData({
               userBaseInfo: res.data.data
             })
