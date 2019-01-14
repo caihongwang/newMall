@@ -66,8 +66,10 @@ Page({
 
   // 点击领取
   receive:function(){
+    console.log(this.data.userBaseInfo.balance);
+    let balance = this.data.userBaseInfo.balance;
    wx.navigateTo({
-      url: '/pages/my/personalCash/personalCash',
+     url: '/pages/my/personalCash/personalCash?balance=' + balance,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -137,11 +139,14 @@ Page({
   getUserBaseInfo: function () {
     var that = this;
     var params = new Object();
+  params.uid = wx.getStorageSync("UIDKEY");
+
     network.POST({
         params: params,
         requestUrl: requestUrl.getUserBaseInfo,
         success: function (res) {
           console.log(res.data);
+          console.log('获取用户的基本信息');
           if (res.data.code == 0) {
             console.log(res.data.data);
             that.setData({

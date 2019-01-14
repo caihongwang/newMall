@@ -235,6 +235,7 @@ page {
   padding: 15rpx;
   margin-top: 10rpx;
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* 公司名称 */
