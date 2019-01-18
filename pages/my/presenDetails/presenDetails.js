@@ -87,8 +87,6 @@ Page({
     wx.hideLoading(); //关闭进度条
   },
 
-
-
   getSimpleCash: function () {
     var that = this;
     var params = new Object();
@@ -128,6 +126,15 @@ Page({
         fail: function (res) {
           util.toast("网络异常, 请稍后再试");
         }
+      });
+  },
+  /**
+   * 查看红包提现规则
+   */
+  checkCashedRule: function () {
+      console.log("查看红包提现规则");
+      wx.navigateTo({
+        url: "../cashedRule/cashedRule"
       });
   }
 })

@@ -55,6 +55,7 @@
         "myCoin/myCoin",
         "intergralOrder/intergralOrder",
         "presenDetails/presenDetails",
+        "cashedRule/cashedRule",
         "joinShop/joinShop",
         "orderQueue/orderQueue"
       ]
