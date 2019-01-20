@@ -35,7 +35,7 @@
       </view>
       <!-- 层级3 -->
       <view class='orderLevelView3'>
-        <view class='checkDetailView'>查看详情</view>
+        <view class='checkDetailView' data-orderId="{{item.orderId}}" bindtap='checkDetail'>查看详情</view>
       </view>
     </view>
   </view>

@@ -282,7 +282,14 @@ Page({
         }
       });
   },
-
+  //查看详情
+  checkDetail: function(option) {
+    console.log(option);
+    var orderId = option.currentTarget.dataset.orderid;
+    wx.navigateTo({
+      url: "../intergralOrderDetail/intergralOrderDetail?orderId=" +  orderId
+    });
+  },
   onLoad: function (options) {
     if (options.index){
       this.setData({

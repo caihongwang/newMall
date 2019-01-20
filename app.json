@@ -54,6 +54,7 @@
         "integralRecord/integralRecord",
         "myCoin/myCoin",
         "intergralOrder/intergralOrder",
+        "intergralOrderDetail/intergralOrderDetail",
         "presenDetails/presenDetails",
         "cashedRule/cashedRule",
         "joinShop/joinShop",
@@ -87,7 +88,7 @@
         "addressManage/addressManage",
         "addAddress/addAddress",
         "turnDraw/turnDraw",
-          "orderDetail/orderDetail"
+        "orderDetail/orderDetail"
       ]
     },
     {

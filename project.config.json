@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 33,
+			"current": 34,
 			"list": [
 				{
 					"id": 0,
@@ -248,6 +248,13 @@
 					"id": -1,
 					"name": "积分商城订单",
 					"pathName": "pages/my/intergralOrder/intergralOrder",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/my/intergralOrderDetail/intergralOrderDetail",
 					"query": "",
 					"scene": "1011"
 				}

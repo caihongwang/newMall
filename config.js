@@ -65,7 +65,8 @@ var config = {
   getAllPayGoodsOrderUrl: `${host}/wxOrder/getAllPayGoodsOrder.do`,   //所有订单
   getWaitPayGoodsUrl: `${host}/wxOrder/getWaitPayGoodsOrder.do`,   //待支付
   getAlreadyPayGoodsUrl: `${host}/wxOrder/getAlreadyPayGoodsOrder.do`,   //已支付
-  getAlreadyDeliverGoodsUrl: `${host}/wxOrder/getAlreadyDeliverGoodsOrder.do`,   //  已发货
+  getAlreadyDeliverGoodsUrl: `${host}/wxOrder/getAlreadyDeliverGoodsOrder.do`,   //  已发货 
   getCompletedGoodsUrl: `${host}/wxOrder/getCompletedGoodsOrder.do`,   //已完成
+  getGoodsOrderDetailByIdUrl: `${host}/wxOrder/getGoodsOrderDetailById.do`,   //已完成
 }
 module.exports = config
