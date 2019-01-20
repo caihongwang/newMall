@@ -61,10 +61,11 @@ var config = {
   getSimpleCashUrl: `${host}/wxCashLog/getSimpleCashLogByCondition.do`,   //获取当前用户的提现列表
   cashBalanceUrl: `${host}/wxCashLog/cashBalanceToWx.do`,   //提现至微信零钱  
 
-// 订单管理接口
-  getWaitPayGoodsUrl: `${host}/newMall/getWaitPayGoodsOrder.do`,   //待支付
-  getAlreadyPayGoodsUrl: `${host}/newMall/  getAlreadyPayGoodsOrder.do`,   //已支付
-  getAlreadyDeliverGoodsUrl: `${host}/newMall/getAlreadyDeliverGoodsOrder.do`,   //  已发货
-  getCompletedGoodsUrl: `${host}/newMall/getCompletedGoodsOrder.do`,   //已完成
+  // 订单管理接口
+  getAllPayGoodsOrderUrl: `${host}/wxOrder/getAllPayGoodsOrder.do`,   //所有订单
+  getWaitPayGoodsUrl: `${host}/wxOrder/getWaitPayGoodsOrder.do`,   //待支付
+  getAlreadyPayGoodsUrl: `${host}/wxOrder/getAlreadyPayGoodsOrder.do`,   //已支付
+  getAlreadyDeliverGoodsUrl: `${host}/wxOrder/getAlreadyDeliverGoodsOrder.do`,   //  已发货
+  getCompletedGoodsUrl: `${host}/wxOrder/getCompletedGoodsOrder.do`,   //已完成
 }
 module.exports = config

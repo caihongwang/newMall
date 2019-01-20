@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 33,
 			"list": [
 				{
 					"id": 0,
@@ -243,6 +243,13 @@
 					"name": "提现明细",
 					"pathName": "pages/my/presenDetails/presenDetails",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城订单",
+					"pathName": "pages/my/intergralOrder/intergralOrder",
+					"query": "",
+					"scene": "1011"
 				}
 			]
 		}

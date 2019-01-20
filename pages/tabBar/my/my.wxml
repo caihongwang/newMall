@@ -83,5 +83,5 @@
   <!-- 提示 -->
   <view class='tips fz-28'>参与有惊喜，最高奖励90%，惊喜包括（红包、积分、商品）活动规则和解释权归商家所有，本小程序只提供营销服务.</view>
   <!-- 公司名称 -->
-  <view class='theCompany fz-28'>XOXOXOXOXO有限公司 版权所有</view>
+  <view class='theCompany fz-28'>上海籽畅网络科技有限公司 版权所有</view>
 </page>

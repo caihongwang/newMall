@@ -24,7 +24,7 @@ Page({
       },
       {
         "id": "3",
-        "name": "积分订单",
+        "name": "积分商城订单",
         "page": "my/intergralOrder/intergralOrder",
         "image": '/images/intergralOrderList.png'
       },

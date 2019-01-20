@@ -1,10 +1,46 @@
 <!--pages/my/intergralOrder/intergralOrder.wxml-->
 <!--pages/my/myOrder/myOrder.wxml-->
-<view class='lst-warp'>
-  <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}}"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.name}}</view>
+<view class='orderTitelView'>
+  <view  wx:for="{{orderTitelList}}" class="titel  {{chosseId == index? 'chossedTitle':''}}"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.titel}}</view>
+</view>
+<view class='orderListView'>
+  <view wx:for="{{showOrderList}}">
+    <view class='itemView'>
+      <!-- 层级0 -->
+      <view class='orderLevelView0'>
+        <view class='shopView'>
+        <image class="theMallImg" src="/images/theMall.png"></image>
+        <view class="theMallNameView">积分商城  →</view>
+        </view>
+        <view class='orderStatusNameView'>{{item.orderStatusName}}</view>
+      </view>
+      <!-- 层级1 -->
+      <view class='orderLevelView1'>
+        <image  class="productHeadImg"  src="{{item.productHeadImgUrl}}"></image>
+        <view class='productTitleView'>{{item.productTitle}}</view>
+        <view class='productPriceAndNumView'>
+          <view class='productPriceView'>
+            <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+            <view class="productPriceTextView">{{item.productPrice}}</view>
+          </view>
+          <view class='productNumView'>
+            <image class="numLogoImg" src="/images/numLogo.png"></image>
+            <view class="productNumTextView">{{item.productNum}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 层级2 -->
+      <view class='orderLevelView2'>
+        <view class='summaryDescView'>注:共{{item.productNum}}件商品  积分抵扣{{item.useIntegralNum}}元  余额抵扣{{item.useBalanceMonney}}元 实际支付{{item.payMoney}}元</view>
+      </view>
+      <!-- 层级3 -->
+      <view class='orderLevelView3'>
+        <view class='checkDetailView'>查看详情</view>
+      </view>
+    </view>
+  </view>
 </view>
 
-<!-- <view class='no-order'>没有更多订单了</view> -->
 <view class='foot'>
  <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
     <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
