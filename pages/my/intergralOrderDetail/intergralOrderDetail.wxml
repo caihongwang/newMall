@@ -1,3 +1,4 @@
+<!-- 商品信息 -->
 <view class='orderDetailView'>
   <!-- 层级0 -->
   <view class='orderLevelView0'>
@@ -61,7 +62,7 @@
     </view>
   </view>
 </view>
-
+<!-- 订单信息 -->
 <view class='orderInfoView'>
   <!-- 层级3 -->
   <view class='orderLevelView3'>
@@ -87,14 +88,47 @@
     </view>
   </view>
 </view>
+<!-- 物流信息 -->
+<view class='logisticsView'>
+  <!-- 层级5 -->
+  <view class='logisticsLevelView5'>
+    <view class='theLogisticsInfoView'>
+      <image class="theLogisticsImg" src="/images/logistics.png"></image>
+      <view class="theLogisticsNameView">物流信息 →</view>
+    </view>
+    <view class='logisticsStatusNameView'></view>
+  </view>
+
+  <!-- 层级6 -->  
+  <view class='orderLevelView6' wx:if="{{orderDetail.expressName?true:false  && orderDetail.expressNumber?true:false}}">
+    <view class="logisticsInfoNameAndNumView">
+      <view class='logisticsInfoNameView'>物流名称</view>
+      <view class='logisticsInfoNumView'>{{orderDetail.expressName}}</view>
+    </view>
+    <view class="logisticsInfoNameAndNumView">
+      <view class='logisticsInfoNameView'>物流编号</view>
+      <view class='logisticsInfoNumView'>{{orderDetail.expressNumber}}</view>
+    </view>
+  </view>
+  <!-- 层级7 -->
+  <view class='orderLevelView7' wx:else>
+    暂无物流信息
+  </view>
+
+</view>
+
 
 <view class='contactView'>
   <view class='contactCustomView'>
-    <image class="contactCustomImg" src="/images/customer.png"></image>
-    <view class="contactCustom">联系客服</view>
+    <button class="contactCustomBtn" open-type='contact' size="40" >
+        <image class="contactCustomImg" src="/images/customer.png"></image>
+        <text class="contactCustomText">联系客服</text>
+    </button>
   </view>
   <view class='contactPhoneView'>
-    <image class="contactPhoneImg" src="/images/complaintAndLeaguePhone.png"></image>
-    <view class="contactPhone">拨打电话</view>
+    <button class="contactPhoneBtn" bindtap='contactPhone' size="40" >
+        <image class="contactPhoneImg" src="/images/complaintAndLeaguePhone.png"></image>
+        <text class="contactPhoneText">拨打电话</text>
+    </button>
   </view>
 </view>

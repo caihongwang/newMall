@@ -12,7 +12,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#393939",
     "navigationBarTitleText": "财富名片夹",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#B2B2B2",

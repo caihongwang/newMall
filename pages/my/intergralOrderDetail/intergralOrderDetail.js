@@ -11,6 +11,12 @@ Page({
     orderId: "",  //订单ID
     orderDetail: {}//用来展示的订单
   },
+  // 拨打电话
+  contactPhone: function () {
+    wx.makePhoneCall({
+      phoneNumber: '17701359899' // 仅为示例，并非真实的电话号码
+    });
+  },
 
   /**
    * 获取订单详情
@@ -65,7 +71,7 @@ Page({
    */
   onShow: function () {
     console.log("orderId = " + this.data.orderId);
-    this.data.orderId = 5;
+    // this.data.orderId = 5;
     if (this.data.orderId) {
       this.getGoodsOrderDetail();
     }
