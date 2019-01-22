@@ -1699,7 +1699,51 @@
 					"response": []
 				},
 				{
-					"name": "获取【待支付】的商品订单",
+					"name": "获取【所有】的商品订单 ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxOrder/getAllPayGoodsOrder.do?uid=1&start=0&size=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxOrder",
+								"getAllPayGoodsOrder.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "购买用户的uid"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"description": "从第几条开始"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "展示总条数"
+								}
+							]
+						},
+						"description": "获取【所有】的商品订单 "
+					},
+					"response": []
+				},
+				{
+					"name": "获取【待付款】的商品订单",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1738,7 +1782,7 @@
 								}
 							]
 						},
-						"description": "获取【待支付】的商品订单"
+						"description": "获取【待付款】的商品订单"
 					},
 					"response": []
 				},
@@ -2417,6 +2461,128 @@
 				}
 			],
 			"description": "提现",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "积分记录",
+			"item": [
+				{
+					"name": "获取当前用户的积分记录列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxIntegralLog/getSimpleIntegralLogByCondition.do?uid=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxIntegralLog",
+								"getSimpleIntegralLogByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "获取当前用户的积分记录列表"
+					},
+					"response": []
+				}
+			],
+			"description": "积分记录",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e67df5-63a3-4426-9e69-a8d1f22018b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4466577a-8e4d-4314-acb8-ea4fa1abe88c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "余额记录",
+			"item": [
+				{
+					"name": "获取当前用户的余额记录列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.91caihongwang.com/newMall/wxBalanceLog/getSimpleBalanceLogByCondition.do?uid=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"91caihongwang",
+								"com"
+							],
+							"path": [
+								"newMall",
+								"wxBalanceLog",
+								"getSimpleBalanceLogByCondition.do"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "获取当前用户的余额记录列表"
+					},
+					"response": []
+				}
+			],
+			"description": "余额记录",
 			"event": [
 				{
 					"listen": "prerequest",
