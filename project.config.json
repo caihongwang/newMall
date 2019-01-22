@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 36,
 			"list": [
 				{
 					"id": 0,
@@ -257,6 +257,20 @@
 					"pathName": "pages/my/intergralOrderDetail/intergralOrderDetail",
 					"query": "",
 					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "积分记录",
+					"pathName": "pages/my/integralRecord/integralRecord",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "余额记录",
+					"pathName": "pages/my/balanceRecord/balanceRecord",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

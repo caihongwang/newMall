@@ -52,7 +52,7 @@
           <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
         </view>
       </view>
-      <view class='theAttributeVIew' bindtap='myCion'>
+      <view class='theAttributeVIew' bindtap='balanceRecord'>
         <image class='theAttributeImg' src='/images/myBalance.png'></image>
         <view class='allTheTxt'>
           <view class='theTxt fz-32'>我的余额</view>

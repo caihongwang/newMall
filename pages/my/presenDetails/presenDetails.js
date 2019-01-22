@@ -83,11 +83,11 @@ Page({
       title: "客官请稍后...",
       mask: true
     });
-    this.getSimpleCash();
+    this.getSimpleCashLogByCondition();
     wx.hideLoading(); //关闭进度条
   },
 
-  getSimpleCash: function () {
+  getSimpleCashLogByCondition: function () {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -95,7 +95,7 @@ Page({
     params.size = that.data.pageindexAll;
     network.POST({
         params: params,
-        requestUrl: requestUrl.getSimpleCashUrl,
+      requestUrl: requestUrl.getSimpleCashLogByConditionUrl,
         success: function (res) {
           if (res.data.code == 0) {
             for (var i in res.data.data) {
