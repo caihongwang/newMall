@@ -84,7 +84,7 @@
     {
       "root": "pages/commonPage/",
       "pages": [
-        "placeOrder/placeOrder",
+        "payProductOrder/payProductOrder",
         "addressManage/addressManage",
         "addAddress/addAddress",
         "turnDraw/turnDraw",

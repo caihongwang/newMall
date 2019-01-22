@@ -25,8 +25,10 @@ var config = {
   getUserBaseInfoUrl: `${host}/wxUser/getUserBaseInfo.do`,   //获取积分等数据
 
   // 商城积分
-  getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城类型列表
-  getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取积分商城列表
+  getProductTypeListUrl: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商商品类型列表
+  getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取单一积分商品列表
+  getProductListUrl: `${host}/wxProduct/getProductList.do`,   //获取积分商品列表
+  getProductDetailUrl: `${host}/wxProduct/getProductDetail.do`,   //获取积分商品列表
 
   // 地址管理
   getProvinceListUrl: `${host}/wxAddress/getProvinceList.do`,   //获取省份地址

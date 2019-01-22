@@ -105,7 +105,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var headImgUrl = options.headImgUrl;
+    var title = options.title;
+    var degist = options.degist;
+    var price = options.price;
+    var integral = options.integral;
+    var num = options.num;
+    this.setData({
+      headImgUrl: headImgUrl,
+      title: title,
+      degist: degist,
+      price: price,
+      integral: integral,
+      num: num
+    });
+    console.log("headImgUrl = " + headImgUrl);
+    console.log("title = " + title);
+    console.log("degist = " + degist);
+    console.log("price = " + price);
+    console.log("integral = " + integral);
+    console.log("num = " + num);
   },
 
   /**

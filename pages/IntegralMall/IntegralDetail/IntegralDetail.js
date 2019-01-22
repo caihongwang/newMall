@@ -11,14 +11,10 @@ Page({
   data: {
     // MOCKDATA
     showModalStatus: false,//是否展示付款弹窗
-    detail:{
-      images:'/images/home.png',
-      describe: '面部护理',
-      price: '3000',
-      integral: ' 3020',
-      stock: 99,
-      imageList: ['/images/home.png', '/images/home.png', '/images/home.png', '/images/home.png', '/images/home.png', '/images/home.png', '/images/home.png',]
+    productId: "",
+    productDetail:{
     },
+    productDetail_describeImgUrlList:{},
 
     num: 1,
     minusStatus: 'disable'
@@ -109,26 +105,33 @@ Page({
   sureBuy:function(){
     var orderInfo = {};
         wx.navigateTo({
-          url: '/pages/commonPage/placeOrder/placeOrder?orderInfo=' + orderInfo,
-        })
+          url: '/pages/commonPage/payProductOrder/payProductOrder?headImgUrl=' + this.data.productDetail.headImgUrl + 
+              "&title=" + this.data.productDetail.title + 
+              "&degist=" + this.data.productDetail.degist + 
+              "&price=" + this.data.productDetail.price + 
+              "&integral=" + this.data.productDetail.integral + 
+              "&num=" + this.data.num
+        });
   },
 
 // 获取详情
-  getInteralDetail: function () {
+  getProductDetail: function () {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    params.shopId= this.data.shopId;
+    params.productId = this.data.productId;
     network.POST(
       {
         params: params,
-        requestUrl: requestUrl.getUserBaseInfoUrl, //还没加这个接口
+        requestUrl: requestUrl.getProductDetailUrl, //还没加这个接口
         success: function (res) {
           if (res.data.code == 0) {
+            console.log(res.data.data);
+            console.log(JSON.parse(res.data.data.describeImgUrl));
             that.setData({
-              balance: res.data.data.balance,
-              integral: res.data.data.integral,
-            })
+              productDetail: res.data.data,
+              productDetail_describeImgUrlList:JSON.parse(res.data.data.describeImgUrl)
+            });
           } else {
             util.toast(res.data.message);
           }
@@ -144,10 +147,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
+    var productId = options.productId;
     this.setData({
-      shopId: options.shopId
-    })
+      productId: productId
+    });
+    console.log("productId = " + productId);
   },
 
   /**
@@ -161,7 +165,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getInteralDetail();
+    this.getProductDetail();
 
   },
 
