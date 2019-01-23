@@ -45,9 +45,6 @@
     {
       "root": "pages/my/",
       "pages": [
-        "method/index",
-        "aboutUs/index",
-        "privacy/index",
         "personalSetting/personalSetting",
         "personalCash/personalCash",
         "myOrder/myOrder",
