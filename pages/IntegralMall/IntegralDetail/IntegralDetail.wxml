@@ -45,7 +45,7 @@
           <view class='numbur'>购买数量</view>
         <view class='stepper'>
           <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'>-</text>
-          <input bindinput='bindManual' value='{{num}}'></input>
+          <input bindinput='bindManual' value='{{productNum}}'></input>
           <text bindtap='bindPlus'>+</text>
         </view>
   </view>

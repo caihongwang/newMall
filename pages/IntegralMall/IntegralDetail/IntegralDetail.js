@@ -16,7 +16,7 @@ Page({
     },
     productDetail_describeImgUrlList:{},
 
-    num: 1,
+    productNum: 1,
     minusStatus: 'disable'
 
   },
@@ -72,38 +72,38 @@ Page({
 
   /*点击减号*/
   bindMinus: function () {
-    var num = this.data.num;
-    if (num > 1) {
-      num--;
+    var productNum = this.data.productNum;
+    if (productNum > 1) {
+      productNum--;
     }
-    var minusStatus = num > 1 ? 'normal' : 'disable';
+    var minusStatus = productNum > 1 ? 'normal' : 'disable';
     this.setData({
-      num: num,
+      productNum: productNum,
       minusStatus: minusStatus
     })
   },
   /*点击加号*/
   bindPlus: function () {
-    var num = this.data.num;
-    num++;
-    var minusStatus = num > 1 ? 'normal' : 'disable';
+    var productNum = this.data.productNum;
+    productNum++;
+    var minusStatus = productNum > 1 ? 'normal' : 'disable';
     this.setData({
-      num: num,
+      productNum: productNum,
       minusStatus: minusStatus
     })
   },
   /*输入框事件*/
   bindManual: function (e) {
-    var num = e.detail.value;
-    var minusStatus = num > 1 ? 'normal' : 'disable';
+    var productNum = e.detail.value;
+    var minusStatus = productNum > 1 ? 'normal' : 'disable';
     this.setData({
-      num: num,
+      productNum: productNum,
       minusStatus: minusStatus
     })
   },
 // 点击确定按钮
   sureBuy:function(){
-    this.data.productDetail.num = this.data.num;
+    this.data.productDetail.productNum = this.data.productNum;
     wx.setStorageSync('productDetail', this.data.productDetail);
     wx.navigateTo({
       url: '/pages/commonPage/payProductOrder/payProductOrder'
@@ -116,8 +116,7 @@ Page({
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.productId = this.data.productId;
-    network.POST(
-      {
+    network.POST({
         params: params,
         requestUrl: requestUrl.getProductDetailUrl, //还没加这个接口
         success: function (res) {
@@ -137,7 +136,6 @@ Page({
         }
       });
   },
-
 
   /**
    * 生命周期函数--监听页面加载

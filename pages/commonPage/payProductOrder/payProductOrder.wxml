@@ -27,12 +27,12 @@
         <text class='rule'>规格：</text>{{productDetail.degist}}</view>
       <view>￥{{productDetail.integral}}</view>
     </view>
-    <view class='fz-28 class="number"'>×{{productDetail.num}}</view>
+    <view class='fz-28 class="number"'>×{{productDetail.productNum}}</view>
   </view>
 </view>
 
 
 <view class='foot flex'>
   <view class='foot-price'>合计：￥{{productDetail.finalPrice}}+{{productDetail.finalIntegral}}积分</view>
-  <view class='sure-pay' bindtap='surePay'>确认并支付</view>
+  <view class='sure-pay' bindtap='purchaseProductInMiniProgram'>确认并支付</view>
 </view>

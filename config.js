@@ -56,7 +56,7 @@ var config = {
 
   // 调用支付接口
   payTheBillInMiniUrl: `${host}/wxOrder/payTheBillInMiniProgram.do`,   //调用支付接口
-  purchaseProductUrl: `${host}/wxOrder/purchaseProductInMiniProgram.do`,   //获取积分等数据
+  purchaseProductInMiniProgramUrl: `${host}/wxOrder/purchaseProductInMiniProgram.do`,   //获取积分等数据
 
   //提现
   getCashFeeListUrl: `${host}/wxCashLog/getCashFeeList.do`,   //获取提现规则列表  暂时没调用

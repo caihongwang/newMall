@@ -1,8 +1,8 @@
-// pages/my/intergralOrder/intergralOrder.js
 var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')
 Page({
+  
   /**
    * 页面的初始数据
    */
@@ -28,7 +28,7 @@ Page({
     chosseId: 0,
 
     havePageAll: 0, //已经加载的页数
-    pageindexAll: 3,//总共加载的总条数
+    pageindexAll: 10,//总共加载的总条数
     howShops: 0,//共多少条数据
 
     showOrderList: [],//用来展示的订单
@@ -291,9 +291,9 @@ Page({
     });
   },
   onLoad: function (options) {
-    if (options.index){
+    if (options.chosseId){
       this.setData({
-        chosseId: options.index
+        chosseId: options.chosseId
       });
     } else {
       this.setData({
