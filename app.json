@@ -6,7 +6,8 @@
     "pages/shareOpen/index",
     "pages/activity/index",
     "pages/component/tabbar/tabbar",
-    "pages/tabBar/IntegralMall/IntegralMall"
+    "pages/tabBar/IntegralMall/IntegralMall",
+    "pages/index1/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
