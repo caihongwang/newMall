@@ -67,34 +67,6 @@
 					"scene": "1011"
 				},
 				{
-					"id": 3,
-					"name": "运营活动",
-					"pathName": "pages/activity/index",
-					"query": "activityInfo={\"activityId\":\"2\"}",
-					"scene": "1011"
-				},
-				{
-					"id": 4,
-					"name": "加入我们",
-					"pathName": "pages/activity/pages/createTeam/createTeam",
-					"query": "activityInfo={\"activityId\":\"2\",\"teamId\":\"136\",\"userId\":\"589\"}",
-					"scene": "1011"
-				},
-				{
-					"id": 5,
-					"name": "运营活动",
-					"pathName": "pages/activity/pages/createTeam/createTeam",
-					"query": "activityInfo={\"activityId\":\"2\",\"teamId\":\"43\",\"userId\":\"141\"}",
-					"scene": "1011"
-				},
-				{
-					"id": 6,
-					"name": "团队成员",
-					"pathName": "pages/activity/pages/teamUser/teamUser",
-					"query": "activityInfo={\"activityId\":\"2\",\"teamId\":\"92\",\"userId\":\"293\"}",
-					"scene": "1011"
-				},
-				{
 					"id": -1,
 					"name": "付款页面",
 					"pathName": "pages/cardFile/shopInformation/shopInformation",

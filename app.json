@@ -4,7 +4,6 @@
     "pages/tabBar/my/my",
     "pages/tabBar/index/index",
     "pages/shareOpen/index",
-    "pages/activity/index",
     "pages/component/tabbar/tabbar",
     "pages/tabBar/IntegralMall/IntegralMall",
     "pages/index1/index"
@@ -90,21 +89,6 @@
         "addAddress/addAddress",
         "turnDraw/turnDraw",
         "orderDetail/orderDetail"
-      ]
-    },
-    {
-      "root": "pages/activity/pages/",
-      "pages": [
-        "rules/rules",
-        "grouprules/grouprules",
-        "prizesExplain/prizesExplain",
-        "integralDetail/integralDetail",
-        "applyPrintCard/applyPrintCard",
-        "ranking/ranking",
-        "createTeam/createTeam",
-        "activitiesRule/activitiesRule",
-        "teamIntegralDetail/teamIntegralDetail",
-        "teamUser/teamUser"
       ]
     }
   ],

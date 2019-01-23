@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "召集好友",
-  "navigationBarBackgroundColor": "#70B2FE",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "createDialog": "../../../component/createTeamDialog/createTeamDialog",
-    "toast": "../../../component/showToast/showToast"
-  }
-}
