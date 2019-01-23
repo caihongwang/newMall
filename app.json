@@ -3,8 +3,6 @@
     "pages/tabBar/shopList/shopList",
     "pages/tabBar/my/my",
     "pages/tabBar/index/index",
-    "pages/shareOpen/index",
-    "pages/component/tabbar/tabbar",
     "pages/tabBar/IntegralMall/IntegralMall",
     "pages/index1/index"
   ],
