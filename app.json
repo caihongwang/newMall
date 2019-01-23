@@ -13,7 +13,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#393939",
     "navigationBarTitleText": "财富名片夹",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#B2B2B2",
@@ -53,9 +53,11 @@
         "personalCash/personalCash",
         "myOrder/myOrder",
         "integralRecord/integralRecord",
-        "myCoin/myCoin",
+        "balanceRecord/balanceRecord",
         "intergralOrder/intergralOrder",
+        "intergralOrderDetail/intergralOrderDetail",
         "presenDetails/presenDetails",
+        "cashedRule/cashedRule",
         "joinShop/joinShop",
         "orderQueue/orderQueue"
       ]
@@ -83,11 +85,11 @@
     {
       "root": "pages/commonPage/",
       "pages": [
-        "placeOrder/placeOrder",
+        "payProductOrder/payProductOrder",
         "addressManage/addressManage",
         "addAddress/addAddress",
         "turnDraw/turnDraw",
-          "orderDetail/orderDetail"
+        "orderDetail/orderDetail"
       ]
     },
     {

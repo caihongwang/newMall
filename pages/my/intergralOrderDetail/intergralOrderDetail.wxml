@@ -1,0 +1,134 @@
+<!-- 商品信息 -->
+<view class='orderDetailView'>
+  <!-- 层级0 -->
+  <view class='orderLevelView0'>
+    <view class='shopView'>
+      <image class="theMallImg" src="/images/theMall.png"></image>
+      <view class="theMallNameView">积分商城 →</view>
+    </view>
+    <view class='orderStatusNameView'>{{orderDetail.orderStatusName}}</view>
+  </view>
+  <!-- 层级1 -->
+  <view class='orderLevelView1'>
+    <image class="productHeadImg" src="{{orderDetail.productHeadImgUrl}}"></image>
+    <view class='productTitleView'>{{orderDetail.productTitle}}</view>
+    <view class='productPriceAndNumView'>
+      <view class='productPriceView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="productPriceTextView">{{orderDetail.productPrice}}</view>
+      </view>
+      <view class='productNumView'>
+        <image class="numLogoImg" src="/images/numLogo.png"></image>
+        <view class="productNumTextView">{{orderDetail.productNum}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 层级2 -->
+  <view class='orderLevelView2'>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView'>商品总价</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum">{{orderDetail.allPayAmount}}</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView'>积分抵扣</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum">{{orderDetail.useIntegralNum}}</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView'>余额抵扣</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum">{{orderDetail.useBalanceMonney}}</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView'>运费(快递)</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum">0.00</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView' style='color:red;'>实付款</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/redMoneyLogo.png"></image>
+        <view class="detailPriceNum" style='color:red;'>{{orderDetail.payMoney}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 订单信息 -->
+<view class='orderInfoView'>
+  <!-- 层级3 -->
+  <view class='orderLevelView3'>
+    <view class='theOrderInfoView'>
+      <image class="theOrderImg" src="/images/intergralOrderList.png"></image>
+      <view class="theOrderNameView">订单信息 →</view>
+    </view>
+    <view class='orderStatusNameView'></view>
+  </view>
+  <!-- 层级4 -->
+  <view class='orderLevelView4'>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView'>订单编号</view>
+      <view class='orderInfoNumView'>{{orderDetail.orderId}}</view>
+    </view>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView'>订单创建时间</view>
+      <view class='orderInfoNumView'>{{orderDetail.createTime}}</view>
+    </view>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView'>订单更新时间</view>
+      <view class='orderInfoNumView'>{{orderDetail.updateTime}}</view>
+    </view>
+  </view>
+</view>
+<!-- 物流信息 -->
+<view class='logisticsView'>
+  <!-- 层级5 -->
+  <view class='logisticsLevelView5'>
+    <view class='theLogisticsInfoView'>
+      <image class="theLogisticsImg" src="/images/logistics.png"></image>
+      <view class="theLogisticsNameView">物流信息 →</view>
+    </view>
+    <view class='logisticsStatusNameView'></view>
+  </view>
+
+  <!-- 层级6 -->  
+  <view class='orderLevelView6' wx:if="{{orderDetail.expressName?true:false  && orderDetail.expressNumber?true:false}}">
+    <view class="logisticsInfoNameAndNumView">
+      <view class='logisticsInfoNameView'>物流名称</view>
+      <view class='logisticsInfoNumView'>{{orderDetail.expressName}}</view>
+    </view>
+    <view class="logisticsInfoNameAndNumView">
+      <view class='logisticsInfoNameView'>物流编号</view>
+      <view class='logisticsInfoNumView'>{{orderDetail.expressNumber}}</view>
+    </view>
+  </view>
+  <!-- 层级7 -->
+  <view class='orderLevelView7' wx:else>
+    暂无物流信息
+  </view>
+
+</view>
+
+
+<view class='contactView'>
+  <view class='contactCustomView'>
+    <button class="contactCustomBtn" open-type='contact' size="40" >
+        <image class="contactCustomImg" src="/images/customer.png"></image>
+        <text class="contactCustomText">联系客服</text>
+    </button>
+  </view>
+  <view class='contactPhoneView'>
+    <button class="contactPhoneBtn" bindtap='contactPhone' size="40" >
+        <image class="contactPhoneImg" src="/images/complaintAndLeaguePhone.png"></image>
+        <text class="contactPhoneText">拨打电话</text>
+    </button>
+  </view>
+</view>

@@ -3,7 +3,7 @@
   <view class='degistTxtView'>
     <view class='degistTxt_1'>这是专属于您的账单</view>
     <view class='degistTxt_2'>等待您的亲自验收>></view>
-    <view class='degistTxt_3'>【提现规则】</view>
+    <view class='degistTxt_3' bindtap='checkCashedRule'>@提现规则</view>
   </view>
   <view class='accountStatemenView'>
     <image class="accountStatementImg" src="/images/accountStatement.png"></image>

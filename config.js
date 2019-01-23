@@ -25,8 +25,10 @@ var config = {
   getUserBaseInfoUrl: `${host}/wxUser/getUserBaseInfo.do`,   //获取积分等数据
 
   // 商城积分
-  getProductTypeList: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商城类型列表
-  getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取积分商城列表
+  getProductTypeListUrl: `${host}/wxProduct/getProductTypeList.do`,   //获取积分商商品类型列表
+  getSimpleProductByCondition: `${host}/wxProduct/getSimpleProductByCondition.do`,   //获取单一积分商品列表
+  getProductListUrl: `${host}/wxProduct/getProductList.do`,   //获取积分商品列表
+  getProductDetailUrl: `${host}/wxProduct/getProductDetail.do`,   //获取积分商品列表
 
   // 地址管理
   getProvinceListUrl: `${host}/wxAddress/getProvinceList.do`,   //获取省份地址
@@ -58,13 +60,18 @@ var config = {
 
   //提现
   getCashFeeListUrl: `${host}/wxCashLog/getCashFeeList.do`,   //获取提现规则列表  暂时没调用
-  getSimpleCashUrl: `${host}/wxCashLog/getSimpleCashLogByCondition.do`,   //获取当前用户的提现列表
+  getSimpleCashLogByConditionUrl: `${host}/wxCashLog/getSimpleCashLogByCondition.do`,   //获取当前用户的提现列表
   cashBalanceUrl: `${host}/wxCashLog/cashBalanceToWx.do`,   //提现至微信零钱  
 
-// 订单管理接口
-  getWaitPayGoodsUrl: `${host}/newMall/getWaitPayGoodsOrder.do`,   //待支付
-  getAlreadyPayGoodsUrl: `${host}/newMall/  getAlreadyPayGoodsOrder.do`,   //已支付
-  getAlreadyDeliverGoodsUrl: `${host}/newMall/getAlreadyDeliverGoodsOrder.do`,   //  已发货
-  getCompletedGoodsUrl: `${host}/newMall/getCompletedGoodsOrder.do`,   //已完成
+  // 订单管理接口
+  getAllPayGoodsOrderUrl: `${host}/wxOrder/getAllPayGoodsOrder.do`,   //所有订单
+  getWaitPayGoodsUrl: `${host}/wxOrder/getWaitPayGoodsOrder.do`,   //待支付
+  getAlreadyPayGoodsUrl: `${host}/wxOrder/getAlreadyPayGoodsOrder.do`,   //已支付
+  getAlreadyDeliverGoodsUrl: `${host}/wxOrder/getAlreadyDeliverGoodsOrder.do`,   //  已发货 
+  getCompletedGoodsUrl: `${host}/wxOrder/getCompletedGoodsOrder.do`,   //已完成
+  getGoodsOrderDetailByIdUrl: `${host}/wxOrder/getGoodsOrderDetailById.do`,   //已完成
+
+  getSimpleIntegralLogByConditionUrl: `${host}/wxIntegralLog/getSimpleIntegralLogByCondition.do`,   //积分记录列表
+  getSimpleBalanceLogByConditionUrl: `${host}/wxBalanceLog/getSimpleBalanceLogByCondition.do`,   //余额记录列表
 }
 module.exports = config

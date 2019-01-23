@@ -1,0 +1,38 @@
+<!--pages/commonPage/placeOrder/placeOrder.wxml-->
+<view class='address flex' bindtap='goAddress'>
+  <image class='address-icon' src="/images/logo.png"></image>
+  <view class='address-detail'>
+    <view wx:if="{{selectedAddress}}">
+      <view class='name fz-28'>{{selectedAddress.name}}</view>
+      <view class='address-choose fz-24'>{{selectedAddress.provinceName}} {{selectedAddress.cityName}} {{selectedAddress.regionName}} {{selectedAddress.streetName}} {{selectedAddress.detailAddress}}</view>
+    </view>
+    <view wx:else>
+      <view class='name fz-28'>未有收货地址</view>
+      <view class='address-choose fz-24'>请选择收货地址</view>
+    </view>
+  </view>
+  <image class='address-right' src="/images/logo.png"></image>
+</view>
+
+<view class='address1 flex'>
+  <image class='goods-icon' src="{{productDetail.headImgUrl}}"></image>
+  <view class='goods-detail '>
+    <view class='good-name flex fz-28'>
+      <view class='good'>{{productDetail.title}}</view>
+      <view class='good-price'>￥{{productDetail.price}}</view>
+
+    </view>
+    <view class='good-name flex fz-28'>
+      <view class='good'>
+        <text class='rule'>规格：</text>{{productDetail.degist}}</view>
+      <view>￥{{productDetail.integral}}</view>
+    </view>
+    <view class='fz-28 class="number"'>×{{productDetail.num}}</view>
+  </view>
+</view>
+
+
+<view class='foot flex'>
+  <view class='foot-price'>合计：￥{{productDetail.finalPrice}}+{{productDetail.finalIntegral}}积分</view>
+  <view class='sure-pay' bindtap='surePay'>确认并支付</view>
+</view>

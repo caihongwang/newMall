@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 36,
 			"list": [
 				{
 					"id": 0,
@@ -243,6 +243,34 @@
 					"name": "提现明细",
 					"pathName": "pages/my/presenDetails/presenDetails",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城订单",
+					"pathName": "pages/my/intergralOrder/intergralOrder",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/my/intergralOrderDetail/intergralOrderDetail",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "积分记录",
+					"pathName": "pages/my/integralRecord/integralRecord",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "余额记录",
+					"pathName": "pages/my/balanceRecord/balanceRecord",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

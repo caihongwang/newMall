@@ -1,41 +1,41 @@
 // pages/my/intergralOrder/intergralOrder.js
-
 var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
+    orderTitelList: [
       {
-        name: '所有订单',
+        titel: '所有订单',
         id: 0
       },
       {
-        name: '待付款',
+        titel: '待付款',
         id: 1
       },
       {
-        name: '配送中',
+        titel: '待收货',
         id: 2
       },
       {
-        name: '已完成',
+        titel: '已完成',
         id: 2
       },
     ],
     chosseId: 0,
 
     havePageAll: 0, //已经加载的页数
-    pageindexAll: 10,//总共加载的总条数
+    pageindexAll: 3,//总共加载的总条数
     howShops: 0,//共多少条数据
 
-    waitPay:[],//待支付数据列表
-    alreadyPay:[],//已支付
-    alreadyDeliver:[],//已发货
+    showOrderList: [],//用来展示的订单
+    allPayGoodsOrderList: [],//所有订单
+    waitPayGoodsOrderList: [],//待付款
+    alreadyDeliverGoodsOrderList:[],//待收货
+    completedGoodsOrderList:[],//已完成
 
   },
 
@@ -50,28 +50,82 @@ Page({
         chosseId: index,
         havePageAll: 0, //已经加载的页数
         pageindexAll: 10,//总共加载的总条数
-      })
-      if(index == 1){
+      });
+      if (index == 0) {
+        this.getAllPayGoodsOrder(false);
+      } else if(index == 1){
         this.getWaitPayGoods(false);
       }else if(index == 2){
-        this.getAlreadyPayGoods(false);
+        this.getAlreadyDeliverGoods(false);
       }else if(index == 3){
-        this.getAlreadyDeliverGoodsUrl(false);
+        this.getCompletedGoods(false);
       }
     }
- 
-
   },
-  //待支付
-  getWaitPayGoods: function (boo) {
+  //所有订单
+  getAllPayGoodsOrder: function (boo) {
     var that = this;
+    that.data.showOrderList = [];     //  清空展示的列表数据
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.start = this.data.havePageAll;
     params.size = this.data.pageindexAll;
     if (!boo) {
       wx.showLoading({
-        title: '加载中',
+        title: '客官请稍后...',
+        mask: true
+      });
+    }
+    network.POST({
+        params: params,
+        requestUrl: requestUrl.getAllPayGoodsOrderUrl,
+        success: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          if (res.data.code == 0) {
+            for (var i in res.data.data) {
+              that.data.allPayGoodsOrderList.push(res.data.data[i]);
+            }
+            that.setData({
+              showOrderList: that.data.allPayGoodsOrderList,
+              allPayGoodsOrderList: that.data.allPayGoodsOrderList,
+              howShops: res.data.recordsFiltered
+            });
+            that.data.havePageAll += res.data.data.length;
+            if (that.data.havePageAll < res.data.recordsFiltered) {
+              that.setData({
+                isShowMore: true,
+                loading: false,
+                isNoShowMore: false,
+              });
+            } else {
+              that.setData({
+                isShowMore: false,
+                loading: false,
+                isNoShowMore: true,
+              });
+            }
+            console.log(that.data.allPayGoodsOrderList);
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+  //待支付
+  getWaitPayGoods: function (boo) {
+    var that = this;
+    that.data.showOrderList = [];     //  清空展示的列表数据
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.start = this.data.havePageAll;
+    params.size = this.data.pageindexAll;
+    if (!boo) {
+      wx.showLoading({
+        title: '客官请稍后...',
         mask: true
       });
     }
@@ -84,12 +138,13 @@ Page({
           console.log(res.data.data);
           if (res.data.code == 0) {
             for (var i in res.data.data) {
-              that.data.waitPay.push(res.data.data[i]);
+              that.data.waitPayGoodsOrderList.push(res.data.data[i]);
             }
             that.setData({
-              waitPay: that.data.waitPay,
+              showOrderList: that.data.waitPayGoodsOrderList,
+              waitPayGoodsOrderList: that.data.waitPayGoodsOrderList,
               howShops: res.data.recordsFiltered
-            })
+            });
             that.data.havePageAll += res.data.data.length;
             if (that.data.havePageAll < res.data.recordsFiltered) {
               that.setData({
@@ -104,7 +159,7 @@ Page({
                 isNoShowMore: true,
               })
             }
-            console.log(that.data.waitPay);
+            console.log(that.data.waitPayGoodsOrderList);
           } else {
             util.toast(res.data.message);
           }
@@ -116,71 +171,17 @@ Page({
         }
       });
   },
-  //已支付
-  getAlreadyPayGoods: function (boo) {
-    var that = this;
-    var params = new Object();
-    params.uid = wx.getStorageSync("UIDKEY");
-    params.start = this.data.havePageAll;
-    params.size = this.data.pageindexAll;
-    if (!boo) {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      });
-    }
-    network.POST(
-      {
-        params: params,
-        requestUrl: requestUrl.getAlreadyPayGoodsUrl,
-        success: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          console.log(res.data.data);
-          if (res.data.code == 0) {
-            for (var i in res.data.data) {
-              that.data.alreadyPay.push(res.data.data[i]);
-            }
-            that.setData({
-              alreadyPay: that.data.alreadyPay,
-              howShops: res.data.recordsFiltered
-            })
-            that.data.havePageAll += res.data.data.length;
-            if (that.data.havePageAll < res.data.recordsFiltered) {
-              that.setData({
-                isShowMore: true,
-                loading: false,
-                isNoShowMore: false,
-              })
-            } else {
-              that.setData({
-                isShowMore: false,
-                loading: false,
-                isNoShowMore: true,
-              })
-            }
-            console.log(that.data.alreadyPay);
-          } else {
-            util.toast(res.data.message);
-          }
-
-        },
-        fail: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          util.toast("网络异常, 请稍后再试");
-        }
-      });
-  },
-
   //已发货
-  getAlreadyDeliverGoodsUrl: function (boo) {
+  getAlreadyDeliverGoods: function (boo) {
     var that = this;
+    that.data.showOrderList = [];     //  清空展示的列表数据
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.start = this.data.havePageAll;
     params.size = this.data.pageindexAll;
     if (!boo) {
       wx.showLoading({
-        title: '加载中',
+        title: '客官请稍后...',
         mask: true
       });
     }
@@ -193,10 +194,11 @@ Page({
           console.log(res.data.data);
           if (res.data.code == 0) {
             for (var i in res.data.data) {
-              that.data.alreadyDeliver.push(res.data.data[i]);
+              that.data.alreadyDeliverGoodsOrderList.push(res.data.data[i]);
             }
             that.setData({
-              alreadyDeliver: that.data.alreadyDeliver,
+              showOrderList: that.data.alreadyDeliverGoodsOrderList,
+              alreadyDeliverGoodsOrderList: that.data.alreadyDeliverGoodsOrderList,
               howShops: res.data.recordsFiltered
             })
             that.data.havePageAll += res.data.data.length;
@@ -213,7 +215,7 @@ Page({
                 isNoShowMore: true,
               })
             }
-            console.log(that.data.alreadyPay);
+            console.log(that.data.alreadyDeliverGoodsOrderList);
           } else {
             util.toast(res.data.message);
           }
@@ -225,12 +227,79 @@ Page({
         }
       });
   },
-
-
+  //已完成
+  getCompletedGoods: function (boo) {
+    var that = this;
+    that.data.showOrderList = [];     //  清空展示的列表数据
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.start = this.data.havePageAll;
+    params.size = this.data.pageindexAll;
+    if (!boo) {
+      wx.showLoading({
+        title: '客官请稍后...',
+        mask: true
+      });
+    }
+    network.POST(
+      {
+        params: params,
+        requestUrl: requestUrl.getCompletedGoodsUrl,
+        success: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          console.log(res.data.data);
+          if (res.data.code == 0) {
+            for (var i in res.data.data) {
+              that.data.completedGoodsOrderList.push(res.data.data[i]);
+            }
+            that.setData({
+              showOrderList: that.data.completedGoodsOrderList,
+              completedGoodsOrderList: that.data.completedGoodsOrderList,
+              howShops: res.data.recordsFiltered
+            })
+            that.data.havePageAll += res.data.data.length;
+            if (that.data.havePageAll < res.data.recordsFiltered) {
+              that.setData({
+                isShowMore: true,
+                loading: false,
+                isNoShowMore: false,
+              })
+            } else {
+              that.setData({
+                isShowMore: false,
+                loading: false,
+                isNoShowMore: true,
+              })
+            }
+            console.log(that.data.completedGoodsOrderList);
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+  },
+  //查看详情
+  checkDetail: function(option) {
+    console.log(option);
+    var orderId = option.currentTarget.dataset.orderid;
+    wx.navigateTo({
+      url: "../intergralOrderDetail/intergralOrderDetail?orderId=" +  orderId
+    });
+  },
   onLoad: function (options) {
-    this.setData({
-      chosseId: options.index
-    })
+    if (options.index){
+      this.setData({
+        chosseId: options.index
+      });
+    } else {
+      this.setData({
+        chosseId: 0
+      });
+    }
   },
 
   /**
@@ -244,12 +313,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.data.chosseId == 1) {
+    if (this.data.chosseId == 0) {
+      this.getAllPayGoodsOrder(false);
+    } else if (this.data.chosseId == 1) {
       this.getWaitPayGoods(false);
     } else if (this.data.chosseId == 2) {
-      this.getAlreadyPayGoods(false);
+      this.getAlreadyDeliverGoods(false);
     } else if (this.data.chosseId == 3) {
-      this.getAlreadyDeliverGoodsUrl(false);
+      this.getCompletedGoods(false);
     }
   },
 
@@ -278,12 +349,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.chosseId == 1) {
+    if (this.data.chosseId == 0) {
+      this.getAllPayGoodsOrder(false);
+    } else if (this.data.chosseId == 1) {
       this.getWaitPayGoods(false);
     } else if (this.data.chosseId == 2) {
-      this.getAlreadyPayGoods(false);
+      this.getAlreadyDeliverGoods(false);
     } else if (this.data.chosseId== 3) {
-      this.getAlreadyDeliverGoodsUrl(false);
+      this.getCompletedGoods(false);
     }
 
   },

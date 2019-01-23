@@ -1,0 +1,361 @@
+/* pages/my/myOrder/myOrder.wxss */
+/* @import "../../../app.wxss"; */
+page{
+  background: #f8f8f8;
+}
+.orderDetailView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 460rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  margin: 20rpx 20rpx;
+}
+.orderLevelView0{
+  border: 0px red solid;
+  width: 100%;
+  height: 30rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 15rpx 0rpx 15rpx 0rpx;
+}
+.shopView{
+  border: 0px red solid;
+  width: 50%;
+  text-align: left;
+  padding-left: 20rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.theMallImg{
+  border: 0px red solid;
+  width: 40rpx;
+  height: 40rpx;
+}
+.theMallNameView{
+  border: 0px red solid;
+  padding-left: 10rpx;
+}
+.orderStatusNameView{
+  border: 0px red solid;
+  width: 50%;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.orderLevelView1{
+  border: 0px red solid;
+  width: 100%;
+  height: 120rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 10rpx 40rpx;
+}
+.productHeadImg{
+  border: 1px #f8f8f8 solid;
+  border-radius: 15rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.productTitleView{
+  border: 0px red solid;
+  width: 60%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 10rpx 10rpx;
+}
+.productPriceAndNumView{
+  border: 0px red solid;
+  width: 30%;
+  height: 100%;
+}
+.productPriceView{
+  border: 0px red solid;
+  height: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.moneyLogoImg{
+  border: 0px red solid;
+  width: 25rpx;
+  height: 25rpx;
+}
+.productPriceTextView{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.productNumView{
+  border: 0px red solid;
+  height: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.numLogoImg{
+  border: 0px red solid;
+  width: 25rpx;
+  height: 25rpx;
+}
+.productNumTextView{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.orderLevelView2{
+  border: 0px red solid;
+  width: 100%;
+  height: 300rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  padding: 15rpx 20rpx;
+}
+.detailPriceNameAndNumView{
+  border: 0px red solid;
+  height: 50rpx;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.detailPriceNameView{
+  border: 0px red solid;
+  width: 74%;
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  padding-left: 20rpx;
+}
+.detailPriceNumView{
+  border: 0px red solid;
+  width: 26%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  padding-left: 10rpx;
+}
+.detailPriceNum{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.orderInfoView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 210rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  margin: 20rpx 20rpx;
+}
+.orderLevelView3{
+  border: 0px red solid;
+  width: 100%;
+  height: 30rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 15rpx 0rpx 15rpx 0rpx;
+}
+.theOrderInfoView{
+  border: 0px red solid;
+  width: 50%;
+  text-align: left;
+  padding-left: 20rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.theOrderImg{
+  border: 0px red solid;
+  width: 40rpx;
+  height: 40rpx;
+}
+.theOrderNameView{
+  border: 0px red solid;
+  padding-left: 10rpx;
+}
+
+.orderLevelView4{
+  border: 0px red solid;
+  width: 100%;
+  height: 300rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  padding: 0rpx 40rpx;
+}
+.orderInfoNameAndNumView{
+  border: 0px red solid;
+  height: 50rpx;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.orderInfoNameView{
+  width: 60%;
+  text-align: left;
+}
+.orderInfoNumView{
+  width: 40%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.logisticsView{
+  border: 0rpx green solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 160rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  margin: 20rpx 20rpx;
+}
+
+.logisticsLevelView5{
+  border: 0px red solid;
+  width: 100%;
+  height: 30rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 15rpx 0rpx 15rpx 0rpx;
+}
+.logisticsLevelView3{
+  border: 0px red solid;
+  width: 100%;
+  height: 30rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 15rpx 0rpx 15rpx 0rpx;
+}
+.theLogisticsInfoView{
+  border: 0px red solid;
+  width: 50%;
+  text-align: left;
+  padding-left: 20rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.theLogisticsImg{
+  border: 0px red solid;
+  width: 40rpx;
+  height: 40rpx;
+}
+.theLogisticsNameView{
+  border: 0px red solid;
+  padding-left: 10rpx;
+}
+.logisticsStatusNameView{
+  border: 0px red solid;
+  width: 50%;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.orderLevelView6{
+  border: 0px red solid;
+  width: 100%;
+  height: 100%;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  padding: 0rpx 40rpx;
+}
+.logisticsInfoNameAndNumView{
+  border: 0px red solid;
+  height: 50rpx;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.logisticsInfoNameView{
+  width: 60%;
+  text-align: left;
+}
+.logisticsInfoNumView{
+  width: 40%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.orderLevelView7{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 50rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+
+.contactView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 80rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  position: fixed;
+  left: 0;
+  bottom: 40rpx;
+  z-index: 100;
+  margin: 0rpx 20rpx;
+}
+.contactCustomView{
+  width: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactCustomBtn{
+  width: 80%;
+  height: 80rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactCustomImg{
+  border: 0px red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+.contactCustomText{
+  padding-left: 15rpx;
+  font-size: 75%;
+}
+.contactPhoneView{
+  width: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactPhoneBtn{
+  width: 80%;
+  height: 70rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactPhoneImg{
+  border: 0px red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+.contactPhoneText{
+  padding-left: 15rpx;
+  font-size: 75%;
+}

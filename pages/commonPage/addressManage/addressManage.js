@@ -9,36 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentItem: 1,
-    address:[
-      {
-        name:'你好呀',
-      address:'年后地纷纷恩发你滴定法'
-      },
-      {
-        name: '你好呀',
-        address: '年后地纷纷恩发你滴定法'
-      },
-      {
-        name: '你好呀',
-        address: '年后地纷纷恩发你滴定法'
-      },
-      {
-        name: '你好呀',
-        address: '年后地纷纷恩发你滴定法'
-      },
-      {
-        name: '你好呀',
-        address: '年后地纷纷恩发你滴定法'
-      },
-      {
-        name: '你好呀',
-        address: '年后地纷纷恩发你滴定法'
-      }
-
-
-    ]
-
+    isFromPayProductOrderPage: false,
+    selectedAddressItem: 1,
+    addressList:[]
   },
 
   getAddressList: function () {
@@ -53,7 +26,7 @@ Page({
           console.log(res.data.data);
           if (res.data.code == 0) {
             that.setData({
-              address: res.data.data
+              addressList: res.data.data
             })
           } else {
           }
@@ -69,11 +42,18 @@ Page({
 
 
 // 选择地址列表
-  filter: function (e) {
-    var index = e.currentTarget.dataset.index;
+  selectAddress: function (e) {
+    var selectedAddressItem = e.currentTarget.dataset.index;
     this.setData({
-      currentItem: index
-    })
+      selectedAddressItem: selectedAddressItem
+    });
+    wx.setStorageSync('selectedAddress', this.data.addressList[selectedAddressItem]);
+    if (this.data.isFromPayProductOrderPage){ //如果是从支付订单页面过来的，则选中地址后直接调回支付订单页面
+      // wx.redirectTo({
+      //   url: '/pages/commonPage/payProductOrder/payProductOrder',
+      // });
+      wx.navigateBack();
+    }
     //调用筛选接口
   },
   // 点击新增收货地址
@@ -106,9 +86,9 @@ Page({
   editAddress:function(e){
     // e.currentTarget.dataset.index
     let index = e.currentTarget.dataset.index;
-    let address = JSON.stringify(this.data.address[index]);
+    let addressList = JSON.stringify(this.data.addressList[index]);
     wx.navigateTo({
-      url: '/pages/commonPage/addAddress/addAddress?address=' + address,
+      url: '/pages/commonPage/addAddress/addAddress?addressList=' + addressList,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -120,7 +100,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var isFromPayProductOrderPage = options.isFromPayProductOrderPage;
+    if (isFromPayProductOrderPage){
+      this.setData({
+        isFromPayProductOrderPage: isFromPayProductOrderPage
+      });
+    }
   },
 
   /**

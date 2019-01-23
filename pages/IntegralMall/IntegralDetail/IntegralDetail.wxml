@@ -1,12 +1,12 @@
 <!--pages/IntegralMall/IntegralDetail/IntegralDetail.wxml-->
 <view class='head'>
-  <image class='image' src="{{detail.images}}"></image>
-  <view class='describe'>{{detail.describe}}</view>
+  <image class='image' src="{{productDetail.headImgUrl}}"></image>
+  <view class='describe'>{{productDetail.descript}}</view>
 </view>
 
 <view class='price flex'>
-  <view class='integral-left'>￥{{detail.price}}+{{detail.integral}}积分</view>
-    <view class='integral-right'>库存： {{detail.stock}}</view>
+  <view class='integral-left'>￥{{productDetail.price}}+{{productDetail.integral}}积分</view>
+    <view class='integral-right'>库存： {{productDetail.stock}}</view>
 </view>
 
 <view class='detail'>
@@ -15,11 +15,11 @@
 </view>
 
 <view class='imageList-warp'>
- <image class='imageList'  wx:for="{{detail.imageList}}" wx:key="imageList"  src='{{item}}'></image>
+ <image class='imageList'  wx:for="{{productDetail_describeImgUrlList}}" wx:key="productDetail_describeImgUrlList"  src='{{item}}'></image>
 </view>
 
 <view class='foot flex' >
-  <view class='should-pay'>应付金额：<text class='integral-left'>￥{{detail.price}}+{{detail.integral}}积分 </text></view>
+  <view class='should-pay'>应付金额：<text class='integral-left'>￥{{productDetail.price}}+{{productDetail.integral}}积分 </text></view>
   <view class="now-buy" bindtap='nowBuy'>立即购买</view>
 </view>
 
@@ -27,11 +27,11 @@
 
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
   <view class='modal-head flex3'  >
-    <image class='modal-image' src="{{detail.images}}"></image>
+    <image class='modal-image' src="{{productDetail.headImgUrl}}"></image>
    <view class='modal-integral  fz-28'> 
-       <view class='model-price'>￥{{detail.price}}+{{detail.integral}}积分</view>
-      <view class='model-stock '>库存：{{detail.stock}}件</view>
-       <view class='model-describe  '>已选：{{detail.describe}}</view>
+       <view class='model-price'>￥{{productDetail.price}}+{{productDetail.integral}}积分</view>
+      <view class='model-stock '>库存：{{productDetail.stock}}件</view>
+       <view class='model-describe  '>已选：{{productDetail.descript}}</view>
    </view>
 
    <image class='close' src='/images/home.png' bindtap='closeModel'></image>
@@ -39,7 +39,7 @@
    
    <view class='modal-head fz-28'>
     <view>   <text>选择规格：</text>
-      <view class='specifications'>{{detail.describe}}</view></view>
+      <view class='specifications'>{{productDetail.descript}}</view></view>
    
         <view class='buy-nummber flex'>
           <view class='numbur'>购买数量</view>

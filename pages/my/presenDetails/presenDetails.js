@@ -3,7 +3,6 @@ var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -36,7 +35,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getSimpleCash();
+    this.getSimpleCashLogByCondition();
 
   },
 
@@ -83,13 +82,11 @@ Page({
       title: "客官请稍后...",
       mask: true
     });
-    this.getSimpleCash();
+    this.getSimpleCashLogByCondition();
     wx.hideLoading(); //关闭进度条
   },
 
-
-
-  getSimpleCash: function () {
+  getSimpleCashLogByCondition: function () {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -97,7 +94,7 @@ Page({
     params.size = that.data.pageindexAll;
     network.POST({
         params: params,
-        requestUrl: requestUrl.getSimpleCashUrl,
+      requestUrl: requestUrl.getSimpleCashLogByConditionUrl,
         success: function (res) {
           if (res.data.code == 0) {
             for (var i in res.data.data) {
@@ -128,6 +125,15 @@ Page({
         fail: function (res) {
           util.toast("网络异常, 请稍后再试");
         }
+      });
+  },
+  /**
+   * 查看红包提现规则
+   */
+  checkCashedRule: function () {
+      console.log("查看红包提现规则");
+      wx.navigateTo({
+        url: "../cashedRule/cashedRule"
       });
   }
 })

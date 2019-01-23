@@ -24,7 +24,7 @@ Page({
       },
       {
         "id": "3",
-        "name": "积分订单",
+        "name": "积分商城订单",
         "page": "my/intergralOrder/intergralOrder",
         "image": '/images/intergralOrderList.png'
       },
@@ -98,17 +98,17 @@ Page({
   // 点击我的积分
   integralRecord:function(){
     wx.navigateTo({
-      url: '/pages/my/integralRecord/integralRecord' ,
+      url: '/pages/my/integralRecord/integralRecord?integral=' + this.data.userBaseInfo.integral,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
   },
 
-  // 点击我的买单币
-  myCion:function(){
+  // 点击我的余额
+  balanceRecord:function(){
     wx.navigateTo({
-      url: '/pages/my/myCoin/myCoin',
+      url: '/pages/my/balanceRecord/balanceRecord?balance=' + this.data.userBaseInfo.balance,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

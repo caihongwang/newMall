@@ -1,24 +1,24 @@
 <!--pages/my/integralRecord/integralRecord.wxml-->
 <view class='head'>
-  <view class='my-integral fz-28'>我的积分</view>
-  <view class='money fz-40'>{{integral}}</view>
+  <view class='my-integral fz-28'>我的余额</view>
+  <view class='money fz-40'>{{balance}}</view>
 </view>
 
-<view class='list' wx:if="{{integralList}}">
+<view class='list' wx:if="{{balanceList}}">
   <view class='record  '>
     <image class="record-image" src='/images/logo.png'></image>
-    <view class='intergral'>积分记录</view>
+    <view class='intergral'>余额记录</view>
   </view>
-  <view class='list-warp' wx:for="{{integralList}}" wx:key="list">
+  <view class='list-warp' wx:for="{{balanceList}}" wx:key="list">
     <view class='type fz-28 flex'>
-      <view>{{item.userIntegral}}</view>
-      <view class='money fz-24'>{{item.exchangeToUserIntegral}}</view>
+      <view>{{item.cashbackToUserBalance}}</view>
+      <view class='money fz-24'>{{item.userBalance}}</view>
     </view>
     <view class='time fz-24'>{{item.createTime}}</view>
   </view>
 </view>
 
-<view class="no-record" wx:else>暂无积分记录</view>
+<view class="no-record" wx:else>暂无余额记录</view>
 
 <view class='footView'>
   <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>

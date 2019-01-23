@@ -15,7 +15,7 @@ Page({
     screen: [],
 
     // screen: ['全部', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理'],
-    list: [
+    productList: [
       // {
       //   id: 1,
       //   images:'/images/home.png',
@@ -85,7 +85,7 @@ Page({
   },
 
 
-  filter:function(e){
+  getProductList:function(e){
     if(e){
       var index = e.currentTarget.dataset.index;
     }else{
@@ -101,7 +101,7 @@ Page({
     network.POST(
       {
         params: params,
-        requestUrl: requestUrl.getSimpleProductByCondition,
+        requestUrl: requestUrl.getProductListUrl,
         success: function (res) {
           console.log(res.data);
           if (res.data.code == 0) {
@@ -109,7 +109,7 @@ Page({
             console.log(123);
             console.log(res.data.data[0].describeImgUrl)
             that.setData({
-              list: res.data.data
+              productList: res.data.data
             })
 
           } else {
@@ -128,17 +128,18 @@ Page({
   },
 
   //点击跳转到详情页
-  goDetail:function(e){
-    var id = e.currentTarget.dataset.index;
+  getProductDetail:function(e){
+    console.log(e);
+    var productId = e.currentTarget.dataset.productid;
+    console.log("productId = " + productId);
     wx.navigateTo({
-      url: '../../IntegralMall/IntegralDetail/IntegralDetail?shopId=' + id
-    })
-
+      url: '../../IntegralMall/IntegralDetail/IntegralDetail?productId=' + productId
+    });
   },
 
 
   // 获取积分类型
-  getType:function(boo){
+  getProductTypeList:function(boo){
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -152,7 +153,7 @@ Page({
     network.POST(
       {
         params: params,
-        requestUrl: requestUrl.getProductTypeList,
+        requestUrl: requestUrl.getProductTypeListUrl,
         success: function (res) {
           console.log(res.data);
           boo ? wx.stopPullDownRefresh() : wx.hideLoading();
@@ -161,7 +162,7 @@ Page({
              that.setData({
                screen:res.data.data
              })
-            that.filter();
+            that.getProductList();
           } else {
 
           }
@@ -193,7 +194,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getType(false);
+    this.getProductTypeList(false);
 
   },
 

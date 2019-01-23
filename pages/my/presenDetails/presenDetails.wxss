@@ -35,8 +35,11 @@ page{
 }
 .degistTxt_3{
   border: 0px yellow solid;
+  margin-top: 5rpx;
   width: 100%;
   font-size: 70%;
+  color: #5455C7;
+  text-decoration: underline;
 }
 .accountStatemenView{
   border: 0px red solid;
