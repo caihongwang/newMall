@@ -1,7 +1,6 @@
 <!--pages/commonPage/addressManage/addressManage.wxml-->
-<view class='warp' wx:if="{{address}}">
-<view  wx:for="{{address}}"  wx:for-index="i" wx:key="screen" class="address flex"   bindtap='filter' data-index="{{i}}">
-
+<view class='warp' wx:if="{{addressList}}">
+<view  wx:for="{{addressList}}"  wx:for-index="i" wx:key="screen" class="address flex"   bindtap='selectAddress' data-index="{{i}}">
    <image class='address-icon' src="/images/logo.png" wx:if="{{currentItem == i}}"></image>
    <image class='address-icon' src="/images/home.png" wx:if="{{currentItem != i}}"></image>
    <view class='address-detail'>

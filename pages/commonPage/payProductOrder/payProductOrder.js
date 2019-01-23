@@ -10,8 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:'233333333333333',
-    price:33
+    selectedAddress: {},
+    productDetail: {}
   },
 
 
@@ -97,34 +97,14 @@ Page({
 // 点击跳转到地址管理页
   goAddress:function(){
     wx.navigateTo({
-      url: '/pages/commonPage/addressManage/addressManage',
-    })
-
+      url: '/pages/commonPage/addressManage/addressManage?isFromPayProductOrderPage=true',
+    });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var headImgUrl = options.headImgUrl;
-    var title = options.title;
-    var degist = options.degist;
-    var price = options.price;
-    var integral = options.integral;
-    var num = options.num;
-    this.setData({
-      headImgUrl: headImgUrl,
-      title: title,
-      degist: degist,
-      price: price,
-      integral: integral,
-      num: num
-    });
-    console.log("headImgUrl = " + headImgUrl);
-    console.log("title = " + title);
-    console.log("degist = " + degist);
-    console.log("price = " + price);
-    console.log("integral = " + integral);
-    console.log("num = " + num);
+
   },
 
   /**
@@ -138,7 +118,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //商品详情
+    var productDetail = wx.getStorageSync('productDetail');
+    productDetail.finalPrice = productDetail.price * productDetail.num;
+    productDetail.finalIntegral = productDetail.integral * productDetail.num;
+    console.log("productDetail");
+    console.log(productDetail);
+    //收货地址
+    var selectedAddress = wx.getStorageSync('selectedAddress');
+    console.log("selectedAddress");
+    console.log(selectedAddress);
+    this.setData({
+      productDetail: productDetail,
+      selectedAddress: selectedAddress
+    });
   },
 
   /**
@@ -175,4 +168,5 @@ Page({
   onShareAppMessage: function () {
 
   }
+
 })

@@ -103,15 +103,11 @@ Page({
   },
 // 点击确定按钮
   sureBuy:function(){
-    var orderInfo = {};
-        wx.navigateTo({
-          url: '/pages/commonPage/payProductOrder/payProductOrder?headImgUrl=' + this.data.productDetail.headImgUrl + 
-              "&title=" + this.data.productDetail.title + 
-              "&degist=" + this.data.productDetail.degist + 
-              "&price=" + this.data.productDetail.price + 
-              "&integral=" + this.data.productDetail.integral + 
-              "&num=" + this.data.num
-        });
+    this.data.productDetail.num = this.data.num;
+    wx.setStorageSync('productDetail', this.data.productDetail);
+    wx.navigateTo({
+      url: '/pages/commonPage/payProductOrder/payProductOrder'
+    });
   },
 
 // 获取详情
