@@ -2,8 +2,8 @@
   "pages": [
     "pages/tabBar/shopList/shopList",
     "pages/tabBar/my/my",
-    "pages/tabBar/index/index",
     "pages/tabBar/IntegralMall/IntegralMall",
+    "pages/tabBar/index/index",
     "pages/index1/index"
   ],
   "window": {
