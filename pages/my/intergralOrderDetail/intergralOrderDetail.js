@@ -1,4 +1,3 @@
-// pages/my/intergralOrder/intergralOrder.js
 var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')

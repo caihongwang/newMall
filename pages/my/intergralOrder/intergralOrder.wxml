@@ -1,5 +1,3 @@
-<!--pages/my/intergralOrder/intergralOrder.wxml-->
-<!--pages/my/myOrder/myOrder.wxml-->
 <view class='orderTitelView'>
   <view  wx:for="{{orderTitelList}}" class="titel  {{chosseId == index? 'chossedTitle':''}}"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.titel}}</view>
 </view>
