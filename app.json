@@ -9,7 +9,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#393939",
-    "navigationBarTitleText": "财富名片夹",
+    "navigationBarTitleText": "新商城",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -68,12 +68,6 @@
       "root": "pages/IntegralMall/",
       "pages": [
         "IntegralDetail/IntegralDetail"
-      ]
-    },
-    {
-      "root": "pages/myCard/",
-      "pages": [
-        "chooseCard/chooseCard"
       ]
     },
     {
