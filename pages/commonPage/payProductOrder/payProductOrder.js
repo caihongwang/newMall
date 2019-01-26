@@ -22,7 +22,8 @@ Page({
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.productId = this.data.productDetail.id;
-    params.productNum = this.data.productDetail.productNum;     //edddd
+    params.productNum = this.data.productDetail.productNum;     
+    params.transactionProductDetail = JSON.stringify(this.data.productDetail);
     params.addressId = this.data.selectedAddress.id;
     params.useBalanceFlag = false;
     params.payBalance = 0.0;

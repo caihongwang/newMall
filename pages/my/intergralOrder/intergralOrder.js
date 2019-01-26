@@ -83,6 +83,10 @@ Page({
           boo ? wx.stopPullDownRefresh() : wx.hideLoading();
           if (res.data.code == 0) {
             for (var i in res.data.data) {
+              if (res.data.data[i].transactionProductDetail) {
+                var transactionProductDetail = JSON.parse(res.data.data[i].transactionProductDetail);
+                res.data.data[i].productPrice = transactionProductDetail.price;
+              }
               that.data.allPayGoodsOrderList.push(res.data.data[i]);
             }
             that.setData({
@@ -115,7 +119,7 @@ Page({
         }
       });
   },
-  //待支付
+  //待付款
   getWaitPayGoods: function (boo) {
     var that = this;
     that.data.showOrderList = [];     //  清空展示的列表数据
@@ -138,6 +142,10 @@ Page({
           console.log(res.data.data);
           if (res.data.code == 0) {
             for (var i in res.data.data) {
+              if (res.data.data[i].transactionProductDetail){
+                var transactionProductDetail = JSON.parse(res.data.data[i].transactionProductDetail);
+                res.data.data[i].productPrice = transactionProductDetail.price;
+              }
               that.data.waitPayGoodsOrderList.push(res.data.data[i]);
             }
             that.setData({
@@ -194,6 +202,10 @@ Page({
           console.log(res.data.data);
           if (res.data.code == 0) {
             for (var i in res.data.data) {
+              if (res.data.data[i].transactionProductDetail) {
+                var transactionProductDetail = JSON.parse(res.data.data[i].transactionProductDetail);
+                res.data.data[i].productPrice = transactionProductDetail.price;
+              }
               that.data.alreadyDeliverGoodsOrderList.push(res.data.data[i]);
             }
             that.setData({
@@ -250,6 +262,10 @@ Page({
           console.log(res.data.data);
           if (res.data.code == 0) {
             for (var i in res.data.data) {
+              if (res.data.data[i].transactionProductDetail) {
+                var transactionProductDetail = JSON.parse(res.data.data[i].transactionProductDetail);
+                res.data.data[i].productPrice = transactionProductDetail.price;
+              }
               that.data.completedGoodsOrderList.push(res.data.data[i]);
             }
             that.setData({
