@@ -44,17 +44,18 @@ Page({
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    // params.wxOrderId = this.data.wxOrderId;
-    params.wxOrderId = '29f0117f620N4e019a249a3b7adf3121';
+    params.wxOrderId = this.data.wxOrderId;
     network.POST({
       params: params,
       requestUrl: requestUrl.getLuckDrawUrl,
       success: function (res) {
         console.log(res.data);
         if (res.data.code == 0) {
+          util.toast(res.data.message);
           that.setData({
-            luckPosition: data
-          })
+            luckDrawCode: res.data.data.luckDrawCode
+          });
+          return;
               //判断中奖位置格式
           if (that.data.luckPosition == null || isNaN(that.data.luckPosition) || that.data.luckPosition > 7) {
             wx.showModal({
@@ -94,6 +95,11 @@ Page({
             that.stop(that.data.luckPosition);
           }, stoptime)
 
+        } else if (res.data.code == 200008) {      //您已抽过奖。如想再次抽奖，请再交易一笔订单.
+          that.setData({
+            luckDrawCode: res.data.data.luckDrawCode
+          });
+          util.toast(res.data.message);
         } else {
           wx.hideLoading();
           util.toast("网络异常, 请稍后再试");
