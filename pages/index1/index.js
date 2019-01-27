@@ -15,26 +15,54 @@ Page({
     images: ['/images/item.png', '/images/item1.png', '/images/item.png', '/images/item1.png', '/images/item.png', '/images/item1.png', '/images/item.png', '/images/item1.png', '/images/item.png'],
     btnconfirm: '/images/dianjichoujiang.png',
     clickLuck:'clickLuck',
-    luckPosition:0,
+    luckPosition:0, //幸运的位置
   },
 
-  onLoad:function(){
+  onLoad:function(options){
+    if (options.wxOrderId){
+      this.setData({
+        wxOrderId: options.wxOrderId
+      })
+    }
     this.loadAnimation();
   },
 
-  input:function(e){
-    var data = e.detail.value;
-      this.setData({
-        luckPosition: data
-      })
+  // input:function(e){
+  //   var data = e.detail.value;
+  //     this.setData({
+  //       luckPosition: data
+  //     })
+  // },
+
+
+  getLuckDrawUrl: function () { //点击抽奖按钮获取列表
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.wxOrderId = this.data.wxOrderId;
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.getOrderSortTypeList,
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 0) {
+          that.setData({
+            luckPosition: data
+          })
+        } else {
+          wx.hideLoading();
+          util.toast("网络异常, 请稍后再试");
+        }
+      },
+      fail: function (res) {
+        wx.hideLoading();
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
   },
-
-
   //点击抽奖按钮
   clickLuck:function(){
-
     var e = this;
-
     //判断中奖位置格式
     if (e.data.luckPosition == null || isNaN(e.data.luckPosition) || e.data.luckPosition>7){
       wx.showModal({
