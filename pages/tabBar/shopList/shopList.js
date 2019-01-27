@@ -289,11 +289,36 @@ Page({
       }
     })
   },
+
+  getUpdateUser: function (userInfo) { //更新用户信息
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.userInfo = userInfo;
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.updateUserUrl,
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 0) {
+        } else {
+        }
+      },
+      fail: function (res) {
+  
+      }
+    });
+  },
   // 点击确认授权,并将用户信息上传到服务器
   onGotUserInfo: function (e) {
     var that = this;
     var userInfo = e.detail.userInfo;
     console.log(e.detail.userInfo);
+    // updateUser 更新用户信息
+    this.getUpdateUser(JSON.stringify(e.detail.userInfo));
+
+
+
     wx.setStorageSync("USERINFO", userInfo);
     app.globalData.userInfo = userInfo;
     if (!that.isNull(userInfo)){
