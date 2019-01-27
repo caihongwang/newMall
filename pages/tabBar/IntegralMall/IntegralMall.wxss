@@ -74,9 +74,16 @@ page {
   white-space: nowrap;
   overflow: auto;
   padding: 0 10rpx;
+  scale: no;
   /* align-items: center; */
   /* display: flex;
   justify-content: center; */
+}
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
 }
 
 .productTypeText {
@@ -91,10 +98,13 @@ page {
 }
 
 .active-productTypeText {
-  background: #f2f2f2;
-  border-radius: 40rpx;
-  color: black;
-  text-align: center;
+  /* background: #f2f2f2; */
+  /* border-radius: 40rpx; */
+  /* color: black; */
+  /* text-align: center; */
+  box-sizing: border-box;
+  color: #FF4C4B;
+  border-bottom: 2px solid #FF4C4B;
 }
 
 .list-warp {
