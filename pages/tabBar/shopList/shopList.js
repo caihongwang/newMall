@@ -293,6 +293,7 @@ Page({
   onGotUserInfo: function (e) {
     var that = this;
     var userInfo = e.detail.userInfo;
+    console.log(e.detail.userInfo);
     wx.setStorageSync("USERINFO", userInfo);
     app.globalData.userInfo = userInfo;
     if (!that.isNull(userInfo)){

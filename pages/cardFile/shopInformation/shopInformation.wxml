@@ -32,11 +32,10 @@
       <view class='flex1 hot-right' >
       距离： {{shopInformation.shopDistance}}
      </view>
-     <image src='/images/logo.png' class='phone'></image>
+     <image src='/images/distance.png' class='phone'></image>
       
     </view>
    </view>
-
    </view>
 
 
@@ -52,7 +51,7 @@
 <view class='address'>
 店铺地址: <text class='addrss-text'>{{shopInformation.shopAddress}}</text>
 </view>
-<image class="icon-address"src='/images/logo.png' bindtap='goMap'></image>
+<image class="icon-address"src='/images/distance.png' bindtap='goMap'></image>
 </view>
 
 
