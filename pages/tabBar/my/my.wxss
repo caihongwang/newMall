@@ -30,7 +30,7 @@ page {
   border: 0px red solid;
   width: 300rpx;
   margin-left: 10rpx;
-  align-items: center; /** 垂直居中*/
+  /* align-items: center; * 垂直居中 */
 }
 
 .userName {
@@ -42,7 +42,7 @@ page {
   width: 100rpx;
   border: 1px solid #fff;
   margin-top: 15rpx;
-  margin-left: 25%;
+  /* margin-left: 25%; */
   padding: 7rpx 13rpx;
   border-radius: 20rpx;
   text-align: center;

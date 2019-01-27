@@ -55,29 +55,10 @@ page {
   margin-left: 54rpx;
 }
 
-.hover-sure {
-}
-
 .banner {
   width: 100%;
   height: 400rpx;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .productTypeAndProductListView {
   border: 0px red solid;
@@ -89,19 +70,19 @@ page {
 }
 
 .productTypeView {
-  border: 0px red solid;
+  /* border: 0px red solid; */
   white-space: nowrap;
   overflow: auto;
   padding: 0 10rpx;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  /* align-items: center; */
+  /* display: flex;
+  justify-content: center; */
 }
 
 .productTypeText {
-  /* display: inline-block; */
-  border: 1px red solid;
-  width: 100rpx;
+  display: inline-block;
+  /* border: 1px red solid; */
+  /* width: 100rpx; */
   height: 80rpx;
   line-height: 80rpx;
   align-items: center;
@@ -113,6 +94,7 @@ page {
   background: #f2f2f2;
   border-radius: 40rpx;
   color: black;
+  text-align: center;
 }
 
 .list-warp {
