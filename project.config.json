@@ -245,9 +245,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "红包教育",
+					"id": 33,
+					"name": "红包抽奖",
 					"pathName": "pages/index1/index",
+					"query": "",
 					"scene": null
 				}
 			]
