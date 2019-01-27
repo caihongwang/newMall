@@ -1,5 +1,10 @@
 //index.js
 //获取应用实例
+var network = require('../../utils/network.js')
+const requestUrl = require('../../config')
+const util = require('../../utils/util.js')
+
+
 const app = getApp()
 
 //计数器
@@ -39,16 +44,56 @@ Page({
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    params.wxOrderId = this.data.wxOrderId;
+    // params.wxOrderId = this.data.wxOrderId;
+    params.wxOrderId = '29f0117f620N4e019a249a3b7adf3121';
     network.POST({
       params: params,
-      requestUrl: requestUrl.getOrderSortTypeList,
+      requestUrl: requestUrl.getLuckDrawUrl,
       success: function (res) {
         console.log(res.data);
         if (res.data.code == 0) {
           that.setData({
             luckPosition: data
           })
+              //判断中奖位置格式
+          if (that.data.luckPosition == null || isNaN(that.data.luckPosition) || that.data.luckPosition > 7) {
+            wx.showModal({
+              title: '提示',
+              content: '请填写正确数值',
+              showCancel: false,
+            })
+            return;
+          }
+          //设置按钮不可点击
+          that.setData({
+            btnconfirm: '/images/dianjichoujiangd.png',
+            clickLuck: '',
+          })
+          //清空计时器
+          clearInterval(interval);
+          var index = 0;
+          console.log(that.data.color[0]);
+          //循环设置每一项的透明度
+          interval = setInterval(function () {
+            if (index > 7) {
+              index = 0;
+              that.data.color[7] = 0.5
+            } else if (index != 0) {
+              that.data.color[index - 1] = 0.5
+            }
+            that.data.color[index] = 1
+            that.setData({
+              color: that.data.color,
+            })
+            index++;
+          }, intime);
+
+          //模拟网络请求时间  设为两秒
+          var stoptime = 2000;
+          setTimeout(function () {
+            that.stop(that.data.luckPosition);
+          }, stoptime)
+
         } else {
           wx.hideLoading();
           util.toast("网络异常, 请稍后再试");
@@ -62,49 +107,8 @@ Page({
   },
   //点击抽奖按钮
   clickLuck:function(){
-    var e = this;
-    //判断中奖位置格式
-    if (e.data.luckPosition == null || isNaN(e.data.luckPosition) || e.data.luckPosition>7){
-      wx.showModal({
-        title: '提示',
-        content: '请填写正确数值',
-        showCancel:false,
-      })
-      return;
-    }
-
-    
-
-    //设置按钮不可点击
-    e.setData({
-      btnconfirm:'/images/dianjichoujiangd.png',
-      clickLuck:'',
-    })
-    //清空计时器
-    clearInterval(interval);
-    var index = 0;
-    console.log(e.data.color[0]);
-    //循环设置每一项的透明度
-    interval = setInterval(function () {
-      if (index > 7) {
-        index = 0;
-        e.data.color[7] = 0.5
-      } else if (index != 0) {
-        e.data.color[index - 1] = 0.5
-      }
-      e.data.color[index] = 1
-      e.setData({
-        color: e.data.color,
-      })
-      index++;
-    }, intime);
-
-    //模拟网络请求时间  设为两秒
-    var stoptime = 2000;
-    setTimeout(function () {
-      e.stop(e.data.luckPosition);
-    }, stoptime)
-
+    var that= this;
+    that.getLuckDrawUrl();
   },
 
   //也可以写成点击按钮停止抽奖
