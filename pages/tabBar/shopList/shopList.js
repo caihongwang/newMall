@@ -81,7 +81,7 @@ Page({
   // 点击返回地图
   backMap: function() {
     wx.switchTab({
-      url: '/pages/tabBar/index/index'
+      url: '/pages/cardFile/index/index'
     });
   },
 
@@ -293,6 +293,7 @@ Page({
   onGotUserInfo: function (e) {
     var that = this;
     var userInfo = e.detail.userInfo;
+    console.log(e.detail.userInfo);
     wx.setStorageSync("USERINFO", userInfo);
     app.globalData.userInfo = userInfo;
     if (!that.isNull(userInfo)){

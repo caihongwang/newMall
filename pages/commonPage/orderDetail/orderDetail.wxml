@@ -34,7 +34,7 @@
 
     <navigator
     class='index'
-    url="/pages/tabBar/index/index"
+    url="/pages/cardFile/index/index"
     open-type="switchTab"
     hover-class="other-navigator-hover"
     >返回首页</navigator
