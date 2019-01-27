@@ -13,19 +13,8 @@ Page({
   data: {
     // MOCKDATA
     screen: [],
-    // screen: ['全部', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理', '面部护理'],
-    productList: [
-      // {
-      //   id: 1,
-      //   images:'/images/home.png',
-      //   describe:'面部护理',
-      //   price:'3000',
-      //   integral:' 3020'
-      // }
-    ],
-
+    productList: [],
     currentItem: 0,//当前选中的索引
-
   },
 
 

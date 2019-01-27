@@ -81,7 +81,7 @@ Page({
   // 点击返回地图
   backMap: function() {
     wx.switchTab({
-      url: '/pages/tabBar/index/index'
+      url: '/pages/cardFile/index/index'
     });
   },
 

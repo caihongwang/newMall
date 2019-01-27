@@ -1,1 +1,0 @@
- <cover-view wx:if="{{inputToast}}" animation="{{animationData}}" class="fz-24 {{inputToast ? 'my-class' : ''}}">{{inputToast}} </cover-view>

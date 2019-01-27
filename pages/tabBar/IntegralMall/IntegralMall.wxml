@@ -13,7 +13,7 @@
 <view class='wheel-warp'>
   <view class='wheel'>
      <view class='wheel-planting'>
-     <view wx:for-index="i" wx:key="screen" class="wheel-text {{currentItem == i?'active-tag':''}} fz-28" wx:for="{{screen}}"  bindtap='filter' data-index="{{i}}" >{{item.categoryName}}</view>
+     <view wx:for-index="i" wx:key="screen" class="wheel-text {{currentItem == i?'active-tag':''}} fz-28" wx:for="{{screen}}"  bindtap='getProductList' data-index="{{i}}" >{{item.categoryName}}</view>
 
    </view>
   </view>

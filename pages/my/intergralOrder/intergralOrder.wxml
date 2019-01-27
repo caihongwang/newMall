@@ -14,12 +14,12 @@
       </view>
       <!-- 层级1 -->
       <view class='orderLevelView1'>
-        <image  class="productHeadImg"  src="{{item.productHeadImgUrl}}"></image>
-        <view class='productTitleView'>{{item.productTitle}}</view>
+        <image  class="productHeadImg"  src="{{item.productHeadImgUrl?item.productHeadImgUrl:item.headImgUrl}}"></image>
+        <view class='productTitleView'>{{item.productTitle?item.productTitle:item.title}}</view>
         <view class='productPriceAndNumView'>
           <view class='productPriceView'>
             <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
-            <view class="productPriceTextView">{{item.productPrice}}</view>
+            <view class="productPriceTextView">{{item.productPrice?item.productPrice:item.price}}</view>
           </view>
           <view class='productNumView'>
             <image class="numLogoImg" src="/images/numLogo.png"></image>
