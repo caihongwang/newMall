@@ -1,4 +1,9 @@
 /**index.wxss**/
+.container-warp{
+    background: #5B2286;
+    height: 100%;
+    text-align: center;
+}
 .frame_view{
   bottom: 160rpx;
   left: 60rpx;
@@ -13,6 +18,7 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 30rpx;
+  margin: 0 auto;
 }
 .frame_row{
   width:580rpx;

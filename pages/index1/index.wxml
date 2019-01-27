@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container-warp">
   停止位置:<input value='{{luckPosition}}' style="width:100%;text-align:center" bindinput='input' type='number'></input>
   <view class='frame_view'>
 <view class='frame_row'>

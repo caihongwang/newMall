@@ -49,7 +49,9 @@ var config = {
   getWaitLuckDrawRankUrl: `${host}/wxLuckDraw/getWaitLuckDrawRankByCondition.do`,   //【等待奖励】获取某商家下待领取奖励的队列
   getRecevicedLuckDrawRankUrl: `${host}/wxLuckDraw/getRecevicedLuckDrawRankByCondition.do`,   //【获得奖励】获取某商家下已领取奖励的队列
   convertIntegralUrl: `${host}/wxLuckDraw/convertIntegral.do`,   //奖励转换用户积分
-
+  
+  getLuckDrawUrl: `${host}/wxLuckDraw/getLuckDraw.do`,   //点击【抽奖】即添加抽奖信息
+  
   // 加盟
   getLeagueTypeUrl: `${host}/wxLeague/getLeagueTypeList.do`,   //获取加盟类型列表
   addLeagueUrl: `${host}/wxLeague/addLeague.do`,   //添加加盟商
@@ -73,5 +75,7 @@ var config = {
 
   getSimpleIntegralLogByConditionUrl: `${host}/wxIntegralLog/getSimpleIntegralLogByCondition.do`,   //积分记录列表
   getSimpleBalanceLogByConditionUrl: `${host}/wxBalanceLog/getSimpleBalanceLogByCondition.do`,   //余额记录列表
+
+  
 }
 module.exports = config
