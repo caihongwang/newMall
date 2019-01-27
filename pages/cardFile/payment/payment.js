@@ -165,26 +165,26 @@ inputMoney:function(e){
           duration: 2000,
           complete: function () {   //支付成功后发送模板消息
             console.log("模板消息已发送");
+            let wxOrderId = param.wxOrderId;
+            wx.navigateTo({
+              url: 'pages/my/index1/index?wxOrderId=' + wxOrderId
+            })
             return;
-            var templateMessageParam = new Object();
+            // var templateMessageParam = new Object();
             // 整理模板消息需要的参数
-            // 整理模板消息需要的参数
-            // 整理模板消息需要的参数
-            // 整理模板消息需要的参数
-            // 整理模板消息需要的参数
-            // 整理模板消息需要的参数
-            templateMessageParam.data = JSON.stringify(that.data.data);
+       
+            // templateMessageParam.data = JSON.stringify(that.data.data);
             //发送模板消息，如果失败了也不给用户提示
-            network.POST({
-              params: templateMessageParam,
-              requestUrl: requestUrl.sendTemplateMessageUrl,
-              success: function (res) {
+            // network.POST({
+            //   params: templateMessageParam,
+            //   requestUrl: requestUrl.sendTemplateMessageUrl,
+            //   success: function (res) {
 
-              },
-              fail: function (res) {
+            //   },
+            //   fail: function (res) {
 
-              }
-            });
+            //   }
+            // });
           }
         });
       },
