@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
-var network = require('../../utils/network.js')
-const requestUrl = require('../../config')
-const util = require('../../utils/util.js')
+var network = require('../../../utils/network.js')
+const requestUrl = require('../../../config')
+const util = require('../../../utils/util.js')
 
 
 const app = getApp()

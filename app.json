@@ -2,8 +2,7 @@
   "pages": [
     "pages/tabBar/shopList/shopList",
     "pages/tabBar/my/my",
-    "pages/tabBar/IntegralMall/IntegralMall",
-    "pages/index1/index"
+    "pages/tabBar/IntegralMall/IntegralMall"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -57,7 +56,8 @@
         "presenDetails/presenDetails",
         "cashedRule/cashedRule",
         "joinShop/joinShop",
-        "orderQueue/orderQueue"
+        "orderQueue/orderQueue",
+        "index1/index"
       ]
     },
     {

@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import "../../../app.wxss";
+
 .container-warp{
     background: #5B2286;
     height: 100%;
