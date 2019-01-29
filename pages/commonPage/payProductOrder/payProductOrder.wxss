@@ -3,73 +3,121 @@
 page{
   background: #f8f8f8 !important;
 }
-.address{
+.addressView{
+  border: 0rpx red solid;
   width: 100%;
-  height: 200rpx;
-  padding:  24rpx;
-  box-sizing: border-box;
-  background: #fff;
+  height: 140rpx;
+  background: #fff;  
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
 }
-.address-icon{
+.addressLogoImg{
+  border: 0rpx red solid;
   width: 60rpx;
   height: 60rpx;
+  margin-left: 20rpx;
 }
-.address-detail{
-  width: 600rpx;
+.addressDetailView{
+  border: 0rpx red solid;
+  width: 90%;
+  height: 110rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  margin-left: 15rpx;
+  margin-right: 15rpx;
 }
-.name{
-  /* height: 30rpx; */
+.addressNameAndPhoneView{
+  font-weight: bold;
 }
-.address-choose{
-  color: #e2e2e2;
+.addressDetailInfoView{
+  color: #B2B2B2;
 }
-.address-right{
-    width: 60rpx;
+.rightArrowImg{
+  border: 0rpx red solid;
+  width: 60rpx;
   height: 60rpx;
+  margin-left: 15rpx;
+  margin-right: 5rpx;
 }
 
-.address1{
+.productView{
   background: #fff;
   margin-top: 24rpx;
   padding: 24rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
 }
-.goods-icon{
+.productHeadImg{
   width: 140rpx;
   height: 140rpx;
 }
-.goods-detail{
-  width: 500rpx;
+.productDetailInfoView{
+  width: 80%;
+  margin-left: 15rpx;
 }
-.good-name{
-
-
+.productTitleAndPriceView{
+border: 0rpx red solid;
+  height: 45rpx;
+  align-items: center; /** 垂直居中*/
 }
-.good{
-
+.productTitleView{
+  font-weight: bold;
 }
-.rule{
-  color: #e2e2e2;
-}
-.good-price{
+.productPriceView{
   color: #FF4C4B;
+  font-weight: bold;
 }
-.number{
-  text-align: right;
+
+.productDegistAndIntegralView{
+  border: 0rpx red solid;
+  height: 45rpx;
+  align-items: center; /** 垂直居中*/
 }
+.productDegistView{
+  color: #B2B2B2;
+}
+.productIntegralView{
+  color: #FF4C4B;
+  font-weight: bold;
+}
+
+.productNumView{
+border: 0rpx red solid;
+  height: 45rpx;
+  align-items: center; /** 垂直居中*/
+}
+.productNumView{
+  font-weight: bold;
+}
+.productIntegralView{
+  color: #FF4C4B;
+  font-weight: bold;
+}
+
 .foot{
   position: fixed;
   bottom: 0;
   left: 0;
   background: #fff;
   width: 100%;
-  height: 200rpx;
-  line-height: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
 }
 .foot-price{
   margin-left: 24rpx;
 }
+.integralAndPriceView {
+  color: #ff4c4b;
+  font-weight: bold;
+  text-align: left;
+}
 .sure-pay{
   width: 260rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   background: #FF4C4B;
   color: #fff;
   text-align: center;
