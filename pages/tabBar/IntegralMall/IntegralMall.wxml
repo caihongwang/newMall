@@ -1,22 +1,25 @@
-<!--pages/tabBar/IntegralMall/IntegralMall.wxml-->
-<view class='input-warp flex'>
-  <view class='seach-input'>
-    <image class="search-img" src="/images/found.png"></image>
-    <input class="input fz-24" bindinput='focus' focus="{{isFocus}}" value="{{searchValue}}" placeholder-class="palce" confirm-type="done" placeholder="输入搜索商品名称" confirm-hold="true" maxlength="30" bindblur="bindProductTitleFunc"></input>
+<!-- 搜索框 -->
+<view class='seachView'>
+  <view class='foundImgAndSearchInputView'>
+    <image class="foundImg" src="/images/found.png"></image>
+    <input class="searchInput fz-24" bindinput='focus' focus="{{isFocus}}" 
+    value="{{searchValue}}" placeholder-class="searchInput-palce" confirm-type="done" 
+    placeholder="输入搜索商品名称" confirm-hold="true" maxlength="30" 
+    bindinput="bindProductTitleFunc"></input>
   </view>
-  <button class="sure-search" hover-class="hover-sure" bindtap="searchProduct">确定</button>
+  <button class="searchBtn" hover-class="hover-sure" bindtap="searchProduct">确定</button>
 </view>
 
+<!-- 产品类型与产品列表 -->
 <view class='productTypeAndProductListView'>
-
   <view class='productTypeView'>
-    <view wx:for-index="i" wx:key="productTypeList" class="productTypeText {{productTypeItem == i?'active-productTypeText':''}} fz-28" wx:for="{{productTypeList}}" bindtap="selectProductType" data-productTypeItem="{{i}}">{{item.categoryName}}</view>
+    <view wx:for-index="i" wx:key="productTypeList" class="productTypeText {{productTypeItem == i?'productTypeText-active':''}} fz-28" wx:for="{{productTypeList}}" bindtap="selectProductType" data-productTypeItem="{{i}}">{{item.categoryName}}</view>
   </view>
 
-  <view class="list-warp">
-    <view wx:for="{{productList}}" wx:key="productList" class="list  {{index % 2 ==  0?'active':''   }}" data-productid="{{item.id}}" bindtap='getProductDetail'>
-      <image class="list-image" src="{{item.headImgUrl}}"></image>
-      <view class='describe'>{{item.descript}}</view>
+  <view class="productListView">
+    <view wx:for="{{productList}}" wx:key="productList" class="productView  {{index % 2 ==  0?'active':''   }}" data-productid="{{item.id}}" bindtap='getProductDetail'>
+      <image class="productHeadImg" src="{{item.headImgUrl}}"></image>
+      <view class='describe'>{{item.descript.length > 13? item.descript_bak : item.descript}}</view>
       <view class='price'>￥{{item.price}} +{{item.integral}}积分</view>
     </view>
   </view>

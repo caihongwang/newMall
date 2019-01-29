@@ -23,7 +23,10 @@ Page({
     console.log("this.data.productTypeItem = " + this.data.productTypeItem);
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    params.category = this.data.productTypeList[this.data.productTypeItem].categoryCode;
+    if (this.data.productTypeItem + "") {  //商品类型
+      params.category = this.data.productTypeList[this.data.productTypeItem].categoryCode;
+    }
+    // params.category = this.data.productTypeList[this.data.productTypeItem].categoryCode;
     if (this.data.productTitle){    //商品名称
       params.title = this.data.productTitle;
     }
@@ -33,6 +36,11 @@ Page({
       success: function(res) {
         console.log(res.data);
         if (res.data.code == 0) {
+          for (var i in res.data.data){
+            var item = res.data.data[i];
+            var descript_bak = res.data.data[i].descript.length > 13 ? res.data.data[i].descript.substring(0, 13) + "..." : item.descript;
+            res.data.data[i].descript_bak = descript_bak;
+          }
           that.setData({
             productList: res.data.data
           });
@@ -46,38 +54,6 @@ Page({
     });
   },
 
-  //绑定商品标题
-  bindProductTitleFunc: function(e) {
-    this.data.productTitle = e.detail.value;
-  },
-
-  //搜索商品
-  searchProduct: function(e) {
-    console.log("this.data.productTitle = " + this.data.productTitle);
-    if (this.data.productTitle) {
-      this.getProductList();
-    } else {
-      util.toast("请您输入要搜索商品标题.");
-    }
-  },
-
-  //点击跳转到详情页
-  getProductDetail: function(e) {
-    var productId = e.currentTarget.dataset.productid;
-    console.log("productId = " + productId);
-    wx.navigateTo({
-      url: '../../IntegralMall/IntegralDetail/IntegralDetail?productId=' + productId
-    });
-  },
-
-  //选择点击商品类型查询商品
-  selectProductType: function(e){
-    this.setData({
-      productTypeItem: e.currentTarget.dataset.producttypeitem,
-      productTitle: ""
-    });
-    this.getProductTypeList();
-  },
 
   // 获取商品类型列表
   getProductTypeList: function(boo) {
@@ -103,13 +79,53 @@ Page({
           });
           that.getProductList();
         } else {
-
+          util.toast(res.data.message);
         }
       },
       fail: function(res) {
         boo ? wx.stopPullDownRefresh() : wx.hideLoading();
         util.toast("网络异常, 请稍后再试");
       }
+    });
+  },
+
+  //绑定商品标题
+  bindProductTitleFunc: function (e) {
+    if (e.detail.value) {
+      this.setData({
+        productTitle: e.detail.value
+      });
+    }
+  },
+
+  //搜索商品
+  searchProduct: function (e) {
+    console.log("this.data.productTitle = " + this.data.productTitle);
+    if (this.data.productTitle) {
+      this.setData({
+        productTypeItem: ""
+      });
+      this.getProductList();
+    } else {
+      util.toast("请您输入要搜索商品标题.");
+    }
+  },
+
+  //选择点击商品类型查询商品
+  selectProductType: function (e) {
+    this.setData({
+      productTypeItem: e.currentTarget.dataset.producttypeitem,
+      productTitle: ""
+    });
+    this.getProductTypeList();
+  },
+
+  //点击跳转到详情页
+  getProductDetail: function (e) {
+    var productId = e.currentTarget.dataset.productid;
+    console.log("productId = " + productId);
+    wx.navigateTo({
+      url: '../../IntegralMall/IntegralDetail/IntegralDetail?productId=' + productId
     });
   },
 
