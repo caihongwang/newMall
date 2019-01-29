@@ -67,7 +67,7 @@ page {
 }
 
 .productDetailImgView {
-  padding: 15rpx 24rpx;
+  padding: 0rpx 24rpx;
 }
 
 .productDetailImg {
@@ -174,32 +174,45 @@ page {
 /*主容器*/
 
 .stepper {
-  width: 80px;
+  width: 100px;
   height: 26px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
 }
 
 /*加号和减号*/
 
 .stepper text {
-  float: left;
-  width: 19px;
-  line-height: 26px;
+  /* float: left; */
+  width: 25px;
+  height: 100%;
   text-align: center;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
 }
 
-/*数值*/
-
-.stepper input {
+.stepperInput {
   width: 40px;
-  height: 26px;
-  float: left;
-  margin: 0 auto;
-  text-align: center;
+  height: 100%;
+  min-height:24rpx;
   font-size: 12px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  text-align: center;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  border-left: 1rpx solid #ccc;
+  border-right: 1rpx solid #ccc;
+  border-top: 0rpx solid #ccc;
+  border-bottom: 0rpx solid #ccc;
+
+}
+
+input{
+
 }
 
 /*普通样式*/

@@ -34,11 +34,11 @@
   <view class='modal-head flex3'>
     <image class='modal-image' src="{{productDetail.headImgUrl}}"></image>
     <view class='modal-integral  fz-28'>
-      <view class='model-price fz-32'>￥{{productDetail.price}} + {{productDetail.integral}}个积分</view>
+      <view class='model-price fz-32'>￥{{productDetail.finalPrice}} + {{productDetail.finalIntegral}}个积分</view>
       <view class='model-stock fz-24'>库存 {{productDetail.stock}} 件</view>
       <view class='model-describe fz-30'>{{productDetail.descript}}</view>
     </view>
-    <image class='close' src='/images/delete.png' bindtap='closeModel'></image>
+    <image class='close' src='/images/closeLogo.png' bindtap='closeModel'></image>
   </view>
 
   <view class='modal-head fz-28'>
@@ -50,7 +50,7 @@
       <view class='numbur'>购买数量</view>
       <view class='stepper'>
         <text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
-        <input bindinput='bindManual' value='{{productNum}}'></input>
+        <input class='stepperInput' bindinput='bindManual' value='{{productNum}}'></input>
         <text bindtap='bindPlus'>+</text>
       </view>
     </view>

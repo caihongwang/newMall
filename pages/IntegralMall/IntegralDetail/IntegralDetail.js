@@ -77,7 +77,13 @@ Page({
       productNum--;
     }
     var minusStatus = productNum > 1 ? 'normal' : 'disable';
+
+    this.data.productDetail.finalPrice = this.data.productDetail.price * productNum;
+    this.data.productDetail.finalPrice = this.data.productDetail.finalPrice.toFixed(2);
+    this.data.productDetail.finalIntegral = this.data.productDetail.integral * productNum;
+
     this.setData({
+      productDetail: this.data.productDetail,
       productNum: productNum,
       minusStatus: minusStatus
     })
@@ -89,8 +95,9 @@ Page({
     var minusStatus = productNum > 1 ? 'normal' : 'disable';
 
     this.data.productDetail.finalPrice = this.data.productDetail.price * productNum;
+    this.data.productDetail.finalPrice = this.data.productDetail.finalPrice.toFixed(2);
     this.data.productDetail.finalIntegral = this.data.productDetail.integral * productNum;
-
+    console.log(this.data.productDetail);
     this.setData({
       productDetail: this.data.productDetail,
       productNum: productNum,
