@@ -1,61 +1,61 @@
-<!--pages/IntegralMall/IntegralDetail/IntegralDetail.wxml-->
-<view class='head'>
-  <image class='image' src="{{productDetail.headImgUrl}}"></image>
-  <view class='describe'>{{productDetail.descript}}</view>
+<!-- 商品首图 -->
+<view class='headImgView'>
+  <image class='headImg' src="{{productDetail.headImgUrl}}"></image>
+  <view class='productTitle fz-28'>{{productDetail.title}}</view>
+  <view class='productDescribe fz-28'>{{productDetail.descript}}</view>
 </view>
 
-<view class='price flex'>
-  <view class='integral-left'>￥{{productDetail.price}}+{{productDetail.integral}}积分</view>
-    <view class='integral-right'>库存： {{productDetail.stock}}</view>
+<view class='integralAndPriceAndStockView flex'>
+  <view class='integralAndPriceView fz-32'>￥{{productDetail.price}} + {{productDetail.integral}}个积分</view>
+  <view class='stockView fz-24'>库存 {{productDetail.stock}} 件</view>
 </view>
 
-<view class='detail'>
-  <image class="detail-icon"  src="/images/home.png"></image>
-  <text class='detail-text'>详情</text>
+<view class='detailLogoView'>
+  <image class="detailLogoImg" src="/images/productDetail.png"></image>
+  <text class='detailText fz-28'>详情</text>
 </view>
 
-<view class='imageList-warp'>
- <image class='imageList'  wx:for="{{productDetail_describeImgUrlList}}" wx:key="productDetail_describeImgUrlList"  src='{{item}}'></image>
+<view class='productDetailImgView'>
+  <image class='productDetailImg' wx:for="{{productDetail_describeImgUrlList}}" wx:key="productDetail_describeImgUrlList" src='{{item}}'></image>
 </view>
 
-<view class='foot flex' >
-  <view class='should-pay'>应付金额：<text class='integral-left'>￥{{productDetail.price}}+{{productDetail.integral}}积分 </text></view>
+<view class='foot flex'>
+  <view class='should-pay fz-28'>
+    应付金额
+    <text class='integralAndPriceView fz-40'>￥{{productDetail.price}} + {{productDetail.integral}}个积分 </text>
+  </view>
   <view class="now-buy" bindtap='nowBuy'>立即购买</view>
 </view>
 
-<view class="commodity_screen"  bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<!-- 底部弹窗 -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-  <view class='modal-head flex3'  >
+  <view class='modal-head flex3'>
     <image class='modal-image' src="{{productDetail.headImgUrl}}"></image>
-   <view class='modal-integral  fz-28'> 
-       <view class='model-price'>￥{{productDetail.price}}+{{productDetail.integral}}积分</view>
-      <view class='model-stock '>库存：{{productDetail.stock}}件</view>
-       <view class='model-describe  '>已选：{{productDetail.descript}}</view>
-   </view>
-
-   <image class='close' src='/images/home.png' bindtap='closeModel'></image>
-  </view>
-   
-   <view class='modal-head fz-28'>
-    <view>   <text>选择规格：</text>
-      <view class='specifications'>{{productDetail.descript}}</view></view>
-   
-        <view class='buy-nummber flex'>
-          <view class='numbur'>购买数量</view>
-        <view class='stepper'>
-          <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'>-</text>
-          <input bindinput='bindManual' value='{{productNum}}'></input>
-          <text bindtap='bindPlus'>+</text>
-        </view>
+    <view class='modal-integral  fz-28'>
+      <view class='model-price fz-32'>￥{{productDetail.price}} + {{productDetail.integral}}个积分</view>
+      <view class='model-stock fz-24'>库存 {{productDetail.stock}} 件</view>
+      <view class='model-describe fz-30'>{{productDetail.descript}}</view>
+    </view>
+    <image class='close' src='/images/delete.png' bindtap='closeModel'></image>
   </view>
 
-   </view>
-     <view class='sure-buy'>
-       <button class='warn' type='warn' bindtap='sureBuy'> 确定</button>
-       
-     </view>
-
-
+  <view class='modal-head fz-28'>
+    <view class='specificationsView flex'>
+      <text>选择规格：</text>
+      <view class='specifications'>{{productDetail.title}}</view>
+    </view>
+    <view class='buy-nummber flex'>
+      <view class='numbur'>购买数量</view>
+      <view class='stepper'>
+        <text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
+        <input bindinput='bindManual' value='{{productNum}}'></input>
+        <text bindtap='bindPlus'>+</text>
+      </view>
+    </view>
+  </view>
+  <view class='sure-buy'>
+    <button class='warn fz-32' type='warn' bindtap='sureBuy'> 确定</button>
+  </view>
 </view>
-
