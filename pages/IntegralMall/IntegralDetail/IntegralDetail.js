@@ -81,7 +81,7 @@ Page({
     this.data.productDetail.finalPrice = this.data.productDetail.price * productNum;
     this.data.productDetail.finalPrice = this.data.productDetail.finalPrice.toFixed(2);
     this.data.productDetail.finalIntegral = this.data.productDetail.integral * productNum;
-
+    this.data.productDetail.finalIntegral = this.data.productDetail.finalIntegral.toFixed(2);
     this.setData({
       productDetail: this.data.productDetail,
       productNum: productNum,
@@ -156,7 +156,6 @@ Page({
    */
   onLoad: function(options) {
     var productId = options.productId;
-    productId = 155;
     this.setData({
       productId: productId
     });

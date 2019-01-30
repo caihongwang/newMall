@@ -114,7 +114,10 @@ Page({
     var productDetail = wx.getStorageSync('productDetail');
     if (productDetail) {
       productDetail.finalPrice = productDetail.price * productDetail.productNum;
+      productDetail.finalPrice = productDetail.finalPrice.toFixed(2);
       productDetail.finalIntegral = productDetail.integral * productDetail.productNum;
+      productDetail.finalIntegral = productDetail.finalIntegral.toFixed(2);
+      
       console.log(productDetail);
     }
 
