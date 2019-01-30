@@ -1,51 +1,51 @@
 <!--pages/my/orderQueue/orderQueue.wxml-->
-<view class="flex1 warp-padding shop">
-    <image src="{{shopMap.shopHeadImgUrl}}" class="shop-image"></image>
-    <view class="shop-name">{{shopMap.shopTitle}}</view>
+<view class="flex1 warp-padding shopInfoView">
+  <image src="{{shopMap.shopHeadImgUrl}}" class="shopHeadImg"></image>
+  <view class="shopTitleView fz-34">{{shopMap.shopTitle}}</view>
 </view>
 
-<view class="shop-list">
-        <view class="warp-padding  my-alignment">我的对列</view>
-        <view class="list-warp flex fz-28" bindtap='goOrder' wx:for = "{{myList}}"  wx:key="myList" data-index= "{{index}}">
-                <view class="rank">{{item.rankIndex}}</view>
-                <image src="{{item.shopHeadImgUrl}}" class="logo-image"></image>
-                <view class='center'>
-                   <view class='flex center-top'>
-                    <view class='name'> {{item.nickName}}</view>
-                     <view  class='price'> ￥{{item.payMoney}}</view>
-                   </view>
-                   <view class='time flex fz-24'>
-                       <view>时间：{{item.createTime}}</view>
-                       <view class="repay">换{{item.luckDrawMoney}}积分</view>
-                    </view>
-                </view>
-                <image src="/images/logo.png" class="icon" wx:if="{{listIndex != 2}}"></image>
-        </view>
+<view class="theShopListView">
+  <view class="myQueueDescView fz-28">我的奖励排队</view>
+  <view class="queueList fz-28" bindtap='goOrder' wx:for="{{myList}}" wx:key="myList" data-index="{{index}}">
+    <view class="rankIndexVIew fz-24">{{item.rankIndex}}</view>
+    <view class="avatarImgView">
+      <image class="avatarImg" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class='userInfoView'>
+      <view class='nickNameAndPayMoneyView flex fz-24'>
+        <view class='nickNameView'>{{item.nickName}}</view>
+        <view class='payMoneyView fz-28'>￥{{item.payMoney}}</view>
+      </view>
+      <view class='createTimeAndluckDrawMoneyView flex fz-24'>
+        <view class='createTimeView'>时间：{{item.createTime}}</view>
+        <view class="luckDrawMoneyView fz-28" wx:if="{{item.luckDrawStatusCode == 0}}">换{{item.luckDrawMoney}}个积分</view>
+        <view class="luckDrawMoneyView fz-28" wx:if="{{item.luckDrawStatusCode == 1}}">已奖励</view>
+      </view>
+    </view>
+  </view>
 
-
-        <view class="warp-padding  my-alignment">全部对列</view>
-        <view class="list-warp flex fz-28" bindtap='goOrder' wx:for ="{{listLuck}}" wx:key="listLuck">
-                <view class="rank">{{item.rankIndex}}</view>
-                <image src="{{item.shopHeadImgUrl}}" class="logo-image"></image>
-                <view class='center'>
-                   <view class='flex center-top'>
-                    <view class='name'> {{item.nickName}} </view>
-                     <view  class='price'> ￥{{item.payMoney}} </view>
-                   </view>
-                   <view class='time flex fz-24'>
-                       <view>时间：{{item.createTime}}</view>
-                       <view class="repay" wx:if="{{item.luckDrawStatusCode == 0}}">待奖励</view>
-                       <view class="repay" wx:if="{{item.luckDrawStatusCode == 1}}">已奖励</view>
-                       <!-- <view class="repay">换{{luckDrawMoney}}积分</view> -->
-                    </view>
-                </view>
-        </view>
+  <view class="allQueueDescView fz-28">当前店铺所有奖励排队</view>
+  <view class="queueList fz-28" wx:for="{{allList}}" wx:key="allList">
+    <view class="rankIndexVIew">{{item.rankIndex}}</view>
+    <view class="avatarImgView">
+      <image class="avatarImg" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class='userInfoView'>
+      <view class='nickNameAndPayMoneyView flex fz-24'>
+        <view class='nickNameView'> {{item.nickName}} </view>
+        <view class='payMoneyView fz-28'> ￥{{item.payMoney}} </view>
+      </view>
+      <view class='createTimeAndluckDrawMoneyView flex fz-24'>
+        <view class='createTimeView'>时间：{{item.createTime}}</view>
+        <view class="luckDrawMoneyView fz-28" wx:if="{{item.luckDrawStatusCode == 0}}">待奖励</view>
+        <view class="luckDrawMoneyView fz-28" wx:if="{{item.luckDrawStatusCode == 1}}">已奖励</view>
+      </view>
+    </view>
+  </view>
 </view>
-
-
 
 <view class='foot'>
- <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
-    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
-    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多订单了</view>
+  <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+  <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+  <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多订单了</view>
 </view>
