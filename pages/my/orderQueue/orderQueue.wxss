@@ -10,6 +10,7 @@ page {
   background: #fff;
   height: 120rpx;
   width: 100%;
+  margin-top: 10rpx;
 }
 
 .shopHeadImg {
@@ -33,7 +34,7 @@ page {
   height: 50rpx;
   line-height: 50rpx;
   font-weight: bold;
-  margin-top: 10rpx;
+  margin-top: 0rpx;
   border-bottom: 2px solid #e2e2e2;
 }
 
@@ -112,6 +113,6 @@ page {
   height: 50rpx;
   line-height: 50rpx;
   font-weight: bold;
-  margin-top: 40rpx;
+  margin-top: 30rpx;
   border-bottom: 2px solid #e2e2e2;
 }
