@@ -44,6 +44,9 @@ page{
 .fz-24{
   font-size: 24rpx;
 }
+.fz-26{
+  font-size: 26rpx;
+}
 .fz-28{
   font-size: 28rpx;
 }
@@ -65,6 +68,12 @@ page{
 }
 .fz-48{
   font-size: 48rpx;
+}
+.fz-56{
+  font-size: 56rpx;
+}
+.fz-66{
+  font-size: 66rpx;
 }
 .fb-bond{
   font-weight: bold;
