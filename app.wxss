@@ -38,6 +38,9 @@ page{
 .fz-32{
   font-size: 32rpx;
 }
+.fz-30{
+  font-size: 30rpx;
+}
 .fz-24{
   font-size: 24rpx;
 }

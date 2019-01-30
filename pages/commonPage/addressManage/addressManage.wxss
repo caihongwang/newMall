@@ -26,6 +26,10 @@
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/
+  border-bottom: 1px solid #e2e2e2;
+}
+.addressItemView:last-child {
+  /* border: none; */
 }
 
 .addressLogoImg {
@@ -83,5 +87,4 @@
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/
-  margin-bottom: 10rpx;
 }

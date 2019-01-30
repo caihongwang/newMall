@@ -58,9 +58,6 @@ Page({
     });
     wx.setStorageSync('selectedAddress', this.data.addressList[selectedAddressItem]);
     if (this.data.isFromPayProductOrderPage){ //如果是从支付订单页面过来的，则选中地址后直接调回支付订单页面
-      // wx.redirectTo({
-      //   url: '/pages/commonPage/payProductOrder/payProductOrder',
-      // });
       wx.navigateBack();
     }
     //调用筛选接口
@@ -95,9 +92,9 @@ Page({
   editAddress:function(e){
     // e.currentTarget.dataset.index
     let index = e.currentTarget.dataset.index;
-    let addressList = JSON.stringify(this.data.addressList[index]);
+    let address = JSON.stringify(this.data.addressList[index]);
     wx.navigateTo({
-      url: '/pages/commonPage/addAddress/addAddress?addressList=' + addressList,
+      url: '/pages/commonPage/addAddress/addAddress?address=' + address,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

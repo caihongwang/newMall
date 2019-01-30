@@ -1,70 +1,69 @@
 <!--pages/commonPage/addAddress/addAddress.wxml-->
 <view class=' warp-padding input-warp flex fz-28'>
-    <view class='name'>姓名</view>
-    <input class='input' placeholder='请输入姓名' placeholder-style='place' bindinput="bindName" value="{{inputName}}"></input>
-    <image class="clear" src="/images/logo.png" bindtap='deleteName'></image>
-     
+  <view class='name fz-30'>姓名：</view>
+  <input class='input fz-30' placeholder='请输入姓名' placeholder-style='place' bindinput="bindName" value="{{inputName}}"></input>
+  <image class="clear" src="/images/closeLogo.png" bindtap='deleteName'></image>
 </view>
+
 <view class=' warp-padding input-warp flex fz-28'>
-    <view class='name'>电话</view>
-    <input class='input input' placeholder='请输入姓名' placeholder-style='place'  bindinput="bindPhone" value="{{inputPhone}}"></input>
-    <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
+  <view class='name fz-30'>电话：</view>
+  <input class='input fz-30' placeholder='请输入电话' placeholder-style='place' bindinput="bindPhone" value="{{inputPhone}}"></input>
+  <image class="clear" src="/images/closeLogo.png" bindtap='deletePhone'></image>
 </view>
 
-
-<view class="warp-padding input-warp flex fz-28 " >
-        <view class="name">选择省：</view>
-        <picker bindchange="provincesChange" value="{{provincesIndex}}" range="{{provinces}}" range-key="provinceName"  bindcancel="cancelProvinces">
-          <view class="picker" bindtap='provincesTap' wx:if="{{isProvinces}}">请选择</view>
-          <view class="picker" wx:if="{{!isProvinces}}"  >{{provinces[provincesIndex].provinceName}}</view>
-        </picker>
-        <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
+<view class="warp-padding input-warp flex fz-28 ">
+  <view class="name fz-30">选择省：</view>
+  <picker bindchange="provincesChange" value="{{provincesIndex}}" range="{{provinces}}" range-key="provinceName" bindcancel="cancelProvinces" class='fz-30' >
+    <view class="pickerView" bindtap='provincesTap' wx:if="{{isProvinces}}">请选择</view>
+    <view class="pickerView" wx:else>{{provinces[provincesIndex].provinceName}}</view>
+  </picker>
+  <image class="clear" src="/images/closeLogo.png" bindtap='deleteProvinces'></image>
 </view>
 
 <view class="warp-padding input-warp flex fz-28" wx:if="{{isCitys}}">
-        <view class="name">选择市：</view>
-
-        <picker bindchange="citysChange" value="{{citysIndex}}" range="{{citys}}" range-key="cityName" bindcancel="cancelCitys">
-          <view class="picker" bindtap='citysTap' wx:if="{{isCitysChoose}}">请选择</view>
-          <view class="picker" wx:if="{{!isCitysChoose}}">{{citys[citysIndex].cityName}}</view>
-        </picker>
-        <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
+  <view class="name fz-30">选择市：</view>
+  <picker bindchange="citysChange" value="{{citysIndex}}" range="{{citys}}" range-key="cityName" bindcancel="cancelCitys" class='fz-30' >
+    <view class="pickerView" bindtap='citysTap' wx:if="{{isCitysChoose}}">请选择</view>
+    <view class="pickerView" wx:else>{{citys[citysIndex].cityName}}</view>
+  </picker>
+  <image class="clear" src="/images/closeLogo.png" bindtap='deleteCity'></image>
 </view>
 
 <view class="warp-padding input-warp flex fz-28" wx:if="{{isAreas}}">
-        <view class="name">选择区：</view>
-        <picker bindchange="areasChange" value="{{regionIndex}}" range="{{regins}}" range-key="regionName" bindcancel="cancelAreas">
-            <view class="picker" bindtap='areasTap' wx:if="{{isareasChoose}}">请选择</view>
-          <view class="picker" wx:if="{{!isareasChoose}}">{{regins[regionIndex].regionName}}</view>
-        </picker>
-        <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
+  <view class="name fz-30">选择区：</view>
+  <picker bindchange="areasChange" value="{{regionIndex}}" range="{{regins}}" range-key="regionName" bindcancel="cancelAreas" class='fz-30' >
+    <view class="pickerView" bindtap='areasTap' wx:if="{{isareasChoose}}">请选择</view>
+    <view class="pickerView" wx:else>{{regins[regionIndex].regionName}}</view>
+  </picker>
+  <image class="clear" src="/images/closeLogo.png" bindtap='deleteRegion'></image>
 </view>
 
 
 <view class="warp-padding input-warp flex fz-28" wx:if="{{isStreet}}">
-        <view class="name">选择街道：</view>
-        <picker bindchange="streetChange" value="{{streetIndex}}" range="{{street}}" range-key="streetName" bindcancel="cancelStreet">
-            <view class="picker" bindtap='streetTap' wx:if="{{isStreetChoose}}">请选择</view>
-          <view class="picker" wx:if="{{!isStreetChoose}}">{{street[streetIndex].streetName}}</view>
-        </picker>
-        <image class="clear" src="/images/logo.png" bindtap='deletePhone'></image>
+  <view class="name fz-30">选择街道：</view>
+  <picker bindchange="streetChange" value="{{streetIndex}}" range="{{street}}" range-key="streetName" bindcancel="cancelStreet" class='fz-30' >
+    <view class="pickerView" bindtap='streetTap' wx:if="{{isStreetChoose}}">请选择</view>
+    <view class="pickerView" wx:else>{{street[streetIndex].streetName}}</view>
+  </picker>
+  <image class="clear" src="/images/closeLogo.png" bindtap='deleteStreet'></image>
 </view>
 
 
 
 <view class=' warp-padding input-warp1 flex3 fz-28 textarea-warp '>
-    <view class='address-detail'>详细地址</view>
-  <textarea  class="textarea"  bindblur="bindTextAreaBlur" auto-height placeholder="自动变高"   bindinput="detailAddress" value="{{detailAddress}}"/>
-  <image class="clear" src="/images/logo.png" bindtap='deleteDetail'></image>
-
+  <view class='address-detail fz-30'>详细地址：</view>
+  <textarea class="textarea fz-30" bindblur="bindTextAreaBlur" auto-height placeholder="请输入详细地址" bindinput="detailAddress" value="{{detailAddress}}" />
+  <image class="clear" src="/images/closeLogo.png" bindtap='deleteDetail'></image>
 </view>
-
 
 <view class=' warp-padding input-warp flex fz-28 default-address '>
-    <view class='name'>设为默认地址</view>
-     <switch checked="{{checked}}" bindchange="switchChange" />
+  <view class='setDefaultAddressView fz-30'>设为默认地址</view>
+  <view class='switchDefaultAddressView' >
+    <switch checked="{{checked}}" bindchange="switchChange" />
+  </view>
 </view>
 
-<button class="sure" type='primary'  bindtap='sureSave'>确认</button>
-
-<button class=" sure  delete" type='warn' bindtap='deleteAddress' wx:if="{{isEdit}}">删除地址</button>
+  <view class='btnView'>
+    <button class="sure" type='primary' bindtap='sureSave'>确认</button>
+    <button class=" sure  delete" type='warn' bindtap='deleteAddress' wx:if="{{isEdit}}">删除地址</button>
+  </view>
