@@ -124,7 +124,6 @@ Page({
       var addressDeatailInfo = selectedAddress.provinceName + " " +
         selectedAddress.cityName + " " + selectedAddress.regionName + " " +
         selectedAddress.streetName + " " + selectedAddress.detailAddress;
-      // addressDeatailInfo = addressDeatailInfo + addressDeatailInfo;
       addressDeatailInfo = addressDeatailInfo.length > 55 ? addressDeatailInfo.substring(0, 55) + "..." : addressDeatailInfo;
       selectedAddress.addressDeatailInfo = addressDeatailInfo;
     }

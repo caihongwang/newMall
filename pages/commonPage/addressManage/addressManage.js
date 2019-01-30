@@ -25,9 +25,18 @@ Page({
         success: function (res) {
           console.log(res.data.data);
           if (res.data.code == 0) {
+            var addressList = res.data.data;
+            for (var i in addressList){
+              var iterm = addressList[i];
+              var addressDeatailInfo = iterm.provinceName + " " +
+                iterm.cityName + " " + iterm.regionName + " " +
+                iterm.streetName + " " + iterm.detailAddress;
+              addressDeatailInfo = addressDeatailInfo.length > 55 ? addressDeatailInfo.substring(0, 55) + "..." : addressDeatailInfo;
+              addressList[i].addressDeatailInfo = addressDeatailInfo;
+            }
             that.setData({
-              addressList: res.data.data
-            })
+              addressList: addressList
+            });
           } else {
           }
 

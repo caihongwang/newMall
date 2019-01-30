@@ -2,7 +2,6 @@
 var network = require('../../../utils/network.js');
 var util = require('../../../utils/util.js');
 var requestUrl = require('../../../config.js');
-// var address = require("../../..mock.js")
 
 var address = {
   provinces: [{

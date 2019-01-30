@@ -1,19 +1,25 @@
-<!--pages/commonPage/addressManage/addressManage.wxml-->
-<view class='warp' wx:if="{{addressList}}">
-<view  wx:for="{{addressList}}"  wx:for-index="i" wx:key="screen" class="address flex"   bindtap='selectAddress' data-index="{{i}}">
-   <image class='address-icon' src="/images/logo.png" wx:if="{{currentItem == i}}"></image>
-   <image class='address-icon' src="/images/home.png" wx:if="{{currentItem != i}}"></image>
-   <view class='address-detail'>
-       <view  class='name fz-28'><text class="defult" wx:if="{{item.isDefaultAddress == '1'}}">默认</text>{{item.name}}</view>
-       <view  class='address-choose fz-24'>{{item.provinceName}}{{item.cityName}}{{item.regionName}}{{item.detailAddress}}</view>
-   </view>
-   <view class='address-right'  catchtap='editAddress'  data-index="{{i}}">编辑</view>
-</view>
+<view class='addressView' wx:if="{{addressList.length > 0}}">
+  <view wx:for="{{addressList}}" wx:for-index="i" wx:key="screen" class="addressItemView flex" bindtap='selectAddress' data-index="{{i}}">
+    <image class='addressLogoImg' src="/images/green_addressLogo.png" wx:if="{{selectedAddressItem == i}}"></image>
+    <image class='addressLogoImg' src="/images/addressLogo.png" wx:else></image>
+    <view class='addressDetailView'>
+      <view class='addressNameAndPhoneView fz-32'>
+        <text class="defultText fz-28" wx:if="{{item.isDefaultAddress == '1'}}">默认</text>
+        <text>{{item.name}}</text>
+        <text style='margin-left:20rpx;'>{{item.phone}}</text>
+      </view>
+      <view class='addressDetailInfoView fz-24'>
+        <text>{{item.addressDeatailInfo}}</text>
+      </view>
+    </view>
+    <image class='editAddressLogoImg' src="/images/edit.png"  catchtap='editAddress' data-index="{{i}}"></image>
+  </view>
 </view>
 
-<view class='no-warp  fz-32'   wx:if="{{!address}}">
-  暂无收货地址
+<view class='noAddressView fz-32' wx:else>
+  <text>暂无收货地址</text>
 </view>
 
-
-<view class="add-address" bindtap='addNewAddress'>+新增收货地址</view>
+<view class="addAddressView fz-32" bindtap='addNewAddress'>
+  <text>+ 新增收货地址</text>
+</view>
