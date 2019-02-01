@@ -2,7 +2,7 @@
 
 .luckyDraw {
   width: 100vw;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: #f6d391;
 }
 
@@ -55,7 +55,8 @@
   min-height: calc(100vh - 112rpx);
   position: fixed;
   left: 0;
-  top: 112rpx;
+  top:0;
+  /* top: 112rpx; */
 }
 
 /*  */
@@ -75,7 +76,7 @@
   position: fixed;
   z-index: 9;
   right: 0;
-  top: 144rpx;
+  top: 22rpx;
 }
 
 .lamp-box {

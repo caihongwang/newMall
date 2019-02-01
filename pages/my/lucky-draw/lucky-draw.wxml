@@ -1,11 +1,11 @@
 <!-- pages/lucky-draw/lucky-draw.wxml -->
-<ShowQR id="ShowQR" QR="{{QR}}"></ShowQR>
+<!-- <ShowQR id="ShowQR" QR="{{QR}}"></ShowQR> -->
 <view class="luckyDraw">
     <!-- S 头部设计 -->
-    <Header text="抽奖" color="white" getCurrentPages="{{getCurrentPages}}"></Header>
-    <view class="header">
+    <!-- <Header text="抽奖" color="white" getCurrentPages="{{getCurrentPages}}"></Header> -->
+    <!-- <view class="header">
         <image class="bg" src="./../../../assets/images/lukey_header_bg.png" />
-    </view>
+    </view> -->
     <!-- E 头部设计 -->
     <!-- S 页面背景 -->
     <!-- E 页面背景 -->
