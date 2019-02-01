@@ -172,7 +172,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    this.setData({
+      showModalStatus:false
+    })
+    console.log(1122222222);
     this.getProductDetail();
+
   },
 
   /**
