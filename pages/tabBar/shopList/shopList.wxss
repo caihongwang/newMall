@@ -35,24 +35,37 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  height: 80rpx;
+  height: 70rpx;
   border: 0px red solid;
   background: #FFF;
-  border-bottom: 3px solid #e2e2e2;
+  border-bottom: 2px solid #e2e2e2;
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/
 }
-.sortTypeItem{
-  border: 1px #e2e2e2 solid;
+.sortTypeItemView{
+  border: 0px #e2e2e2 solid;
   width: 50%;
-  height: 80rpx;
+  height: 100%;
   margin-top: 10rpx;
   font-size: 28rpx;
   color: #4a4a4a;
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/
+}
+.sortTypeItem{
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+.select-sortTypeItem{
+  font-weight: bold;
+}
+.downArrowImg{
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 10rpx;
 }
 /* 商家列表数据 */
 .shopList{
@@ -77,8 +90,9 @@
   justify-content: center; /** flex 属性， 水平居中**/
 }
 .shopHeadImg{
-  width: 190rpx;
-  height: 190rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
 }
 .shopDesc{
     align-items: center; /** 垂直居中*/

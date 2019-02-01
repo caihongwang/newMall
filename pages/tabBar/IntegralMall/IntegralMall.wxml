@@ -2,8 +2,7 @@
 <view class='seachView'>
   <view class='foundImgAndSearchInputView'>
     <image class="foundImg" src="/images/found.png"></image>
-    <input class="searchInput fz-24" bindinput='focus' focus="{{isFocus}}" 
-    value="{{searchValue}}" placeholder-class="searchInput-palce" confirm-type="done" 
+    <input class="searchInput fz-24" bindinput='focus' focus="{{isFocus}}" value="{{searchValue}}" placeholder-class="searchInput-palce" confirm-type="done" 
     placeholder="输入搜索商品名称" confirm-hold="true" maxlength="30" 
     bindinput="bindProductTitleFunc"></input>
   </view>

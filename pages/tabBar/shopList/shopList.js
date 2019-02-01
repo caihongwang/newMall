@@ -15,6 +15,8 @@ Page({
     havePageAll: 0, //已经加载的页数
     pageindexAll: 10, //总共加载的总条数
 
+    orderSortType:"",
+    selectSortTypeItem:0,
     isShowFilter: false, //是否展示筛选弹窗
     howShops: 0, //共多少家店铺
     filterList: {
@@ -159,14 +161,16 @@ Page({
    * 排序商家列表
    */
   sortShopList: function(e) {
-    var that = this;
     var orderSortType = e.currentTarget.dataset.type;
-    console.log("orderSortType = " + orderSortType);
-    app.globalData.orderSortType = orderSortType;
-    that.data.havePageAll = 0;
-    that.data.pageindexAll = 10;
-    that.data.shopList = [];
-    that.getShopList(false);
+    var selectSortTypeItem = e.currentTarget.dataset.selectsorttypeitem;
+    this.setData({
+      selectSortTypeItem: selectSortTypeItem,
+      orderSortType: orderSortType,
+      havePageAll: 0,
+      pageindexAll: 10,
+      shopList: []
+    });
+    this.getShopList(false);
   },
   /**
    * 获取商家列表
@@ -180,8 +184,8 @@ Page({
     params.currentLat = app.globalData.latitude;
     // params.currentLon = 39.90469;
     // params.currentLat = 116.40717;
-    if (!that.isNull(app.globalData.orderSortType)) {
-      params.orderSortType = app.globalData.orderSortType;
+    if (!that.isNull(that.data.orderSortType)) {
+      params.orderSortType = that.data.orderSortType;
     } else { //默认按照距离进行排序
       params.orderSortType = "shopDistance";
     }
