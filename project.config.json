@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 39,
 			"list": [
 				{
 					"id": 0,
@@ -285,6 +285,13 @@
 					"name": "当前店铺奖励排队详情",
 					"pathName": "pages/my/orderQueue/orderQueue",
 					"query": "uid=1&start=0&size=10",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "付款买单",
+					"pathName": "pages/cardFile/payment/payment",
+					"query": "",
 					"scene": null
 				}
 			]
