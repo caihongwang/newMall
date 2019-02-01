@@ -607,17 +607,25 @@ Page({
   //清空 省 市 区 街道
   deleteProvinces: function () {
     this.setData({
-      isProvinces: true
+      isProvinces: true,
+      isAreas: false,
+      isStreet: false,
+      isCitys:false
+
     })
   },
   deleteCity: function () {
     this.setData({
-      isCitysChoose: true
+      isCitysChoose: true,
+      isAreas: false,
+      isStreet:false,
+
     })
   },
   deleteRegion: function () {
     this.setData({
-      isareasChoose: true
+      isareasChoose: true,
+      isStreet:false
     })
   },
   deleteStreet: function () {
