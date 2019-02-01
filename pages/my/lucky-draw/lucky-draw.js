@@ -109,13 +109,33 @@ Page({
       success: function (res) {
         console.log(res.data);
         if (res.data.code == 0) {
-          
-        } else if (res.data.code == 200008) {      //您已抽过奖。如想再次抽奖，请再交易一笔订单.
+            wx.showModal({
+              title: '提示',
+              content: '',//要展示的奖品的说明
+              showCancel: false,
+              success(res) {
+                if (res.confirm) {
+                  wx.redirectTo( 
+                    {
+                      url: '/pages/my/myOrder/myOrder?id=' + '1',
+                    }
+                  )
 
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+        } else if (res.data.code == 200008) {      //您已抽过奖。如想再次抽奖，请再交易一笔订单.
+          wx.showModal({
+            title: '提示',
+            content: '您已抽过奖。如想再次抽奖，请再交易一笔订单',
+            showCancel: false
+          })
        
     
         } else {
-          util.toast(res.message);
+          util.toast(res.data.message);
         }
       },
       fail: function (res) {
@@ -170,7 +190,6 @@ Page({
    */
   start() {
     const that = this;
-    this.getLuckDrawUrl()
 
     //  重置数组顺序后转动两圈
     this.setData({
@@ -182,6 +201,8 @@ Page({
         animation0: this.data.animation0 + 720
       })
     })
+    this.getLuckDrawUrl()
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
