@@ -102,7 +102,7 @@ Page({
           util.toast(res.data.message);
         } else {
           wx.hideLoading();
-          util.toast("网络异常, 请稍后再试");
+          util.toast(res.message);
         }
       },
       fail: function (res) {

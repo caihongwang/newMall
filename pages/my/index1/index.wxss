@@ -33,4 +33,13 @@
 .frame_item{
   width:180rpx;
   height:180rpx;
+  position: relative;
+}
+.frame_item_ward{
+  position: absolute;
+  left: 0;
+  top: 0;
+width:180rpx;
+  height:180rpx;
+
 }

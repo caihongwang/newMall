@@ -57,7 +57,8 @@
         "cashedRule/cashedRule",
         "joinShop/joinShop",
         "orderQueue/orderQueue",
-        "index1/index"
+        "index1/index",
+        "lucky-draw/lucky-draw"
       ]
     },
     {
