@@ -8,8 +8,11 @@
 </view>
 <!-- 排序 -->
 <view class="sortTypeView">
-  <view class="sortTypeItem" wx:for="{{sortTypeList}}">
-    <view bindtap='sortShopList' data-type='{{item.orderSortTypeCode}}'>{{item.orderSortTypeName}} 🔽</view>
+  <view wx:for-index="i" class="sortTypeItemView fz-28" wx:for="{{sortTypeList}}">
+    <view class="sortTypeItem {{selectSortTypeItem == i?'select-sortTypeItem':''}}" bindtap='sortShopList' data-type='{{item.orderSortTypeCode}}' data-selectSortTypeItem="{{i}}">
+      <text>{{item.orderSortTypeName}}</text>
+      <image src='/images/down_arrow.png' class='downArrowImg'></image>
+    </view>
   </view>
 </view>
 
