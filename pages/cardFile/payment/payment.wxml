@@ -43,8 +43,8 @@
    </view>
   </view>
     <view class='flex1 agreement'> 
-     <image class="image-agreement"  src='/images/logo.png' wx:if="{{isAgreement}}"></image>
-      <image class="image-agreement"  src='/images/home.png' wx:if="{{!isAgreement}}"></image>
+     <image class="image-agreement"  src='/images/logo.png'  wx:if="{{isAgreement}}" bindtap='isAgree'></image>
+      <image class="image-agreement"  src='/images/home.png' wx:if="{{!isAgreement}}"  bindtap='isAgree'></image>
    <view class="agreement-text">同意并阅读</view>
          <navigator class='open-rule fz-28' hover-class="none" url="/pages/cardFile/agreement/agreement">
           《用户协议》

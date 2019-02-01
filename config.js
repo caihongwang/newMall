@@ -52,6 +52,8 @@ var config = {
   convertIntegralUrl: `${host}/wxLuckDraw/convertIntegral.do`,   //奖励转换用户积分
   
   getLuckDrawUrl: `${host}/wxLuckDraw/getLuckDraw.do`,   //点击【抽奖】即添加抽奖信息
+  getLuckDrawProductListUrl: `${host}/wxLuckDraw/  getLuckDrawProductList.do`,   //点击【抽奖】即添加抽奖信息
+
   
   // 加盟
   getLeagueTypeUrl: `${host}/wxLeague/getLeagueTypeList.do`,   //获取加盟类型列表

@@ -54,7 +54,7 @@ page{
   /* color: #FF4C4B; */
 }
 .createTimeView{
-  color: #B2B2B2;
+  color: #9A9A9A;
 }
 .luckDrawMoneyVIew{
   color: #FF4C4B;

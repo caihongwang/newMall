@@ -67,13 +67,14 @@
                 <image src="./../../../assets/images/btn.png" mode="widthFix" class="up" />
                 <image src="./../../../assets/images/btn_press.png" mode="widthFix" class="press" />
                 <view class="text">
-                    <view class="left">
+                点击抽奖
+                    <!-- <view class="left">
                         <text class="chance">剩余机会</text>
                         <text class="times">3</text>
-                    </view>
-                    <view class="right">
+                    </view> -->
+                    <!-- <view class="right">
                         <button type="default" plain="true" hover-class="none">分享继续玩</button>
-                    </view>
+                    </view> -->
                 </view>
             </button>
         </view>
@@ -91,10 +92,10 @@
                     <block wx:for="{{winInfo}}" wx:key="{{index}}">
                         <swiper-item class="container">
                             <view class="list">
-                                <view class="date">{{item.date}}</view>
-                                <view class="time">{{item.time}}</view>
-                                <view class="phone">{{item.phone}}</view>
-                                <view class="prize">获得{{item.prize}}！</view>
+                                <view class="date">{{item.luckDrawName}}</view>
+                                <view class="time">{{item.dicName}}</view>
+                                <view class="phone">{{item.probabilityMin}}</view>
+                                <view class="prize">获得{{item.dicCode}}！</view>
                             </view>
                         </swiper-item>
                     </block>

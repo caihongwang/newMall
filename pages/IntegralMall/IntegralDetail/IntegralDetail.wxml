@@ -20,11 +20,11 @@
 </view>
 
 <view class='foot flex'>
-  <view class='should-pay fz-28'>
+  <view class='should-pay fz-32'>
     应付金额
-    <text class='integralAndPriceView fz-40'>￥{{productDetail.price}} + {{productDetail.integral}}个积分 </text>
+    <text class='integralAndPriceView fz-36'>￥{{productDetail.price}} + {{productDetail.integral}}个积分 </text>
   </view>
-  <view class="now-buy" bindtap='nowBuy'>立即购买</view>
+  <view class="now-buy fz-36" bindtap='nowBuy'>立即购买</view>
 </view>
 
 <!-- 底部弹窗 -->

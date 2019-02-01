@@ -4,7 +4,7 @@
 /* 搜索框 */
 .seachView {
   border: 0px red solid;
-  background: #1e90ff;
+  background: #4296F7;
   height: 100rpx;
   width: 100%;
   align-items: center; /** 垂直居中*/
@@ -120,7 +120,7 @@ color: transparent;
 }
 
 .active {
-  margin-right: 24rpx;
+  margin-right: 22rpx;
 }
 
 .productHeadImg {

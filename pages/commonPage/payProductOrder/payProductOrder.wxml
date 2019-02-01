@@ -25,7 +25,7 @@
     </view>
     <view class='productDegistAndIntegralView flex fz-28'>
       <view class='productDegistView fz-24'>
-        <text style='color: #e2e2e2;'>简述: </text>{{productDetail.degist}}</view>
+        <text style='color: #9A9A9A;'>简述: </text>{{productDetail.degist}}</view>
       <view class='productIntegralView'>{{productDetail.integral}} 个积分</view>
     </view>
     <view class='productNumView flex fz-28'>
@@ -36,8 +36,8 @@
 </view>
 
 <view class='foot flex'>
-  <view class='foot-price fz-28'>合计
-  <text class='integralAndPriceView fz-40'>￥{{productDetail.finalPrice}} + {{productDetail.finalIntegral}}个积分 </text>
+  <view class='foot-price fz-36'>合计
+  <text class='integralAndPriceView fz-36'>￥{{productDetail.finalPrice}} + {{productDetail.finalIntegral}}个积分 </text>
   </view>
-  <view class='sure-pay' bindtap='purchaseProductInMiniProgram'>确认并支付</view>
+  <view class='sure-pay  fz-36' bindtap='purchaseProductInMiniProgram'>确认并支付</view>
 </view>

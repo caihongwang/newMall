@@ -6,14 +6,14 @@ page {
 }
 
 .headImgView {
-  border: 0rpx red solid;
+  /* border: 0rpx red solid; */
   background: #fff;
   padding: 15rpx 24rpx;
   border-bottom: 1px solid #e2e2e2;
 }
 
 .headImg {
-  border: 1rpx #b2b2b2 solid;
+  /* border: 1rpx #b2b2b2 solid; */
   width: 100%;
   height: 500rpx;
 }
@@ -21,6 +21,7 @@ page {
 .productTitle {
   border: 0rpx red solid;
   font-weight: bold;
+  margin-top: 10rpx;
 }
 
 .productDescribe {
@@ -42,6 +43,7 @@ page {
   color: #ff4c4b;
   font-weight: bold;
   text-align: left;
+  
 }
 
 .stockView {
@@ -51,8 +53,8 @@ page {
 
 .detailLogoView {
   border: 0rpx red solid;
-  height: 70rpx;
-  line-height: 70rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   text-align: center;
 }
 
@@ -67,12 +69,12 @@ page {
 }
 
 .productDetailImgView {
-  padding: 0rpx 24rpx;
+  padding: 0rpx 24rpx 24rpx 100rpx;
 }
 
 .productDetailImg {
   display: block;
-  height: 200rpx;
+  height: 300rpx;
   width: 100%;
 }
 
@@ -147,8 +149,8 @@ page {
 }
 
 .close {
-  width: 60rpx;
-  height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .model-stock {
@@ -228,9 +230,10 @@ input{
 }
 
 .sure-buy {
-  border: 1px red solid;
+  /* border: 1px red solid; */
   width: 100%;
-  height: 100rpx;
+  height: 120rpx;
+  line-height: 120rpx;
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居*/

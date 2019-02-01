@@ -27,7 +27,14 @@ Page({
       useBalanceFlag: e.detail.value
     })
   },
+  isAgree:function(){
+    // 点击是否选中图片
+    this.data.isAgreement = !this.data.isAgreement
+    this.setData({
+      isAgreement: this.data.isAgreement
+    })
 
+  },
   weChatPay:function(){
     if (!this.data.chooseWechat){
       this.setData({
@@ -168,7 +175,7 @@ inputMoney:function(e){
             console.log("模板消息已发送");
             let wxOrderId = param.data.wxOrderId;
             wx.navigateTo({
-              url: '/pages/my/index1/index?wxOrderId=' + wxOrderId
+              url: '/pages/my/lucky-draw/lucky-draw?wxOrderId=' + wxOrderId
             })
           }
         });

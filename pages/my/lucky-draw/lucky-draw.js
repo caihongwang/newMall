@@ -1,4 +1,7 @@
 // pages/lucky-draw/lucky-draw.js
+var util = require('../../../utils/util.js');
+var network = require('../../../utils/network.js')
+const requestUrl = require('../../../config')
 Page({
   /**
    * 页面的初始数据
@@ -87,37 +90,67 @@ Page({
     time2: 7.2,
     show: true,
     flashing: true,
-    winInfo: [{
-        date: "08-25",
-        time: "14:28",
-        phone: "135****6521",
-        prize: "iPad大奖"
-      },
-      {
-        date: "08-25",
-        time: "14:28",
-        phone: "135****6521",
-        prize: "500元大红包"
-      },
-      {
-        date: "08-25",
-        time: "14:28",
-        phone: "135****6521",
-        prize: "iPad大奖"
-      },
-      {
-        date: "08-25",
-        time: "14:28",
-        phone: "135****6521",
-        prize: "500元大红包"
-      }
+    winInfo: [
+    
     ],
     prizeShow: false,
     prizeList: new Array(30),
     QR: ''
   },
+// 获取红包
+  getLuckDrawUrl: function () { //点击抽奖按钮获取列表
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.wxOrderId = this.data.wxOrderId;
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.getLuckDrawUrl,
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 0) {
+          
+        } else if (res.data.code == 200008) {      //您已抽过奖。如想再次抽奖，请再交易一笔订单.
 
- 
+       
+    
+        } else {
+          util.toast(res.message);
+        }
+      },
+      fail: function (res) {
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
+  },
+
+// 获取奖品列表
+  getLuckDrawProductListUrl: function () { //点击抽奖按钮获取列表
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.dicType = 'luckDraw';
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.getLuckDrawProductListUrl,
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 0) {
+          that.setData({
+            winInfo: res.data.data
+          })
+     
+
+        } else {
+          util.toast(res.message);
+        }
+      },
+      fail: function (res) {
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
+  },
+
  
   /**
    * @params sort 随机事件
@@ -137,6 +170,8 @@ Page({
    */
   start() {
     const that = this;
+    this.getLuckDrawUrl()
+
     //  重置数组顺序后转动两圈
     this.setData({
       redEnvelopeList0: that.sort(this.data.redEnvelopeList0),
@@ -146,7 +181,6 @@ Page({
       that.setData({
         animation0: this.data.animation0 + 720
       })
-
     })
   },
   /**
@@ -179,4 +213,13 @@ Page({
     this.lamp();
   },
  
+
+  onLoad: function (options) {
+    if (options.wxOrderId) {
+      this.setData({
+        wxOrderId: options.wxOrderId
+      })
+    }
+    this.getLuckDrawProductListUrl();
+  }
 });

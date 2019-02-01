@@ -11,7 +11,7 @@ page {
   border: 0px red solid;
   width: 100%;
   height: 200rpx;
-  background: #1e90ff;
+  background: #4296F7;
   color: #fff;
   align-items: center; /** 垂直居中*/
   display: flex;
@@ -165,7 +165,7 @@ page {
 }
 
 .wite-theTxt {
-  color: #e2e2e2;
+  color: #9A9A9A;
   margin-top: 10rpx;
 }
 
@@ -231,7 +231,7 @@ page {
 
 .tips {
   width: 100%;
-  color: rgb(163, 158, 158);
+  color: #727272;
   padding: 15rpx;
   margin-top: 10rpx;
   text-align: center;
@@ -242,7 +242,7 @@ page {
 
 .theCompany {
   width: 100%;
-  color: rgb(163, 158, 158);
+  color: #727272;
   padding: 10rpx;
   margin-bottom: 20rpx;
   text-align: center;
