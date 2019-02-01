@@ -201,7 +201,9 @@ Page({
         animation0: this.data.animation0 + 720
       })
     })
-    this.getLuckDrawUrl()
+    setTimeout(() => {
+      this.getLuckDrawUrl();
+    }, 7000);   
 
   },
   /**
