@@ -69,7 +69,7 @@ page {
 }
 
 .productDetailImgView {
-  padding: 0rpx 24rpx 24rpx 100rpx;
+  padding: 0rpx 24rpx 100rpx 24rpx;
 }
 
 .productDetailImg {

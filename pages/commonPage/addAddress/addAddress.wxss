@@ -23,7 +23,7 @@ page {
   border: 0rpx red solid;
   width: 25%;
   align-items: center; /** 垂直居中*/
-  text-align: right;
+  text-align: left;
 }
 
 .input {
@@ -61,7 +61,7 @@ picker {
   border: 0rpx red solid;
   width: 25%;
   align-items: center; /** 垂直居中*/
-  text-align: right;
+  text-align: left;
 }
 
 .textarea {

@@ -77,6 +77,7 @@
   width: 40rpx;
   height: 40rpx;
   margin-top: 10rpx;
+  margin-right: 20rpx;
 }
 .pay-button{
   width: 700rpx;

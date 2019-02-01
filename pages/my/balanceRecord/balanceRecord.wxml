@@ -20,7 +20,7 @@
         <view class='myBalanceDetailView'>
           <view class="fromLuckDrawAndMoneyView">
             <view class="fromLuckDrawDescView fz-28">新增余额-来自奖励</view>
-            <view class="moneyView fz-34">+ {{item.cashbackToUserBalance}} 元</view>
+            <view class="moneyView fz-32">+ {{item.cashbackToUserBalance}} 元</view>
           </view>
           <view class='createTimeView fz-20'>{{item.createTime}}</view>
           <view class="remarkView fz-24">{{item.remark}}</view>

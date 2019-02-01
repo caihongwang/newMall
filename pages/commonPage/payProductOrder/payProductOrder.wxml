@@ -36,8 +36,8 @@
 </view>
 
 <view class='foot flex'>
-  <view class='foot-price fz-36'>合计
-  <text class='integralAndPriceView fz-36'>￥{{productDetail.finalPrice}} + {{productDetail.finalIntegral}}个积分 </text>
+  <view class='foot-price fz-32'>合计
+  <text class='integralAndPriceView fz-32'>￥{{productDetail.finalPrice}} + {{productDetail.finalIntegral}}个积分 </text>
   </view>
-  <view class='sure-pay  fz-36' bindtap='purchaseProductInMiniProgram'>确认并支付</view>
+  <view class='sure-pay  fz-32' bindtap='purchaseProductInMiniProgram'>确认并支付</view>
 </view>

@@ -34,6 +34,7 @@ page{
   display: flex;
   justify-content: center; 
   padding-top: 20rpx;
+  color: #727272;
 }
 .myBalanceMoneyView{
   border: 0rpx red solid;
@@ -43,6 +44,7 @@ page{
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; 
+  color: #2D2D2D;
 }
 .allMyBalanceListView{
   border: 0rpx red solid;
@@ -56,6 +58,7 @@ page{
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; 
+  color: #9A9A9A;
 }
 .recordLogoImg{
   width: 40rpx;
@@ -105,13 +108,14 @@ page{
   width: 70%;
   text-align: left;
   padding-left: 3%;
+  color: #2D2D2D;
 }
 .moneyView{
   border: 0px red solid;
   width: 30%;
   text-align: right;
   font-weight: bold;
-  color: green;
+  color: #FF4C4B;
 }
 .createTimeView{
   border: 0px red solid;
@@ -148,4 +152,7 @@ page{
   color: #9D9D9D;
   letter-spacing: 0;
   text-align: center;
+}
+.myBalanceListView:last-child{
+  border: none;
 }
