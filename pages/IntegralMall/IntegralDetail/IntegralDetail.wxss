@@ -1,81 +1,103 @@
 /* pages/IntegralMall/IntegralDetail/IntegralDetail.wxss */
 @import "../../../app.wxss";
-page{
+
+page {
   background: #f8f8f8 !important;
 }
-.head{
+
+.headImgView {
+  border: 0rpx red solid;
   background: #fff;
-  padding: 24rpx;
+  padding: 15rpx 24rpx;
   border-bottom: 1px solid #e2e2e2;
 }
-.image{
+
+.headImg {
+  border: 1rpx #b2b2b2 solid;
   width: 100%;
   height: 500rpx;
 }
-.describe{
-  font-size: 24rpx;
+
+.productTitle {
+  border: 0rpx red solid;
+  font-weight: bold;
 }
-.price{
+
+.productDescribe {
+  border: 0rpx red solid;
+  margin-top: 10rpx;
+}
+
+.integralAndPriceAndStockView {
+  border: 0rpx red solid;
   width: 100%;
-  height: 100rpx;
+  height: 60rpx;
   padding: 0 24rpx;
   box-sizing: border-box;
   background: #fff;
-    font-size: 24rpx;
-}
-.integral-left{
-  color: #FF4C4B;
-}
-.integral-right{
-    color: #e2e2e2;
+  font-size: 24rpx;
 }
 
-.detail{
-  height: 200rpx;
-  line-height: 200rpx;
+.integralAndPriceView {
+  color: #ff4c4b;
+  font-weight: bold;
+  text-align: left;
+}
+
+.stockView {
+  color: #8a8888;
+  text-align: right;
+}
+
+.detailLogoView {
+  border: 0rpx red solid;
+  height: 70rpx;
+  line-height: 70rpx;
   text-align: center;
 }
 
-.detail-icon{
-  width: 50rpx;
-  height: 50rpx;
-  vertical-align:middle;
+.detailLogoImg {
+  width: 45rpx;
+  height: 45rpx;
+  vertical-align: middle;
 }
-.detail-text{
-  font-size: 28rpx;
-  color: #fff;
+
+.detailText {
+  color: rgb(109, 106, 106);
 }
-.imageList-warp{
-  padding-bottom: 200rpx;
+
+.productDetailImgView {
+  padding: 0rpx 24rpx;
 }
-.imageList{
+
+.productDetailImg {
   display: block;
   height: 200rpx;
   width: 100%;
 }
 
-.foot{
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   background: #fff;
-   width: 100%;
-   height: 200rpx;
-   border-top: 1px solid #e2e2e2;
-   
-}
-.should-pay{
-  margin-left: 24rpx;
-}
-.now-buy{
-  width: 200rpx;
-  background: #FF4C4B;
-  color: #fff;
-  text-align: center;
-  height: 200rpx;
-  line-height: 200rpx;
+.foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1px solid #e2e2e2;
 }
 
+.should-pay {
+  margin-left: 24rpx;
+}
+
+.now-buy {
+  width: 200rpx;
+  background: #ff4c4b;
+  color: #fff;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
 
 /* 底部弹窗 */
 .commodity_screen {
@@ -101,81 +123,124 @@ page{
   z-index: 2000;
   background: #fff;
 }
-.modal-head{
+
+.modal-head {
   padding: 24rpx;
   width: 100%;
   box-sizing: border-box;
-  border:1px solid #e2e2e2;
+  border: 1px solid #e2e2e2;
 }
-.modal-image{
+
+.modal-image {
   width: 200rpx;
   height: 200rpx;
 }
-.modal-integral{
+
+.modal-integral {
   margin-top: 30rpx;
   width: 400rpx;
 }
-.model-price{
-  color: #FF4C4B;
+
+.model-price {
+  color: #ff4c4b;
+  font-weight: bold;
 }
-.close{
+
+.close {
   width: 60rpx;
   height: 60rpx;
 }
-.model-stock{
-  color: #e2e2e2;
- margin: 20rpx 0rpx;
+
+.model-stock {
+  margin: 20rpx 0rpx;
+  color: #8a8888;
 }
-.specifications{
+.specificationsView{
+  width: 100%;
+}
+
+.specifications {
   display: inline-block;
-  background: #FF4C4B;
+  background: #ff4c4b;
   padding: 10rpx 20rpx;
   border-radius: 20rpx;
 }
 
-
-.buy-nummber{
+.buy-nummber {
   width: 100%;
+  margin-top: 15rpx;
 }
+
 /*主容器*/
+
 .stepper {
-  width:80px;
-  height:26px;
+  width: 100px;
+  height: 26px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
 }
+
 /*加号和减号*/
+
 .stepper text {
-  float: left;
-  width: 19px;
-  line-height: 26px;
+  /* float: left; */
+  width: 25px;
+  height: 100%;
   text-align: center;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
 }
-/*数值*/
-.stepper input {
+
+.stepperInput {
   width: 40px;
-  height: 26px;
-  float: left;
-  margin: 0 auto;
-  text-align: center;
+  height: 100%;
+  min-height:24rpx;
   font-size: 12px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  text-align: center;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  border-left: 1rpx solid #ccc;
+  border-right: 1rpx solid #ccc;
+  border-top: 0rpx solid #ccc;
+  border-bottom: 0rpx solid #ccc;
+
 }
+
+input{
+
+}
+
 /*普通样式*/
+
 .stepper .normal {
-  color:black;
+  color: black;
 }
+
 /*禁用样式*/
+
 .stepper .disable {
   color: #ccc;
 }
-.sure-buy{
+
+.sure-buy {
+  border: 1px red solid;
   width: 100%;
-  height:  160rpx;
+  height: 100rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居*/
+  /* padding: 20rpx; */
 }
-.warn{
-  display: block;
-  width: 680rpx;
-  margin: 40rpx  auto 0;
+
+.warn {
+  width: 90%;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 20rpx;
+  text-align: center;
 }

@@ -72,11 +72,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var balance = options.balance;
-    this.setData({
-      balance: balance
-    });
-    console.log("balance = " + balance);
+    if (options.balance){
+      this.setData({
+        balance: options.balance
+      });
+    }
   },
 
   /**

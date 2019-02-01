@@ -43,14 +43,6 @@ Page({
       "dicType": "orderSortType"
     }],
     shopList: [
-      // {
-      //   images: '/images/logo.png',
-      //   imagesHead:'/images/home.png',
-      //   name: '相约楼',
-      //   hot:'521',
-      //   distance: '1023.3km',
-      //   wheelImages: ['/images/logo.png', '/images/logo.png', '/images/logo.png']
-      // },
     ]
   },
   onLoad: function(options) {
@@ -248,7 +240,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     let shopId = this.data.shopList[index].shopId;
     wx.navigateTo({
-      url: '../../cardFile/shopInformation/shopInformation?shopId=' + shopId
+      url: '../../cardFile/shopInformation/shopInformation?shopId=' + shopId 
     });
   },
   bindMore: function() {

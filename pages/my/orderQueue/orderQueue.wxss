@@ -1,57 +1,118 @@
 /* pages/my/orderQueue/orderQueue.wxss */
 @import "../../../app.wxss";
-page{
-    background: #f8f8f8 !important;
-}
-.shop{
-    background: #fff;
-}
-.shop-image{
-    width: 100rpx;
-    height: 100rpx;
-    border-radius: 100rpx;
+
+page {
+  background: #f8f8f8 !important;
 }
 
-.shop-name{
- margin-left: 24rpx;
-}
-.shop-list{
-    background: #fff;
-    margin-top: 48rpx;
-}
-.my-alignment{
-    height: 160rpx;
-    line-height: 118rpx;
-    border-bottom: 1px solid #e2e2e2;
+.shopInfoView {
+  border: 0rpx red solid;
+  background: #fff;
+  height: 120rpx;
+  width: 100%;
+  margin-top: 10rpx;
 }
 
-.list-warp{
-    width: 100%;
-    padding: 24rpx;
-    box-sizing: border-box;
-    background: #fff;
-    border-bottom: 1px solid #e2e2e2;
-  }
-.rank{
-    margin-right: 20rpx;
+.shopHeadImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
 }
-  .logo-image{
-    width: 100rpx;
-    height: 100rpx;
-  }
-  .center{
-    margin-left: 20rpx;
-  }
-  .center{
-    width: 540rpx;
-  }
-  .price{
-    color: #FF4C4B;
-  }
-  .repay{
-    color: #FF4C4B;
-  }
-  .icon{
-    width: 30rpx;
-    height: 30rpx;
-  }
+
+.shopTitleView {
+  margin-left: 24rpx;
+  font-weight: bold;
+}
+
+.theShopListView {
+  background: #fff;
+  padding: 20rpx;
+}
+
+.myQueueDescView {
+  border: 0rpx red solid;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  margin-top: 0rpx;
+  border-bottom: 2px solid #e2e2e2;
+}
+
+.queueList {
+  border: 0rpx red solid;
+  width: 100%;
+  height: 150rpx;
+  padding: 15rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid #e2e2e2;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
+.queueList:last-child{
+  /* border-bottom: none; */
+}
+
+.rankIndexVIew {
+  border: 0rpx red solid;
+  margin-right: 20rpx;
+  width: 20rpx;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
+.avatarImgView{
+  border: 0rpx red solid;
+  width: 150rpx;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
+.avatarImg {
+  border: 0rpx red solid;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 12rpx;
+}
+
+.userInfoView {
+  margin-left: 20rpx;
+}
+
+.nickNameAndPayMoneyView {
+  width: 540rpx;
+}
+
+.nickNameView {
+}
+
+.payMoneyView {
+  font-weight: bold;
+}
+
+.createTimeAndluckDrawMoneyView {
+}
+
+.createTimeView {
+  color: #b2b2b2;
+}
+
+.luckDrawMoneyView {
+  color: #ff4c4b;
+  font-weight: bold;
+}
+
+.allQueueDescView {
+  border: 0rpx red solid;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  margin-top: 30rpx;
+  border-bottom: 2px solid #e2e2e2;
+}

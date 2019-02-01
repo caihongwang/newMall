@@ -1,27 +1,39 @@
-<!--pages/my/integralRecord/integralRecord.wxml-->
-<view class='head'>
-  <view class='my-integral fz-28'>我的余额</view>
-  <view class='money fz-40'>{{balance}}</view>
-</view>
-
-<view class='list' wx:if="{{balanceList}}">
-  <view class='record  '>
-    <image class="record-image" src='/images/logo.png'></image>
-    <view class='intergral'>余额记录</view>
-  </view>
-  <view class='list-warp' wx:for="{{balanceList}}" wx:key="list">
-    <view class='type fz-28 flex'>
-      <view>{{item.cashbackToUserBalance}}</view>
-      <view class='money fz-24'>{{item.userBalance}}</view>
+<view class="thePage">
+  <view class='myBalanceView'>
+    <view class="myBalanceImgView">
+      <image class="myBalanceImg" src='/images/myBalance.png'></image>
     </view>
-    <view class='time fz-24'>{{item.createTime}}</view>
+    <view class='myBalanceTextView fz-26'>我的余额</view>
+    <view class='myBalanceMoneyView fz-66'>￥{{balance}}</view>
   </view>
-</view>
 
-<view class="no-record" wx:else>暂无余额记录</view>
+  <view class='allMyBalanceListView' wx:if="{{balanceList.length > 0}}">
+    <view class='myBalanceRecordDescView'>
+      <image class="recordLogoImg" src='/images/recordLogo.png'></image>
+      <view class='recordDescView fz-30'>余额记录</view>
+    </view>
+    <view class='myBalanceListView' wx:for="{{balanceList}}" wx:key="list">
+      <view class='myBalanceItemView'>
+        <view class="balanceRecordLogoImgView">
+          <image class="balanceRecordLogoImg" src='/images/balanceRecordLogo.png'></image>
+        </view>
+        <view class='myBalanceDetailView'>
+          <view class="fromLuckDrawAndMoneyView">
+            <view class="fromLuckDrawDescView fz-28">新增余额-来自奖励</view>
+            <view class="moneyView fz-34">+ {{item.cashbackToUserBalance}} 元</view>
+          </view>
+          <view class='createTimeView fz-20'>{{item.createTime}}</view>
+          <view class="remarkView fz-24">{{item.remark}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
 
-<view class='footView'>
-  <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
-  <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
-  <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多了</view>
+  <view class="no-record" wx:else>暂无余额记录</view>
+
+  <view class='footView'>
+    <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多了</view>
+  </view>
 </view>

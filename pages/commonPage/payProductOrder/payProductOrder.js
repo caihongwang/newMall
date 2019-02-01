@@ -22,7 +22,7 @@ Page({
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.productId = this.data.productDetail.id;
-    params.productNum = this.data.productDetail.productNum;     
+    params.productNum = this.data.productDetail.productNum;
     params.transactionProductDetail = JSON.stringify(this.data.productDetail);
     params.addressId = this.data.selectedAddress.id;
     params.useBalanceFlag = false;
@@ -55,7 +55,7 @@ Page({
       package: param.data.package,
       signType: 'MD5', //小程序发起微信支付，暂时只支持“MD5”
       paySign: param.data.paySign,
-      success: function (event) {          //支付成功   进入待发货的订单页面
+      success: function(event) { //支付成功   进入待发货的订单页面
         wx.showToast({
           title: '支付成功',
           icon: 'success',
@@ -68,12 +68,12 @@ Page({
           }
         });
       },
-      fail: function (error) {                 //支付成功   进入待付款的订单页面
+      fail: function(error) { //支付成功   进入待付款的订单页面
         wx.showToast({
           title: '支付失败',
           icon: 'success',
           duration: 2000,
-          complete: function () { //支付成功后跳转到订单页面
+          complete: function() { //支付成功后跳转到订单页面
             wx.redirectTo({
               url: '../../my/intergralOrder/intergralOrder?chosseId=1'
             });
@@ -112,14 +112,25 @@ Page({
   onShow: function() {
     //商品详情
     var productDetail = wx.getStorageSync('productDetail');
-    productDetail.finalPrice = productDetail.price * productDetail.productNum;
-    productDetail.finalIntegral = productDetail.integral * productDetail.productNum;
-    console.log("productDetail");
-    console.log(productDetail);
+    if (productDetail) {
+      productDetail.finalPrice = productDetail.price * productDetail.productNum;
+      productDetail.finalPrice = productDetail.finalPrice.toFixed(2);
+      productDetail.finalIntegral = productDetail.integral * productDetail.productNum;
+      productDetail.finalIntegral = productDetail.finalIntegral.toFixed(2);
+      
+      console.log(productDetail);
+    }
+
     //收货地址
     var selectedAddress = wx.getStorageSync('selectedAddress');
-    console.log("selectedAddress");
-    console.log(selectedAddress);
+    if (selectedAddress) {
+      var addressDeatailInfo = selectedAddress.provinceName + " " +
+        selectedAddress.cityName + " " + selectedAddress.regionName + " " +
+        selectedAddress.streetName + " " + selectedAddress.detailAddress;
+      addressDeatailInfo = addressDeatailInfo.length > 55 ? addressDeatailInfo.substring(0, 55) + "..." : addressDeatailInfo;
+      selectedAddress.addressDeatailInfo = addressDeatailInfo;
+    }
+    //更新数据
     this.setData({
       productDetail: productDetail,
       selectedAddress: selectedAddress

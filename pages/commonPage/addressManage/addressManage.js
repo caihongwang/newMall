@@ -25,9 +25,18 @@ Page({
         success: function (res) {
           console.log(res.data.data);
           if (res.data.code == 0) {
+            var addressList = res.data.data;
+            for (var i in addressList){
+              var iterm = addressList[i];
+              var addressDeatailInfo = iterm.provinceName + " " +
+                iterm.cityName + " " + iterm.regionName + " " +
+                iterm.streetName + " " + iterm.detailAddress;
+              addressDeatailInfo = addressDeatailInfo.length > 55 ? addressDeatailInfo.substring(0, 55) + "..." : addressDeatailInfo;
+              addressList[i].addressDeatailInfo = addressDeatailInfo;
+            }
             that.setData({
-              addressList: res.data.data
-            })
+              addressList: addressList
+            });
           } else {
           }
 
@@ -49,9 +58,6 @@ Page({
     });
     wx.setStorageSync('selectedAddress', this.data.addressList[selectedAddressItem]);
     if (this.data.isFromPayProductOrderPage){ //如果是从支付订单页面过来的，则选中地址后直接调回支付订单页面
-      // wx.redirectTo({
-      //   url: '/pages/commonPage/payProductOrder/payProductOrder',
-      // });
       wx.navigateBack();
     }
     //调用筛选接口
@@ -86,9 +92,9 @@ Page({
   editAddress:function(e){
     // e.currentTarget.dataset.index
     let index = e.currentTarget.dataset.index;
-    let addressList = JSON.stringify(this.data.addressList[index]);
+    let address = JSON.stringify(this.data.addressList[index]);
     wx.navigateTo({
-      url: '/pages/commonPage/addAddress/addAddress?addressList=' + addressList,
+      url: '/pages/commonPage/addAddress/addAddress?address=' + address,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

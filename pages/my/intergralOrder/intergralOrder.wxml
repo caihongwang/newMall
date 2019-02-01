@@ -7,7 +7,7 @@
       <!-- 层级0 -->
       <view class='orderLevelView0'>
         <view class='shopView'>
-        <image class="theMallImg" src="/images/theMall.png"></image>
+        <image class="theMallImg" src="/images/green_theMall.png"></image>
         <view class="theMallNameView">积分商城  →</view>
         </view>
         <view class='orderStatusNameView'>{{item.orderStatusName}}</view>

@@ -3,70 +3,138 @@
 page{
   background: #f8f8f8 !important;
 }
-.head{
+.thePage{
+  align-items: center; 
+}
+.myIntegralView{
+  border: 0rpx red solid;
   width: 100%;
-  height: 200rpx;
-background: blue; 
-text-align: center;
-color: #fff;
-
-}
-.my-integral{
-  padding-top: 60rpx;
-}
-.money{
+  height: 260rpx;
+  align-items: center; /** 垂直居中*/
   margin-top: 20rpx;
 }
-.no-record{
-  text-align: center;
-  margin-top: 48rpx;
-  color: rgb(182, 36, 36);
+.myIntegralImgView{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 120rpx;  
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; 
 }
-
-.list-warp{
-  background: #fff;
-  padding: 24rpx 48rpx;
-   border-bottom: 1px solid #AFAFAF;
+.myIntegralImg{
+  border: 0rpx red solid;
+  width: 120rpx;
+  height: 120rpx;
 }
-.list-warp:last-child{
-  border: none;
+.myIntegralTextView{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 50rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; 
+  padding-top: 20rpx;
 }
-.type{
-  color: #2d2d2d;
+.myIntegralMoneyView{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 80rpx;
+  font-weight: bold;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; 
 }
-
-.money{
-  color: #FF4C4B;
+.allMyIntegralListView{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 80%;
 }
-.time{
-  color: #727272;
+.myIntegralRecordDescView{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 100rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; 
 }
-.record-image{
+.recordLogoImg{
   width: 40rpx;
   height: 40rpx;  
 }
-.record{
+.recordDescView{
+  color: #B2B2B2;
+}
+.myIntegralListView{
+  background: #fff;
+  padding: 20rpx;
+  border-bottom: 1px solid #AFAFAF;
+}
+.myIntegralItemView{
+  width: 100%;
+  height: 130rpx;
+  align-items: center; /** 垂直居中*/
   display: flex;
-  display: -webkit-flex;
-  align-items: center;
-  justify-content:center;
-  height: 120rpx;
+  justify-content: center; 
+}
+.integralRecordLogoImgView{
+  border: 0rpx red solid;
+  width: 10%;
+  height: 60rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; 
+}
+.integralRecordLogoImg{
+  width: 60rpx;
+  height: 60rpx;
+}
+.myIntegralDetailView{
+  border: 0rpx red solid;
+  width: 90%;
 }
 
+.fromLuckDrawAndMoneyView{
+  width: 100%;
+  font-size: 80%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中**/
+}
+.fromLuckDrawDescView{
+  border: 0px red solid;
+  width: 70%;
+  text-align: left;
+  padding-left: 3%;
+}
+.moneyView{
+  border: 0px red solid;
+  width: 30%;
+  text-align: right;
+  font-weight: bold;
+  color: green;
+}
+.createTimeView{
+  border: 0px red solid;
+  color: #B2B2B2;
+  align-items: center; /** 垂直居中*/
+  padding-left: 3%;
+  text-align: left;
+  padding-top: 6rpx;
+}
+.remarkView{
+  border: 0px red solid;
+  color: rgb(110, 108, 108);
+  align-items: center; /** 垂直居中*/
+  padding-left: 3%;
+  text-align: left;
+  padding-top: 6rpx;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.no-record{
+  text-align: center;
+  margin-top: 48rpx;
+  color: #fff;
+}
 /* 底部 */
 .footView{
   border: 0px red solid;
@@ -80,5 +148,4 @@ color: #fff;
   color: #9D9D9D;
   letter-spacing: 0;
   text-align: center;
-  /* margin-top: 30rpx; */
 }

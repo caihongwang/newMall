@@ -10,67 +10,66 @@ Page({
    * 页面的初始数据
    */
   data: {
-     list:[
-       {
-         name:'全部订单',
-         id:0
-       },
-       {
-         name: '等待奖励订单',
-         id: 1
-       },
-       {
-         name: '已奖励订单',
-         id: 2
-       },
-     ],
+    list: [{
+        name: '全部订单',
+        id: 0
+      },
+      {
+        name: '等待奖励订单',
+        id: 1
+      },
+      {
+        name: '已奖励订单',
+        id: 2
+      },
+    ],
     chosseId: 0,
-    listLuck:[],//需要展示的数组列表
+    listLuck: [], //需要展示的数组列表
 
     havePageAll: 0, //已经加载的页数
-    pageindexAll: 10,//总共加载的总条数
-    howShops: 0,//共多少家店铺
+    pageindexAll: 10, //总共加载的总条数
+    howShops: 0, //共多少家店铺
 
   },
-  chooseList:function(e){
+  chooseList: function(e) {
     let index = e.currentTarget.dataset.index;
-    if (this.data.chosseId != index){
-        this.setData({
-          chosseId: index,
-          listLuck:[],
-          havePageAll: 0, //已经加载的页数
-          pageindexAll: 10,//总共加载的总条数
-        })
-        if (this.data.chosseId == 1) {
-          this.getWaitLuckDrawList(false);
-        } else if (this.data.chosseId == 2) {
-          this.getRecevicedLuckDrawList(false);
-        } else {
-          this.getAllLuckDrawList(false);
-        }
+    if (this.data.chosseId != index) {
+      this.setData({
+        chosseId: index,
+        listLuck: [],
+        havePageAll: 0, //已经加载的页数
+        pageindexAll: 10, //总共加载的总条数
+      })
+      if (this.data.chosseId == 1) {
+        this.getWaitLuckDrawList(false);
+      } else if (this.data.chosseId == 2) {
+        this.getRecevicedLuckDrawList(false);
+      } else {
+        this.getAllLuckDrawList(false);
+      }
     }
-    
-  
+
+
 
   },
-// 点击某一项跳转
-  goOrder:function(e){
+  // 点击某一项跳转
+  goOrder: function(e) {
     console.log(e);
     let index = e.currentTarget.dataset.index;
     let shopId = this.data.listLuck[index].shopId;
     let chosseId = this.data.chosseId;
     wx.navigateTo({
       url: '/pages/my/orderQueue/orderQueue?shopId=' + shopId + '&index=' + chosseId,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
-  
+
 
   },
 
 
-  getAllLuckDrawList: function (boo) {
+  getAllLuckDrawList: function(boo) {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -82,50 +81,105 @@ Page({
         mask: true
       });
     }
-    network.POST(
-      {
-        params: params,
-        requestUrl: requestUrl.getAllLuckDrawUrl,
-        success: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          console.log(res.data.data);
-          if (res.data.code == 0) {
-            for (var i in res.data.data) {
-              that.data.listLuck.push(res.data.data[i]);
-            }
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.getAllLuckDrawUrl,
+      success: function(res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        console.log(res.data.data);
+        if (res.data.code == 0) {
+          for (var i in res.data.data) {
+            that.data.listLuck.push(res.data.data[i]);
+          }
+          that.setData({
+            listLuck: res.data.data,
+            howShops: res.data.recordsFiltered
+          })
+          that.data.havePageAll += res.data.data.length;
+          if (that.data.havePageAll < res.data.recordsFiltered) {
             that.setData({
-              listLuck: res.data.data,
-              howShops: res.data.recordsFiltered
+              isShowMore: true,
+              loading: false,
+              isNoShowMore: false,
             })
+          } else {
+            that.setData({
+              isShowMore: false,
+              loading: false,
+              isNoShowMore: true,
+            })
+          }
+          console.log(that.data.listLuck);
+        } else {
+          util.toast(res.data.message);
+        }
+
+      },
+      fail: function(res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
+  },
+
+
+  getWaitLuckDrawList: function(boo) {
+    var that = this;
+    var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
+    params.start = this.data.havePageAll;
+    params.size = this.data.pageindexAll;
+    if (!boo) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      });
+    }
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.getWaitLuckDrawUrl,
+      success: function(res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        console.log(res.data.data);
+        if (res.data.code == 0) {
+          for (var i in res.data.data) {
+            that.data.listLuck.push(res.data.data[i]);
+          }
+          that.setData({
+            listLuck: res.data.data,
+            howShops: res.data.recordsFiltered
+          })
+          if (res.data.data) {
             that.data.havePageAll += res.data.data.length;
-            if (that.data.havePageAll < res.data.recordsFiltered) {
-              that.setData({
-                isShowMore: true,
-                loading: false,
-                isNoShowMore: false,
-              })
-            } else {
-              that.setData({
-                isShowMore: false,
-                loading: false,
-                isNoShowMore: true,
-              })
-            }
-            console.log(that.data.listLuck);
+          }
+          if (that.data.havePageAll < res.data.recordsFiltered) {
+            that.setData({
+              isShowMore: true,
+              loading: false,
+              isNoShowMore: false,
+            })
           } else {
-            util.toast(res.data.message);
+            that.setData({
+              isShowMore: false,
+              loading: false,
+              isNoShowMore: true,
+            })
           }
 
-        },
-        fail: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          util.toast("网络异常, 请稍后再试");
+          console.log(that.data.listLuck);
+        } else {
+          util.toast(res.data.message);
         }
-      });
+
+      },
+      fail: function(res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
   },
 
-
-  getWaitLuckDrawList: function (boo) {
+  getRecevicedLuckDrawList: function(boo) {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -137,108 +191,50 @@ Page({
         mask: true
       });
     }
-    network.POST(
-      {
-        params: params,
-        requestUrl: requestUrl.getWaitLuckDrawUrl,
-        success: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          console.log(res.data.data);
-          if (res.data.code == 0) {
-            for (var i in res.data.data) {
-              that.data.listLuck.push(res.data.data[i]);
-            }
-            that.setData({
-              listLuck: res.data.data,
-              howShops: res.data.recordsFiltered
-            })
-            if (res.data.data){
-              that.data.havePageAll += res.data.data.length;
-            }
-            if (that.data.havePageAll < res.data.recordsFiltered) {
-              that.setData({
-                isShowMore: true,
-                loading: false,
-                isNoShowMore: false,
-              })
-            } else {
-              that.setData({
-                isShowMore: false,
-                loading: false,
-                isNoShowMore: true,
-              })
-            }
-
-            console.log(that.data.listLuck);
-          } else {
-            util.toast(res.data.message);
+    network.POST({
+      params: params,
+      requestUrl: requestUrl.getRecevicedLuckDrawUrl,
+      success: function(res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        console.log(res.data.data);
+        if (res.data.code == 0) {
+          for (var i in res.data.data) {
+            that.data.listLuck.push(res.data.data[i]);
           }
-
-        },
-        fail: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          util.toast("网络异常, 请稍后再试");
-        }
-      });
-  },
-
-  getRecevicedLuckDrawList: function (boo) {
-    var that = this;
-    var params = new Object();
-    params.uid = wx.getStorageSync("UIDKEY");
-    params.start = this.data.havePageAll;
-    params.size = this.data.pageindexAll;
-    if (!boo) {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      });
-    }
-    network.POST(
-      {
-        params: params,
-        requestUrl: requestUrl.getRecevicedLuckDrawUrl,
-        success: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          console.log(res.data.data);
-          if (res.data.code == 0) {
-            for (var i in res.data.data) {
-              that.data.listLuck.push(res.data.data[i]);
-            }
+          that.setData({
+            listLuck: res.data.data,
+            howShops: res.data.recordsFiltered
+          })
+          that.data.havePageAll += res.data.data.length;
+          if (that.data.havePageAll < res.data.recordsFiltered) {
             that.setData({
-              listLuck: res.data.data,
-              howShops: res.data.recordsFiltered
+              isShowMore: true,
+              loading: false,
+              isNoShowMore: false,
             })
-            that.data.havePageAll += res.data.data.length;
-            if (that.data.havePageAll < res.data.recordsFiltered) {
-              that.setData({
-                isShowMore: true,
-                loading: false,
-                isNoShowMore: false,
-              })
-            } else {
-              that.setData({
-                isShowMore: false,
-                loading: false,
-                isNoShowMore: true,
-              })
-            }
-            console.log(that.data.listLuck);
           } else {
-            util.toast(res.data.message);
+            that.setData({
+              isShowMore: false,
+              loading: false,
+              isNoShowMore: true,
+            })
           }
-
-        },
-        fail: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          util.toast("网络异常, 请稍后再试");
+          console.log(that.data.listLuck);
+        } else {
+          util.toast(res.data.message);
         }
-      });
+
+      },
+      fail: function(res) {
+        boo ? wx.stopPullDownRefresh() : wx.hideLoading();
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
   },
 
 
 
-  bindMore: function () {
+  bindMore: function() {
     console.log(123123);
     if (this.data.pageindexAll < this.data.howShops) {
       this.setData({
@@ -252,67 +248,69 @@ Page({
         this.getRecevicedLuckDrawList(false);
       } else {
         this.getAllLuckDrawList(false);
-      } 
-         }
+      }
+    }
   },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options.id);
-    this.setData({
-      chosseId:options.id
-    })
-    if (this.data.chosseId == 1){
+    if (options.id) {
+      this.setData({
+        chosseId: options.id
+      });
+    }
+    if (this.data.chosseId == 1) {
       this.getWaitLuckDrawList(false);
-    } else if (this.data.chosseId == 2){
+    } else if (this.data.chosseId == 2) {
       this.getRecevicedLuckDrawList(false);
-    }else{
-
+    } else {
+      this.getAllLuckDrawList(false);
     }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     this.bindMore();
 
   },
@@ -320,7 +318,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

@@ -1,63 +1,90 @@
 /* pages/commonPage/addressManage/addressManage.wxss */
 @import "../../../app.wxss";
 
-.warp{
-  padding-bottom: 200rpx;
+.noAddressView {
+  border: 0rpx red solid;
+  width: 100%;
+  height: 90%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+  color: #b2b2b2;
+  margin-bottom: 110rpx;
 }
-.address{
+
+.addressView {
+  margin-bottom: 110rpx;
+}
+
+.addressItemView {
+  border: 0rpx red solid;
   width: 100%;
   height: 200rpx;
-  padding:  24rpx;
+  padding: 24rpx;
   box-sizing: border-box;
   background: #fff;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+  border-bottom: 1px solid #e2e2e2;
 }
-.address-icon{
-  width: 60rpx;
-  height: 60rpx;
-}
-.address-detail{
-  width: 600rpx;
-}
-.name{
-  /* height: 30rpx; */
-}
-.address-choose{
-  color: #e2e2e2;
-}
-.address-right{
-    width: 100rpx;
+.addressItemView:last-child {
+  /* border: none; */
 }
 
-.address1{
-  background: #fff;
-  margin-top: 24rpx;
-  padding: 24rpx;
+.addressLogoImg {
+  border: 0rpx red solid;
+  width: 50rpx;
+  height: 50rpx;
 }
-.goods-icon{
-  width: 140rpx;
-  height: 140rpx;
-}
-.goods-detail{
-  width: 500rpx;
-}
-.no-warp{
-  height: 200rpx;
-  line-height: 200rpx;
-  text-align: center;
-  color: #e2e2e2;
 
+.addressDetailView {
+  border: 0rpx red solid;
+  width: 90%;
+  height: 110rpx;
+  align-items: center; /** 垂直居中*/
+  margin-left: 20rpx;
+  margin-right: 20rpx;
 }
-.add-address{
+
+.defultText {
+  color: green;
+  margin-right: 20rpx;
+}
+
+.addressNameAndPhoneView {
+  border: 0rpx red solid;
+  height: 40%;
+  font-weight: bold;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中**/
+}
+
+.addressDetailInfoView {
+  border: 0rpx red solid;
+  height: 60%;
+  color: #b2b2b2;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中**/
+}
+
+.editAddressLogoImg {
+  border: 0rpx red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.addAddressView {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 200rpx;
-  line-height: 200rpx;
-  background: #FF4C4B;
-   text-align: center;
-   color: #fff;
-}
-.defult{
-  color: blue;
+  height: 100rpx;
+  color: #fff;
+  background: #ff4c4b;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
 }

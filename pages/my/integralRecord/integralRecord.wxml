@@ -1,27 +1,39 @@
-<!--pages/my/integralRecord/integralRecord.wxml-->
-<view class='head'>
-  <view class='my-integral fz-28'>我的积分</view>
-  <view class='money fz-40'>{{integral}}</view>
-</view>
-
-<view class='list' wx:if="{{integralList}}">
-  <view class='record  '>
-    <image class="record-image" src='/images/logo.png'></image>
-    <view class='intergral'>积分记录</view>
-  </view>
-  <view class='list-warp' wx:for="{{integralList}}" wx:key="list">
-    <view class='type fz-28 flex'>
-      <view>{{item.userIntegral}}</view>
-      <view class='money fz-24'>{{item.exchangeToUserIntegral}}</view>
+<view class="thePage">
+  <view class='myIntegralView'>
+    <view class="myIntegralImgView">
+      <image class="myIntegralImg" src='/images/myIntegral.png'></image>
     </view>
-    <view class='time fz-24'>{{item.createTime}}</view>
+    <view class='myIntegralTextView fz-26'>我的积分</view>
+    <view class='myIntegralMoneyView fz-66'>￥{{integral}}</view>
   </view>
-</view>
 
-<view class="no-record" wx:else>暂无积分记录</view>
+  <view class='allMyIntegralListView' wx:if="{{integralList.length > 0}}">
+    <view class='myIntegralRecordDescView'>
+      <image class="recordLogoImg" src='/images/recordLogo.png'></image>
+      <view class='recordDescView fz-30'>积分记录</view>
+    </view>
+    <view class='myIntegralListView' wx:for="{{integralList}}" wx:key="list">
+      <view class='myIntegralItemView'>
+        <view class="integralRecordLogoImgView">
+          <image class="integralRecordLogoImg" src='/images/integralRecordLogo.png'></image>
+        </view>
+        <view class='myIntegralDetailView'>
+          <view class="fromLuckDrawAndMoneyView">
+            <view class="fromLuckDrawDescView fz-28">新增积分-来自奖励</view>
+            <view class="moneyView fz-34">+ {{item.exchangeToUserIntegral}} 元</view>
+          </view>
+          <view class='createTimeView fz-20'>{{item.createTime}}</view>
+          <view class="remarkView fz-24">{{item.remark}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
 
-<view class='footView'>
-  <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
-  <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
-  <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多了</view>
+  <view class="no-record" wx:else>暂无积分记录</view>
+
+  <view class='footView'>
+    <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+    <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+    <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多了</view>
+  </view>
 </view>

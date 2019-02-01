@@ -3,53 +3,73 @@
 page{
   background: #e2e2e2;
 }
-.lst-warp{
+.orderTypeView{
   display: flex;
   display: -webkit-flex;
   align-items: center;
   justify-content: space-around;
-  height: 100rpx;
-  line-height: 100rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   background: #fff;
 }
-.list{
+.orderTypeItemView{
   flex: 1;
   text-align: center;
 }
-.chosse{
-  border-bottom: 1px solid #FF4C4B;
+.choosed-orderTypeItemView{
+  border-bottom: 2px solid #FF4C4B;
 }
-.no-order{
-  text-align: center;
-  margin-top: 30rpx;
+.theOrderListView{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 85%;
+  background: #fff;
 }
-.list-warp{
+.orderListView{
   width: 100%;
   padding: 24rpx;
   box-sizing: border-box;
   background: #fff;
   border-bottom: 1px solid #e2e2e2;
 }
-.list-warp:last-child{
+.orderListView:last-child{
   border: none;
 }
-.logo-image{
+.shopHeadImg{
   width: 100rpx;
   height: 100rpx;
+  border-radius: 10rpx;
 }
-.center{
+.orderInfoView{
   margin-left: 20rpx;
-}
-.center{
   width: 540rpx;
 }
-.price{
-  color: #FF4C4B;
+.shopTitleAndPayMoneyView{
+
 }
-.repay{
-  color: #FF4C4B;
+.shopTitleView{
+  font-weight: bold;
 }
-.icon{
+.payMoneyView{
+  /* color: #FF4C4B; */
+}
+.createTimeView{
+  color: #B2B2B2;
+}
+.luckDrawMoneyVIew{
+  color: #FF4C4B;
+  font-weight: bold;
+}
+.rightArrowImg{
   width: 30rpx;
   height: 30rpx;
+}
+
+
+
+
+
+.no-order{
+  text-align: center;
+  margin-top: 30rpx;
 }

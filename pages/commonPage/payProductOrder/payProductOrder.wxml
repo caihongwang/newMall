@@ -1,38 +1,43 @@
-<!--pages/commonPage/placeOrder/placeOrder.wxml-->
-<view class='address flex' bindtap='goAddress'>
-  <image class='address-icon' src="/images/logo.png"></image>
-  <view class='address-detail'>
+<view class='addressView' bindtap='goAddress'>
+  <image class='addressLogoImg' src="/images/addressLogo.png"></image>
+  <view class='addressDetailView'>
     <view wx:if="{{selectedAddress}}">
-      <view class='name fz-28'>{{selectedAddress.name}}</view>
-      <view class='address-choose fz-24'>{{selectedAddress.provinceName}} {{selectedAddress.cityName}} {{selectedAddress.regionName}} {{selectedAddress.streetName}} {{selectedAddress.detailAddress}}</view>
+      <view class='addressNameAndPhoneView fz-36'>
+        <text>{{selectedAddress.name}}</text>
+        <text style='margin-left:40rpx;'>{{selectedAddress.phone}}</text>
+      </view>
+      <view class='addressDetailInfoView fz-24'>{{selectedAddress.addressDeatailInfo}}</view>
     </view>
     <view wx:else>
-      <view class='name fz-28'>未有收货地址</view>
-      <view class='address-choose fz-24'>请选择收货地址</view>
+      <view class='addressNameAndPhoneView fz-28'>未有收货地址</view>
+      <view class='addressDetailInfoView fz-24'>请选择收货地址</view>
     </view>
   </view>
-  <image class='address-right' src="/images/logo.png"></image>
+  <image class='rightArrowImg' src="/images/rightArrow.png"></image>
 </view>
 
-<view class='address1 flex'>
-  <image class='goods-icon' src="{{productDetail.headImgUrl}}"></image>
-  <view class='goods-detail '>
-    <view class='good-name flex fz-28'>
-      <view class='good'>{{productDetail.title}}</view>
-      <view class='good-price'>￥{{productDetail.price}}</view>
-
+<view class='productView flex'>
+  <image class='productHeadImg' src="{{productDetail.headImgUrl}}"></image>
+  <view class='productDetailInfoView '>
+    <view class='productTitleAndPriceView flex fz-28'>
+      <view class='productTitleView fz-30'>{{productDetail.title}}</view>
+      <view class='productPriceView fz-30'>￥{{productDetail.price}}</view>
     </view>
-    <view class='good-name flex fz-28'>
-      <view class='good'>
-        <text class='rule'>规格：</text>{{productDetail.degist}}</view>
-      <view>￥{{productDetail.integral}}</view>
+    <view class='productDegistAndIntegralView flex fz-28'>
+      <view class='productDegistView fz-24'>
+        <text style='color: #e2e2e2;'>简述: </text>{{productDetail.degist}}</view>
+      <view class='productIntegralView'>{{productDetail.integral}} 个积分</view>
     </view>
-    <view class='fz-28 class="number"'>×{{productDetail.productNum}}</view>
+    <view class='productNumView flex fz-28'>
+      <view class='productNumDescView'>购买数量</view>
+      <view class='productNumView'>× {{productDetail.productNum}}</view>
+    </view>
   </view>
 </view>
-
 
 <view class='foot flex'>
-  <view class='foot-price'>合计：￥{{productDetail.finalPrice}}+{{productDetail.finalIntegral}}积分</view>
+  <view class='foot-price fz-28'>合计
+  <text class='integralAndPriceView fz-40'>￥{{productDetail.finalPrice}} + {{productDetail.finalIntegral}}个积分 </text>
+  </view>
   <view class='sure-pay' bindtap='purchaseProductInMiniProgram'>确认并支付</view>
 </view>

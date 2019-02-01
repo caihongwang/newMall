@@ -126,7 +126,8 @@ inputMoney:function(e){
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    params.payMoney = this.data.payMoney ;
+    params.payMoney = this.data.payMoney;
+    params.shopTitle = this.data.shopTitle;
     params.shopId = this.data.shopId;
     params.useBalanceFlag = this.data.useBalanceFlag;
     params.useIntegralFlag = this.data.useIntegralFlag;
@@ -194,9 +195,23 @@ inputMoney:function(e){
   },
 
   onLoad: function (options) {
+    var shopId = "";
+    var shopTitle = "";
+    if (options.shopId) {
+      shopId = options.shopId;
+    }
+    if (options.shopTitle) {
+      shopTitle = options.shopTitle;
+      wx.setNavigationBarTitle({
+        title: "向 " + shopTitle + " 商家付款买单"
+      });
+    }
+    console.log("shopTitle = " + shopTitle);
+    console.log("shopId = " + shopId);
     this.setData({
-      shopId: options.shopId
-    })
+      shopId: shopId,
+      shopTitle: shopTitle
+    });
   },
 
   /**

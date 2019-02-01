@@ -30,7 +30,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 34,
+=======
+			"current": 37,
+>>>>>>> e6ef6e28c9a0f0927d29f972a210ab7e6adc2335
 			"list": [
 				{
 					"id": 0,
@@ -91,10 +95,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "提交订单",
-					"pathName": "pages/commonPage/placeOrder/placeOrder",
-					"query": ""
+					"pathName": "pages/commonPage/payProductOrder/payProductOrder",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -256,6 +261,34 @@
 					"name": "红包抽奖1",
 					"pathName": "pages/my/lucky-draw/lucky-draw",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家详情",
+					"pathName": "pages/cardFile/shopInformation/shopInformation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/IntegralMall/IntegralDetail/IntegralDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 36,
+					"name": "我的订单",
+					"pathName": "pages/my/myOrder/myOrder",
+					"query": "uid=1",
+					"scene": null
+				},
+				{
+					"id": 37,
+					"name": "当前店铺奖励排队详情",
+					"pathName": "pages/my/orderQueue/orderQueue",
+					"query": "uid=1&start=0&size=10",
 					"scene": null
 				}
 			]
