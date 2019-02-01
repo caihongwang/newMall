@@ -240,7 +240,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     let shopId = this.data.shopList[index].shopId;
     wx.navigateTo({
-      url: '../../cardFile/shopInformation/shopInformation?shopId=' + shopId
+      url: '../../cardFile/shopInformation/shopInformation?shopId=' + shopId 
     });
   },
   bindMore: function() {

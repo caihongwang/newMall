@@ -24,9 +24,7 @@ Page({
     let that = this;
     wx.navigateTo({ //  跳转到创建团队的页面
       // 跳转到一个选择列表的页
-
-      url: '/pages/cardFile/payment/payment?shopId=' + that.data.shopId
-
+      url: '/pages/cardFile/payment/payment?shopId=' + that.data.shopId + '&shopTitle=' + that.data.shopTitle
     });
 
   },
