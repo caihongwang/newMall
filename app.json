@@ -20,14 +20,14 @@
       {
         "text": "附近商家",
         "pagePath": "pages/tabBar/shopList/shopList",
-        "iconPath": "images/cardfolder.png",
-        "selectedIconPath": "images/cardfolder_hl.png"
+        "iconPath": "images/gray_shop.png",
+        "selectedIconPath": "images/green_shop.png"
       },
       {
         "text": "积分商城",
         "pagePath": "pages/tabBar/IntegralMall/IntegralMall",
-        "iconPath": "images/my.png",
-        "selectedIconPath": "images/my_hl.png"
+        "iconPath": "images/gray_theMall.png",
+        "selectedIconPath": "images/green_theMall.png"
       },
       {
         "text": "个人中心",
