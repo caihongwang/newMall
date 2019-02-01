@@ -24,7 +24,7 @@ page{
   text-align: center;
 }
 .chossedTitle{
-  border-bottom: 4rpx solid #949393;
+  border-bottom: 4rpx solid #FF4C4B;
 }
 .orderListView{
   margin-top: 100rpx;

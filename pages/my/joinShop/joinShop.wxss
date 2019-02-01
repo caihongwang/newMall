@@ -9,6 +9,7 @@
 }
 .userName{
   text-align: center;
+  color: #2D2D2D;
 }
 .input{
   border: 1px solid #e2e2e2;
@@ -17,6 +18,7 @@
   margin: 40rpx auto 40rpx;
   border-radius: 10rpx;
   padding: 0 20rpx ;
+    color: #2D2D2D;
 }
 .place{
   font-size: 32rpx;
@@ -24,6 +26,7 @@
 .choose{
   margin: 50rpx auto 50rpx;
   text-align: center;
+  color: #2D2D2D;
 }
 
 
@@ -46,8 +49,10 @@
   border-radius: 20rpx;
 }
 .chosse{
-  border: 1px solid blue;
+  /* border: 1px solid #; */
   background: #e2e2e2;
+  color: #2D2D2D;
+  font-weight: bold;
 }
 
 .submit{

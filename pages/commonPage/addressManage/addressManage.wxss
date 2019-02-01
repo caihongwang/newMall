@@ -59,12 +59,13 @@
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: left; /** flex 属性， 水平居中**/
+  color: #2D2D2D;
 }
 
 .addressDetailInfoView {
   border: 0rpx red solid;
   height: 60%;
-  color: #b2b2b2;
+  color: #727272;
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: left; /** flex 属性， 水平居中**/
