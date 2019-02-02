@@ -1,4 +1,3 @@
-<!--pages/cardFile/shopInformation/shopInformation.wxml-->
 <view class='warp'>
   <swiper indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" class='swiper' wx:if="{{shopInformation.shopDescribeImgUrl[0]}}">
     <block wx:for="{{shopDescribeImgUrl}}" wx:key="iamge">
@@ -6,68 +5,70 @@
         <image src="{{item}}" class="slide-image" />
       </swiper-item>
     </block>
-
   </swiper>
 
-  <view class='list-content flex2'>
-    <view class='image-warp'>
-      <image src="{{shopInformation.shopHeadImgUrl}}" class='image-top'></image>
-      <image src="{{shopInformation.shopHeadImgUrl}}" class='list-image'></image>
-    </view>
-    <view>
-      <view class='list-name'>{{shopInformation.shopTitle}}</view>
-      <view class='hot flex2'>
-        <!-- <view class='hot-left flex1'> -->
-        <!-- <image src='/images/home.png' class='hot-image'></image> -->
-        <!-- <text class='how-hot'>热度{{shopInformation. }}</text> -->
-        <!-- </view> -->
-        <view class='flex1 hot-right'>
-          距离： {{shopInformation.shopDistance}}
-        </view>
-        <image src='/images/distance.png' class='phone'></image>
+  <swiper indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" class='swiper' wx:else>
+    <block>
+      <swiper-item>
+        <image src="/images/noDataBanner.png" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
 
+  <view class='shopHeadView flex2'>
+    <view class='shopHeadImgView'>
+      <image src="{{shopInformation.shopHeadImgUrl}}" class='shopHeadImg'></image>
+    </view>
+    <view class="shopTitleAndHotAndDistanceView">
+      <view class='shopTitleView fz-32'>{{shopInformation.shopTitle}}</view>
+      <view class='shopHotAndDistanceView'>
+        <view class='shopHotView'>
+          <image src='/images/hotDegree.png' class='hotDegreeImg'></image>
+          <text class='shopHotTextView fz-32'>{{shopInformation.shopOrderAmount}}</text>
+        </view>
+        <view class='shopDistanceView'>
+          <image src='/images/distance.png' class='distanceImg'></image>
+          <text class='shopDistanceTextView fz-32'>{{shopInformation.shopDistance}} km</text>
+        </view>
       </view>
     </view>
   </view>
 
-  <view class='brief-warp'>
-    <view class="shop-brief">店铺简介:</view>
-    <view class="brief-content">{{shopInformation.shopDegist}}</view>
+  <view class='shopDigistView'>
+    <view class="shopDigistName">店铺简介:</view>
+    <view class="shopDigistContent">{{shopInformation.shopDegist}}</view>
   </view>
 
-  <view class='address-warp flex'>
-    <view class='address'>
+  <view class='itemView flex'>
+    <view class='itemName'>
       店铺地址:
-      <text class='addrss-text'>{{shopInformation.shopAddress}}</text>
+      <text class='itemContent'>{{shopInformation.shopAddress}}</text>
     </view>
-    <image class="icon-address" src='/images/distance.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/addressLogo.png' bindtap='goMap'></image>
   </view>
 
-  <view class='address-warp flex'>
-    <view class='address'>
+  <view class='itemView flex'>
+    <view class='itemName'>
       店铺电话:
-      <text class='addrss-text'>{{shopInformation.shopPhone}}</text>
+      <text class='itemContent' data-shopPhone="{{shopInformation.shopPhone}}">{{shopInformation.shopPhone}}</text>
     </view>
-    <image class="icon-address" src='/images/distance.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/shopPhone.png' bindtap='contactPhone'  data-shopPhone="{{shopInformation.shopPhone}}"></image>
   </view>
-  
-  <view class='address-warp flex'>
-    <view class='address'>
+
+  <view class='itemView flex'>
+    <view class='itemName'>
       店铺时间:
-      <text class='addrss-text'>{{shopInformation.shopBusinessHours}}</text>
+      <text class='itemContent'>{{shopInformation.shopBusinessHours}}</text>
     </view>
-    <image class="icon-address" src='/images/distance.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/shopBusinessHours.png' bindtap='goMap'></image>
   </view>
 
-  <view class='address-warp flex'>
-    <view class='address'>
+  <view class='itemView flex'>
+    <view class='itemName'>
       店铺状态:
-      <text class='addrss-text'>{{shopInformation.shopBusinessStatus}}</text>
+      <text class='itemContent'>{{shopInformation.shopBusinessStatus}}</text>
     </view>
-    <image class="icon-address" src='/images/distance.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/shopBusinessStatus.png' bindtap='goMap'></image>
   </view>
-
-  <button type="warn" class='pay-button' bindtap="payment">
-    付款
-  </button>
+  <button type="warn" class='payBtn' bindtap="payment">付款</button>
 </view>

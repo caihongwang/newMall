@@ -31,31 +31,24 @@ Page({
   // 调用打开腾讯地图
   goMap: function() {
     let that = this;
-    console.log(typeof that.data.shopInformation.shopLat);
-    console.log(typeof parseFloat(that.data.shopInformation.shopLat));
-    console.log(123123);
     wx.openLocation({
       latitude: parseFloat(that.data.shopInformation.shopLat),
       longitude: parseFloat(that.data.shopInformation.shopLon),
       name: that.data.shopInformation.shopTitle,
       address: that.data.shopInformation.shopAddress,
     })
+  },
 
-
-    // wx.openLocation({     
-    //   latitude:  parseFloat(that.data.shopInformation.shopLat),
-    //   longitude: parseFloat(that.data.shopInformation.shopLon) ,
-    //   name: that.data.shopInformation.shopAddress,
-    //   address: that.data.shopInformation.shopAddress,
-    //   scale: 18,
-    //   success:function(res){
-    //     console.log(res);
-    //   },
-    //   fail:function(res){
-    //     console.log(res);
-
-    //   }
-    // })
+  // 拨打电话
+  contactPhone: function (e) {
+    var phone = "17701359899";
+    console.log(e);
+    if (e.currentTarget.dataset.shopphone){
+      phone = e.currentTarget.dataset.shopphone;
+    }
+    wx.makePhoneCall({
+      phoneNumber: phone
+    });
   },
 
 
@@ -63,7 +56,6 @@ Page({
     var that = this;
     var params = new Object();
     params.shopId = this.data.shopId;
-    params.shopId = 7;
     params.currentLon = app.globalData.longitude;
     params.currentLat = app.globalData.latitude;
     network.POST({
@@ -125,11 +117,15 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
+    var shopId = "";
     if (options.shopId) {
-      this.setData({
-        shopId: options.shopId
-      });
+      shopId = options.shopId;
+    } else {
+      shopId = 7;
     }
+    this.setData({
+      shopId: shopId
+    });
   },
 
   /**

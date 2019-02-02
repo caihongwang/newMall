@@ -1,119 +1,150 @@
 /* pages/cardFile/shopInformation/shopInformation.wxss */
 @import "../../../app.wxss";
 
-.warp{
+.warp {
   height: 100%;
   width: 100%;
-  background: #f8f8f8 ;
+  background: #f8f8f8;
 }
 
-.swiper{
-   width: 100%;
+.swiper {
+  width: 100%;
   height: 300rpx;
 }
-.slide-image{
+
+.slide-image {
   width: 100%;
   height: 100%;
-  padding: 10rpx;
 }
 
-
-.list-content{
-  height: 260rpx;
+.shopHeadView {
+  border: 0rpx red solid;
+  height: 170rpx;
+  width: 100%;
   background: #fff;
-  padding: 32rpx 24rpx 50rpx 24rpx;
-  box-sizing: border-box;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+  margin-top: 20rpx;
 }
-.image-warp{
-   width: 140rpx;
-  height: 126rpx;
-  position: relative;
-  left: 0;
-  top: 0;
-  margin-right: 36rpx;
-}
-.image-top{
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 120rpx;
-  height: 120rpx;
-}
-.list-image{
-  margin-top: 26rpx;
+
+.shopHeadImgView {
+  border: 0rpx red solid;
   width: 140rpx;
-  height: 126rpx;
+  height: 140rpx;
+  margin-left: 20rpx;
 }
-.list-name{
-  font-size: 32rpx;
+
+.shopHeadImg {
+  border: 0rpx red solid;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 15rpx;
+}
+
+.shopTitleAndHotAndDistanceView {
+  border: 0rpx red solid;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  margin-left: 20rpx;
+}
+
+.shopTitleView {
   color: #2d2d2d;
+  font-weight: bold;
 }
-.hot{
-  margin-top: 46rpx;
-   height: 60rpx;
-  line-height: 60rpx;
 
+.shopHotAndDistanceView {
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中**/
+  margin-top: 20rpx;
 }
-.hot-left{
-   width: 180rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-}
-.hot-image{
-  width: 60rpx;
-  height: 60rpx;
-}
-.how-hot{
-  font-size: 28rpx;
-  color: #FF4C4B;
-  margin-left: 6rpx;
 
+.shopHotView {
+  border: 0rpx red solid;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
 }
-.hot-right{
+
+.hotDegreeImg {
+  border: 0rpx red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.shopHotTextView {
+  border: 0rpx red solid;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  font-weight: bold;
+}
+
+.shopDistanceView {
+  border: 0rpx red solid;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+  margin-left: 150rpx;
+}
+
+.distanceImg {
+  border: 0rpx red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.shopDistanceTextView {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  font-weight: bold;
+}
+
+.shopDigistView {
+  background: #fff;
+  margin-top: 18rpx;
+  padding: 24rpx;
+  display: flex;
+  -webkit-display: flex;
   font-size: 28rpx;
-  color: #727272;
 }
-.phone{
-  width: 40rpx;
-  height: 40rpx;
-  margin-top: 10rpx;
-  margin-right: 20rpx;
+
+.shopDigistName {
+  width: 20%;
+  color: #4a4a4a;
 }
-.pay-button{
-  width: 700rpx;
-  margin: 40rpx auto 40rpx;
+
+.shopDigistContent {
+  width: 80%;
 }
-.address{
-  width: 662rpx;
-  overflow: hidden;
-text-overflow:ellipsis;
-white-space: nowrap;
-color: #4a4a4a;
-}
-.address-warp{
+
+.itemView {
   height: 80rpx;
   background: #fff;
   font-size: 28rpx;
   padding: 0 24rpx;
   box-sizing: border-box;
 }
-.icon-address{
-  width: 40rpx;
-  height: 40rpx;
-  margin-left: 20rpx;
-}
-.brief-warp{
-  background: #fff;
-  margin-top: 18rpx;
-  padding: 24rpx;
-  display: flex;
-  -webkit-display:flex;
-    font-size: 28rpx;
-}
-.shop-brief{
-  width: 140rpx;
+
+.itemName {
+  width: 662rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #4a4a4a;
 }
-.brief-content{
-  width: 562rpx;
+
+.itemContent {
+}
+
+.itemLogoImg {
+  width: 45rpx;
+  height: 45rpx;
+  margin-left: 20rpx;
+}
+
+.payBtn {
+  width: 90%;
+  margin: 40rpx auto 40rpx;
 }
