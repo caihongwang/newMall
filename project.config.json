@@ -170,12 +170,6 @@
 					"query": ""
 				},
 				{
-					"id": 26,
-					"name": "转盘抽奖",
-					"pathName": "pages/commonPage/turnDraw/turnDraw",
-					"query": ""
-				},
-				{
 					"id": -1,
 					"name": "订单详情",
 					"pathName": "pages/commonPage/orderDetail/orderDetail",
@@ -242,13 +236,6 @@
 					"id": -1,
 					"name": "余额记录",
 					"pathName": "pages/my/balanceRecord/balanceRecord",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 33,
-					"name": "红包抽奖",
-					"pathName": "pages/my/index1/index",
 					"query": "",
 					"scene": null
 				},

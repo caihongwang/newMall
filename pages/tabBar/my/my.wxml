@@ -9,11 +9,9 @@
     <view class="settingView">
       <image class="settingImg" src="/images/setting.png"></image>
       <view class="settingText fz-28" bindtap='personalSetting'>设置</view>
-      <!-- <image class="setting-right" src="/images/setting.png"></image> -->
     </view>
   </view>
   <!-- banner -->
-  <!-- <image class='setting-banner' src="/images/home.png"></image> -->
   <!-- 我的余额 -->
   <view class='balance fz-28 '>
     <view class='balanceTextAndMonneyView'>
