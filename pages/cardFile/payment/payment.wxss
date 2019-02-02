@@ -1,94 +1,137 @@
 /* pages/cardFile/payment/payment.wxss */
 @import "../../../app.wxss";
-.warp{
+
+.warp {
   width: 100%;
   height: 100%;
-  background: #f8f8f8
+  background: #f8f8f8;
 }
-.pay-type{
+
+.pay-type {
   background: #fff;
   font-size: 34rpx;
-
 }
-.pay-warp{
+
+.pay-warp {
   padding: 24rpx;
 }
-.pay-image{
+
+.pay-image {
   width: 80rpx;
   height: 80rpx;
   margin-right: 30rpx;
 }
-.pay-text{
+
+.pay-text {
   width: 560rpx;
 }
-.pay-text1{
+
+.selected-pay-text {
+  font-weight: bold;
+}
+
+.pay-text1 {
   width: 180rpx;
 }
-.can-use{
-  color: #FF4C4B;
+
+.can-use {
+  color: #ff4c4b;
   width: 360rpx;
   text-align: right;
 }
-.image-choose{
-   width: 60rpx;
+
+.image-choose {
+  width: 60rpx;
   height: 60rpx;
   float: right;
 }
 
-.pay-money{
+.pay-money {
   background: #fff;
-  margin-top: 36rpx;
+  margin-top: 20rpx;
   font-size: 28rpx;
 }
-.money-text{
+
+.money-text {
   padding: 24rpx;
   font-size: 28rpx;
   border-bottom: 1px solid #e2e2e2;
 }
-.imput-warp{
+
+.imput-warp {
   padding: 24rpx;
 }
 
-.input-money{
+.input-money {
   width: 86%;
   height: 80rpx;
   border: 1px solid #e2e2e2;
-  margin: 36rpx auto;
+  margin: 0rpx auto;
   border-radius: 10rpx;
-  padding: 0 24rpx;
+  padding: 0 20rpx;
 }
 
-.case-input{
+.body-view {
+  border: 0rpx red solid;
+  margin-top: 25rpx;
+}
+
+.case-input {
   width: 80rpx;
   border: 1px solid #e2e2e2;
   border-radius: 4rpx;
-}
-.arrive-money{
-  width: 200rpx;
-  text-align: right;
-}
-.express{
-  margin: 24rpx auto;
-}
-.actual-payment{
-  text-align: right;
-}
-.actual-text{
-  color: #FF4C4B;
+  text-align: center;
+  margin: 0rpx 10rpx;
 }
 
-.agreement{
+.arrive-money {
+  border: px solid red;
+  width: 300rpx;
+  text-align: right;
+}
+
+.express {
+  margin: 24rpx auto;
+}
+
+.actual-payment {
+  text-align: right;
+}
+
+.actual-text {
+  color: #ff4c4b;
+  font-weight: bold;
+}
+
+.agreementAndSurePayView {
+  border: 0rpx red solid;
+  position: fixed;
+  width: 100%;
+  height: 200rpx;
+  right: 0rpx;
+  bottom: 20rpx;
+  z-index: 1000;
+  align-items: center; /** 垂直居中*/
+}
+
+.agreement {
   padding: 24rpx;
 }
-.image-agreement{
+
+.image-agreement {
   width: 40rpx;
   height: 40rpx;
 }
-.agreement-text{
-  margin: 0 24rpx;
-  font-size: 24rpx;
-}
-.open-rule{
-  color: #FF4C4B;
 
+.agreement-text {
+  margin: 0 5rpx;
+}
+
+.open-rule {
+  color: #ff4c4b;
+}
+
+.sure-pay{
+  border: 1rpx red solid;
+  width: 80%;
 }

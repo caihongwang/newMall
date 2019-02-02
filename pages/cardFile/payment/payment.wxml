@@ -1,57 +1,57 @@
-<!--pages/cardFile/payment/payment.wxml-->
 <view class='warp'>
   <view class='pay-type'>
-    <view class="pay-warp flex1" bindtap='weChatPay'>
-      <image class="pay-image" src='/images/logo.png'></image>
-      <view class='pay-text'>微信支付</view>
-      <image class="image-choose" src='/images/logo.png' wx:if="{{chooseWechat}}"></image>
-      <image class="image-choose" src='/images/home.png' wx:if="{{!chooseWechat}}"></image>
+    <view class="pay-warp flex1" bindtap='selectWxChatPay'>
+      <image class="pay-image" src='/images/wxPayLogo.png'></image>
+      <view class='pay-text {{chooseWechat?"selected-pay-text":""}} fz-32'>微信支付</view>
+      <image class="image-choose" src='/images/selected-hook.png' wx:if="{{chooseWechat}}"></image>
+      <image class="image-choose" src='/images/unselected-hook.png' wx:else></image>
     </view>
-    <view class="pay-warp flex1" bindtap='selectLoan'>
-      <image class="pay-image" src='/images/logo.png'></image>
-      <view class='pay-text'>余额支付</view>
-      <!-- <view class='can-use'>可用买单币0.00个</view> -->
-      <image class="image-choose" src='/images/logo.png' wx:if="{{payingBill}}"></image>
-      <image class="image-choose" src='/images/home.png' wx:if="{{!payingBill}}"></image>
+    <view class="pay-warp flex1" bindtap='selectBalance'>
+      <image class="pay-image" src='/images/myBalance.png'></image>
+      <view class='pay-text {{payingBill?"selected-pay-text":""}} fz-32'>余额支付</view>
+      <image class="image-choose" src='/images/selected-hook.png' wx:if="{{payingBill}}"></image>
+      <image class="image-choose" src='/images/unselected-hook.png' wx:else></image>
     </view>
   </view>
 
   <view class='pay-money'>
-    <view class="money-text">请输入你需要的付款金额</view>
+    <view class="money-text fz-32">请输入你需要的付款金额</view>
     <view class='imput-warp'>
-      <input class='input-money' bindinput='payMoneyInputFunc' value="{{payMoney}}" type="number"></input>
+      <input class='input-money' bindinput='payMoneyInputFunc' value="{{payMoney}}" type="digit"></input>
       <view class="body-view flex" wx:if="{{chooseWechat}}">
-        <switch bindchange="switchIntegralChange" checked="{{useIntegralFlag}}" />
-        <view class='arrive-case'>积分抵现</view>
         <view class='flex'>
-          <input class='case-input' bindinput='integralInputFunc' value="{{integralOfDeduction}}" type="number"></input>个
+          <switch bindchange="switchIntegralChange" checked="{{useIntegralFlag}}" />
+          <view class='arrive-case'>使用积分抵扣</view>
+          <input class='case-input' bindinput='integralInputFunc' value="{{integralOfDeduction}}" type="digit"></input>个
         </view>
-        <view class='arrive-money'>{{integral}}</view>
+        <view class='arrive-money fz-24'>您的积分{{integral}}个</view>
       </view>
 
       <view class="body-view flex" wx:if="{{payingBill}}">
-        <switch bindchange="switchBanlanceChange1" checked="{{useBalanceFlag}}" />
-        <view class='arrive-case'>余额抵现</view>
         <view class='flex'>
-          <input class='case-input' bindinput='balanceInputFunc' value="{{balanceOfDeduction}}" type="number"></input>个
+          <switch bindchange="switchBanlanceChange1" checked="{{useBalanceFlag}}" />
+          <view class='arrive-case'>使用余额抵扣</view>
+          <input class='case-input' bindinput='balanceInputFunc' value="{{balanceOfDeduction}}" type="digit"></input>个
         </view>
-        <view class='arrive-money'>{{balance}}</view>
+        <view class='arrive-money fz-24'>您的余额{{balance}}元</view>
       </view>
 
-      <view class='express'>（使用积分抵扣后将不返还积分及余额，本次最多可使用付款金额的20%进行积分抵扣）</view>
-      <view class='actual-payment'>实际需支付：
-        <text class='actual-text'>￥{{finalPayment}}</text>
+      <view class='express fz-24'>注:使用积分或者余额抵扣后将不返还积分及余额，本次最多可使用付款金额的{{integralDeductionNumPercent}}进行积分抵扣，以及最多可使用付款金额的{{balanceDeductionNumPercent}}进行余额抵扣</view>
+      <view class='actual-payment fz-32'>实际支付：
+        <text class='actual-text  fz-44'>￥{{finalPayment}}</text>
       </view>
     </view>
   </view>
-  <view class='flex1 agreement'>
-    <image class="image-agreement" src='/images/logo.png' wx:if="{{isAgreement}}" bindtap='isAgree'></image>
-    <image class="image-agreement" src='/images/home.png' wx:if="{{!isAgreement}}" bindtap='isAgree'></image>
-    <view class="agreement-text">同意并阅读</view>
-    <navigator class='open-rule fz-28' hover-class="none" url="/pages/cardFile/agreement/agreement">
-      《用户协议》
-    </navigator>
 
+  <view class='agreementAndSurePayView'>
+    <view class='flex1 agreement'>
+      <image class="image-agreement" src='/images/selected-hook.png' wx:if="{{isAgreement}}" bindtap='isAgree'></image>
+      <image class="image-agreement" src='/images/unselected-hook.png' wx:else bindtap='isAgree'></image>
+      <view class="agreement-text fz-24">同意并阅读</view>
+      <navigator class='open-rule fz-24' hover-class="none" url="/pages/cardFile/agreement/agreement">
+        用户协议
+      </navigator>
+    </view>
+    <button class='sure-pay' type='warn' bindtap='surePay'>确认支付</button>
   </view>
-  <button class='sure-pay' type='warn' bindtap='surePay'>确认支付</button>
 </view>

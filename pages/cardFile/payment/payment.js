@@ -11,23 +11,36 @@ Page({
   data: {
     chooseWechat: true, //是否选中了微信支付
     payingBill: false, //是否选中了买单支付
-    isAgreement: false, //是否同意协议
+    isAgreement: true, //是否同意协议,默认同意
     useIntegralFlag: false, //是否积分抵现
     useBalanceFlag: false, //是否余额抵现
     integralOfDeduction: 0,
     balanceOfDeduction: 0,
     payMoney: "",
-    finalPayment: 0
+    finalPayment: 0,
+    balance: 0,
+    integral: 0,
+    integralDeductionNum: "",
+    balanceDeductionNum: "",
+    integralDeductionNumPercent: "",
+    balanceDeductionNumPercent: ""
   },
+
+  /**
+   * 是否同意用户协议
+   */
   isAgree: function() {
     // 点击是否选中图片
     this.data.isAgreement = !this.data.isAgreement
     this.setData({
       isAgreement: this.data.isAgreement
-    })
-
+    });
   },
-  weChatPay: function() {
+
+  /**
+   * 选择微信支付
+   */
+  selectWxChatPay: function() {
     if (!this.data.chooseWechat) {
       this.setData({
         chooseWechat: true,
@@ -37,7 +50,11 @@ Page({
       })
     }
   },
-  selectLoan: function() {
+  
+  /**
+   * 选择余额支付
+   */
+  selectBalance: function() {
     if (!this.data.payingBill) {
       this.setData({
         chooseWechat: false,
@@ -46,6 +63,16 @@ Page({
         useBalanceFlag: false
       })
     }
+  },
+
+  /**
+   * 转换百分数
+   */
+  toPercent: function (point) {
+    var str = Number(point * 100).toFixed(0);
+    str += "%";
+    console.log("str = " + str);
+    return str;
   },
 
   /**
@@ -58,14 +85,20 @@ Page({
     }
     var finalPayment = 0;
     var integralOfDeduction = this.data.integralOfDeduction;
+    var payMoney = this.data.payMoney;
     if (useIntegralFlag) {
-      finalPayment = this.data.payMoney - this.data.integralOfDeduction;
+      var integralDeductionMoney = this.data.payMoney * this.data.integralDeductionNum;   //最高可抵扣积分
+      if (integralOfDeduction > integralDeductionMoney) {
+        integralOfDeduction = integralDeductionMoney;
+        util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent + "进行积分抵扣");
+      }
+      finalPayment = payMoney - integralOfDeduction;
       if (finalPayment < 0) {
         finalPayment = 0;
-        integralOfDeduction = this.data.payMoney;
+        integralOfDeduction = payMoney;
       }
     } else {
-      finalPayment = this.data.payMoney;
+      finalPayment = payMoney;
     }
     this.setData({
       integralOfDeduction: integralOfDeduction,
@@ -84,14 +117,20 @@ Page({
     }
     var finalPayment = 0;
     var balanceOfDeduction = this.data.balanceOfDeduction;
+    var payMoney = this.data.payMoney;
     if (useBalanceFlag) {
-      finalPayment = this.data.payMoney - this.data.balanceOfDeduction;
+      var balanceDeductionMoney = this.data.payMoney * this.data.balanceDeductionNum;   //最高可抵扣积分
+      if (balanceOfDeduction > balanceDeductionMoney) {
+        balanceOfDeduction = balanceDeductionMoney;
+        util.toast("最多可使用付款金额的" + this.data.balanceDeductionNumPercent + "进行余额抵扣");
+      }
+      finalPayment = payMoney - balanceOfDeduction;
       if (finalPayment < 0){
         finalPayment = 0;
-        balanceOfDeduction = this.data.payMoney;
+        balanceOfDeduction = payMoney;
       }
     } else {
-      finalPayment = this.data.payMoney;
+      finalPayment = payMoney;
     }
     this.setData({
       balanceOfDeduction: balanceOfDeduction,
@@ -108,16 +147,32 @@ Page({
     if (e.detail.value + "") {
       payMoney = e.detail.value;
       var finalPayment = 0;
+      var integralOfDeduction = this.data.integralOfDeduction;
+      var balanceOfDeduction = this.data.balanceOfDeduction;
       if (this.data.useIntegralFlag) {
-        finalPayment = payMoney - this.data.integralOfDeduction;
-      } else if (this.data.useIntegralFlag) {
-        finalPayment = payMoney - this.data.balanceOfDeduction;
+        var integralDeductionMoney = payMoney * this.data.integralDeductionNum;   //最高可抵扣积分
+        if (integralOfDeduction > integralDeductionMoney) {
+          integralOfDeduction = integralDeductionMoney;
+          util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent + "进行积分抵扣");
+        }
+        console.log("integralOfDeduction = " + integralOfDeduction);
+        console.log("integralDeductionMoney = " + integralDeductionMoney);
+        finalPayment = payMoney - integralOfDeduction;
+      } else if (this.data.useBalanceFlag) {
+        var balanceDeductionMoney = payMoney * this.data.balanceDeductionNum;   //最高可抵扣余额
+        if (balanceOfDeduction > balanceDeductionMoney) {
+          balanceOfDeduction = balanceDeductionMoney;
+          util.toast("最多可使用付款金额的" + this.data.balanceDeductionNumPercent + "进行余额抵扣");
+        }
+        finalPayment = payMoney - balanceOfDeduction;
       } else {
         finalPayment = payMoney;
       }
       this.setData({
         payMoney: payMoney,
-        finalPayment: finalPayment
+        finalPayment: finalPayment,
+        integralOfDeduction: integralOfDeduction,
+        balanceOfDeduction: balanceOfDeduction
       });
     } else {
       payMoney = 0;
@@ -125,7 +180,7 @@ Page({
   },
 
   /**
-   * 抵扣积分-输入框监听
+   * 积分抵扣-输入框监听
    */
   integralInputFunc: function(e) {
     var integralOfDeduction = 0;
@@ -141,6 +196,11 @@ Page({
         payMoney = this.data.payMoney;
       }
       if (this.data.useIntegralFlag) {
+        var integralDeductionMoney = payMoney * this.data.integralDeductionNum;   //最高可抵扣积分
+        if (integralOfDeduction > integralDeductionMoney){
+          integralOfDeduction = integralDeductionMoney;
+          util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent+"进行积分抵扣");
+        }
         finalPayment = payMoney - integralOfDeduction;
         if (finalPayment < 0) {
           finalPayment = 0;
@@ -159,7 +219,7 @@ Page({
   },
 
   /**
-   * 抵扣余额-输入框监听
+   * 余额抵扣-输入框监听
    */
   balanceInputFunc: function(e) {
     var balanceOfDeduction = 0;
@@ -175,6 +235,11 @@ Page({
         payMoney = this.data.payMoney;
       }
       if (this.data.useBalanceFlag) {
+        var balanceDeductionMoney = payMoney * this.data.balanceDeductionNum;   //最高可抵扣余额
+        if (balanceOfDeduction > balanceDeductionMoney) {
+          balanceOfDeduction = balanceDeductionMoney;
+          util.toast("最多可使用付款金额的" + this.data.balanceDeductionNumPercent + "进行余额抵扣");
+        }
         finalPayment = payMoney - balanceOfDeduction;
         if (finalPayment < 0) {
           finalPayment = 0;
@@ -192,6 +257,9 @@ Page({
     }
   },
 
+  /**
+   * 获取用户基本信息
+   */
   getUserBaseInfo: function() {
     var that = this;
     var params = new Object();
@@ -201,10 +269,16 @@ Page({
       requestUrl: requestUrl.getUserBaseInfoUrl,
       success: function(res) {
         if (res.data.code == 0) {
+          var integralDeductionNumPercent = that.toPercent(res.data.data.integralDeductionNum);
+          var balanceDeductionNumPercent = that.toPercent(res.data.data.balanceDeductionNum);
           that.setData({
             balance: res.data.data.balance,
             integral: res.data.data.integral,
-          })
+            integralDeductionNum: res.data.data.integralDeductionNum,
+            balanceDeductionNum: res.data.data.balanceDeductionNum,
+            integralDeductionNumPercent: integralDeductionNumPercent,
+            balanceDeductionNumPercent: balanceDeductionNumPercent
+          });
         } else {
           util.toast(res.data.message);
         }
@@ -213,6 +287,17 @@ Page({
         util.toast("网络异常, 请稍后再试");
       }
     });
+  },
+
+  /**
+   * 确认支付
+   */
+  surePay: function () {
+    if (this.data.isAgreement) {
+      this.payTheBillInMiniUrl();
+    } else {
+      util.toast("支付前，请同意并阅读左下角的用户协议");
+    }
   },
 
   payTheBillInMiniUrl: function() {
@@ -277,10 +362,6 @@ Page({
         console.log("支付完成");
       }
     });
-  },
-
-  surePay: function() {
-    this.payTheBillInMiniUrl();
   },
 
   /**
