@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 39,
+			"current": 40,
 			"list": [
 				{
 					"id": 0,
@@ -291,6 +291,13 @@
 					"id": -1,
 					"name": "付款买单",
 					"pathName": "pages/cardFile/payment/payment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "幸运大抽奖",
+					"pathName": "pages/my/lucky-draw/lucky-draw",
 					"query": "",
 					"scene": null
 				}

@@ -91,61 +91,61 @@ Page({
     show: true,
     flashing: true,
     winInfo: [
-    
+
     ],
     prizeShow: false,
     prizeList: new Array(30),
     QR: ''
   },
-// 获取红包
-  getLuckDrawUrl: function () { //点击抽奖按钮获取列表
+  // 获取红包
+  getLuckDrawUrl: function() { //点击抽奖按钮获取列表
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.wxOrderId = this.data.wxOrderId;
+    console.log("params.wxOrderId = " + params.wxOrderId);
     network.POST({
       params: params,
       requestUrl: requestUrl.getLuckDrawUrl,
-      success: function (res) {
+      success: function(res) {
         console.log(res.data);
         if (res.data.code == 0) {
-            wx.showModal({
-              title: '提示',
-              content: '',//要展示的奖品的说明
-              showCancel: false,
-              success(res) {
-                if (res.confirm) {
-                  wx.redirectTo( 
-                    {
-                      url: '/pages/my/myOrder/myOrder?id=' + '1',
-                    }
-                  )
+          var content = "恭喜您，中了" + res.data.data.luckDrawLevelName + ",奖品：获得您刚才付款金额的 " + res.data.data.luckDrawName + "，快去我的奖品列表看看吧!";
+          wx.showModal({
+            title: '提示',
+            content: content, //要展示的奖品的说明
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                wx.redirectTo({
+                  url: '/pages/my/myOrder/myOrder?id=' + '1',
+                })
 
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
-                }
+              } else if (res.cancel) {
+                console.log('用户点击取消')
               }
-            })
-        } else if (res.data.code == 200008) {      //您已抽过奖。如想再次抽奖，请再交易一笔订单.
+            }
+          })
+        } else if (res.data.code == 200008) { //您已抽过奖。如想再次抽奖，请再交易一笔订单.
           wx.showModal({
             title: '提示',
             content: '您已抽过奖。如想再次抽奖，请再交易一笔订单',
             showCancel: false
           })
-       
-    
+
+
         } else {
           util.toast(res.data.message);
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         util.toast("网络异常, 请稍后再试");
       }
     });
   },
 
-// 获取奖品列表
-  getLuckDrawProductListUrl: function () { //点击抽奖按钮获取列表
+  // 获取奖品列表
+  getLuckDrawProductListUrl: function() { //点击抽奖按钮获取列表
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -153,25 +153,25 @@ Page({
     network.POST({
       params: params,
       requestUrl: requestUrl.getLuckDrawProductListUrl,
-      success: function (res) {
+      success: function(res) {
         console.log(res.data);
         if (res.data.code == 0) {
           that.setData({
             winInfo: res.data.data
           })
-     
+
 
         } else {
           util.toast(res.message);
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         util.toast("网络异常, 请稍后再试");
       }
     });
   },
 
- 
+
   /**
    * @params sort 随机事件
    */
@@ -190,7 +190,6 @@ Page({
    */
   start() {
     const that = this;
-
     //  重置数组顺序后转动两圈
     this.setData({
       redEnvelopeList0: that.sort(this.data.redEnvelopeList0),
@@ -203,7 +202,7 @@ Page({
     })
     setTimeout(() => {
       this.getLuckDrawUrl();
-    }, 7000);   
+    }, 7000);
 
   },
   /**
@@ -232,17 +231,19 @@ Page({
       }, 250);
     });
   },
-  onReady: function () {
+  onReady: function() {
     this.lamp();
   },
- 
 
-  onLoad: function (options) {
+
+  onLoad: function(options) {
+    var wxOrderId = "var6e6ba6bf8bb84f508c4a05e976aa6a16";
     if (options.wxOrderId) {
-      this.setData({
-        wxOrderId: options.wxOrderId
-      })
+      wxOrderId = options.wxOrderId;
     }
+    this.setData({
+      wxOrderId: wxOrderId
+    })
     this.getLuckDrawProductListUrl();
   }
 });

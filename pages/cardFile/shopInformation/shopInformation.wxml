@@ -24,7 +24,7 @@
       <view class='shopHotAndDistanceView'>
         <view class='shopHotView'>
           <image src='/images/hotDegree.png' class='hotDegreeImg'></image>
-          <text class='shopHotTextView fz-32'>{{shopInformation.shopOrderAmount}}</text>
+          <text class='shopHotTextView fz-32'>{{shopInformation.shopOrderAmount}} 🔥</text>
         </view>
         <view class='shopDistanceView'>
           <image src='/images/distance.png' class='distanceImg'></image>
@@ -60,7 +60,7 @@
       店铺时间:
       <text class='itemContent'>{{shopInformation.shopBusinessHours}}</text>
     </view>
-    <image class="itemLogoImg" src='/images/shopBusinessHours.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/shopBusinessHours.png' ></image>
   </view>
 
   <view class='itemView flex'>
@@ -68,7 +68,7 @@
       店铺状态:
       <text class='itemContent'>{{shopInformation.shopBusinessStatus}}</text>
     </view>
-    <image class="itemLogoImg" src='/images/shopBusinessStatus.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/shopBusinessStatus.png' ></image>
   </view>
   <button type="warn" class='payBtn' bindtap="payment">付款</button>
 </view>

@@ -140,12 +140,14 @@
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: left; /** flex 属性， 水平居左**/
+  margin-left: 50rpx;
 }
 .distanceImg{
   width: 50rpx;
-  height: 48rpx;
+  height: 50rpx;
 }
 .distanceTxt{
+  border: 0px red solid;
   font-size: 28rpx;
   color: rgb(1, 1, 1);
   margin-left: 10rpx;

@@ -77,7 +77,7 @@
 .shopHotTextView {
   border: 0rpx red solid;
   margin-left: 20rpx;
-  margin-top: 20rpx;
+  margin-top: 18rpx;
   font-weight: bold;
 }
 
@@ -97,7 +97,7 @@
 
 .shopDistanceTextView {
   margin-left: 20rpx;
-  margin-top: 20rpx;
+  margin-top: 18rpx;
   font-weight: bold;
 }
 
