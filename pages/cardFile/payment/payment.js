@@ -310,7 +310,7 @@ Page({
     params.useBalanceFlag = this.data.useBalanceFlag;
     params.useIntegralFlag = this.data.useIntegralFlag;
     params.payIntegral = this.data.integralOfDeduction;
-    params.balanceOfDeduction = this.data.balanceOfDeduction;
+    params.payBalance = this.data.balanceOfDeduction;
     network.POST({
       params: params,
       requestUrl: requestUrl.payTheBillInMiniUrl,
