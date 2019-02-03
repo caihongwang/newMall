@@ -30,18 +30,18 @@ Page({
       "createTime": "2018-12-14 17:08:40",
       "orderSortTypeCode": "shopDistance",
       "updateTime": "2018-12-14 17:08:40",
-      "orderSortTypeName": "店铺距离",
+      "orderSortTypeName": "最近距离",
       "id": "659004539",
-      "dicName": "店铺距离",
+      "dicName": "最近距离",
       "dicType": "orderSortType"
     }, {
       "dicCode": "shopOrderAmount",
       "createTime": "2018-12-14 17:08:40",
       "orderSortTypeCode": "shopOrderAmount",
       "updateTime": "2018-12-14 17:08:40",
-      "orderSortTypeName": "店铺订单量",
+        "orderSortTypeName": "销量优先",
       "id": "659004540",
-      "dicName": "店铺订单量",
+        "dicName": "销量优先",
       "dicType": "orderSortType"
     }],
     shopList: [
@@ -182,8 +182,6 @@ Page({
     params.shopStatus = 1;
     params.currentLon = app.globalData.longitude;
     params.currentLat = app.globalData.latitude;
-    // params.currentLon = 39.90469;
-    // params.currentLat = 116.40717;
     if (!that.isNull(that.data.orderSortType)) {
       params.orderSortType = that.data.orderSortType;
     } else { //默认按照距离进行排序
@@ -206,7 +204,12 @@ Page({
         boo ? wx.stopPullDownRefresh() : wx.hideLoading();
         if (res.data.code == 0) {
           for (var i in res.data.data) {
-            that.data.shopList.push(res.data.data[i]);
+            var item = res.data.data[i];
+            var shopTitle_bak = item.shopTitle.length > 11 ? item.shopTitle.substring(0, 11) + "..." : item.shopTitle;
+            item.shopTitle_bak = shopTitle_bak;
+            var shopDegist_bak = item.shopDegist.length > 53 ? item.shopDegist.substring(0, 53) + "..." : item.shopDegist;
+            item.shopDegist_bak = shopDegist_bak;
+            that.data.shopList.push(item);
           }
           console.log(res.data.data);
           that.setData({

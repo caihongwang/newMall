@@ -24,16 +24,21 @@
       <image src="{{item.shopHeadImgUrl}}" class='shopHeadImg'></image>
     </view>
     <view class='shopDesc'>
-      <view class='shopTitle'>{{item.shopTitle}}</view>
-      <view class='shopStar'>⭐️⭐️⭐️⭐️⭐️</view>
-      <view class='hotDegreeAndDistance'>
-        <view class='hotDegreeView'>
-          <image src='/images/hotDegree.png' class='hotDegreeImg'></image>
-          <text class='hotDegreeTxt'>热度 {{item.shopOrderAmount}} 🔥</text>
+      <view class='shopTitleAndDistanceView'>
+        <text class='shopTitleView fz-32'>{{item.shopTitle.length > 13? item.shopTitle_bak : item.shopTitle}}</text>
+        <text class='shopDistanceView fz-24'>{{item.shopDistance}} ㎞</text>
+      </view>
+      <view class='shopDegist fz-22'>{{item.shopDegist.length > 43? item.shopDegist_bak : item.shopDegist}}</view>
+      <view class='shopTitleAndOrderAmountView'>
+        <view class='priceView'>
+            <view class='redMoneyLogoView'>
+              <image src='/images/redMoneyLogo.png' class='redMoneyLogoImg'></image>
+            </view>
+          <text class='priceTxt fz-40'>{{item.shopMinimum}}</text>
+          <text class='priceSufTxt fz-22'>起</text>
         </view>
-        <view class='distanceView'>
-          <image src='/images/distance.png' class='distanceImg'></image>
-          <text class='distanceTxt'>距离 {{item.shopDistance}} ㎞</text>
+        <view class='orderAmountView fz-24'>
+            <text class='orderAmountText fz-24'>已售{{item.shopOrderAmount}} </text>
         </view>
       </view>
     </view>

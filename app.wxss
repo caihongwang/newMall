@@ -50,9 +50,11 @@ page{
 .fz-28{
   font-size: 28rpx;
 }
+.fz-22{
+ font-size: 20rpx;
+}
 .fz-20{
  font-size: 20rpx;
-
 }
 .fz-34{
   font-size: 34rpx;
