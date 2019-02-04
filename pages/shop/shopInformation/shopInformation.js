@@ -36,7 +36,7 @@ Page({
       longitude: parseFloat(that.data.shopInformation.shopLon),
       name: that.data.shopInformation.shopTitle,
       address: that.data.shopInformation.shopAddress,
-    })
+    });
   },
 
   // 拨打电话

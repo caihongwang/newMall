@@ -344,7 +344,7 @@ Page({
             console.log("模板消息已发送");
             let wxOrderId = param.data.wxOrderId;
             wx.navigateTo({
-              url: '/pages/my/lucky-draw/lucky-draw?wxOrderId=' + wxOrderId
+              url: '/pages/shop/luckyDraw/luckyDraw?wxOrderId=' + wxOrderId
             })
           }
         });

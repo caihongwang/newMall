@@ -1,4 +1,3 @@
-// pages/lucky-draw/lucky-draw.js
 var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')
@@ -8,80 +7,59 @@ Page({
    */
   data: {
     redEnvelopeList0: [{
-        text: "一"
-      },
-      {
-        text: "二"
-      }, {
-        text: "三"
-      }, {
-        text: "一"
-      }, {
-        text: "五"
-      }, {
-        text: "六"
-      }, {
-        text: "七"
-      }, {
-        text: "八"
-      },
-      {
-        text: "九"
-      }, {
-        text: '十',
-        prize: true,
-      },
-    ],
+      text: "一"
+    }, {
+      text: "二"
+    }, {
+      text: "三"
+    }, {
+      text: "四"
+    }, {
+      text: "五"
+    }, {
+      text: "六"
+    }, {
+      text: "七"
+    }, {
+      text: "八",
+      prize: true
+    }],
     redEnvelopeList1: [{
-        text: "一"
-      },
-      {
-        text: "二"
-      }, {
-        text: "三"
-      }, {
-        text: "二"
-      }, {
-        text: "五"
-      }, {
-        text: "六"
-      }, {
-        text: "七"
-      }, {
-        text: "八"
-      },
-      {
-        text: "九"
-      }, {
-        text: '十',
-        prize: true,
-      },
-    ],
+      text: "一"
+    }, {
+      text: "二"
+    }, {
+      text: "三"
+    }, {
+      text: "四"
+    }, {
+      text: "五"
+    }, {
+      text: "六"
+    }, {
+      text: "七"
+    }, {
+      text: "八",
+      prize: true
+    }],
     redEnvelopeList2: [{
-        text: "一"
-      },
-      {
-        text: "二"
-      }, {
-        text: "三"
-      }, {
-        text: "三"
-      }, {
-        text: "五"
-      }, {
-        text: "六"
-      }, {
-        text: "七"
-      }, {
-        text: "八"
-      },
-      {
-        text: "九"
-      }, {
-        text: '十',
-        prize: true,
-      },
-    ],
+      text: "一"
+    }, {
+      text: "二"
+    }, {
+      text: "三"
+    }, {
+      text: "四"
+    }, {
+      text: "五"
+    }, {
+      text: "六"
+    }, {
+      text: "七"
+    }, {
+      text: "八",
+      prize: true
+    }],
     animation0: -30,
     animation1: -30,
     animation2: -30,
@@ -97,6 +75,7 @@ Page({
     prizeList: new Array(30),
     QR: ''
   },
+
   // 获取红包
   getLuckDrawUrl: function() { //点击抽奖按钮获取列表
     var that = this;
@@ -119,21 +98,22 @@ Page({
               if (res.confirm) {
                 wx.redirectTo({
                   url: '/pages/my/myOrder/myOrder?id=' + '1',
-                })
-
+                });
               } else if (res.cancel) {
                 console.log('用户点击取消')
               }
             }
           })
-        } else if (res.data.code == 200008) { //您已抽过奖。如想再次抽奖，请再交易一笔订单.
+        } else if (res.data.code == 200008) { 
+          //您已抽过奖。如想再次抽奖，请再交易一笔订单.
           wx.showModal({
             title: '提示',
-            content: '您已抽过奖。如想再次抽奖，请再交易一笔订单',
-            showCancel: false
-          })
-
-
+            content: res.data.message,
+            showCancel: false,
+            complete: function () {
+              wx.navigateBack();
+            }
+          });
         } else {
           util.toast(res.data.message);
         }
@@ -158,9 +138,7 @@ Page({
         if (res.data.code == 0) {
           that.setData({
             winInfo: res.data.data
-          })
-
-
+          });
         } else {
           util.toast(res.message);
         }
@@ -183,7 +161,7 @@ Page({
       } else {
         return a.text.charCodeAt() + parseInt(Math.random() * 1000) > b.text.charCodeAt() + parseInt(Math.random() * 1000)
       }
-    })
+    });
   },
   /**
    * @params start 抽奖事件
@@ -198,12 +176,11 @@ Page({
     }, () => {
       that.setData({
         animation0: this.data.animation0 + 720
-      })
-    })
+      });
+    });
     setTimeout(() => {
       this.getLuckDrawUrl();
-    }, 7000);
-
+    }, 5000);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -235,15 +212,14 @@ Page({
     this.lamp();
   },
 
-
   onLoad: function(options) {
-    var wxOrderId = "var6e6ba6bf8bb84f508c4a05e976aa6a16";
+    var wxOrderId = "446ec37b9af340fd8769fc1116b55f1c";
     if (options.wxOrderId) {
       wxOrderId = options.wxOrderId;
     }
     this.setData({
       wxOrderId: wxOrderId
-    })
+    });
     this.getLuckDrawProductListUrl();
   }
 });

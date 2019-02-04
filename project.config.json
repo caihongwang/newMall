@@ -30,12 +30,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "商家详情",
 					"pathName": "pages/shop/shopInformation/shopInformation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "幸运大抽奖",
+					"pathName": "pages/shop/luckyDraw/luckyDraw",
 					"query": "",
 					"scene": null
 				}

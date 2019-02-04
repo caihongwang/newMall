@@ -33,7 +33,7 @@
         "text": "个人中心",
         "pagePath": "pages/tabBar/my/my",
         "iconPath": "images/my.png",
-        "selectedIconPath": "images/my_hl.png"
+        "selectedIconPath": "images/green_my.png"
       }
     ]
   },
@@ -52,12 +52,11 @@
         "integralRecord/integralRecord",
         "balanceRecord/balanceRecord",
         "intergralOrder/intergralOrder",
-        "intergralOrderDetail/intergralOrderDetail",
+      "intergralOrderDetail/intergralOrderDetail",
         "presenDetails/presenDetails",
         "cashedRule/cashedRule",
         "joinShop/joinShop",
-        "orderQueue/orderQueue",
-        "lucky-draw/lucky-draw"
+        "orderQueue/orderQueue"
       ]
     },
     {
@@ -65,7 +64,8 @@
       "pages": [
         "shopInformation/shopInformation",
         "payment/payment",
-        "index/index"
+        "nearShop/nearShop",
+        "luckyDraw/luckyDraw"
       ]
     },
     {
