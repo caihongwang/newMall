@@ -20,55 +20,57 @@
       <image src="{{shopInformation.shopHeadImgUrl}}" class='shopHeadImg'></image>
     </view>
     <view class="shopTitleAndHotAndDistanceView">
-      <view class='shopTitleView fz-32'>{{shopInformation.shopTitle}}</view>
-      <view class='shopHotAndDistanceView'>
-        <view class='shopHotView'>
-          <image src='/images/hotDegree.png' class='hotDegreeImg'></image>
-          <text class='shopHotTextView fz-32'>{{shopInformation.shopOrderAmount}} 🔥</text>
+      <view class='shopTitleView fz-40'>{{shopInformation.shopTitle}}</view>
+      <view class="startAndMinimumView fz-28">
+        <text class='startText fz-24'>⭐⭐⭐⭐⭐</text>
+        <text class='shopMinimumText fz-24'>人均 {{shopInformation.shopMinimum}} 元起</text>
+      </view>
+      <view class='orderAmountAndDistanceView'>
+        <view class='orderAmountView'>
+          <text class='orderAmountTextView fz-28'>已售 {{shopInformation.shopOrderAmount}} 件</text>
         </view>
         <view class='shopDistanceView'>
-          <image src='/images/distance.png' class='distanceImg'></image>
-          <text class='shopDistanceTextView fz-32'>{{shopInformation.shopDistance}} km</text>
+          <text class='shopDistanceTextView fz-28'>距您 {{shopInformation.shopDistance}} km</text>
         </view>
       </view>
     </view>
   </view>
 
-  <view class='shopDigistView'>
+  <view class='shopDigistView fz-28'>
     <view class="shopDigistName">店铺简介:</view>
     <view class="shopDigistContent">{{shopInformation.shopDegist}}</view>
   </view>
 
-  <view class='itemView flex'>
+  <view class='itemView flex fz-28' bindtap='goMap'>
     <view class='itemName'>
       店铺地址:
       <text class='itemContent'>{{shopInformation.shopAddress}}</text>
     </view>
-    <image class="itemLogoImg" src='/images/addressLogo.png' bindtap='goMap'></image>
+    <image class="itemLogoImg" src='/images/addressLogo.png' ></image>
   </view>
 
-  <view class='itemView flex'>
+  <view class='itemView flex fz-28' bindtap='contactPhone'  data-shopPhone="{{shopInformation.shopPhone}}">
     <view class='itemName'>
       店铺电话:
-      <text class='itemContent' data-shopPhone="{{shopInformation.shopPhone}}">{{shopInformation.shopPhone}}</text>
+      <text class='itemContent'>{{shopInformation.shopPhone}}</text>
     </view>
-    <image class="itemLogoImg" src='/images/shopPhone.png' bindtap='contactPhone'  data-shopPhone="{{shopInformation.shopPhone}}"></image>
+    <image class="itemLogoImg" src='/images/shopPhone.png' data-shopPhone="{{shopInformation.shopPhone}}"></image>
   </view>
 
-  <view class='itemView flex'>
+  <view class='itemView flex fz-28'>
     <view class='itemName'>
       店铺时间:
       <text class='itemContent'>{{shopInformation.shopBusinessHours}}</text>
     </view>
-    <image class="itemLogoImg" src='/images/shopBusinessHours.png' ></image>
+    <image class="itemLogoImg" src='/images/shopBusinessHours.png'></image>
   </view>
 
-  <view class='itemView flex'>
+  <view class='itemView flex fz-28'>
     <view class='itemName'>
       店铺状态:
       <text class='itemContent'>{{shopInformation.shopBusinessStatus}}</text>
     </view>
-    <image class="itemLogoImg" src='/images/shopBusinessStatus.png' ></image>
+    <image class="itemLogoImg" src='/images/shopBusinessStatus.png'></image>
   </view>
   <button type="warn" class='payBtn' bindtap="payment">付款</button>
 </view>

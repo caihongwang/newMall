@@ -75,7 +75,7 @@ Page({
   // 点击返回地图
   backMap: function() {
     wx.switchTab({
-      url: '/pages/cardFile/index/index'
+      url: '/pages/shop/index/index'
     });
   },
 
@@ -247,7 +247,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     let shopId = this.data.shopList[index].shopId;
     wx.navigateTo({
-      url: '../../cardFile/shopInformation/shopInformation?shopId=' + shopId 
+      url: '../../shop/shopInformation/shopInformation?shopId=' + shopId 
     });
   },
   bindMore: function() {

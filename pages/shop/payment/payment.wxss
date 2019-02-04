@@ -1,4 +1,4 @@
-/* pages/cardFile/payment/payment.wxss */
+/* pages/shop/payment/payment.wxss */
 @import "../../../app.wxss";
 
 .warp {

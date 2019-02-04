@@ -61,7 +61,7 @@
       ]
     },
     {
-      "root": "pages/cardFile/",
+      "root": "pages/shop/",
       "pages": [
         "shopInformation/shopInformation",
         "payment/payment",

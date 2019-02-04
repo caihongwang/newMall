@@ -1,4 +1,4 @@
-// pages/cardFile/shopInformation/shopInformation.js
+// pages/shop/shopInformation/shopInformation.js
 var network = require('../../../utils/network.js');
 var util = require('../../../utils/util.js');
 var requestUrl = require('../../../config.js');
@@ -24,7 +24,7 @@ Page({
     let that = this;
     wx.navigateTo({ //  跳转到创建团队的页面
       // 跳转到一个选择列表的页
-      url: '/pages/cardFile/payment/payment?shopId=' + that.data.shopId + '&shopTitle=' + that.data.shopTitle
+      url: '/pages/shop/payment/payment?shopId=' + that.data.shopId + '&shopTitle=' + that.data.shopTitle
     });
 
   },

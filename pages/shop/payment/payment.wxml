@@ -48,7 +48,7 @@
       <image class="image-agreement" src='/images/selected-hook.png' wx:if="{{isAgreement}}" bindtap='isAgree'></image>
       <image class="image-agreement" src='/images/unselected-hook.png' wx:else bindtap='isAgree'></image>
       <view class="agreement-text fz-24">同意并阅读</view>
-      <navigator class='open-rule fz-24' hover-class="none" url="/pages/cardFile/agreement/agreement">
+      <navigator class='open-rule fz-24' hover-class="none" url="/pages/shop/agreement/agreement">
         用户协议
       </navigator>
     </view>
