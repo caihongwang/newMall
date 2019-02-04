@@ -121,7 +121,7 @@ Page({
     if (options.shopId) {
       shopId = options.shopId;
     } else {
-      shopId = 7;
+      shopId = 5;
     }
     this.setData({
       shopId: shopId
