@@ -299,6 +299,47 @@ page{
   justify-content: center; /** flex 属性， 水平居中*/
 }
 
+
+
+
+.contactAndSurePayView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  /* height: 250rpx; */
+  align-items: center; /** 垂直居中*/
+  position: fixed;
+  left: 0;
+  bottom: 20rpx;
+  z-index: 100;
+  margin: 0rpx 20rpx;
+}
+.surePayView{
+  visibility: hidden;
+  border: 0rpx green solid;
+  margin-bottom: 20rpx;
+}
+.show-surePayView{
+  border: 0rpx green solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 100rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  margin-bottom: 20rpx;
+}
+.surePayBtn{
+  width: 80%;
+  height: 80rpx;
+  background: #4296F7;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.surePayText{
+  color: white;
+}
 .contactView{
   border: 0px red solid;
   border-radius: 10rpx;
@@ -307,12 +348,8 @@ page{
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中*/
-  position: fixed;
-  left: 0;
-  bottom: 40rpx;
-  z-index: 100;
-  margin: 0rpx 20rpx;
 }
+
 .contactCustomView{
   width: 50%;
   align-items: center; /** 垂直居中*/

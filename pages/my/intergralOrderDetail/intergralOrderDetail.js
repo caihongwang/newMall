@@ -34,9 +34,14 @@ Page({
       success: function (res) {
         wx.hideLoading();
         if (res.data.code == 0) {
-          that.data.orderDetail = res.data.data;
+          var orderDetail = res.data.data;
+          if (orderDetail.transactionProductDetail) {
+            var transactionProductDetail = JSON.parse(orderDetail.transactionProductDetail);
+            console.log(transactionProductDetail);
+            orderDetail.productPrice = transactionProductDetail.price;
+          }
           that.setData({
-            orderDetail: res.data.data
+            orderDetail: orderDetail
           });
           console.log(that.data.orderDetail);
         } else {
@@ -49,7 +54,84 @@ Page({
       }
     });
   },
-  
+
+    /**
+     * 确认支付
+     */
+    surePay: function() {
+      var that = this;
+      var params = new Object();
+      params.uid = wx.getStorageSync("UIDKEY");
+      params.productId = this.data.orderDetail.productId;
+      params.productNum = this.data.orderDetail.productNum;
+      params.addressId = this.data.orderDetail.addressId;
+      if (this.data.orderDetail.transactionProductDetail){
+        var transactionProductDetail = JSON.parse(this.data.orderDetail.transactionProductDetail);
+        params.transactionProductDetail = JSON.stringify(transactionProductDetail);
+        params.productPrice = transactionProductDetail.price;
+        params.productIntegral = transactionProductDetail.integral;
+      }
+      params.useBalanceFlag = false;
+      params.payBalance = 0.0;
+      params.useIntegralFlag = true;
+      params.payIntegral = this.data.orderDetail.useIntegralNum;
+      console.log("params");
+      console.log(params);
+      network.POST({
+        params: params,
+        requestUrl: requestUrl.purchaseProductInMiniProgramUrl,
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.wxPayUnifiedOrder(res.data);
+          } else {
+            util.toast(res.data.message);
+          }
+        },
+        fail: function (res) {
+          util.toast("网络异常, 请稍后再试");
+        }
+      });
+
+    },
+
+    wxPayUnifiedOrder: function(param) { //点击付款/打赏，向微信服务器进行付款
+      var that = this;
+      //使用小程序发起微信支付
+      wx.requestPayment({
+        timeStamp: param.data.timeStamp, //记住，这边的timeStamp一定要是字符串类型的，不然会报错，我这边在java后端包装成了字符串类型了
+        nonceStr: param.data.nonceStr,
+        package: param.data.package,
+        signType: 'MD5', //小程序发起微信支付，暂时只支持“MD5”
+        paySign: param.data.paySign,
+        success: function (event) { //支付成功   进入待发货的订单页面
+          wx.showToast({
+            title: '支付成功',
+            icon: 'success',
+            duration: 2000,
+            complete: function () { //支付成功后跳转到订单页面
+              that.getGoodsOrderDetail();
+            }
+          });
+        },
+        fail: function (error) { //支付成功   进入待付款的订单页面
+          wx.showToast({
+            title: '支付失败',
+            icon: 'success',
+            duration: 2000,
+            complete: function () { //支付成功后跳转到订单页面
+              wx.redirectTo({
+                url: '../../my/intergralOrder/intergralOrder?chosseId=1'
+              });
+              return;
+            }
+          });
+        },
+        complete: function () { //不管支付成功或者失败之后都要处理的方法，类似与final
+          console.log("支付完成");
+        }
+      });
+    },
+
   onLoad: function (options) {
     var orderId = options.orderId;
     this.setData({

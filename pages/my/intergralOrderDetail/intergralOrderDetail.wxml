@@ -99,7 +99,7 @@
     <view class='logisticsStatusNameView'></view>
   </view>
 
-  <!-- 层级6 -->  
+  <!-- 层级6 -->
   <view class='orderLevelView6' wx:if="{{orderDetail.expressName?true:false  && orderDetail.expressNumber?true:false}}">
     <view class="logisticsInfoNameAndNumView">
       <view class='logisticsInfoNameView'>物流名称</view>
@@ -114,21 +114,26 @@
   <view class='orderLevelView7' wx:else>
     暂无物流信息
   </view>
-
 </view>
 
-
-<view class='contactView'>
-  <view class='contactCustomView'>
-    <button class="contactCustomBtn" open-type='contact' size="40" >
-        <image class="contactCustomImg" src="/images/customer.png"></image>
-        <text class="contactCustomText">联系客服</text>
+<view class='contactAndSurePayView'>
+  <view class="{{orderDetail.orderStatusCode==0?'show-surePayView':'surePayView'}}">
+    <button class="surePayBtn" size="40" bindtap='surePay'>
+      <text class="surePayText">确 认 支 付</text>
     </button>
   </view>
-  <view class='contactPhoneView'>
-    <button class="contactPhoneBtn" bindtap='contactPhone' size="40" >
+  <view class='contactView'>
+    <view class='contactCustomView'>
+      <button class="contactCustomBtn" open-type='contact' size="40">
+        <image class="contactCustomImg" src="/images/customer.png"></image>
+        <text class="contactCustomText">联系客服</text>
+      </button>
+    </view>
+    <view class='contactPhoneView'>
+      <button class="contactPhoneBtn" bindtap='contactPhone' size="40">
         <image class="contactPhoneImg" src="/images/complaintAndLeaguePhone.png"></image>
         <text class="contactPhoneText">拨打电话</text>
-    </button>
+      </button>
+    </view>
   </view>
 </view>
