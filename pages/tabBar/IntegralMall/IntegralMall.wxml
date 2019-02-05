@@ -6,7 +6,7 @@
     placeholder="输入搜索商品名称" confirm-hold="true" maxlength="30" 
     bindinput="bindProductTitleFunc"></input>
   </view>
-  <button class="searchBtn" hover-class="hover-sure" bindtap="searchProduct">确定</button>
+  <button class="searchBtn" bindtap="searchProduct">确定</button>
 </view>
 
 <!-- 产品类型与产品列表 -->
