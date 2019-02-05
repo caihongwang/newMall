@@ -10,31 +10,30 @@ var app = getApp();
 Page({
   data: {
     tableData: [{
-        "id": "1",
-        "name": "提现明细",
-      "page": "my/cashDetails/cashDetails",
-        "image": '/images/cashedList.png'
-      },
-      {
-        "id": "2",
-        "name": "收货地址",
-        "page": "commonPage/addressManage/addressManage",
-        "image": '/images/addressLogo.png'
-      },
-      {
-        "id": "3",
-        "name": "积分商城订单",
-        "page": "my/intergralOrder/intergralOrder",
-        "image": '/images/intergralOrderList.png'
-      },
-      {
-        "id": "4",
-        "name": "投诉/加盟电话",
-        "page": "my/feedback/index",
-        "image": '/images/complaintAndLeaguePhone.png',
-        'phone': '010-2377455839'
-      }
-    ],
+      //   "id": "1",
+      //   "name": "提现明细",
+      //   "page": "my/cashDetails/cashDetails",
+      //   "image": '/images/cashedList.png'
+      // },
+      // {
+      //   "id": "2",
+      //   "name": "收货地址",
+      //   "page": "commonPage/addressManage/addressManage",
+      //   "image": '/images/addressLogo.png'
+      // },
+      // {
+      //   "id": "3",
+      //   "name": "积分商城订单",
+      //   "page": "my/intergralOrder/intergralOrder",
+      //   "image": '/images/intergralOrderList.png'
+      // },
+      // {
+      "id": "4",
+      "name": "投诉/加盟电话",
+      "page": "my/feedback/index",
+      "image": '/images/complaintAndLeaguePhone.png',
+      'phone': '010-2377455839'
+    }],
     wxUserInfo: {},
     userBaseInfo: {
       "avatarUrl": "https://www.91caihongwang.com/resourceOfNewMall/user/default.png",
@@ -112,6 +111,36 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+
+  // 点击 商城订单
+  intergralOrderList: function() {
+    wx.navigateTo({
+      url: "/pages/my/intergralOrder/intergralOrder",
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    });
+  },
+
+  // 点击 收货地址
+  addressList: function() {
+    wx.navigateTo({
+      url: "/pages/commonPage/addressManage/addressManage",
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    });
+  },
+
+  // 点击 提现明细
+  cashedList: function() {
+    wx.navigateTo({
+      url: "/pages/my/cashDetails/cashDetails",
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    });
   },
 
   // 点击我要加盟

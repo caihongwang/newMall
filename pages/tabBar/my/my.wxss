@@ -11,7 +11,7 @@ page {
   border: 0px red solid;
   width: 100%;
   height: 200rpx;
-  background: #4296F7;
+  background: #4296f7;
   color: #fff;
   align-items: center; /** 垂直居中*/
   display: flex;
@@ -39,7 +39,7 @@ page {
   text-align: left;
 }
 
-.userTypeView{
+.userTypeView {
   border: 0px red solid;
   height: 50rpx;
   align-items: center; /** 垂直居中*/
@@ -120,19 +120,19 @@ page {
 }
 
 .cashedToWx {
-  color: #4296F7;
+  color: #4296f7;
   padding: 10rpx 40rpx;
-  border: 1px solid #4296F7;
+  border: 1px solid #4296f7;
   border-radius: 12rpx;
   margin-left: 20%;
 }
 
-/* 我的属性: 等待奖励  奖励列表 我的积分 我的余额 */
+/* 我的属性 */
 
 .myAttribute {
   margin-top: 20rpx;
   background: #fff;
-  border-bottom: 8rpx solid #e2e2e2;
+  border-bottom: 0rpx solid #e2e2e2;
 }
 
 .theTwoAttributeVIew {
@@ -171,13 +171,13 @@ page {
 }
 
 .wite-theTxt {
-  color: #9A9A9A;
+  color: #9a9a9a;
   margin-top: 10rpx;
 }
 
 /* 我的列表：提现明细 收货地址 积分订单 投诉/加盟电话 */
 
-.myLists {
+.myList {
   margin-top: 20rpx;
   background-color: #fff;
 }

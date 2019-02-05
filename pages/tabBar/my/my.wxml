@@ -26,23 +26,7 @@
   </view>
   <!-- 我的属性: 等待奖励  奖励列表 我的积分 我的余额 -->
   <view class='myAttribute'>
-    <!-- 等待奖励  奖励列表 -->
-    <view class='theTwoAttributeVIew'>
-      <view class='theAttributeVIew' bindtap='waitWard' style="border-right: 1rpx solid #e2e2e2;">
-        <image class='theAttributeImg' src='/images/waitLuckDraw.png'></image>
-        <view class='allTheTxt'>
-          <view class='theTxt fz-32'>等待奖励</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.waitLuckDrawTotal}} 单</view>
-        </view>
-      </view>
-      <view class='theAttributeVIew' bindtap='waitList'>
-        <image class='theAttributeImg' src='/images/recevicedLuckDraw.png'></image>
-        <view class='allTheTxt'>
-          <view class='theTxt fz-32'>奖励列表</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.recevicedLuckDrawTotal}} 单</view>
-        </view>
-      </view>
-    </view>
+
     <!-- 我的积分 我的余额 -->
     <view class='theTwoAttributeVIew '>
       <view class='theAttributeVIew' bindtap='integralRecord' style="border-right: 1rpx solid #e2e2e2;">
@@ -60,6 +44,63 @@
         </view>
       </view>
     </view>
+
+    <!-- 等待奖励  奖励列表 -->
+    <view class='theTwoAttributeVIew'>
+      <view class='theAttributeVIew' bindtap='cashedList' style="border-right: 1rpx solid #e2e2e2;">
+        <image class='theAttributeImg' src='/images/cashedList.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>提现明细</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+        </view>
+      </view>
+
+      <view class='theAttributeVIew' bindtap='waitList'>
+        <image class='theAttributeImg' src='/images/recevicedLuckDraw.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>奖励列表</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.recevicedLuckDrawTotal}} 单</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 商家订单 商城订单 -->
+    <view class='theTwoAttributeVIew '>
+      <view class='theAttributeVIew' bindtap='intergralOrderList' style="border-right: 1rpx solid #e2e2e2;">
+        <image class='theAttributeImg' src='/images/green_shop.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>商家订单</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+        </view>
+      </view>
+      <view class='theAttributeVIew' bindtap='intergralOrderList'>
+        <image class='theAttributeImg' src='/images/green_theMall.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>商城订单</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.balance}} 元</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提现明细 投诉/加盟电话 -->
+    <view class='theTwoAttributeVIew '>
+      <view class='theAttributeVIew' bindtap='addressList' style="border-right: 1rpx solid #e2e2e2;">
+        <image class='theAttributeImg' src='/images/addressLogo.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>收货地址</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+        </view>
+      </view>
+
+      <view class='theAttributeVIew' bindtap='myJoin'>
+        <image class='theAttributeImg' src='/images/complaintAndLeaguePhone.png'></image>
+        <view class='allTheTxt'>
+          <view class='theTxt fz-32'>我要加盟</view>
+          <view class='wite-theTxt fz-28 '>已申请 {{userBaseInfo.allLeagueTotal}} 人</view>
+        </view>
+      </view>
+    </view>
+
   </view>
   <!-- 我的列表：提现明细 收货地址 积分订单 投诉/加盟电话 -->
   <view class='myList'>
@@ -74,13 +115,14 @@
     </block>
   </view>
   <!-- 加盟 -->
-  <view class='navigator fz-28'>
+  <!-- <view class='navigator fz-28'>
     <view class='haveJoinLeague'>已申请人次
       <text class="leaguePhone">{{userBaseInfo.allLeagueTotal}}</text>
       <text>人</text>
     </view>
     <view class="joinLeague" bindtap="myJoin">我要加盟</view>
-  </view>
+  </view> -->
+
   <!-- 提示 -->
   <view class='tips fz-28'>参与有惊喜，最高奖励90%，惊喜包括（红包、积分、商品）活动规则和解释权归商家所有，本小程序只提供营销服务.</view>
   <!-- 公司名称 -->
