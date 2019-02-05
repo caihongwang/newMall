@@ -3,7 +3,7 @@
     <view class="pay-warp flex1" bindtap='selectWxChatPay'>
       <image class="pay-image" src='/images/wxPayLogo.png'></image>
       <view class='pay-text {{chooseWechat?"selected-pay-text":""}} fz-32'>微信支付</view>
-      <image class="image-choose" src='/images/selected-hook.png' wx:if="{{chooseWechat}}"></image>
+      <image class="image-choose" src='/images/green-hook.png' wx:if="{{chooseWechat}}"></image>
       <image class="image-choose" src='/images/unselected-hook.png' wx:else></image>
     </view>
     <view class="pay-warp flex1" bindtap='selectBalance'>

@@ -1,23 +1,23 @@
-<!--pages/my/personalCash/personalCash.wxml-->
-<view class='cash'>
-   <view class='cash-tex fz-28'>提现金额</view>
-      <view class='input-warp flex1'> 
-        <view>   ￥</view>
-        <input class='input' placeholder='请输入提现金额' placeholder-style="input-place"  value='{{cashMoney}}'  bindinput="inputCash"></input>
+<view class='theCashView'>
+  <view class='cash'>
+    <view class='cashToWxText fz-28'>提现至微信余额</view>
+    <view class='ImmediateToWxText fz-24'>立即到账</view>
+    <view class='cashMoneyInputView'>
+      <view class="moneyLogoImgView">
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
       </view>
-</view>
-
-<view class='now-cash flex fz-28'>
-  <view class='now-left'>
-   当前可提现金额：<text>￥{{canCashMoney}}</text>
+      <input class='cashInput fz-32' placeholder='请输入提现金额' placeholder-style="cashInput-place" value='{{cashMoney}}' bindinput="inputCash" type="digit"></input>
+    </view>
+    <view class='allUserBalanceView fz-24'>
+      <text class='userBalanceText'>您的余额￥{{canCashMoney}}元</text>
+      <text class='allBalanceText' bindtap='allCash'>全部提现</text>
+    </view>
+    <view class='tips fz-24'>提示：最低提现金额为1元，奖励提现手续费9%，转账时自动扣除</view>
+    <view class='cashButtonView'>
+      <button type='warn' class="cashButton" bindtap='cashBalanceToWx'>提现</button>
+    </view>
+    <view class='checkCashRecordView fz-24'>
+      <navigator url="/pages/my/presenDetails/presenDetails" class="checkCashRecord">提现记录</navigator>
+    </view>
   </view>
-  <view class='now-right' bindtap='allGet'>全部提现</view>
 </view>
-
-<view class='fz-28 tips'>提示：最低提现金额为1元，奖励提现手续费9%，转账时自动扣除。</view>
-<view class='fz-28 disclaimer'>提示：最低提现金额为1元，奖励提现手续费9%，转账时自动扣除。</view>
-
-
-<button type='warn' class="button-cash" bindtap='buttonCash'>提现</button>
-
-<navigator url="" class="cashRecord">提现记录</navigator>

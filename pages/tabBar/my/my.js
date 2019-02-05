@@ -9,8 +9,7 @@ var app = getApp();
 
 Page({
   data: {
-    tableData: [
-      {
+    tableData: [{
         "id": "1",
         "name": "提现明细",
         "page": "my/presenDetails/presenDetails",
@@ -20,7 +19,7 @@ Page({
         "id": "2",
         "name": "收货地址",
         "page": "commonPage/addressManage/addressManage",
-        "image":'/images/addressLogo.png'
+        "image": '/images/addressLogo.png'
       },
       {
         "id": "3",
@@ -33,9 +32,9 @@ Page({
         "name": "投诉/加盟电话",
         "page": "my/feedback/index",
         "image": '/images/complaintAndLeaguePhone.png',
-        'phone': '010-2377455839' 
+        'phone': '010-2377455839'
       }
-    ], 
+    ],
     wxUserInfo: {},
     userBaseInfo: {
       "avatarUrl": "https://www.91caihongwang.com/resourceOfNewMall/user/default.png",
@@ -48,84 +47,84 @@ Page({
       "recevicedLuckDrawTotal": "0",
       "waitLuckDrawTotal": "0"
     },
-    balance: 0 ,//余额 0
+    balance: 0, //余额 0
 
-  }, 
+  },
 
   // 点击个人设置
-  personalSetting:function(){
+  personalSetting: function() {
     wx.navigateTo({
-       url: '/pages/my/personalSetting/personalSetting',
-       success: function(res) {},
-       fail: function(res) {},
-       complete: function(res) {},
-     })
+      url: '/pages/my/personalSetting/personalSetting',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
 
-  
-
-  // 点击领取
-  receive:function(){
+  /**
+   * 提现
+   */
+  cashedToWx: function() {
     console.log(this.data.userBaseInfo.balance);
     let balance = this.data.userBaseInfo.balance;
-   wx.navigateTo({
-     url: '/pages/my/personalCash/personalCash?balance=' + balance,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+    wx.navigateTo({
+      url: '/pages/my/personalCash/personalCash?balance=' + balance,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
-// 点击等待奖励
-  waitWard:function(){
+  // 点击等待奖励
+  waitWard: function() {
     let id = 1;
     wx.navigateTo({
-      url: '/pages/my/myOrder/myOrder?id='+id,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      url: '/pages/my/myOrder/myOrder?id=' + id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
-// 点击奖励列表
-  waitList:function(){
+  // 点击奖励列表
+  waitList: function() {
     let id = 2;
-    wx.navigateTo({ 
+    wx.navigateTo({
       url: '/pages/my/myOrder/myOrder?id=' + id,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
   // 点击我的积分
-  integralRecord:function(){
+  integralRecord: function() {
     wx.navigateTo({
       url: '/pages/my/integralRecord/integralRecord?integral=' + this.data.userBaseInfo.integral,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
 
   // 点击我的余额
-  balanceRecord:function(){
+  balanceRecord: function() {
     wx.navigateTo({
       url: '/pages/my/balanceRecord/balanceRecord?balance=' + this.data.userBaseInfo.balance,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
 
   // 点击我要加盟
-  myJoin:function(){
+  myJoin: function() {
     wx.navigateTo({
       url: '/pages/my/joinShop/joinShop',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
-  onLoad: function () {
-    if (wx.getStorageSync("USERINFO")){
+  onLoad: function() {
+    if (wx.getStorageSync("USERINFO")) {
       this.setData({
         wxUserInfo: wx.getStorageSync("USERINFO"),
         hasUserInfo: true
@@ -136,31 +135,30 @@ Page({
   /**
    * 获取用户基本信息
    */
-  getUserBaseInfo: function () {
+  getUserBaseInfo: function() {
     var that = this;
     var params = new Object();
-  params.uid = wx.getStorageSync("UIDKEY");
+    params.uid = wx.getStorageSync("UIDKEY");
 
     network.POST({
-        params: params,
-        requestUrl: requestUrl.getUserBaseInfo,
-        success: function (res) {
-          console.log(res.data);
-          console.log('获取用户的基本信息');
-          if (res.data.code == 0) {
-            console.log(res.data.data);
-            that.setData({
-              userBaseInfo: res.data.data
-            })
-          } else {
+      params: params,
+      requestUrl: requestUrl.getUserBaseInfo,
+      success: function(res) {
+        console.log(res.data);
+        console.log('获取用户的基本信息');
+        if (res.data.code == 0) {
+          console.log(res.data.data);
+          that.setData({
+            userBaseInfo: res.data.data
+          })
+        } else {
 
-          }
-        },
-        fail: function (res) {
-          util.toast("网络异常, 请稍后再试");
         }
-      });
+      },
+      fail: function(res) {
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
   },
-  onShow:function() {
-  }
+  onShow: function() {}
 })

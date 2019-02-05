@@ -5,7 +5,7 @@
     <view class='userInfoVIew'>
       <view class='userName fz-32'>{{userBaseInfo.nickName}}</view>
       <view class='userTypeView fz-20'>
-          <view class="userType">※{{userBaseInfo.userType}}</view>
+        <view class="userType">※{{userBaseInfo.userType}}</view>
       </view>
     </view>
     <view class="settingView">
@@ -21,7 +21,7 @@
       <view class="balance-money">￥ {{userBaseInfo.balance}} 元</view>
     </view>
     <view class='cashedToWxView'>
-      <view class="cashedToWx" bindtap='receive'>提现</view>
+      <view class="cashedToWx" bindtap='cashedToWx'>提现</view>
     </view>
   </view>
   <!-- 我的属性: 等待奖励  奖励列表 我的积分 我的余额 -->
