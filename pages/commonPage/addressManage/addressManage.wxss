@@ -31,6 +31,10 @@
 .addressItemView:last-child {
   /* border: none; */
 }
+.selected-addressItemView{
+  border: 1rpx #b2b2b2 dotted;
+  background-color: #F8F8F8;
+}
 
 .addressLogoImg {
   border: 0rpx red solid;
@@ -84,7 +88,7 @@
   width: 100%;
   height: 100rpx;
   color: #fff;
-  background: #ff4c4b;
+  background: #4296F7;
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/

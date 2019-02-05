@@ -17,7 +17,7 @@
       <button type='warn' class="cashButton" bindtap='cashBalanceToWx'>提现</button>
     </view>
     <view class='checkCashRecordView fz-24'>
-      <navigator url="/pages/my/presenDetails/presenDetails" class="checkCashRecord">提现记录</navigator>
+      <navigator url="/pages/my/cashDetails/cashDetails" class="checkCashRecord">提现记录</navigator>
     </view>
   </view>
 </view>

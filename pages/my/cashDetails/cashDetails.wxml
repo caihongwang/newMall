@@ -1,4 +1,4 @@
-<!--pages/my/presenDetails/presenDetails.wxml-->
+<!--pages/my/cashDetails/cashDetails.wxml-->
 <view class='degistView'>
   <view class='degistTxtView'>
     <view class='degistTxt_1'>这是专属于您的账单</view>
@@ -16,7 +16,7 @@
       <image class="cashImg" src="/images/cashLogo.png"></image>
     </view>
     <view class='cashedTxtView'>
-      <view class='fromTxtAndMonneyView'>
+      <view class='fromTxtAndMonneyView fz-32'>
         <view class="fromTxtView">提现到零钱-来自余额</view>
         <view class="moneyView">+ {{item.cashToWxMoney}} 元</view>
       </view>

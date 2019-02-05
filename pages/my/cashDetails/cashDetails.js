@@ -1,4 +1,4 @@
-// pages/my/presenDetails/presenDetails.js
+// pages/my/cashDetails/cashDetails.js
 var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')

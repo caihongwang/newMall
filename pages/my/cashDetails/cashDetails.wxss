@@ -1,4 +1,4 @@
-/* pages/my/presenDetails/presenDetails.wxss */
+/* pages/my/cashDetails/cashDetails.wxss */
 @import "../../../app.wxss";
 page{
   background: #f8f8f8 !important;
@@ -89,7 +89,7 @@ page{
 }
 .fromTxtAndMonneyView{
   width: 100%;
-  font-size: 80%;
+  /* font-size: 80%; */
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: left; /** flex 属性， 水平居中**/

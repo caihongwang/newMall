@@ -5,8 +5,8 @@
     "pages/tabBar/IntegralMall/IntegralMall"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#393939",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4296F7",
     "navigationBarTitleText": "新商城",
     "navigationBarTextStyle": "white"
   },
@@ -53,7 +53,7 @@
         "balanceRecord/balanceRecord",
         "intergralOrder/intergralOrder",
       "intergralOrderDetail/intergralOrderDetail",
-        "presenDetails/presenDetails",
+        "cashDetails/cashDetails",
         "cashedRule/cashedRule",
         "joinShop/joinShop",
         "orderQueue/orderQueue"

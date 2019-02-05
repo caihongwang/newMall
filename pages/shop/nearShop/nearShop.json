@@ -1,7 +1,4 @@
 {
-  "usingComponents": {
-    "dialog": "../../component/selectUpload/selectUpload"
-  },
-    "navigationBarTitleText": "寻找附近的商家",    
-    "enablePullDownRefresh": true
+  "navigationBarTitleText": "寻找附近的商家",
+  "navigationBarBackgroundColor": "#4296F7"
 }

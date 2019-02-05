@@ -12,7 +12,7 @@ Page({
     tableData: [{
         "id": "1",
         "name": "提现明细",
-        "page": "my/presenDetails/presenDetails",
+      "page": "my/cashDetails/cashDetails",
         "image": '/images/cashedList.png'
       },
       {
