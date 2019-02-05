@@ -20,7 +20,7 @@ Page({
         "id": "2",
         "name": "收货地址",
         "page": "commonPage/addressManage/addressManage",
-        "image":'/images/receivingAddressList.png'
+        "image":'/images/addressLogo.png'
       },
       {
         "id": "3",

@@ -29,24 +29,30 @@ page {
 .userInfoVIew {
   border: 0px red solid;
   width: 300rpx;
-  margin-left: 10rpx;
+  margin-left: 30rpx;
   /* align-items: center; * 垂直居中 */
 }
 
 .userName {
+  border: 0px red solid;
   font-family: PingFang-SC-Bold;
-  text-align: center;
+  text-align: left;
+}
+
+.userTypeView{
+  border: 0px red solid;
+  height: 50rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中**/
 }
 
 .userType {
-  width: 100rpx;
   border: 1px solid #fff;
-  margin-top: 15rpx;
-  /* margin-left: 25%; */
-  padding: 7rpx 13rpx;
+  width: 100rpx;
+  padding: 5rpx;
   border-radius: 20rpx;
   text-align: center;
-  font-size: 20rpx;
 }
 
 .settingView {
@@ -114,9 +120,9 @@ page {
 }
 
 .cashedToWx {
-  color: #1afa29;
+  color: #4296F7;
   padding: 10rpx 40rpx;
-  border: 1px solid #1afa29;
+  border: 1px solid #4296F7;
   border-radius: 12rpx;
   margin-left: 20%;
 }
@@ -217,6 +223,8 @@ page {
 
 .leaguePhone {
   color: #ff4c4b;
+  margin-left: 10rpx;
+  margin-right: 15rpx;
 }
 
 .joinLeague {

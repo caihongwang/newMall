@@ -4,7 +4,9 @@
     <image class="userAvatarUrlView" src="{{userBaseInfo.avatarUrl}}"></image>
     <view class='userInfoVIew'>
       <view class='userName fz-32'>{{userBaseInfo.nickName}}</view>
-      <view class="userType">{{userBaseInfo.userType}}</view>
+      <view class='userTypeView fz-20'>
+          <view class="userType">※{{userBaseInfo.userType}}</view>
+      </view>
     </view>
     <view class="settingView">
       <image class="settingImg" src="/images/setting.png"></image>
@@ -73,8 +75,9 @@
   </view>
   <!-- 加盟 -->
   <view class='navigator fz-28'>
-    <view class='haveJoinLeague'>已参与人次
-      <text class="leaguePhone">{{userBaseInfo.allLeagueTotal}} 人</text>
+    <view class='haveJoinLeague'>已申请人次
+      <text class="leaguePhone">{{userBaseInfo.allLeagueTotal}}</text>
+      <text>人</text>
     </view>
     <view class="joinLeague" bindtap="myJoin">我要加盟</view>
   </view>
