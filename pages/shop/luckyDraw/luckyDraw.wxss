@@ -1,5 +1,4 @@
 /* pages/lucky-draw/lucky-draw.wxss */
-
 .luckyDraw {
   width: 100vw;
   min-height: 100vh;
