@@ -59,23 +59,20 @@
       </view>
     </view>
     <!-- E 红包列表 -->
-    <!-- S 按钮 -->
+    <!-- S 按钮 bindtap='start'  -->
     <view class="btn-box">
-      <image class="three" style="width: 100%; display: block;" src="./../../../images/lukey_bg_03.png" mode="widthFix" />
-      <button class="btn" type="default" bindtap='start' plain="{{true}}" hover-class="none">
+      <image class="three" style="width: 100%; display: block;" src="./../../../images/lukey_bg_03.png" mode="widthFix" /> 
+      <button class="btn" type="default" plain="{{true}}" hover-class="none" open-type="share">
         <image src="./../../../images/btn.png" mode="widthFix" class="up" />
         <image src="./../../../images/btn_press.png" mode="widthFix" class="press" />
         <view class="text">
           <view class="left">
-            <text class="chance">点 击 抽 奖</text>
+            <text class="chance">剩余机会</text>
+            <text class="times">{{number}}</text>
           </view>
-          <!-- <view class="left">
-                        <text class="chance">剩余机会</text>
-                        <text class="times">3</text>
-                    </view> -->
-          <!-- <view class="right">
-                        <button type="default" plain="true" hover-class="none">分享继续玩</button>
-                    </view> -->
+          <view class="right">
+            <button type="default" plain="true" hover-class="none">先分享再抽奖</button>
+          </view>
         </view>
       </button>
     </view>

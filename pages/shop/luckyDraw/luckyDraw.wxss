@@ -1,3 +1,5 @@
+/* pages/lucky-draw/lucky-draw.wxss */
+
 .luckyDraw {
   width: 100vw;
   min-height: 100vh;
@@ -53,7 +55,7 @@
   min-height: calc(100vh - 112rpx);
   position: fixed;
   left: 0;
-  top: 0;
+  top:0;
   /* top: 112rpx; */
 }
 
@@ -75,7 +77,7 @@
   z-index: 9;
   right: 0;
   top: 22rpx;
-  display:none;
+  display: none;
 }
 
 .lamp-box {
@@ -93,11 +95,13 @@
   transform: translate(-50%);
 }
 
-.luckyDraw .main .lamp .yellow, .luckyDraw .main .lamp .white {
+.luckyDraw .main .lamp .yellow,
+.luckyDraw .main .lamp .white {
   box-shadow: 0 0 6rpx 6rpx #ffe04e;
 }
 
-.luckyDraw .main .lamp .top, .luckyDraw .main .lamp .bottom {
+.luckyDraw .main .lamp .top,
+.luckyDraw .main .lamp .bottom {
   width: 582rpx;
   height: 36rpx;
   margin: 0 auto;
@@ -110,7 +114,8 @@
   margin-top: 128rpx;
 }
 
-.luckyDraw .main .lamp .top .content, .luckyDraw .main .lamp .bottom .content {
+.luckyDraw .main .lamp .top .content,
+.luckyDraw .main .lamp .bottom .content {
   display: flex;
 }
 
@@ -132,7 +137,8 @@
   border-radius: 50%;
 }
 
-.luckyDraw .main .lamp .left, .luckyDraw .main .lamp .right {
+.luckyDraw .main .lamp .left,
+.luckyDraw .main .lamp .right {
   width: 20rpx;
   min-height: 190rpx;
   position: absolute;
@@ -149,7 +155,8 @@
   right: 4rpx;
 }
 
-.luckyDraw .main .lamp .left .content, .luckyDraw .main .lamp .right .content {
+.luckyDraw .main .lamp .left .content,
+.luckyDraw .main .lamp .right .content {
   display: flex;
   flex-flow: wrap column;
 }
@@ -215,10 +222,14 @@
   justify-content: center;
   /* background-color: #000; */
   transform-origin: 50% 50%;
-  /* -webkit-transform-origin: 250% 50%; *//* animation: autoMove 16s infinite linear; */
+  /* -webkit-transform-origin: 250% 50%; */
+  /* animation: autoMove 16s infinite linear; */
   animation-timing-function: ease;
   /* animation-iteration-count: 1;
-  animation-name: autoMove; *//* transition-timing-function: ease; *//* animation-duration: 2s; *//* background-color: #000; */
+  animation-name: autoMove; */
+  /* transition-timing-function: ease; */
+  /* animation-duration: 2s; */
+  /* background-color: #000; */
 }
 
 .luckyDraw .main .prizeContent .prizeList {
@@ -226,7 +237,8 @@
   width: 177rpx;
   height: 310rpx;
   position: relative;
-  /* padding-top: 40rpx; *//* transition: .6s; */
+  /* padding-top: 40rpx; */
+  /* transition: .6s; */
   background-color: #fff;
   /* transform: translateY(-200rpx); */
   transform-style: preserve-3d;
@@ -235,9 +247,7 @@
 }
 
 @keyframes autoMove {
-  from {
-  }
-
+  from {}
   to {
     transform: rotateX(720deg);
   }
@@ -253,8 +263,7 @@
   /* transform: translateX(40rpx) */
 }
 
-.luckyDraw .main .prizeContent .prizeList .red-envelope:nth-of-type(3) {
-}
+.luckyDraw .main .prizeContent .prizeList .red-envelope:nth-of-type(3) {}
 
 .luckyDraw .main .prizeContent .prizeList .red-envelope image {
   display: block;
@@ -281,7 +290,7 @@
 }
 
 .luckyDraw .main .btn {
-  border: 0px red solid;
+  border: 0rpx green solid;
   width: 536rpx;
   height: 165rpx;
   position: absolute;
@@ -324,24 +333,22 @@
 }
 
 .luckyDraw .main .btn .text .left {
-  width: 100%;
   display: flex;
   align-items: center;
 }
 
 .luckyDraw .main .btn .text .left text {
   line-height: initial;
-  align-items: center;
 }
 
 .luckyDraw .main .btn .text .left .chance {
-  border: 0rpx red solid;
-  width: 100%;
-  font-size: 40rpx;
-  font-weight: bold;
+  width: 60rpx;
+  font-size: 28rpx;
   color: #fff;
+  display: flex;
   flex-wrap: wrap;
-  text-align: center;
+  margin-right: 8rpx;
+  line-height: 38rpx;
 }
 
 .luckyDraw .main .btn .text .left .times {
@@ -488,7 +495,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
 }
 
 .luckyDraw>.prize-list-box .bottom .content .item .left {

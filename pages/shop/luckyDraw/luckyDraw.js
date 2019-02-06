@@ -2,7 +2,7 @@ var util = require('../../../utils/util.js');
 var network = require('../../../utils/network.js')
 const requestUrl = require('../../../config')
 Page({
-  /**
+  /**f
    * 页面的初始数据
    */
   data: {
@@ -73,7 +73,9 @@ Page({
     ],
     prizeShow: false,
     prizeList: new Array(30),
-    QR: ''
+    QR: '',
+    number: 1,
+    wxOrderId: ""
   },
 
   // 获取红包
@@ -94,23 +96,34 @@ Page({
             title: '提示',
             content: content, //要展示的奖品的说明
             showCancel: false,
-            success(res) {
-              if (res.confirm) {
-                wx.redirectTo({
-                  url: '/pages/my/myOrder/myOrder?id=' + '1',
-                });
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
+            // success(res) {
+            //   if (res.confirm) {
+            //     wx.redirectTo({
+            //       url: '/pages/my/myOrder/myOrder?id=' + '1',
+            //     });
+            //   } else if (res.cancel) {
+            //     console.log('用户点击取消')
+            //   }
+            // },
+            complete: function () {
+              that.setData({
+                number: 0
+              });
+              wx.redirectTo({
+                url: '/pages/my/myOrder/myOrder?id=' + '1',
+              });
             }
           })
-        } else if (res.data.code == 200008) { 
+        } else if (res.data.code == 200008) {
           //您已抽过奖。如想再次抽奖，请再交易一笔订单.
           wx.showModal({
             title: '提示',
             content: res.data.message,
             showCancel: false,
-            complete: function () {
+            complete: function() {
+              that.setData({
+                number: 0
+              });
               wx.navigateBack();
             }
           });
@@ -211,7 +224,12 @@ Page({
   onReady: function() {
     this.lamp();
   },
-
+  onShow: function(e) {
+    var isStartLuckDraw = this.data.isStartLuckDraw;
+    if (isStartLuckDraw) {
+      this.start();
+    }
+  },
   onLoad: function(options) {
     var wxOrderId = "446ec37b9af340fd8769fc1116b55f1c";
     if (options.wxOrderId) {
@@ -221,5 +239,15 @@ Page({
       wxOrderId: wxOrderId
     });
     this.getLuckDrawProductListUrl();
+  },
+  onShareAppMessage: function(e) {
+    this.setData({
+      isStartLuckDraw: true
+    });
+    var shareAppMessage = {
+      title: '豪华大奖等你抢，精彩不停，等着你哦...', // 分享标题
+      path: '/pages/shop/luckyDraw/luckyDraw?wxOrderId=' + this.data.wxOrderId
+    };
+    return shareAppMessage;
   }
 });
