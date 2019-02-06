@@ -62,7 +62,9 @@
     <!-- S 按钮 bindtap='start'  -->
     <view class="btn-box">
       <image class="three" style="width: 100%; display: block;" src="./../../../images/lukey_bg_03.png" mode="widthFix" /> 
-      <button class="btn" type="default" plain="{{true}}" hover-class="none" open-type="share">
+      <!-- <button class="btn" type="default" plain="{{true}}" hover-class="none" open-type="share"> -->
+      <button class="btn" type="default" plain="{{true}}" hover-class="none"  bindtap='start' >
+
         <image src="./../../../images/btn.png" mode="widthFix" class="up" />
         <image src="./../../../images/btn_press.png" mode="widthFix" class="press" />
         <view class="text">
@@ -120,4 +122,19 @@
       </view>
     </view>
   </view>
+</view>
+
+<view class='mask' wx:if="{{isPopup}}">
+<view  class='popup'>
+<view class='popup-head fz-36' >提示</view>
+<view class='popup-content fz-36'>{{prizeContent}}</view>
+<view class="flex popoe-foot">
+      <view class='popue-cancel' bindtap='popueCancel'>取消</view>
+      <view class='center'></view>
+
+      <button  type="default" plain="{{true}}"  class="share-button" hover-class="none" open-type="share"> 
+      分享
+      </button>
+</view>
+</view>
 </view>

@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isPopup: false,
+    prizeContent:'',
     redEnvelopeList0: [{
       text: "一"
     }, {
@@ -92,19 +94,24 @@ Page({
         console.log(res.data);
         if (res.data.code == 0) {
           var content = "恭喜您，中了" + res.data.data.luckDrawLevelName + ",奖品：获得您刚才付款金额的 " + res.data.data.luckDrawName + "，快去我的奖品列表看看吧!";
-          wx.showModal({
-            title: '提示',
-            content: content, //要展示的奖品的说明
-            showCancel: false,
-            complete: function () {
-              that.setData({
-                number: 0
-              });
-              wx.redirectTo({
-                url: '/pages/my/myOrder/myOrder?id=' + '1',
-              });
-            }
-          });
+          that.setData({
+            prizeContent: content,
+            isPopup:true,
+          })
+          // wx.showModal({
+          //   title: '提示',
+          //   content: content, //要展示的奖品的说明
+          //   showCancel: false,
+          //   complete: function () {
+          //     that.setData({
+          //       number: 0
+          //     });
+          //     wx.redirectTo({
+          //       url: '/pages/my/myOrder/myOrder?id=' + '1',
+          //     });
+          //   }
+          // });
+
         } else if (res.data.code == 200008) {
           //您已抽过奖。如想再次抽奖，请再交易一笔订单.
           wx.showModal({
@@ -123,6 +130,32 @@ Page({
         }
       },
       fail: function(res) {
+        util.toast("网络异常, 请稍后再试");
+      }
+    });
+  },
+  // 点击取消
+  popueCancel:function(){
+    this.delete();
+  },
+  // 获取红包
+  delete: function () { //点击抽奖按钮获取列表
+    var that = this;
+    var params = new Object();
+    network.POST({
+      params: params,
+      requestUrl: requestUrl, //删除接口名
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 0) {
+          that.setData({
+            isPopup: false
+          })
+        } else {
+          util.toast(res.data.message);
+        }
+      },
+      fail: function (res) {
         util.toast("网络异常, 请稍后再试");
       }
     });
@@ -216,10 +249,10 @@ Page({
     this.lamp();
   },
   onShow: function(e) {
-    var isStartLuckDraw = this.data.isStartLuckDraw;
-    if (isStartLuckDraw) {
-      this.start();
-    }
+    // var isStartLuckDraw = this.data.isStartLuckDraw;
+    // if (isStartLuckDraw) {
+    //   this.start();
+    // }
   },
   onLoad: function (options) {
     // var wxOrderId = "446ec37b9af340fd8769fc1116b55f1c";
@@ -233,13 +266,19 @@ Page({
     this.getLuckDrawProductListUrl();
   },
   onShareAppMessage: function(e) {
+    var that = this;
     if(this.data.wxOrderId){
-      this.setData({
-        isStartLuckDraw: true
-      });
+      // this.setData({
+      //   isStartLuckDraw: true
+      // });
       var shareAppMessage = {
         title: '豪华大奖等你抢，精彩不停，等着你哦...', // 分享标题
-        path: '/pages/shop/luckyDraw/luckyDraw'
+        path: '/pages/shop/luckyDraw/luckyDraw',
+        success:function(){
+          that.setData({
+            isPopup:false
+          })
+        }
       };
       return shareAppMessage;
     } else {
