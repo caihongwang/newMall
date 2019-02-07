@@ -50,9 +50,9 @@ var config = {
   getWaitLuckDrawRankUrl: `${host}/wxLuckDraw/getWaitLuckDrawRankByCondition.do`,   //【等待奖励】获取某商家下待领取奖励的队列
   getRecevicedLuckDrawRankUrl: `${host}/wxLuckDraw/getRecevicedLuckDrawRankByCondition.do`,   //【获得奖励】获取某商家下已领取奖励的队列
   convertIntegralUrl: `${host}/wxLuckDraw/convertIntegral.do`,   //奖励转换用户积分
-  
   getLuckDrawUrl: `${host}/wxLuckDraw/getLuckDraw.do`,   //点击【抽奖】即添加抽奖信息
   getLuckDrawProductListUrl: `${host}/wxLuckDraw/getLuckDrawProductList.do`,   //点击【抽奖】即添加抽奖信息
+  deleteLuckDrawUrl: `${host}/wxLuckDraw/deleteLuckDraw.do`,   //修改中奖信息
 
   
   // 加盟
