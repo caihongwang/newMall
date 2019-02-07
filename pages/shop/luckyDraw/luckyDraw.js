@@ -144,7 +144,6 @@ Page({
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.wxOrderId = that.data.wxOrderId;
-    params.status = 0;
     network.POST({
       params: params,
       requestUrl: requestUrl.deleteLuckDrawUrl, //删除接口名
@@ -189,7 +188,6 @@ Page({
     });
   },
 
-
   /**
    * @params sort 随机事件
    */
@@ -223,7 +221,6 @@ Page({
         this.getLuckDrawUrl();
       }, 5000);
     } else {
-
       var content = "对不起，您的抽奖次数已用光，请重新去商家支付一笔订单再来抽奖吧";
       wx.showModal({
         title: '提示',
@@ -268,8 +265,8 @@ Page({
     // }
   },
   onLoad: function(options) {
-    // var wxOrderId = "446ec37b9af340fd8769fc1116b55f1c";
-    var wxOrderId = "";
+    var wxOrderId = "446ec37b9af340fd8769fc1116b55f1c";
+    // var wxOrderId = "";
     if (options.wxOrderId) {
       wxOrderId = options.wxOrderId;
     }
@@ -293,6 +290,10 @@ Page({
           })
         }
       };
+
+              wx.redirectTo({
+                url: '/pages/my/myOrder/myOrder?id=' + '1',
+              });
       return shareAppMessage;
     } else {
       wx.showModal({
