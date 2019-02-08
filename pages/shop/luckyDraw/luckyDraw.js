@@ -290,10 +290,9 @@ Page({
           })
         }
       };
-
-              wx.redirectTo({
-                url: '/pages/my/myOrder/myOrder?id=' + '1',
-              });
+      wx.redirectTo({
+        url: '/pages/my/myOrder/myOrder?id=' + '1',
+      });
       return shareAppMessage;
     } else {
       wx.showModal({
