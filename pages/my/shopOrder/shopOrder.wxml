@@ -1,0 +1,43 @@
+<view class='orderTitelView'>
+  <view wx:for="{{orderTitelList}}" class="titel  {{chosseId == index? 'chossedTitle':''}}" data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.titel}}</view>
+</view>
+<view class='orderListView'>
+  <view wx:for="{{showOrderList}}">
+    <view class='itemView'>
+      <!-- 层级0 -->
+      <view class='orderLevelView0'>
+        <view class='shopView'>
+          <image class="theShopHeadImg" src="/images/green_theMall.png"></image>
+          <view class="theShopTitleView fz-32">店铺名称</view>
+          <image class="rightArrowImg" src="/images/rightArrow.png"></image>
+        </view>
+        <view class='orderStatusNameView'>{{item.orderStatusName}}</view>
+      </view>
+      <!-- 层级1 -->
+      <view class='orderLevelView1'>
+        <view class='shopFoodView'>
+          <image class="shopFoodImg" src="{{item.productHeadImgUrl?item.productHeadImgUrl:item.headImgUrl}}"></image>
+          <view class='shopFoodTitleView fz-26'>{{item.productTitle?item.productTitle:item.title}}</view>
+          <view class='productNumView'>
+            <image class="numLogoImg" src="/images/numLogo.png"></image>
+            <view class="productNumTextView">{{item.productNum}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 层级2 -->
+      <view class='orderLevelView2'>
+        <view class='summaryDescView'>注:共{{item.productNum}}件商品 积分抵扣{{item.useIntegralNum}}元 余额抵扣{{item.useBalanceMonney}}元 实际支付{{item.payMoney}}元.</view>
+      </view>
+      <!-- 层级3 -->
+      <view class='orderLevelView3'>
+        <view class='checkDetailView' data-orderId="{{item.orderId}}" bindtap='checkDetail'>查看详情</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='foot'>
+  <view class='add-more fz-20' wx:if="{{isShowMore}}">上拉加载更多</view>
+  <view class='add-more fz-20' wx:if="{{loading}}">加载中，请稍后~</view>
+  <view class='add-more fz-20' wx:if="{{isNoShowMore}}">没有更多订单了</view>
+</view>

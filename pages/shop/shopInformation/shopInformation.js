@@ -2,7 +2,7 @@
 var network = require('../../../utils/network.js');
 var util = require('../../../utils/util.js');
 var requestUrl = require('../../../config.js');
-const app = getApp()
+const app = getApp();
 
 Page({
 
@@ -17,17 +17,27 @@ Page({
     shopId: "",
     shopTitle: "",
     shopInformation: {},
+    isShowMenuBtn: false
   },
 
-  // 点击付款
-  payment: function() {
+  // 直接付款
+  payment: function () {
     let that = this;
     wx.navigateTo({ //  跳转到创建团队的页面
       // 跳转到一个选择列表的页
       url: '/pages/shop/payment/payment?shopId=' + that.data.shopId + '&shopTitle=' + that.data.shopTitle
     });
-
   },
+  
+  // 预定点餐
+  menuFood: function () {
+    let that = this;
+    wx.navigateTo({ //  跳转到创建团队的页面
+      // 跳转到一个选择列表的页
+      url: '/pages/shop/shopMenu/shopMenu?shopId=' + that.data.shopId + '&shopTitle=' + that.data.shopTitle
+    });
+  },
+
   // 调用打开腾讯地图
   goMap: function() {
     let that = this;
@@ -63,8 +73,16 @@ Page({
       requestUrl: requestUrl.getShopByCondition,
       success: function(res) {
         if (res.data.code == 0) {
+          //是否显示点餐按钮
+          var isShowMenuBtn = false;
+          var shopMenuTotal = res.data.data[0].shopMenuTotal;
+          if ((shopMenuTotal-0) > 0) {
+            isShowMenuBtn = true;
+          }
+          //店铺描述图片进行json对象化
           res.data.data.shopDescribeImgUrl = JSON.parse(res.data.data[0].shopDescribeImgUrl);
           that.setData({
+            isShowMenuBtn: isShowMenuBtn,
             shopTitle: res.data.data[0].shopTitle,
             shopInformation: res.data.data[0],
             shopDescribeImgUrl: res.data.data.shopDescribeImgUrl
@@ -121,7 +139,7 @@ Page({
     if (options.shopId) {
       shopId = options.shopId;
     } else {
-      shopId = 5;
+      shopId = 1;
     }
     this.setData({
       shopId: shopId

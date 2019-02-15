@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
+	"libVersion": "2.5.2",
 	"appid": "wx07cf52be1444e4b7",
 	"projectname": "visitingCard",
 	"isGameTourist": false,
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -85,6 +85,41 @@
 					"id": -1,
 					"name": "订单详情",
 					"pathName": "pages/my/intergralOrderDetail/intergralOrderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家菜单",
+					"pathName": "pages/shop/shopMenu/shopMenu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家订单详情",
+					"pathName": "pages/shop/shopOrderDetail/shopOrderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "商家订单",
+					"pathName": "pages/my/shopOrder/shopOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家订单详情",
+					"pathName": "pages/my/shopOrderDetail/shopOrderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家付款",
+					"pathName": "pages/shop/payment/payment",
 					"query": "",
 					"scene": null
 				}

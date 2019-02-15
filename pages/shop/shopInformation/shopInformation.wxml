@@ -72,5 +72,11 @@
     </view>
     <image class="itemLogoImg" src='/images/shopBusinessStatus.png'></image>
   </view>
-  <button type="warn" class='payBtn' bindtap="payment">付款</button>
+
+
+  <view class='payBtnAndMenuBtnView'>
+      <button type="warn" class="{{!isShowMenuBtn?'payBtn':'payBtn_bak'}}" bindtap="payment">直接付款</button>
+      <button type="warn" class='menuBtn' bindtap="menuFood" wx:if="{{isShowMenuBtn}}">预定点餐</button>
+  </view>
+  
 </view>

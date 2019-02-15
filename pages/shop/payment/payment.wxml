@@ -17,7 +17,7 @@
   <view class='pay-money'>
     <view class="money-text fz-32">请输入你需要的付款金额</view>
     <view class='imput-warp'>
-      <input class='input-money' bindinput='payMoneyInputFunc' value="{{payMoney}}" type="digit"></input>
+      <input class='input-money' bindinput='payMoneyInputFunc' value="{{payMoney}}" type="digit" disabled="{{isDisabledPayMoney}}"></input>
       <view class="body-view flex" wx:if="{{chooseWechat}}">
         <view class='flex'>
           <switch bindchange="switchIntegralChange" checked="{{useIntegralFlag}}" />

@@ -155,7 +155,23 @@
   margin-left: 20rpx;
 }
 
+.payBtnAndMenuBtnView{
+  border: 0rpx red solid;
+  width: 100%;
+  margin: 40rpx auto 40rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中**/
+}
+
 .payBtn {
   width: 90%;
-  margin: 40rpx auto 40rpx;
+}
+.payBtn_bak{
+  width: 40%;
+  margin-right: 30rpx;
+}
+.menuBtn {
+  width: 40%;
+  margin-left: 30rpx;
 }

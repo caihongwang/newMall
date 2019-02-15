@@ -1,20 +1,23 @@
 /**app.wxss**/
+
 @font-face {
-  font-family: 'iconfont';  /* project id 580762 */
+  font-family: 'iconfont'; /* project id 580762 */
   src: url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.eot');
   src: url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.svg#iconfont') format('svg');
+         url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.woff') format('woff'),
+         url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_580762_jo5w0l32f5el8fr.svg#iconfont') format('svg');
 }
-.iconfont{
-    font-family:"iconfont" !important;
-    font-size:24rpx;font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.4rpx;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.4rpx;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -24,124 +27,150 @@
   justify-content: space-between;
   padding: 0rpx 0;
   box-sizing: border-box;
-} 
-page{
-  overflow-y:scroll;
+}
+
+page {
+  overflow-y: scroll;
   /* background-color: #F8F8F8; */
   background-color: #fff;
-
-  height:100%; 
+  height: 100%;
   font-family: PingFang-SC-Regular;
   position: relative;
   /* overflow: hidden */
 }
-.fz-32{
+
+.fz-32 {
   font-size: 32rpx;
 }
-.fz-30{
+
+.fz-30 {
   font-size: 30rpx;
 }
-.fz-24{
+
+.fz-24 {
   font-size: 24rpx;
 }
-.fz-26{
+
+.fz-26 {
   font-size: 26rpx;
 }
-.fz-28{
+
+.fz-28 {
   font-size: 28rpx;
 }
-.fz-22{
- font-size: 20rpx;
+
+.fz-22 {
+  font-size: 22rpx;
 }
-.fz-20{
- font-size: 20rpx;
+
+.fz-20 {
+  font-size: 20rpx;
 }
-.fz-34{
+
+.fz-34 {
   font-size: 34rpx;
 }
-.fz-36{
+
+.fz-36 {
   font-size: 36rpx;
 }
-.fz-40{
+
+.fz-40 {
   font-size: 40rpx;
 }
-.fz-44{
+
+.fz-44 {
   font-size: 44rpx;
 }
-.fz-48{
+
+.fz-48 {
   font-size: 48rpx;
 }
-.fz-56{
+
+.fz-56 {
   font-size: 56rpx;
 }
-.fz-66{
+
+.fz-66 {
   font-size: 66rpx;
 }
-.fb-bond{
+
+.fb-bond {
   font-weight: bold;
 }
-.ls-0{
+
+.ls-0 {
   letter-spacing: 0;
 }
-.ls-24{
+
+.ls-24 {
   letter-spacing: 0.24rpx;
 }
-.ls-28{
+
+.ls-28 {
   letter-spacing: 0.28rpx;
 }
-.ls-20{
-    letter-spacing: 0.20rpx;
-}
-.ls-32{
-    letter-spacing: 0.32rpx;
+
+.ls-20 {
+  letter-spacing: 0.20rpx;
 }
 
-.flex{
+.ls-32 {
+  letter-spacing: 0.32rpx;
+}
+
+.flex {
   display: flex;
   display: -webkit-flex;
   justify-content: space-between;
   align-items: center;
 }
-.flex1{
+
+.flex1 {
   display: flex;
   display: -webkit-flex;
   align-items: center;
 }
-.flex2{
+
+.flex2 {
   display: flex;
   display: -webkit-flex;
 }
-.flex3{
+
+.flex3 {
   display: flex;
-   display: -webkit-flex;
+  display: -webkit-flex;
   justify-content: space-between;
 }
 
-.flex-around{
+.flex-around {
   display: flex;
   display: -webkit-flex;
   align-items: center;
-  justify-content: space-around
+  justify-content: space-around;
 }
-.mask{
+
+.mask {
   display: block;
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, .7);
-  z-index: 99; 
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99;
   /* 新加的 */
-  overflow: hidden; 
+  overflow: hidden;
 }
+
 .avatar-photo-view {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
+
 .firstNameWord {
   display: block;
   margin: 20rpx auto 0;
-  color: #FF4C4B;
+  color: #ff4c4b;
   font-size: 60rpx;
   text-align: center;
   line-height: 100%;
@@ -153,7 +182,8 @@ page{
 }
 
 /* 还没授权的时候加一个弹窗不让其下面的阿牛可以点击 */
-.author-click{
+
+.author-click {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -161,26 +191,25 @@ page{
   top: 0;
   z-index: 30;
 }
-.warp-padding{
+
+.warp-padding {
   padding: 24rpx;
   box-sizing: border-box;
-
 }
 
-
-
-
 /* 上拉更多之后的展示更多的样式 */
-.foot{
+
+.foot {
   height: 106rpx;
   line-height: 106rpx;
   width: 100%;
   background: #fff;
 }
-.add-more{
+
+.add-more {
   opacity: 0.4;
   font-family: PingFangSC-Regular;
-  color: #9D9D9D;
+  color: #9d9d9d;
   letter-spacing: 0;
   text-align: center;
   /* margin-top: 30rpx; */

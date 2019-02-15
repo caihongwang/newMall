@@ -9,7 +9,7 @@ Page({
   data: {
     orderTitelList: [
       {
-        titel: '所有订单',
+        titel: '全部订单',
         id: 0
       },
       {
@@ -17,12 +17,8 @@ Page({
         id: 1
       },
       {
-        titel: '待收货',
-        id: 2
-      },
-      {
         titel: '已完成',
-        id: 3
+        id: 2
       },
     ],
     chosseId: 0,
@@ -56,13 +52,11 @@ Page({
       } else if(index == 1){
         this.getWaitPayGoods(false);
       }else if(index == 2){
-        this.getAlreadyDeliverGoods(false);
-      }else if(index == 3){
         this.getCompletedGoods(false);
       }
     }
   },
-  //所有订单
+  //全部订单
   getAllPayGoodsOrder: function (boo) {
     var that = this;
     that.data.showOrderList = [];     //  清空展示的列表数据
@@ -179,66 +173,6 @@ Page({
         }
       });
   },
-  //已发货
-  getAlreadyDeliverGoods: function (boo) {
-    var that = this;
-    that.data.showOrderList = [];     //  清空展示的列表数据
-    var params = new Object();
-    params.uid = wx.getStorageSync("UIDKEY");
-    params.start = this.data.havePageAll;
-    params.size = this.data.pageindexAll;
-    if (!boo) {
-      wx.showLoading({
-        title: '客官请稍后...',
-        mask: true
-      });
-    }
-    network.POST(
-      {
-        params: params,
-        requestUrl: requestUrl.getAlreadyDeliverGoodsUrl,
-        success: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          console.log(res.data.data);
-          if (res.data.code == 0) {
-            for (var i in res.data.data) {
-              if (res.data.data[i].transactionProductDetail) {
-                var transactionProductDetail = JSON.parse(res.data.data[i].transactionProductDetail);
-                res.data.data[i].productPrice = transactionProductDetail.price;
-              }
-              that.data.alreadyDeliverGoodsOrderList.push(res.data.data[i]);
-            }
-            that.setData({
-              showOrderList: that.data.alreadyDeliverGoodsOrderList,
-              alreadyDeliverGoodsOrderList: that.data.alreadyDeliverGoodsOrderList,
-              howShops: res.data.recordsFiltered
-            })
-            that.data.havePageAll += res.data.data.length;
-            if (that.data.havePageAll < res.data.recordsFiltered) {
-              that.setData({
-                isShowMore: true,
-                loading: false,
-                isNoShowMore: false,
-              })
-            } else {
-              that.setData({
-                isShowMore: false,
-                loading: false,
-                isNoShowMore: true,
-              })
-            }
-            console.log(that.data.alreadyDeliverGoodsOrderList);
-          } else {
-            util.toast(res.data.message);
-          }
-
-        },
-        fail: function (res) {
-          boo ? wx.stopPullDownRefresh() : wx.hideLoading();
-          util.toast("网络异常, 请稍后再试");
-        }
-      });
-  },
   //已完成
   getCompletedGoods: function (boo) {
     var that = this;
@@ -303,7 +237,7 @@ Page({
     console.log(option);
     var orderId = option.currentTarget.dataset.orderid;
     wx.navigateTo({
-      url: "../intergralOrderDetail/intergralOrderDetail?orderId=" +  orderId
+      url: "../shopOrderDetail/shopOrderDetail?orderId=" +  orderId
     });
   },
   onLoad: function (options) {
@@ -334,8 +268,6 @@ Page({
     } else if (this.data.chosseId == 1) {
       this.getWaitPayGoods(false);
     } else if (this.data.chosseId == 2) {
-      this.getAlreadyDeliverGoods(false);
-    } else if (this.data.chosseId == 3) {
       this.getCompletedGoods(false);
     }
   },
@@ -369,12 +301,9 @@ Page({
       this.getAllPayGoodsOrder(false);
     } else if (this.data.chosseId == 1) {
       this.getWaitPayGoods(false);
-    } else if (this.data.chosseId == 2) {
-      this.getAlreadyDeliverGoods(false);
-    } else if (this.data.chosseId== 3) {
+    } else if (this.data.chosseId== 2) {
       this.getCompletedGoods(false);
     }
-
   },
 
   /**

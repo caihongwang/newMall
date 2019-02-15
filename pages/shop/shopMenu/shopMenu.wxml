@@ -1,0 +1,109 @@
+<view>
+  <!-- 左侧菜单 -->
+  <scroll-view scroll-y="true" style='height:{{windowHeight}}px;' class="list-left-menu fz-28">
+    <view wx:for="{{shopMenuList}}" wx:key="unique" class="{{index==activeIndex?'list-left-menu-box-selected':'list-left-menu-box-unselect'}}" data-index="{{index}}" bindtap='selectMenu'>
+      <view class="list-menu-name">{{item.foodTypeTitle}}</view>
+    </view>
+  </scroll-view>
+  <!-- 右侧菜单 -->
+  <scroll-view scroll-y="true" style='height:{{windowHeight}}px;' bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" id="wasd">
+    <view class="content" id="a{{index}}" wx:for="{{shopMenuList}}" wx:key="unique">
+      <view class='list-tab fz-26'>{{item.foodTypeTitle}}</view>
+      <view class='content-list' wx:for="{{item.menuList}}" wx:key="unique" wx:for-item="items" wx:for-index="indexs">
+        <view class='list-image-box'>
+          <image class="list-image" mode="widthFix" src='{{items.foodHeadImgUrl}}'></image>
+        </view>
+        <view class='issue-name'>
+          <view class="itemNameAndPriceView">
+            <view class='itemNameView fz-28'>
+              {{items.foodTitle.length > 13? items.foodTitle_bak : items.foodTitle}}
+            </view>
+            <view class='itemDegistiView fz-20'>{{items.foodDegist.length > 42? items.foodDegist_bak : items.foodDegist}}</view>
+            <view class='itemNumView fz-20'>已售 {{items.foodNum}} 份</view>
+            <view class="itemPriceAndPlusView fz-34">
+              <text class="itemPriceText fz-34">¥ {{items.foodPrice}}</text>
+              <view class='plusView'>
+                <i class="iconfont icon-jiahao2fill plus-icon" data-type="{{index}}" data-index="{{indexs}}" bindtap="selectFood"></i>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 底部操作菜单 -->
+  <view class="operate-bar" wx:if="{{loading}}">
+    <!-- 购物车 -->
+    <view class='gouwuche' bindtap="showCartList">
+      <i class="gouwuche-iconfont icon-gouwuchefill gouwuche-icon {{sumMonney!=0?'activity-color':'' }}">
+        <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
+      </i>
+      <view class='gouwuche-price fz-36' wx:if="{{sumMonney==0}}">购物车是空的</view>
+      <view class='gouwuche-price fz-36' style='color:white;font-size:18px' wx:if="{{sumMonney!=0}}">¥ {{sumMonney}}</view>
+    </view>
+    <!-- 选好了 -->
+    <view class="submit-btn {{sumMonney!=0?'activity-color-bg':'' }}" bindtap='goShopOrderDetail'>
+      <view class="submit-btn-label {{sumMonney!=0?'color-white':'' }}  fz-32">选 好 了</view>
+    </view>
+
+  </view>
+</view>
+
+
+<!-- 选择弹窗 -->
+<view class="drawer_screen" bindtap="selectFood" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_box_ad" wx:if="{{showModalStatus}}">
+  <view class="drawer_content_ad">
+    <view style='font-size:16px;font-weight:bold;display:flex;justify-content:left;'> {{shopMenuList[currentType].menuList[currentIndex].foodTitle}} </view>
+    <view style='border:0rpx red solid;height:300rpx;width:94%;margin-top:5rpx;'>
+      <image style='height:100%;width:100%;' src='{{shopMenuList[currentType].menuList[currentIndex].foodHeadImgUrl}}'></image>
+    </view>
+    <view style='border:0rpx red solid;width:94%;color:#B2B2B2;font-size:20rpx;margin-top:5rpx;'>
+      <text>{{shopMenuList[currentType].menuList[currentIndex].foodDegist}}</text>
+    </view>
+    <view class="optionsView" wx:for="{{shopMenuList[currentType].menuList[currentIndex].foodOptions}}" wx:for-item="optionsItem" wx:for-index='optionsIndex'>
+      <view class="optionsNameView">{{optionsItem.optionsName}}</view>
+      <view class="optionsListView">
+        <view wx:for="{{optionsItem.optionsList}}" wx:for-item="optionsListItem" wx:for-index="optionsListIndex">
+          <view class="select-tab {{optionsListItem.selectedFlag=='true'?'select-active':''}}" data-typeIndex="{{currentType}}" data-menuIndex="{{currentIndex}}" data-optionsIndex="{{optionsIndex}}" data-optionsListIndex="{{optionsListIndex}}" bindtap='chooseOptions'>{{optionsListItem.option}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="menuPriceAndCartBtnView">
+      <text class="menuPriceText fz-44">¥ {{shopMenuList[currentType].menuList[currentIndex].foodPrice}}</text>
+      <view class='addToCartView'>
+        <button class="addToCartBtn" bindtap='addToCart'>加入购物车</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车 -->
+<view class="drawer_screen" bindtap="showCartList" data-statu="close" wx:if="{{showCart}}"></view>
+<view class="cartlist-float" wx:if="{{showCart}}">
+  <view style='background:#F0F0F0;height:30px'>
+    <label class='label-cart-bar'>
+      <label class='label-cart'>已选商品</label>
+    </label>
+    <view class='icon-clear' bindtap='clearCartList'>
+      <i class="iconfont icon-lajitong"></i>
+      <label class="label-clear">清空购物车</label>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class="{{cartList.length>5?'cart-scroll-list':''}}">
+    <view class='cart-list-box' wx:for="{{cartList}}" wx:key="unique">
+      <view class='list-info'>
+        <view>{{item.foodTitle.length > 13? item.foodTitle_bak : item.foodTitle}}</view>
+        <view class='list-info-size'>{{item.optionsDetail}}</view>
+      </view>
+      <view style='width:40%;padding:10px;'>
+        <view class="priceAndNumberView">
+          <label class='itemPriceSum fz-30'>¥ {{item.foodPriceSum}}</label>
+          <i class="iconfont icon-jian icon-li-circle-jian" data-index="{{index}}" bindtap="decNumber"></i>
+          <view class='numberView'>{{item.number}}</view>
+          <i class="iconfont icon-jiahao2fill icon-li-circle-jia font20" data-index="{{index}}" bindtap="addNumber"></i>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

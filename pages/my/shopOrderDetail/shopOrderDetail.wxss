@@ -1,0 +1,357 @@
+/* pages/my/myOrder/myOrder.wxss */
+/* @import "../../../app.wxss"; */
+page{
+  background: #f8f8f8;
+}
+.orderDetailView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  margin: 20rpx 20rpx;
+}
+.orderLevelView0{
+  border-bottom: 1px #B2B2B2 dashed;
+  width: 100%;
+  /* height: 30rpx; */
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.shopView{
+  border: 0px red solid;
+  width: 50%;
+  height: 80rpx;
+  text-align: left;
+  padding-left: 20rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.theShopHeadImg{
+  border: 0px red solid;
+  width: 80rpx;
+  height: 80rpx;
+}
+.theMallNameView{
+  border: 0px red solid;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-weight: bold;
+}
+.rightArrowImg{
+  border: 0px red solid;
+  width: 30rpx;
+  height: 30rpx;
+}
+.orderStatusNameView{
+  border: 0px red solid;
+  width: 50%;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.orderLevelView1{
+  border: 0px red solid;
+  background-color: rgb(255, 255, 255);
+}
+.shopFoodView{
+  border: 0px red solid;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 0rpx 40rpx 0rpx 40rpx;
+  margin-top:10rpx;
+}
+.shopFoodImg{
+  border: 0px #f8f8f8 solid;
+  border-radius: 15rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.shopFoodAndNumView{
+  border: 0px red solid;
+  width: 50%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  padding: 0rpx 20rpx;
+}
+.shopFoodTitleView{
+  border: 0px red solid;
+  width: 100%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  padding-bottom: 10rpx;
+}
+.foodNumView{
+  border: 0px red solid;
+  width: 20%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.numLogoImg{
+  border: 0px red solid;
+  width: 25rpx;
+  height: 25rpx;
+}
+.foodtNumTextView{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.foodPriceView{
+  border: 0px red solid;
+  width: 30%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.moneyLogoImg{
+  border: 0px red solid;
+  width: 25rpx;
+  height: 25rpx;
+}
+.foodPriceTextView{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.orderLevelView2{
+  border: 0px red solid;
+  width: 100%;
+  /* height: 300rpx; */
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  padding: 15rpx 5rpx;
+}
+.detailPriceNameAndNumView{
+  border: 0px red solid;
+  height: 50rpx;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.detailPriceNameView{
+  border: 0px red solid;
+  width: 75%;
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  padding-left: 30rpx;
+}
+.detailPriceNumView{
+  border: 0px red solid;
+  width: 25%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.detailPriceNum{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.orderInfoView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  /* height: 210rpx; */
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  margin: 20rpx 20rpx;
+}
+.orderLevelView3{
+  /* border: 0px red solid; */
+  border-bottom: 1px #B2B2B2 dashed;
+  width: 100%;
+  /* height: 30rpx; */
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.theOrderInfoView{
+  border: 0px red solid;
+  width: 50%;
+  height: 80rpx;
+  text-align: left;
+  padding-left: 30rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.theOrderImg{
+  border: 0px red solid;
+  width: 70rpx;
+  height: 70rpx;
+}
+.theOrderNameView{
+  border: 0px red solid;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-weight: bold;
+}
+
+.orderLevelView4{
+  border: 0px red solid;
+  width: 100%;
+  /* height: 300rpx; */
+  align-items: center; /** 垂直居中*/
+  padding: 10rpx 40rpx;
+  margin-top:0rpx;
+}
+.orderInfoNameAndNumView{
+  border: 0px red solid;
+  height: 50rpx;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.orderInfoNameView{
+  width: 60%;
+  text-align: left;
+}
+.orderInfoNumView{
+  width: 40%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+
+.orderLevelView6{
+  border: 0px red solid;
+  width: 100%;
+  height: 100%;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  padding: 0rpx 40rpx;
+}
+.logisticsInfoNameAndNumView{
+  border: 0px red solid;
+  height: 50rpx;
+  width: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.logisticsInfoNameView{
+  width: 60%;
+  text-align: left;
+}
+.logisticsInfoNumView{
+  width: 40%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.orderLevelView7{
+  border: 0rpx red solid;
+  width: 100%;
+  height: 50rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+
+
+
+
+.contactAndSurePayView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  /* height: 250rpx; */
+  align-items: center; /** 垂直居中*/
+  position: fixed;
+  left: 0;
+  bottom: 20rpx;
+  z-index: 100;
+  margin: 0rpx 20rpx;
+}
+.surePayView{
+  visibility: hidden;
+  border: 0rpx green solid;
+  margin-bottom: 20rpx;
+}
+.show-surePayView{
+  border: 0rpx green solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 100rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  margin-bottom: 20rpx;
+}
+.surePayBtn{
+  width: 80%;
+  height: 80rpx;
+  background: #4296F7;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.surePayText{
+  color: white;
+}
+.contactView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  height: 80rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+
+.contactCustomView{
+  width: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactCustomBtn{
+  width: 80%;
+  height: 80rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactCustomImg{
+  border: 0px red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+.contactCustomText{
+  padding-left: 15rpx;
+  font-size: 75%;
+}
+.contactPhoneView{
+  width: 50%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactPhoneBtn{
+  width: 80%;
+  height: 70rpx;
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+}
+.contactPhoneImg{
+  border: 0px red solid;
+  width: 50rpx;
+  height: 50rpx;
+}
+.contactPhoneText{
+  padding-left: 15rpx;
+  font-size: 75%;
+}

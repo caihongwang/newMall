@@ -23,7 +23,20 @@ Page({
     integralDeductionNum: "",
     balanceDeductionNum: "",
     integralDeductionNumPercent: "",
-    balanceDeductionNumPercent: ""
+    balanceDeductionNumPercent: "",
+
+    isDisabledPayMoney: false,
+    shopOrderParams: {}
+  },
+
+  /**
+   * 判断对象是否为空
+   */
+  isEmptyObject: function(obj) {　　
+    for (var key in obj) {　　　　
+      return false; //返回false，不为空对象
+    }　　
+    return true; //返回true，为空对象
   },
 
   /**
@@ -50,7 +63,7 @@ Page({
       })
     }
   },
-  
+
   /**
    * 选择余额支付
    */
@@ -68,7 +81,7 @@ Page({
   /**
    * 转换百分数
    */
-  toPercent: function (point) {
+  toPercent: function(point) {
     var str = Number(point * 100).toFixed(0);
     str += "%";
     console.log("str = " + str);
@@ -87,7 +100,8 @@ Page({
     var integralOfDeduction = this.data.integralOfDeduction;
     var payMoney = this.data.payMoney;
     if (useIntegralFlag) {
-      var integralDeductionMoney = this.data.payMoney * this.data.integralDeductionNum;   //最高可抵扣积分
+      var integralDeductionMoney = this.data.payMoney * this.data.integralDeductionNum; //最高可抵扣积分
+      integralDeductionMoney = integralDeductionMoney.toFixed(2);
       if (integralOfDeduction > integralDeductionMoney) {
         integralOfDeduction = integralDeductionMoney;
         util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent + "进行积分抵扣");
@@ -119,13 +133,14 @@ Page({
     var balanceOfDeduction = this.data.balanceOfDeduction;
     var payMoney = this.data.payMoney;
     if (useBalanceFlag) {
-      var balanceDeductionMoney = this.data.payMoney * this.data.balanceDeductionNum;   //最高可抵扣积分
+      var balanceDeductionMoney = this.data.payMoney * this.data.balanceDeductionNum; //最高可抵扣积分
+      balanceDeductionMoney = balanceDeductionMoney.toFixed(2);
       if (balanceOfDeduction > balanceDeductionMoney) {
         balanceOfDeduction = balanceDeductionMoney;
         util.toast("最多可使用付款金额的" + this.data.balanceDeductionNumPercent + "进行余额抵扣");
       }
       finalPayment = payMoney - balanceOfDeduction;
-      if (finalPayment < 0){
+      if (finalPayment < 0) {
         finalPayment = 0;
         balanceOfDeduction = payMoney;
       }
@@ -150,7 +165,8 @@ Page({
       var integralOfDeduction = this.data.integralOfDeduction;
       var balanceOfDeduction = this.data.balanceOfDeduction;
       if (this.data.useIntegralFlag) {
-        var integralDeductionMoney = payMoney * this.data.integralDeductionNum;   //最高可抵扣积分
+        var integralDeductionMoney = payMoney * this.data.integralDeductionNum; //最高可抵扣积分
+        integralDeductionMoney = integralDeductionMoney.toFixed(2);
         if (integralOfDeduction > integralDeductionMoney) {
           integralOfDeduction = integralDeductionMoney;
           util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent + "进行积分抵扣");
@@ -159,7 +175,8 @@ Page({
         console.log("integralDeductionMoney = " + integralDeductionMoney);
         finalPayment = payMoney - integralOfDeduction;
       } else if (this.data.useBalanceFlag) {
-        var balanceDeductionMoney = payMoney * this.data.balanceDeductionNum;   //最高可抵扣余额
+        var balanceDeductionMoney = payMoney * this.data.balanceDeductionNum; //最高可抵扣余额
+        balanceDeductionMoney = balanceDeductionMoney.toFixed(2);
         if (balanceOfDeduction > balanceDeductionMoney) {
           balanceOfDeduction = balanceDeductionMoney;
           util.toast("最多可使用付款金额的" + this.data.balanceDeductionNumPercent + "进行余额抵扣");
@@ -192,14 +209,15 @@ Page({
       }
       var finalPayment = 0;
       var payMoney = 0;
-      if (this.data.payMoney){
+      if (this.data.payMoney) {
         payMoney = this.data.payMoney;
       }
       if (this.data.useIntegralFlag) {
-        var integralDeductionMoney = payMoney * this.data.integralDeductionNum;   //最高可抵扣积分
-        if (integralOfDeduction > integralDeductionMoney){
+        var integralDeductionMoney = payMoney * this.data.integralDeductionNum; //最高可抵扣积分
+        integralDeductionMoney = integralDeductionMoney.toFixed(2);
+        if (integralOfDeduction > integralDeductionMoney) {
           integralOfDeduction = integralDeductionMoney;
-          util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent+"进行积分抵扣");
+          util.toast("最多可使用付款金额的" + this.data.integralDeductionNumPercent + "进行积分抵扣");
         }
         finalPayment = payMoney - integralOfDeduction;
         if (finalPayment < 0) {
@@ -235,7 +253,8 @@ Page({
         payMoney = this.data.payMoney;
       }
       if (this.data.useBalanceFlag) {
-        var balanceDeductionMoney = payMoney * this.data.balanceDeductionNum;   //最高可抵扣余额
+        var balanceDeductionMoney = payMoney * this.data.balanceDeductionNum; //最高可抵扣余额
+        balanceDeductionMoney = balanceDeductionMoney.toFixed(2);
         if (balanceOfDeduction > balanceDeductionMoney) {
           balanceOfDeduction = balanceDeductionMoney;
           util.toast("最多可使用付款金额的" + this.data.balanceDeductionNumPercent + "进行余额抵扣");
@@ -292,7 +311,7 @@ Page({
   /**
    * 确认支付
    */
-  surePay: function () {
+  surePay: function() {
     if (this.data.isAgreement) {
       this.payTheBillInMiniUrl();
     } else {
@@ -300,6 +319,11 @@ Page({
     }
   },
 
+  /**
+   * 在小程序内进店商家支付：
+   *    1.直接付款
+   *    2.点餐付款【‘’】
+   */
   payTheBillInMiniUrl: function() {
     var that = this;
     var params = new Object();
@@ -311,6 +335,8 @@ Page({
     params.useIntegralFlag = this.data.useIntegralFlag;
     params.payIntegral = this.data.integralOfDeduction;
     params.payBalance = this.data.balanceOfDeduction;
+    //合并 点餐订单的参数
+    params = Object.assign(params, this.data.shopOrderParams);
     network.POST({
       params: params,
       requestUrl: requestUrl.payTheBillInMiniUrl,
@@ -359,6 +385,7 @@ Page({
         });
       },
       complete: function() { //不管支付成功或者失败之后都要处理的方法，类似与final
+        wx.removeStorageSync('shopOrderParams');
         console.log("支付完成");
       }
     });
@@ -370,20 +397,40 @@ Page({
   onLoad: function(options) {
     var shopId = "";
     var shopTitle = "";
+    var shopOrderParams = "";
+    //商家ID
     if (options.shopId) {
       shopId = options.shopId;
     }
+    //商家名称
     if (options.shopTitle) {
       shopTitle = options.shopTitle;
       wx.setNavigationBarTitle({
         title: "向 " + shopTitle + " 商家付款买单"
       });
     }
-    console.log("shopTitle = " + shopTitle);
-    console.log("shopId = " + shopId);
+    //商家点餐订单参数
+    if (options.shopOrderParams) {
+      shopOrderParams = options.shopOrderParams;
+    } else {
+      shopOrderParams = wx.getStorageSync('shopOrderParams');
+    }
+    //是否禁用 付款金额 输入框
+    shopOrderParams = JSON.parse(shopOrderParams);
+    var isDisabledPayMoney = false;
+    if (shopOrderParams) {
+      isDisabledPayMoney = true;
+    }
+    //在存在 商家点餐订单 的前提下，初始化 付款金额
+    var payMoney = shopOrderParams.allPayAmount;
+    var finalPayment = payMoney;
     this.setData({
       shopId: shopId,
-      shopTitle: shopTitle
+      shopTitle: shopTitle,
+      payMoney: payMoney,
+      finalPayment: finalPayment,
+      isDisabledPayMoney: isDisabledPayMoney,
+      shopOrderParams: shopOrderParams
     });
   },
 

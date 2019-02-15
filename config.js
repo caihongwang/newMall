@@ -16,7 +16,8 @@ var config = {
 
   getSimpleShopByCondition: `${host}/wxShop/getSimpleShopByCondition.do`,    //首页获取商家列表
   getShopByCondition: `${host}/wxShop/getShopByCondition.do`,  //获取商家具体信息
-  getOrderSortTypeList: `${host}/wxShop/getOrderSortTypeList.do`,  //获取商家拍讯类型
+  getOrderSortTypeList: `${host}/wxShop/getOrderSortTypeList.do`,  //获取商家排序类型
+  getMenuByConditionUrl: `${host}/wxFood/getMenuByCondition.do`,  //获取商家菜单列表
 
   // 登录机制 
   getUserBaseInfo: `${host}/wxUser/getUserBaseInfo.do`,   //获取用户基本信息

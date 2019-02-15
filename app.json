@@ -56,6 +56,8 @@
         "cashDetails/cashDetails",
         "cashedRule/cashedRule",
         "joinShop/joinShop",
+        "shopOrder/shopOrder",
+        "shopOrderDetail/shopOrderDetail",
         "orderQueue/orderQueue"
       ]
     },
@@ -65,6 +67,8 @@
         "shopInformation/shopInformation",
         "payment/payment",
         "nearShop/nearShop",
+        "shopMenu/shopMenu",
+        "shopOrderDetail/shopOrderDetail",
         "luckyDraw/luckyDraw"
       ]
     },

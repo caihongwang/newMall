@@ -1,0 +1,180 @@
+/* pages/my/myOrder/myOrder.wxss */
+/* @import "../../../app.wxss"; */
+page{
+  background: #f8f8f8;
+}
+.orderTitelView{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #f8f8f8;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+.titel{
+  flex: 1;
+  font-size: 80%;
+  text-align: center;
+}
+.chossedTitle{
+  border-bottom: 4rpx solid #FF4C4B;
+}
+.orderListView{
+  margin-top: 100rpx;
+}
+.itemView{
+  border: 0px red solid;
+  border-radius: 10rpx;
+  width: 95%;
+  /* height: 350rpx; */
+  background: #fff;
+  align-items: center; /** 垂直居中*/
+  margin: 20rpx 20rpx;
+}
+.orderLevelView0{
+  border: 0px red solid;
+  width: 100%;
+  height: 80rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 0rpx 0rpx 0rpx 0rpx;
+  border-bottom: 2rpx #B2B2B2 dashed;
+}
+.shopView{
+  border: 0px red solid;
+  width: 50%;
+  text-align: left;
+  padding-left: 20rpx;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.theShopHeadImg{
+  border: 0px red solid;
+  width: 80rpx;
+  height: 80rpx;
+}
+.theShopTitleView{
+  border: 0px red solid;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-weight: bold;
+}
+.rightArrowImg{
+  border: 0px red solid;
+  width: 30rpx;
+  height: 30rpx;
+}
+.orderStatusNameView{
+  border: 0px red solid;
+  width: 50%;
+  color: red;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.orderLevelView1{
+  border: 0px red solid;
+  margin-top: 5rpx;
+}
+.shopFoodView{
+  border: 0px red solid;
+  width: 100%;
+  height: 45rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: center; /** flex 属性， 水平居中*/
+  padding: 5rpx 60rpx 0rpx 60rpx;
+}
+.shopFoodImg{
+  border: 0px #f8f8f8 solid;
+  border-radius: 15rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.shopFoodTitleView{
+  border: 0px red solid;
+  width: 80%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  padding: 00rpx 20rpx;
+}
+.productNumView{
+  border: 0px red solid;
+  width: 20%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.numLogoImg{
+  border: 0px red solid;
+  width: 25rpx;
+  height: 25rpx;
+}
+.productNumTextView{
+  border: 0px red solid;
+  padding-left: 5rpx;
+}
+.orderLevelView2{
+  border: 0px red solid;
+  width: 100%;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+  margin: 10rpx 0rpx 0rpx 30rpx;
+}
+.summaryDescView{
+  border: 0px red solid;
+  width: 95%;
+  height: 100%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: left; /** flex 属性， 水平居中*/
+}
+.orderLevelView3{
+  border: 0px red solid;
+  width: 100%;
+  height: 60rpx;
+  font-size: 65%;
+  align-items: center; /** 垂直居中*/
+  display: flex;
+  justify-content: right; /** flex 属性， 水平居中*/
+  padding: 10rpx 20rpx;
+}
+.checkDetailView{
+  border: 1px #b8b6b6 solid;
+  border-radius: 10rpx;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  align-items: center; /** 垂直居中*/
+  text-align: center;
+  margin-left: 73%;
+}
+.foot{
+  height: 106rpx;
+  line-height: 106rpx;
+  width: 100%;
+  background: #f8f8f8;
+}
+.add-more{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  color: #9D9D9D;
+  letter-spacing: 0;
+  text-align: center;
+  /* margin-top: 30rpx; */
+}

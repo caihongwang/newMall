@@ -1,0 +1,68 @@
+<!--pages/order/balance/balance.wxml-->
+<view>
+  <!-- 用餐时间 -->
+  <view class='top-bar'>
+    <label class='top-left-label fz-28'>用餐时间</label>
+    <view class="dataAndTimeView fz-28">
+      <view class="dateView">
+        <picker mode="date" value="{{currentDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+          <view class="dateShowView">
+            <image class="dateLogoImg" src='/images/dateLogo.png'></image>
+            <text class='dateText'>{{currentDate}}</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="timeView">
+        <picker mode="time" value="{{currentTime}}" start="{{startTime}}" end="{{endTime}}" bindchange="bindTimeChange">
+          <view class="timeShowView">
+            <image class="timeLogoImg" src='/images/timeLogo.png'></image>
+            <text class='timeText'>{{currentTime}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单详情 -->
+  <view class='order-info'>
+    <view class='order-info-title'>订单详情</view>
+    <view class='cart-list-box' wx:for="{{cartList}}" wx:key="unique">
+      <view class='list-info'>
+        <view>{{item.foodTitle.length > 13? item.foodTitle_bak : item.foodTitle}}</view>
+        <view class='list-info-size'>{{item.optionsDetail}}</view>
+      </view>
+      <view style='width:20%;padding:10px;'>
+        <view style='float:right'>
+          <view style='color:#A3A3A3'>x {{item.number}}</view>
+          <view>¥ {{item.foodPriceSum}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='order-sum'>
+      <label>总计 </label>
+      <label class='order-sum-number activity-color'>¥ {{sumMonney}}</label>
+    </view>
+  </view>
+  <!-- 备注 -->
+  <view class='note'>
+    <label style='font-size:13px;color:#A3A3A3'>备注</label>
+    <textarea placeholder='默认常温，常规糖，如有口味要求，请输入备注' class='note-text'
+    bindinput="noteBindinput"></textarea>
+  </view>
+  <!-- 底部操作栏 -->
+  <view class="operate-bar">
+    <!-- 购物车 -->
+    <view class='gouwuche'>
+      <i class="iconfont icon-gouwuchefill gouwuche-icon activity-color">
+          <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
+        </i>
+        <view class='gouwuche-price fz-36'>¥ {{sumMonney}}</view>
+    </view>
+    <!-- 确认支付 -->
+    <view class="submit-btn activity-color-bg" bindtap='surePay'>
+      <view class="submit-btn-label color-white fz-32">去 支 付</view>
+    </view>
+  </view>
+
+</view>

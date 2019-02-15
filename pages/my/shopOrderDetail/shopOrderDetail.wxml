@@ -1,0 +1,113 @@
+<!-- 商品信息 -->
+<view class='orderDetailView'>
+  <!-- 层级0 -->
+  <view class='orderLevelView0'>
+    <view class='shopView'>
+      <image class="theShopHeadImg" src="/images/green_theMall.png"></image>
+      <view class="theMallNameView fz-36">店铺名称</view>
+      <image class="rightArrowImg" src="/images/rightArrow.png"></image>
+    </view>
+    <view class='orderStatusNameView fz-28'>{{orderDetail.orderStatusName}}</view>
+  </view>
+  <!-- 层级1 -->
+  <view class='orderLevelView1'>
+    <view class='shopFoodView'>
+      <image class="shopFoodImg" src="{{orderDetail.productHeadImgUrl?orderDetail.productHeadImgUrl:orderDetail.headImgUrl}}"></image>
+      <view class='shopFoodAndNumView'>
+        <view class='shopFoodTitleView fz-28'>{{orderDetail.productTitle?orderDetail.productTitle:orderDetail.title}}</view>
+        <view class='foodNumView'>
+          <image class="numLogoImg" src="/images/numLogo.png"></image>
+          <view class="foodtNumTextView fz-26">{{orderDetail.productNum}}</view>
+        </view>
+      </view>
+      <view class='foodPriceView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="foodPriceTextView fz-26">{{orderDetail.productPrice}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 层级2 -->
+  <view class='orderLevelView2'>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView fz-28'>商品总价</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum fz-26">{{orderDetail.allPayAmount}}</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView fz-28'>积分抵扣</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum fz-26">{{orderDetail.useIntegralNum}}</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView fz-28'>余额抵扣</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/moneyLogo.png"></image>
+        <view class="detailPriceNum fz-26">{{orderDetail.useBalanceMonney}}</view>
+      </view>
+    </view>
+    <view class="detailPriceNameAndNumView">
+      <view class='detailPriceNameView fz-28' style='color:red;font-weight: bold;'>实际支付</view>
+      <view class='detailPriceNumView'>
+        <image class="moneyLogoImg" src="/images/redMoneyLogo.png"></image>
+        <view class="detailPriceNum fz-26" style='color:red;font-weight: bold;'>{{orderDetail.payMoney}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 订单信息 -->
+<view class='orderInfoView'>
+  <!-- 层级3 -->
+  <view class='orderLevelView3'>
+    <view class='theOrderInfoView'>
+      <image class="theOrderImg" src="/images/intergralOrderList.png"></image>
+      <view class="theOrderNameView fz-36">订单信息</view>
+      <image class="rightArrowImg" src="/images/rightArrow.png"></image>
+    </view>
+    <view class='orderStatusNameView'></view>
+  </view>
+  <!-- 层级4 -->
+  <view class='orderLevelView4'>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView fz-28'>订单编号</view>
+      <view class='orderInfoNumView fz-26'>{{orderDetail.orderId}}</view>
+    </view>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView fz-28'>用餐时间</view>
+      <view class='orderInfoNumView fz-26'>{{orderDetail.createTime}}</view>
+    </view>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView fz-28'>订单创建时间</view>
+      <view class='orderInfoNumView fz-26'>{{orderDetail.createTime}}</view>
+    </view>
+    <view class="orderInfoNameAndNumView">
+      <view class='orderInfoNameView fz-28'>订单更新时间</view>
+      <view class='orderInfoNumView fz-26'>{{orderDetail.updateTime}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='contactAndSurePayView'>
+  <view class="{{orderDetail.orderStatusCode==0?'show-surePayView':'surePayView'}}">
+    <button class="surePayBtn" size="40" bindtap='surePay'>
+      <text class="surePayText">确 认 支 付</text>
+    </button>
+  </view>
+  <view class='contactView'>
+    <view class='contactCustomView'>
+      <button class="contactCustomBtn" open-type='contact' size="40">
+        <image class="contactCustomImg" src="/images/customer.png"></image>
+        <text class="contactCustomText">联系客服</text>
+      </button>
+    </view>
+    <view class='contactPhoneView'>
+      <button class="contactPhoneBtn" bindtap='contactPhone' size="40">
+        <image class="contactPhoneImg" src="/images/complaintAndLeaguePhone.png"></image>
+        <text class="contactPhoneText">联系商家</text>
+      </button>
+    </view>
+  </view>
+</view>
