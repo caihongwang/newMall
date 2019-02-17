@@ -10,6 +10,7 @@ Page({
     orderId: "",  //订单ID
     orderDetail: {}//用来展示的订单
   },
+
   // 拨打电话
   contactPhone: function () {
     wx.makePhoneCall({
@@ -20,7 +21,7 @@ Page({
   /**
    * 获取订单详情
    */
-  getGoodsOrderDetail: function () {
+  getFoodsOrderDetail: function () {
     var that = this;
     var params = new Object();
     params.orderId = that.data.orderId;
@@ -30,18 +31,29 @@ Page({
     });
     network.POST({
       params: params,
-      requestUrl: requestUrl.getGoodsOrderDetailByIdUrl,
+      requestUrl: requestUrl.getFoodsOrderDetailByIdUrl,
       success: function (res) {
         wx.hideLoading();
         if (res.data.code == 0) {
           var orderDetail = res.data.data;
-          if (orderDetail.transactionProductDetail) {
-            var transactionProductDetail = JSON.parse(orderDetail.transactionProductDetail);
-            console.log(transactionProductDetail);
-            orderDetail.productPrice = transactionProductDetail.price;
+          if (orderDetail.transactionFoodsDetail) {
+            var transactionFoodsDetail = JSON.parse(orderDetail.transactionFoodsDetail);
+            orderDetail.transactionFoodsDetail = transactionFoodsDetail;
+          }
+          if (orderDetail.remark) {
+            var remark = JSON.parse(orderDetail.remark);
+            orderDetail.remark = remark;
+          }
+          // orderDetail.orderStatusCode = "1";
+          var windowHeight = wx.getSystemInfoSync().windowHeight;
+          if (orderDetail.orderStatusCode == "0"){
+            windowHeight = windowHeight - 130;
+          } else {
+            windowHeight = windowHeight - 70;
           }
           that.setData({
-            orderDetail: orderDetail
+            orderDetail: orderDetail,
+            windowHeight: windowHeight
           });
           console.log(that.data.orderDetail);
         } else {
@@ -62,24 +74,24 @@ Page({
       var that = this;
       var params = new Object();
       params.uid = wx.getStorageSync("UIDKEY");
-      params.productId = this.data.orderDetail.productId;
-      params.productNum = this.data.orderDetail.productNum;
-      params.addressId = this.data.orderDetail.addressId;
-      if (this.data.orderDetail.transactionProductDetail){
-        var transactionProductDetail = JSON.parse(this.data.orderDetail.transactionProductDetail);
-        params.transactionProductDetail = JSON.stringify(transactionProductDetail);
-        params.productPrice = transactionProductDetail.price;
-        params.productIntegral = transactionProductDetail.integral;
+      params.foodsId = this.data.orderDetail.foodsId;
+      params.wxOrderId = this.data.orderDetail.wxOrderId;
+      params.payMoney = this.data.orderDetail.payMoney;
+      params.shopTitle = this.data.orderDetail.shopTitle;
+      params.shopId = this.data.orderDetail.shopId;
+      if (this.data.orderDetail.useIntegralNum > 0) {
+        params.useIntegralFlag = true;
+      } 
+      if (this.data.orderDetail.useBalanceMonney > 0) {
+        params.useBalanceFlag = true;
       }
-      params.useBalanceFlag = false;
-      params.payBalance = 0.0;
-      params.useIntegralFlag = true;
       params.payIntegral = this.data.orderDetail.useIntegralNum;
-      console.log("params");
-      console.log(params);
+      params.payBalance = this.data.orderDetail.useBalanceMonney;
+      //合并 点餐订单的参数
+      params = Object.assign(params, this.data.shopOrderParams);
       network.POST({
         params: params,
-        requestUrl: requestUrl.purchaseProductInMiniProgramUrl,
+        requestUrl: requestUrl.payTheBillInMiniUrl,
         success: function (res) {
           if (res.data.code == 0) {
             that.wxPayUnifiedOrder(res.data);
@@ -91,7 +103,6 @@ Page({
           util.toast("网络异常, 请稍后再试");
         }
       });
-
     },
 
     wxPayUnifiedOrder: function(param) { //点击付款/打赏，向微信服务器进行付款
@@ -109,7 +120,12 @@ Page({
             icon: 'success',
             duration: 2000,
             complete: function () { //支付成功后跳转到订单页面
-              that.getGoodsOrderDetail();
+              // that.getFoodsOrderDetail();
+              console.log("模板消息已发送");
+              let wxOrderId = param.data.wxOrderId;
+              wx.navigateTo({
+                url: '/pages/shop/luckyDraw/luckyDraw?wxOrderId=' + wxOrderId
+              });
             }
           });
         },
@@ -133,7 +149,7 @@ Page({
     },
 
   onLoad: function (options) {
-    var orderId = 114;
+    var orderId = 140;
     if (options.orderId){
       orderId = options.orderId;
     }
@@ -154,11 +170,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("orderId = " + this.data.orderId);
-    // this.data.orderId = 5;
-    if (this.data.orderId) {
-      this.getGoodsOrderDetail();
-    }
+    this.getFoodsOrderDetail();
   },
 
   /**

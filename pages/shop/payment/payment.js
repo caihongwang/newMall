@@ -381,7 +381,13 @@ Page({
         wx.showModal({
           title: '提示',
           content: '支付被取消.',
-          showCancel: false
+          showCancel: false,
+          complete: function () { //支付失败后发送模板消息
+            console.log("模板消息已发送");
+            wx.redirectTo({
+              url: '../../my/shopOrder/shopOrder?chosseId=1'
+            });
+          }
         });
       },
       complete: function() { //不管支付成功或者失败之后都要处理的方法，类似与final
@@ -398,6 +404,9 @@ Page({
     var shopId = "";
     var shopTitle = "";
     var shopOrderParams = "";
+    var payMoney = ""; 
+    var finalPayment = ""; 
+    var isDisabledPayMoney = false;
     //商家ID
     if (options.shopId) {
       shopId = options.shopId;
@@ -416,14 +425,17 @@ Page({
       shopOrderParams = wx.getStorageSync('shopOrderParams');
     }
     //是否禁用 付款金额 输入框
-    shopOrderParams = JSON.parse(shopOrderParams);
-    var isDisabledPayMoney = false;
     if (shopOrderParams) {
-      isDisabledPayMoney = true;
+      shopOrderParams = JSON.parse(shopOrderParams);
+      if (shopOrderParams) {
+        isDisabledPayMoney = true;
+      }
     }
     //在存在 商家点餐订单 的前提下，初始化 付款金额
-    var payMoney = shopOrderParams.allPayAmount;
-    var finalPayment = payMoney;
+    if (shopOrderParams) {
+      var payMoney = shopOrderParams.allPayAmount;
+      var finalPayment = payMoney;
+    }
     this.setData({
       shopId: shopId,
       shopTitle: shopTitle,

@@ -100,7 +100,7 @@
         <view class="priceAndNumberView">
           <label class='itemPriceSum fz-30'>¥ {{item.foodPriceSum}}</label>
           <i class="iconfont icon-jian icon-li-circle-jian" data-index="{{index}}" bindtap="decNumber"></i>
-          <view class='numberView'>{{item.number}}</view>
+          <view class='numberView'>{{item.foodNum}}</view>
           <i class="iconfont icon-jiahao2fill icon-li-circle-jia font20" data-index="{{index}}" bindtap="addNumber"></i>
         </view>
       </view>

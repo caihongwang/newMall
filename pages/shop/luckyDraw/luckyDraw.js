@@ -156,8 +156,14 @@ Page({
         } else {
           util.toast(res.data.message);
         }
+        wx.redirectTo({
+          url: '/pages/my/myOrder/myOrder?id=' + '1',
+        });
       },
       fail: function(res) {
+        wx.redirectTo({
+          url: '/pages/my/myOrder/myOrder?id=' + '1',
+        });
         util.toast("网络异常, 请稍后再试");
       }
     });
@@ -219,7 +225,7 @@ Page({
       });
       setTimeout(() => {
         this.getLuckDrawUrl();
-      }, 5000);
+      }, 2000);
     } else {
       var content = "对不起，您的抽奖次数已用光，请重新去商家支付一笔订单再来抽奖吧";
       wx.showModal({

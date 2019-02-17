@@ -44,17 +44,21 @@ Page({
         var cartListLength = cartList.length;
         if (i == (cartListLength - 1)) {
           foodsId = foodsId + item.id;
-          foodsNum = foodsNum + "\"foodId_is_" + item.id + "\":{\"foodNum\":\"" + item.number + "\"}}";
+          foodsNum = foodsNum + "\"foodId_is_" + item.id + "\":{\"foodNum\":\"" + item.foodNum + "\"}}";
         } else {
           foodsId = foodsId + item.id + ",";
-          foodsNum = foodsNum + "\"foodId_is_" + item.id + "\":{\"foodNum\":\"" + item.number + "\"}" + ",";
+          foodsNum = foodsNum + "\"foodId_is_" + item.id + "\":{\"foodNum\":\"" + item.foodNum + "\"}" + ",";
         }
       }
       var foodsNum = JSON.parse(foodsNum);
       //备注
       var foodsTime = this.data.currentDate + " " + this.data.currentTime;
       var note = this.data.note;
-      var remark = "{\"用餐时间\":\"" + foodsTime + "\",\"备注\":\"" + note +"\"}";
+      if (!this.data.note){
+        note = "无";
+      }
+      var remark = "{\"foodsTime\":\"" + foodsTime + "\",\"note\":\"" + note + "\"}";
+      var remark = JSON.parse(remark);
 
       var params = {};
       params.transactionFoodsDetail = JSON.stringify(this.data.cartList);

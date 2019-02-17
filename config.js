@@ -70,12 +70,17 @@ var config = {
   cashBalanceUrl: `${host}/wxCashLog/cashBalanceToWx.do`,   //提现至微信零钱  
 
   // 订单管理接口
-  getAllPayGoodsOrderUrl: `${host}/wxOrder/getAllPayGoodsOrder.do`,   //所有订单
-  getWaitPayGoodsUrl: `${host}/wxOrder/getWaitPayGoodsOrder.do`,   //待支付
-  getAlreadyPayGoodsUrl: `${host}/wxOrder/getAlreadyPayGoodsOrder.do`,   //已支付
-  getAlreadyDeliverGoodsUrl: `${host}/wxOrder/getAlreadyDeliverGoodsOrder.do`,   //  已发货 
-  getCompletedGoodsUrl: `${host}/wxOrder/getCompletedGoodsOrder.do`,   //已完成
-  getGoodsOrderDetailByIdUrl: `${host}/wxOrder/getGoodsOrderDetailById.do`,   //已完成
+  getAllPayGoodsOrderUrl: `${host}/wxOrder/getAllPayGoodsOrder.do`,   //所有订单-商城订单
+  getWaitPayGoodsUrl: `${host}/wxOrder/getWaitPayGoodsOrder.do`,   //待支付-商城订单
+  getAlreadyPayGoodsUrl: `${host}/wxOrder/getAlreadyPayGoodsOrder.do`,   //已支付-商城订单
+  getAlreadyDeliverGoodsUrl: `${host}/wxOrder/getAlreadyDeliverGoodsOrder.do`,   //  已发货-商城订单 
+  getCompletedGoodsUrl: `${host}/wxOrder/getCompletedGoodsOrder.do`,   //已完成-商城订单
+  getGoodsOrderDetailByIdUrl: `${host}/wxOrder/getGoodsOrderDetailById.do`,   //获取商城订单详情
+
+  getAllFoodsOrderUrl: `${host}/wxOrder/getAllFoodsOrder.do`,   //所有订单-点餐订单
+  getWaitPayFoodsUrl: `${host}/wxOrder/getWaitPayFoodsOrder.do`,   //待支付-点餐订单
+  getAlreadyPayFoodsUrl: `${host}/wxOrder/getAlreadyPayFoodsOrder.do`,   //已支付-点餐订单
+  getFoodsOrderDetailByIdUrl: `${host}/wxOrder/getFoodsOrderDetailById.do`,   //获取点餐订单详情
 
   getSimpleIntegralLogByConditionUrl: `${host}/wxIntegralLog/getSimpleIntegralLogByCondition.do`,   //积分记录列表
   getSimpleBalanceLogByConditionUrl: `${host}/wxBalanceLog/getSimpleBalanceLogByCondition.do`,   //余额记录列表

@@ -207,7 +207,7 @@ Page({
             var item = res.data.data[i];
             var shopTitle_bak = item.shopTitle.length > 11 ? item.shopTitle.substring(0, 11) + "..." : item.shopTitle;
             item.shopTitle_bak = shopTitle_bak;
-            var shopDegist_bak = item.shopDegist.length > 53 ? item.shopDegist.substring(0, 53) + "..." : item.shopDegist;
+            var shopDegist_bak = item.shopDegist.length > 43 ? item.shopDegist.substring(0, 43) + "..." : item.shopDegist;
             item.shopDegist_bak = shopDegist_bak;
             that.data.shopList.push(item);
           }

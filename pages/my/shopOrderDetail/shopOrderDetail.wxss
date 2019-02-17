@@ -3,6 +3,9 @@
 page{
   background: #f8f8f8;
 }
+.orderDetailAndInfoView{
+  border: 0px red solid;
+}
 .orderDetailView{
   border: 0px red solid;
   border-radius: 10rpx;
@@ -21,7 +24,7 @@ page{
 }
 .shopView{
   border: 0px red solid;
-  width: 50%;
+  width: 82%;
   height: 80rpx;
   text-align: left;
   padding-left: 20rpx;
@@ -31,8 +34,9 @@ page{
 }
 .theShopHeadImg{
   border: 0px red solid;
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 15rpx;
 }
 .theMallNameView{
   border: 0px red solid;
@@ -47,7 +51,7 @@ page{
 }
 .orderStatusNameView{
   border: 0px red solid;
-  width: 50%;
+  width: 15%;
   color: red;
   text-align: right;
   padding-right: 20rpx;
@@ -175,7 +179,7 @@ page{
 }
 .theOrderInfoView{
   border: 0px red solid;
-  width: 50%;
+  width: 85%;
   height: 80rpx;
   text-align: left;
   padding-left: 30rpx;
@@ -185,12 +189,12 @@ page{
 }
 .theOrderImg{
   border: 0px red solid;
-  width: 70rpx;
-  height: 70rpx;
+  width: 55rpx;
+  height: 55rpx;
 }
 .theOrderNameView{
   border: 0px red solid;
-  padding-left: 10rpx;
+  padding-left: 5rpx;
   padding-right: 10rpx;
   font-weight: bold;
 }

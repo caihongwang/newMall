@@ -113,13 +113,23 @@ Page({
     })
   },
 
+  // 点击 商家订单
+  shopOrderList: function () {
+    wx.navigateTo({
+      url: "/pages/my/shopOrder/shopOrder",
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    });
+  },
+
   // 点击 商城订单
-  intergralOrderList: function() {
+  intergralOrderList: function () {
     wx.navigateTo({
       url: "/pages/my/intergralOrder/intergralOrder",
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     });
   },
 

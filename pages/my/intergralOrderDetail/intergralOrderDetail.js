@@ -62,6 +62,7 @@ Page({
       var that = this;
       var params = new Object();
       params.uid = wx.getStorageSync("UIDKEY");
+      params.wxOrderId = this.data.orderDetail.wxOrderId;
       params.productId = this.data.orderDetail.productId;
       params.productNum = this.data.orderDetail.productNum;
       params.addressId = this.data.orderDetail.addressId;

@@ -124,7 +124,7 @@ Page({
    */
   scroll: function(e) {
     console.log(e);
-    var scrollTop = e.optionsDetail.scrollTop;
+    var scrollTop = e.detail.scrollTop;
     console.log("scrollTop = " + scrollTop);
     var activeIndex = 0;
     for (var i in this.data.shopMenuList) {
@@ -217,7 +217,7 @@ Page({
       }
     }
     var addItem = a.shopMenuList[a.currentType].menuList[a.currentIndex];
-    addItem.number = 1;
+    addItem.foodNum = 1;
     addItem.optionsDetail = optionsDetail;
     addItem.foodPriceSum = addItem.foodPrice;
     var sumMonney = (a.sumMonney - 0) + (foodPrice - 0);
@@ -247,10 +247,12 @@ Page({
    * 清空购物车
    */
   clearCartList: function() {
+    wx.removeStorageSync('cartList'); 
     this.setData({
       cartList: [],
       showCart: false,
-      sumMonney: 0
+      sumMonney: 0,
+      cupNumber: 0
     });
   },
 
@@ -261,7 +263,7 @@ Page({
     var index = e.currentTarget.dataset.index;
     console.log(index)
     var cartList = this.data.cartList;
-    cartList[index].number++;
+    cartList[index].foodNum++;
     var sumMonney = (this.data.sumMonney - 0) + (cartList[index].foodPrice - 0);
     cartList[index].foodPriceSum = (cartList[index].foodPriceSum - 0) + (cartList[index].foodPrice - 0);
     this.setData({
@@ -280,7 +282,7 @@ Page({
     var cartList = this.data.cartList;
     var sumMonney = (this.data.sumMonney - 0) - (cartList[index].foodPrice - 0);
     cartList[index].foodPriceSum = (cartList[index].foodPriceSum - 0) - (cartList[index].foodPrice - 0);
-    cartList[index].number == 1 ? cartList.splice(index, 1) : cartList[index].number--;
+    cartList[index].foodNum == 1 ? cartList.splice(index, 1) : cartList[index].foodNum--;
     this.setData({
       cartList: cartList,
       sumMonney: sumMonney,

@@ -7,26 +7,36 @@
       <!-- 层级0 -->
       <view class='orderLevelView0'>
         <view class='shopView'>
-          <image class="theShopHeadImg" src="/images/green_theMall.png"></image>
-          <view class="theShopTitleView fz-32">店铺名称</view>
+          <image class="theShopHeadImg" src="{{item.shopHeadImgUrl}}"></image>
+          <view class="theShopTitleView fz-32">{{item.shopTitle}}</view>
           <image class="rightArrowImg" src="/images/rightArrow.png"></image>
         </view>
         <view class='orderStatusNameView'>{{item.orderStatusName}}</view>
       </view>
       <!-- 层级1 -->
-      <view class='orderLevelView1'>
-        <view class='shopFoodView'>
-          <image class="shopFoodImg" src="{{item.productHeadImgUrl?item.productHeadImgUrl:item.headImgUrl}}"></image>
-          <view class='shopFoodTitleView fz-26'>{{item.productTitle?item.productTitle:item.title}}</view>
+      <view class='orderLevelView1' wx:if="{{item.transactionFoodsDetail}}">
+        <view class='shopFoodView' wx:for="{{item.transactionFoodsDetail}}" wx:key="unique" wx:for-item="foodItem" wx:for-index="index">
+          <image class="shopFoodImg" src="{{foodItem.foodHeadImgUrl}}"></image>
+          <view class='shopFoodTitleView fz-26'>{{foodItem.foodTitle}}</view>
           <view class='productNumView'>
             <image class="numLogoImg" src="/images/numLogo.png"></image>
-            <view class="productNumTextView">{{item.productNum}}</view>
+            <view class="productNumTextView">{{foodItem.foodNum}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='orderLevelView1' wx:else>
+        <view class='shopFoodView'>
+          <image class="shopFoodImg" src="{{item.shopHeadImgUrl}}"></image>
+          <view class='shopFoodTitleView fz-26'>{{item.orderTypeName}}</view>
+          <view class='productNumView'>
+            <image class="numLogoImg" src="/images/moneyLogo.png"></image>
+            <view class="productNumTextView">{{item.allPayAmount}}</view>
           </view>
         </view>
       </view>
       <!-- 层级2 -->
       <view class='orderLevelView2'>
-        <view class='summaryDescView'>注:共{{item.productNum}}件商品 积分抵扣{{item.useIntegralNum}}元 余额抵扣{{item.useBalanceMonney}}元 实际支付{{item.payMoney}}元.</view>
+        <view class='summaryDescView'>注:共{{item.allNumber}}件商品 积分抵扣{{item.useIntegralNum}}元 余额抵扣{{item.useBalanceMonney}}元 实际支付{{item.payMoney}}元.</view>
       </view>
       <!-- 层级3 -->
       <view class='orderLevelView3'>

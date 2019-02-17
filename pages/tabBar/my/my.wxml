@@ -51,7 +51,7 @@
         <image class='theAttributeImg' src='/images/cashedList.png'></image>
         <view class='allTheTxt'>
           <view class='theTxt fz-32'>提现明细</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.cashLogTotal}} 次</view>
         </view>
       </view>
 
@@ -66,18 +66,18 @@
 
     <!-- 商家订单 商城订单 -->
     <view class='theTwoAttributeVIew '>
-      <view class='theAttributeVIew' bindtap='intergralOrderList' style="border-right: 1rpx solid #e2e2e2;">
+      <view class='theAttributeVIew' bindtap='shopOrderList' style="border-right: 1rpx solid #e2e2e2;">
         <image class='theAttributeImg' src='/images/green_shop.png'></image>
         <view class='allTheTxt'>
           <view class='theTxt fz-32'>商家订单</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.foodsOrderTotal}} 单</view>
         </view>
       </view>
       <view class='theAttributeVIew' bindtap='intergralOrderList'>
         <image class='theAttributeImg' src='/images/green_theMall.png'></image>
         <view class='allTheTxt'>
           <view class='theTxt fz-32'>商城订单</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.balance}} 元</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.goodsOrderTotal}} 单</view>
         </view>
       </view>
     </view>
@@ -88,7 +88,7 @@
         <image class='theAttributeImg' src='/images/addressLogo.png'></image>
         <view class='allTheTxt'>
           <view class='theTxt fz-32'>收货地址</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.integral}} 个</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.addressTotal}} 个</view>
         </view>
       </view>
 
