@@ -39,23 +39,22 @@ Page({
       "createTime": "2018-12-14 17:08:40",
       "orderSortTypeCode": "shopOrderAmount",
       "updateTime": "2018-12-14 17:08:40",
-        "orderSortTypeName": "销量优先",
+      "orderSortTypeName": "销量优先",
       "id": "659004540",
-        "dicName": "销量优先",
+      "dicName": "销量优先",
       "dicType": "orderSortType"
     }],
-    shopList: [
-    ]
+    shopList: []
   },
   onLoad: function(options) {
-    
+
   },
-  onShow: function (options) {
+  onShow: function(options) {
     var that = this;
     // 是否已经授权
     var authorization = wx.getStorageSync('USERINFO');
     console.log("authorization = " + authorization);
-    console.log("isShowAuthorizationView = " + that.isShowAuthorizationView); 
+    console.log("isShowAuthorizationView = " + that.isShowAuthorizationView);
     console.log("that.isNull(authorization) = " + that.isNull(authorization));
     if (that.isNull(authorization)) {
       wx.hideTabBar();
@@ -96,10 +95,10 @@ Page({
     this.bindMore();
     wx.hideLoading(); //关闭进度条
   },
-/**
- * 获取位置信息和数据
- */
-  getLocaltionAndData: function(){
+  /**
+   * 获取位置信息和数据
+   */
+  getLocaltionAndData: function() {
     var that = this;
     //获取商家排序类型
     that.getSortTypeList();
@@ -122,7 +121,7 @@ Page({
           title: '温馨提示',
           content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
           showCancel: false,
-          success: function () {
+          success: function() {
             that.openSetting();
           }
         });
@@ -247,7 +246,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     let shopId = this.data.shopList[index].shopId;
     wx.navigateTo({
-      url: '../../shop/shopInformation/shopInformation?shopId=' + shopId 
+      url: '../../shop/shopInformation/shopInformation?shopId=' + shopId
     });
   },
   bindMore: function() {
@@ -289,7 +288,7 @@ Page({
     })
   },
 
-  getUpdateUser: function (userInfo) { //更新用户信息
+  getUpdateUser: function(userInfo) { //更新用户信息
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -297,30 +296,25 @@ Page({
     network.POST({
       params: params,
       requestUrl: requestUrl.updateUserUrl,
-      success: function (res) {
+      success: function(res) {
         console.log(res.data);
-        if (res.data.code == 0) {
-        } else {
-        }
+        if (res.data.code == 0) {} else {}
       },
-      fail: function (res) {
-  
+      fail: function(res) {
+
       }
     });
   },
   // 点击确认授权,并将用户信息上传到服务器
-  onGotUserInfo: function (e) {
+  onGotUserInfo: function(e) {
     var that = this;
     var userInfo = e.detail.userInfo;
     console.log(e.detail.userInfo);
     // updateUser 更新用户信息
     this.getUpdateUser(JSON.stringify(e.detail.userInfo));
-
-
-
     wx.setStorageSync("USERINFO", userInfo);
     app.globalData.userInfo = userInfo;
-    if (!that.isNull(userInfo)){
+    if (!that.isNull(userInfo)) {
       //显示 下面 bar
       wx.showTabBar();
       that.setData({
