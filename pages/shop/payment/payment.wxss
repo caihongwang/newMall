@@ -132,6 +132,8 @@
 }
 
 .sure-pay{
-  border: 1rpx red solid;
+  border: 0rpx #4296F7 solid;
   width: 80%;
+  color: white;
+  background-color: #4296F7;
 }

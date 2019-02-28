@@ -121,7 +121,7 @@ border: 0rpx red solid;
   width: 260rpx;
   height: 100rpx;
   line-height: 100rpx;
-  background: #FF4C4B;
-  color: #fff;
   text-align: center;
+  color: white;
+  background-color: #4296F7;
 }

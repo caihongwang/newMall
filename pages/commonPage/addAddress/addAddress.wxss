@@ -108,6 +108,8 @@ picker {
 .sure {
   width: 702rpx;
   margin: 24rpx auto;
+  color: white;
+  background-color: #4296F7;
 }
 
 .delete {

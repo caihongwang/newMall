@@ -10,4 +10,4 @@
   <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}} fz-28"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.leagueTypeName}}</view>
 </view>
 
-<button type='warn' class='submit' bindtap='submit'>提交</button>
+<button class='submit' bindtap='submit'>提交</button>

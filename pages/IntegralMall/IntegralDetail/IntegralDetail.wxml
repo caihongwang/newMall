@@ -56,6 +56,6 @@
     </view>
   </view>
   <view class='sure-buy'>
-    <button class='warn fz-32' type='warn' bindtap='sureBuy'> 确定</button>
+    <button class='warn fz-32' bindtap='sureBuy'> 确定</button>
   </view>
 </view>

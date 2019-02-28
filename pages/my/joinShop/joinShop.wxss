@@ -58,4 +58,6 @@
 .submit{
   width: 702rpx;
   margin: 40rpx auto 0;
+  color: white;
+  background-color: #4296F7;
 }

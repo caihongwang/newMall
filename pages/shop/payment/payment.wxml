@@ -52,6 +52,6 @@
         用户协议
       </navigator>
     </view>
-    <button class='sure-pay' type='warn' form-type="submit">确认支付</button>
+    <button class='sure-pay' form-type="submit">确认支付</button>
   </view>
 </form>

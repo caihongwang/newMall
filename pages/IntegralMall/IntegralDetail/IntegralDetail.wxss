@@ -94,8 +94,8 @@ page {
 
 .now-buy {
   width: 200rpx;
-  background: #ff4c4b;
-  color: #fff;
+  color: white;
+  background-color: #4296F7;
   text-align: center;
   height: 100rpx;
   line-height: 100rpx;
@@ -163,9 +163,11 @@ page {
 
 .specifications {
   display: inline-block;
-  background: #ff4c4b;
+  /* background: #ff4c4b; */
   padding: 10rpx 20rpx;
   border-radius: 20rpx;
+  color: white;
+  background-color: #4296F7;
 }
 
 .buy-nummber {
@@ -246,4 +248,6 @@ input{
   line-height: 70rpx;
   margin: 20rpx;
   text-align: center;
+  color: white;
+  background-color: #4296F7;
 }

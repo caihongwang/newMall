@@ -75,8 +75,8 @@
 
 
   <view class='payBtnAndMenuBtnView'>
-      <button type="warn" class="{{!isShowMenuBtn?'payBtn':'payBtn_bak'}}" bindtap="payment">直接付款</button>
-      <button type="warn" class='menuBtn' bindtap="menuFood" wx:if="{{isShowMenuBtn}}">预定点餐</button>
+      <button class="{{!isShowMenuBtn?'payBtn':'payBtn_bak'}}" bindtap="payment">直接付款</button>
+      <button class='menuBtn' bindtap="menuFood" wx:if="{{isShowMenuBtn}}">预定点餐</button>
   </view>
   
 </view>
