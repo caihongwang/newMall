@@ -143,9 +143,9 @@ Page({
     var startDate = year + "-" + month + "-" + day;
     var endDate = (year + 1) + "-" + month + "-" + day;
     //获取时间
-    var currentTime = hour + " : " + minute;
-    var startTime = hour + " : " + minute;
-    var endTime = "23 : 59";
+    var currentTime = hour + ":" + minute;
+    var startTime = hour + ":" + minute;
+    var endTime = "23:59";
     this.setData({
       cartList: wx.getStorageSync('cartList'), 
       shopId: wx.getStorageSync('shopId'),

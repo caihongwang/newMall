@@ -162,14 +162,22 @@ Page({
       complete: function(res) {},
     })
   },
-  onLoad: function() {
-    if (wx.getStorageSync("USERINFO")) {
-      this.setData({
-        wxUserInfo: wx.getStorageSync("USERINFO"),
-        hasUserInfo: true
-      })
+
+
+  // 拨打电话
+  contactPhone: function (e) {
+    console.log(e);
+    var phone = "17701359899";
+    if (e.currentTarget.dataset.phone){
+      phone = e.currentTarget.dataset.phone;
     }
-    this.getUserBaseInfo();
+    wx.makePhoneCall({
+      phoneNumber: phone  // 仅为示例，并非真实的电话号码
+    });
+  },
+
+  onLoad: function() {
+
   },
   /**
    * 获取用户基本信息
@@ -199,5 +207,13 @@ Page({
       }
     });
   },
-  onShow: function() {}
+  onShow: function () {
+    if (wx.getStorageSync("USERINFO")) {
+      this.setData({
+        wxUserInfo: wx.getStorageSync("USERINFO"),
+        hasUserInfo: true
+      })
+    }
+    this.getUserBaseInfo();
+  }
 })

@@ -84,9 +84,9 @@
       <image class="four" style="width: 100%; display: block;" src="./../../../images/lukey_bg_04.png" mode="widthFix" />
       <view class="winning-record">
         <view class="title">
-          <text>--</text>
+          <text>--------</text>
           <text>豪华大奖 奖品列表</text>
-          <text>--</text>
+          <text>--------</text>
         </view>
         <swiper interval="1500" duration="1500" circular="true" vertical="true" previous-margin="15rpx" next-margin="15rpx" autoplay="true">
           <block wx:for="{{winInfo}}" wx:key="{{index}}">

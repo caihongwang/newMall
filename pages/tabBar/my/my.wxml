@@ -105,13 +105,14 @@
   <!-- 我的列表：提现明细 收货地址 积分订单 投诉/加盟电话 -->
   <view class='myList'>
     <block wx:for="{{tableData}}" wx:key="{{item.id}}">
-      <navigator url="/pages/{{item.page}}" class="navigator">
+      <view class="navigator">
         <image class="navigator-img" src='{{item.image}}'></image>
         <view class="navigator-txt fz-28">{{item.name}}
-          <text class='navigator-phone' wx:if="{{item.phone}}">({{item.phone}})</text>
+          <text class='navigator-phone' wx:if="{{item.phone}}" data-phone="{{item.phone}}" bindtap='contactPhone'>({{item.phone}})</text>
+          <text class='navigator-phone' wx:else bindtap='contactPhone'>({{item.phone}})</text>
         </view>
         <view class="navigator-theArrow"></view>
-      </navigator>
+      </view>
     </block>
   </view>
   <!-- 加盟 -->

@@ -220,12 +220,12 @@ Page({
         redEnvelopeList2: that.sort(this.data.redEnvelopeList2)
       }, () => {
         that.setData({
-          animation0: this.data.animation0 + 720
+          animation0: this.data.animation0 + 5000
         });
       });
       setTimeout(() => {
         this.getLuckDrawUrl();
-      }, 2000);
+      }, 5000);
     } else {
       var content = "对不起，您的抽奖次数已用光，请重新去商家支付一笔订单再来抽奖吧";
       wx.showModal({

@@ -1,4 +1,4 @@
-<view class='warp'>
+<form bindsubmit="surePay" report-submit="{{true}}" class='warp'>
   <view class='pay-type'>
     <view class="pay-warp flex1" bindtap='selectWxChatPay'>
       <image class="pay-image" src='/images/wxPayLogo.png'></image>
@@ -52,6 +52,6 @@
         用户协议
       </navigator>
     </view>
-    <button class='sure-pay' type='warn' bindtap='surePay'>确认支付</button>
+    <button class='sure-pay' type='warn' form-type="submit">确认支付</button>
   </view>
-</view>
+</form>

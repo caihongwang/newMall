@@ -311,9 +311,10 @@ Page({
   /**
    * 确认支付
    */
-  surePay: function() {
+  surePay: function(e) {
+    var formId = e.detail.formId;
     if (this.data.isAgreement) {
-      this.payTheBillInMiniUrl();
+      this.payTheBillInMiniUrl(formId);
     } else {
       util.toast("支付前，请同意并阅读左下角的用户协议");
     }
@@ -324,7 +325,7 @@ Page({
    *    1.直接付款
    *    2.点餐付款【‘’】
    */
-  payTheBillInMiniUrl: function() {
+  payTheBillInMiniUrl: function (formId) {
     var that = this;
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
@@ -335,6 +336,7 @@ Page({
     params.useIntegralFlag = this.data.useIntegralFlag;
     params.payIntegral = this.data.integralOfDeduction;
     params.payBalance = this.data.balanceOfDeduction;
+    params.formId = formId;
     //合并 点餐订单的参数
     params = Object.assign(params, this.data.shopOrderParams);
     network.POST({

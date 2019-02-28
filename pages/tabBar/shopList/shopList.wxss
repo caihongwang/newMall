@@ -75,7 +75,7 @@
 }
 .shopListItem{
   border: 0rpx red solid;
-  height: 200rpx;
+  height: 190rpx;
   width: 100%;
   border-bottom: 2rpx solid #e2e2e2;
   align-items: center; /** 垂直居中*/
@@ -84,16 +84,17 @@
 }
 .shopHeadImgView{
   border: 0rpx #B2B2B2 solid;
-  width: 150rpx;
-  height: 150rpx;
+  width: 145rpx;
+  height: 145rpx;
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/
   margin-left: 20rpx;
 }
 .shopHeadImg{
-  width: 150rpx;
-  height: 150rpx;
+  border: 0rpx red solid;
+  width: 145rpx;
+  height: 145rpx;
   border-radius: 20rpx;
 }
 .shopDesc{
@@ -101,7 +102,7 @@
   width: 85%;
   height: 150rpx;
   align-items: center; /** 垂直居中*/
-  padding-top: 10rpx;
+  /* padding-top: 10rpx; */
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
@@ -110,16 +111,17 @@
   align-items: center; /** 垂直居中*/
   display: flex;
   justify-content: center; /** flex 属性， 水平居中**/
+  height:40rpx;
 }
 .shopTitleView{
   border: 0px red solid;
-  width: 80%;
+  width: 78%;
 }
 
 .shopDistanceView{
   border: 0px red solid;
   color: #B2B2B2;
-  width: 20%;
+  width: 22%;
   text-align: right
 }
 
