@@ -11,6 +11,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    havePageAll: 0, //已经加载的页数
+    pageindexAll: 10, //总共加载的总条数
+    howProducts: 0, //共多少商品
+
     productTitle: "",
     productList: [],
     productTypeList: [],
@@ -30,6 +35,8 @@ Page({
     if (this.data.productTitle){    //商品名称
       params.title = this.data.productTitle;
     }
+    params.start = this.data.havePageAll;
+    params.size = this.data.pageindexAll;
     network.POST({
       params: params,
       requestUrl: requestUrl.getProductListUrl,
@@ -38,12 +45,30 @@ Page({
         if (res.data.code == 0) {
           for (var i in res.data.data){
             var item = res.data.data[i];
-            var descript_bak = res.data.data[i].descript.length > 13 ? res.data.data[i].descript.substring(0, 13) + "..." : item.descript;
-            res.data.data[i].descript_bak = descript_bak;
+            var descript_bak = item.descript.length > 13 ? item.descript.substring(0, 13) + "..." : item.descript;
+            item.descript_bak = descript_bak;
+            that.data.productList.push(item);
           }
           that.setData({
-            productList: res.data.data
+            productList: that.data.productList,
+            howProducts: res.data.recordsFiltered
           });
+          that.data.havePageAll += res.data.data.length;
+          console.log("that.data.havePageAll = " + that.data.havePageAll);
+          if (that.data.havePageAll < res.data.recordsFiltered) {
+            that.setData({
+              isShowMore: true,
+              loading: false,
+              isNoShowMore: false,
+            });
+          } else {
+            util.toast(res.data.message);
+            that.setData({
+              isShowMore: false,
+              loading: false,
+              isNoShowMore: true,
+            });
+          }
         } else {
 
         }
@@ -53,7 +78,6 @@ Page({
       }
     });
   },
-
 
   // 获取商品类型列表
   getProductTypeList: function(boo) {
@@ -113,11 +137,15 @@ Page({
 
   //选择点击商品类型查询商品
   selectProductType: function (e) {
+    console.log("e.currentTarget.dataset.producttypeitem = " + e.currentTarget.dataset.producttypeitem);
     this.setData({
       productTypeItem: e.currentTarget.dataset.producttypeitem,
-      productTitle: ""
+      productTitle: "",
+      productList: [],
+      havePageAll: 0
     });
-    this.getProductTypeList();
+    // this.getProductTypeList();
+    this.getProductList();
   },
 
   //点击跳转到详情页
@@ -127,6 +155,18 @@ Page({
     wx.navigateTo({
       url: '../../IntegralMall/IntegralDetail/IntegralDetail?productId=' + productId
     });
+  },
+
+  //加载更多
+  bindMore: function () {
+    if (this.data.pageindexAll < this.data.howProducts) {
+      this.setData({
+        isShowMore: false,
+        loading: true,
+        isNoShowMore: false
+      });
+      this.getProductList();
+    }
   },
 
   /**
@@ -175,7 +215,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    wx.showLoading({
+      title: "客官请稍后...",
+      mask: true
+    });
+    this.bindMore();
+    wx.hideLoading(); //关闭进度条
   },
 
   /**

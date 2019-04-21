@@ -78,7 +78,6 @@ Page({
     });
   },
 
-
   onReady: function() {
     //获得dialog组件
   },
@@ -100,8 +99,6 @@ Page({
    */
   getLocaltionAndData: function() {
     var that = this;
-    //获取商家排序类型
-    that.getSortTypeList();
     // 调用获取地理位置的api
     wx.getLocation({
       type: 'wgs84',
@@ -113,8 +110,8 @@ Page({
         app.globalData.latitude = res.latitude;
         app.globalData.longitude = res.longitude;
         console.log('获取地理位置成功');
-        //获取商家列表
-        that.getShopList(false);
+        //获取商家排序类型和商家数据
+        that.getSortTypeList();
       },
       fail(res) {
         wx.showModal({
@@ -132,8 +129,10 @@ Page({
    * 获取排序类型
    */
   getSortTypeList: function() {
+    console.log("获取排序类型");
     var that = this;
     var params = new Object();
+    params.uid = wx.getStorageSync("UIDKEY");
     params.dicType = "orderSortType";
     network.POST({
       params: params,
@@ -145,6 +144,8 @@ Page({
           that.setData({
             sortTypeList: res.data.data
           });
+          //获取商家列表
+          that.getShopList(false);
         } else {
           wx.hideLoading();
           util.toast("网络异常, 请稍后再试");
@@ -274,10 +275,10 @@ Page({
               that.setData({
                 latitude: res.latitude,
                 longitude: res.longitude
-              })
-              console.log('获取地理位置成功')
-              // const speed = res.speed
-              // const accuracy = res.accuracy
+              });
+              console.log('获取地理位置成功');
+              //获取商家排序类型和商家数据
+              that.getSortTypeList();
             }
           })
 
