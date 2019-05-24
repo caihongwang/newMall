@@ -1,7 +1,7 @@
 /**
  * 网络请求的封装，以后所有的网络请求直接使用这里的方法进行请求
  */
-const configUrl = require('../config')
+const requestUrl = require('../config')
 var requestHandler = {
   requestUrl: '',
   params: {},
@@ -31,6 +31,7 @@ function request(method, requestHandler, header) {
   var params = requestHandler.params;
   params.sessionKey = wx.getStorageSync("SESSIONKEY");
   params.uid = wx.getStorageSync("UIDKEY");
+  params.access_token = wx.getStorageSync("ACCESS_TOKEN");
   var requestUrl = requestHandler.requestUrl;
   // console.log('发送的网络请求:' + requestUrl);
   // console.log(params);
@@ -68,37 +69,66 @@ function request(method, requestHandler, header) {
 }
 function goLogin() {    //私有的请求方法，不准在外部调用
   wx.login({
-    success: function (res1) {
+    success: function (res) {
       //调用登录
       var params = new Object();
-      params.code = res1.code;
+        //下面参数：用于登录或者注册
+        params.code = res.code;
+        params.accountId = requestUrl.accountId;
+        //下面参数：用于权限验证
+        params.client_id = requestUrl.accountId;
+        params.client_secret = requestUrl.accountsecret;
+        params.grant_type = "password";
+        params.username = res.code;
+        params.password = res.code;
       POST({
         params: params,
-        requestUrl: configUrl.wxAppLoginUrl,
+        requestUrl: requestUrl.getOauthTokenUrl,    //权限认证接口已经包含登录接口
         success: function (res) {
-          if (res.data.code != 0) {  //登录错误
-            wx.showModal({
-              title: '提示',
-              content: res.data.message,
-              showCancel: false
-            })
-            return;
+          // if (res.data.code != 0) {  //登录错误
+          //   wx.showModal({
+          //     title: '提示',
+          //     content: res.data.message,
+          //     showCancel: false
+          //   })
+          //   return;
+          // }
+          console.log("==============res==============");
+          console.log(res);
+          console.log(res.data.userInfo);
+          if(!res.data.userInfo){//登录错误
+              wx.showModal({
+                  title: '提示',
+                  content: res.data.message,
+                  showCancel: false
+              });
+              console.log("=============登录错误===============");
+              return;
           }
+          console.log("=============登录成功===============");
           // console.log("登录成功");
-          //登录成功，将uid和session保存
-          saveInfo(res.data.data.sessionKey, res.data.data.uid);
-          // console.log(res.data.data.sessionKey + "-----" + res.data.data.uid);
+          //登录成功，将uid和session保存//登录成功，将uid和session保存
+          saveInfo(res.data.userInfo.userInfoMap.sessionKey,
+              res.data.userInfo.userInfoMap.uid,
+              res.data.access_token);
+          console.log("【准备】开始执行后callback");
+          if (Func != null && Func != "" && method != null && method != "" &&
+              requestHandler != null && requestHandler != "" && header != null && header != ""){
+              console.log("开始执行后callback");
+              Func(method, requestHandler, header);
+          }
         }
       })
     }
   })
 }
-function saveInfo(session,uid) {    //私有方法，不准在外部调用。将重新登录的数据保存
+function saveInfo(session,uid,access_token) {    //私有方法，不准在外部调用。将重新登录的数据保存
   // console.log("开始保存用户信息");
 
   try {
     wx.setStorageSync("SESSIONKEY", session);
     wx.setStorageSync("UIDKEY", uid);
+    wx.setStorageSync("ACCESS_TOKEN", access_token);
   } catch (e) {
     // console.log("存储session失败");
   }
@@ -145,5 +175,6 @@ function upLoadFile(url, filePath, name, formData, success, fail) {
 module.exports = {
   GET: GET,
   POST: POST,
+  goLogin: goLogin,
   UPLOADFILE: upLoadFile
 }

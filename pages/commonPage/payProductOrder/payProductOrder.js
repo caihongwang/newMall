@@ -117,6 +117,12 @@ Page({
       productDetail.finalPrice = productDetail.finalPrice.toFixed(2);
       productDetail.finalIntegral = productDetail.integral * productDetail.productNum;
       productDetail.finalIntegral = productDetail.finalIntegral.toFixed(2);
+
+      var title_bak = productDetail.title.length > 15 ? productDetail.title.substring(0, 15) + "..." : productDetail.title;
+      productDetail.title_bak = title_bak;
+
+      var degist_bak = productDetail.degist.length > 12 ? productDetail.degist.substring(0, 12) + "..." : productDetail.degist;
+      productDetail.degist_bak = degist_bak;
       
       console.log(productDetail);
     }

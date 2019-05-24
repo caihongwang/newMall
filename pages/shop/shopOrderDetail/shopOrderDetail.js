@@ -90,8 +90,35 @@ Page({
    * 日期监听
    */
   bindDateChange(e) {
+    var newData = e.detail.value;
+    var dateObj = new Date();
+    var year = dateObj.getFullYear();
+    var month = dateObj.getMonth() + 1;
+    var day = dateObj.getDate();
+    var hour = dateObj.getHours();
+    var minute = dateObj.getMinutes();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    if (hour < 10) {
+      hour = "0" + hour;
+    }
+    if (minute < 10) {
+      minute = "0" + minute;
+    }
+    var currentDate = year + "-" + month + "-" + day;
+    var startTime = "00:00";
+    if (currentDate == newData){
+      startTime = hour + ":" + minute;
+    } else {
+      startTime = "00:00";
+    }
     this.setData({
       isSelectDateFlag: true,
+      startTime: startTime,
       currentDate: e.detail.value
     });
   },

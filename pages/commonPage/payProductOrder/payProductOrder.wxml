@@ -20,12 +20,12 @@
   <image class='productHeadImg' src="{{productDetail.headImgUrl}}"></image>
   <view class='productDetailInfoView '>
     <view class='productTitleAndPriceView flex fz-28'>
-      <view class='productTitleView fz-30'>{{productDetail.title}}</view>
+      <view class='productTitleView fz-30'>{{productDetail.title.length > 15? productDetail.title_bak : productDetail.title}}</view>
       <view class='productPriceView fz-30'>￥{{productDetail.price}}</view>
     </view>
     <view class='productDegistAndIntegralView flex fz-28'>
       <view class='productDegistView fz-24'>
-        <text style='color: #9A9A9A;'>简述: </text>{{productDetail.degist}}</view>
+        <text style='color: #9A9A9A;'>简述: </text>{{productDetail.degist.length > 12? productDetail.degist_bak : productDetail.degist}}</view>
       <view class='productIntegralView'>{{productDetail.integral}} 个积分</view>
     </view>
     <view class='productNumView flex fz-28'>

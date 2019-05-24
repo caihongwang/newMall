@@ -43,7 +43,13 @@ App({
   },
   //登录方法
   login: function () {
-    var that = this;
+
+
+      network.goLogin();
+      return;
+
+
+      var that = this;
     var session = wx.getStorageSync('SESSIONKEY');
     var uid = wx.getStorageSync('UIDKEY');
     // console.log("获取本地存储的session为：" + session);
@@ -84,10 +90,18 @@ App({
       success: function (res) {
         //调用登录
         var params = new Object();
-        params.code = res.code;
+          //下面参数：用于登录或者注册
+          params.code = res.code;
+          params.accountId = requestUrl.accountId;
+          //下面参数：用于权限验证
+          params.client_id = requestUrl.accountId;
+          params.client_secret = requestUrl.accountsecret;
+          params.grant_type = "password";
+          params.username = res.code;
+          params.password = res.code;
         network.POST({
           params: params,
-          requestUrl: requestUrl.wxAppLoginUrl,
+          requestUrl: requestUrl.getOauthTokenUrl,    //权限认证接口已经包含登录接口
           success: function (res) {
             if (res.data.code != 0) {  //登录错误
               wx.showModal({
@@ -104,8 +118,10 @@ App({
 
             console.log("登录成功");
             //登录成功，将uid和session保存
-            that.saveInfo(res.data.data.sessionKey, res.data.data.uid,res.data.openid);
-            // console.log(res.data.data.sessionKey + "-----" + res.data.data.uid);
+            saveInfo(res.data.userInfo.userInfoMap.sessionKey,
+                res.data.userInfo.userInfoMap.uid,
+                res.data.userInfo.openId,
+                res.data.access_token);
           }
         })
         //请求用户授权
@@ -190,13 +206,14 @@ App({
   //     }
   //   })
   // },
-  saveInfo: function (session, uid, openId) {   //将登录获取的数据保存
+  saveInfo: function (session, uid, openId, access_token) {   //将登录获取的数据保存
     // console.log("开始保存用户信息");
 
     try {
       wx.setStorageSync("SESSIONKEY", session);
       wx.setStorageSync("UIDKEY", uid);
       wx.setStorageSync("OPENID", openId);
+      wx.setStorageSync("ACCESS_TOKEN", access_token);
       // wx.setStorageSync("getActivityData", getActivityData);
     } catch (e) {
       // console.log("存储session失败");
