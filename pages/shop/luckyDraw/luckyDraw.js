@@ -86,6 +86,7 @@ Page({
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.wxOrderId = this.data.wxOrderId;
+    // params.wxOrderId = "843912902adb46fc9a69ba87ba6625123";
     console.log("params.wxOrderId = " + params.wxOrderId);
     network.POST({
       params: params,
@@ -93,7 +94,7 @@ Page({
       success: function(res) {
         console.log(res.data);
         if (res.data.code == 0) {
-          var content = "恭喜您，中了" + res.data.data.luckDrawLevelName + ",奖品：获得您刚才付款金额的 " + res.data.data.luckDrawName + "，快去我的奖品列表看看吧!";
+          var content = "恭喜您，中了" + res.data.data.luckDrawLevelName + ",奖品：获得您刚才付款金额 " + res.data.data.luckDrawName + " 的积分，快去我的奖品列表看看吧!";
           that.setData({
             prizeContent: content,
             isPopup: true,
@@ -136,6 +137,7 @@ Page({
   },
   // 点击取消
   popueCancel: function() {
+    return;
     this.delete();
   },
   // 获取红包

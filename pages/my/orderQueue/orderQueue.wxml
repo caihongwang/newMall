@@ -14,7 +14,7 @@
     <view class='userInfoView'>
       <view class='nickNameAndPayMoneyView flex fz-24'>
         <view class='nickNameView'>{{item.nickName}}</view>
-        <view class='payMoneyView fz-28'>￥{{item.payMoney}}</view>
+        <view class='payMoneyView fz-28'>￥{{item.luckDrawMoney}}</view>
       </view>
       <view class='createTimeAndluckDrawMoneyView flex fz-24'>
         <view class='createTimeView'>时间：{{item.createTime}}</view>
@@ -33,7 +33,7 @@
     <view class='userInfoView'>
       <view class='nickNameAndPayMoneyView flex fz-24'>
         <view class='nickNameView'> {{item.nickName}} </view>
-        <view class='payMoneyView fz-28'> ￥{{item.payMoney}} </view>
+        <view class='payMoneyView fz-28'> ￥{{item.luckDrawMoney}} </view>
       </view>
       <view class='createTimeAndluckDrawMoneyView flex fz-24'>
         <view class='createTimeView'>时间：{{item.createTime}}</view>

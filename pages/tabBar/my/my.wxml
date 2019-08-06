@@ -59,7 +59,7 @@
         <image class='theAttributeImg' src='/images/recevicedLuckDraw.png'></image>
         <view class='allTheTxt'>
           <view class='theTxt fz-32'>奖励列表</view>
-          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.recevicedLuckDrawTotal}} 单</view>
+          <view class='wite-theTxt fz-28 '>共 {{userBaseInfo.allLuckDrawTotal}} 单</view>
         </view>
       </view>
     </view>

@@ -60,6 +60,7 @@ Page({
           this.getWaitPayFoods(false);
         }
       } else if (index == 2) {
+        console.log("that.data.alreadyPayFoodsOrderList.length = " + that.data.alreadyPayFoodsOrderList.length);
         if (that.data.alreadyPayFoodsOrderList.length > 0) {
           that.setData({
             showOrderList: that.data.alreadyPayFoodsOrderList
@@ -199,7 +200,7 @@ Page({
     that.data.showOrderList = []; //  清空展示的列表数据
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
-    params.start = this.data.allFoodsOrderList.length;
+    params.start = this.data.alreadyPayFoodsOrderList.length;
     params.size = this.data.pageindexAll;
     if (!boo) {
       wx.showLoading({

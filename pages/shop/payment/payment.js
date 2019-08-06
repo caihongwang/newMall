@@ -370,10 +370,20 @@ Page({
           duration: 2000,
           complete: function() { //支付成功后发送模板消息
             console.log("模板消息已发送");
-            let wxOrderId = param.data.wxOrderId;
-            wx.navigateTo({
-              url: '/pages/shop/luckyDraw/luckyDraw?wxOrderId=' + wxOrderId
-            })
+            console.log("====================param.data===================");
+            console.log(param.data);
+            console.log("====================param.data.isLuckDrawFlag===================");
+            console.log(param.data.isLuckDrawFlag);
+            if (param.data.isLuckDrawFlag && param.data.isLuckDrawFlag=="true") {
+              let wxOrderId = param.data.wxOrderId;
+              wx.navigateTo({
+                url: '/pages/shop/luckyDraw/luckyDraw?wxOrderId=' + wxOrderId
+              });
+            } else {
+              wx.redirectTo({
+                url: '../../my/shopOrder/shopOrder?chosseId=0'
+              });
+            }
           }
         });
       },

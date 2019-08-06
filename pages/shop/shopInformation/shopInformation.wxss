@@ -119,13 +119,13 @@
 
 .shopDigistName {
   border: 0rpx red solid;
-  width: 850rpx;
+  width: 250rpx;
   color: #4a4a4a;
 }
 
 .shopDigistContent {
   border: 0rpx red solid;
-  padding-left: 20rpx;
+  color: #4a4a4a;
 }
 
 .itemView {

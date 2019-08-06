@@ -94,12 +94,8 @@ Page({
 
           if (that.data.cityId) {
             console.log(that.data.cityId);
-            console.log(3266666666666666);
-
             for (var i in that.data.citys) { //x = index
               if (that.data.cityId == that.data.citys[i].id) {
-                console.log(32666666666666661111111111);
-
                 that.setData({
                   isCitys: true,
                   isCitysChoose: false,

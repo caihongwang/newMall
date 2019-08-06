@@ -32,7 +32,7 @@ Page({
       "name": "投诉/加盟电话",
       "page": "my/feedback/index",
       "image": '/images/complaintAndLeaguePhone.png',
-      'phone': '010-2377455839'
+      'phone': '13636574416'
     }],
     wxUserInfo: {},
     userBaseInfo: {

@@ -3,8 +3,8 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
-		"postcss": true,
-		"minified": true,
+		"postcss": false,
+		"minified": false,
 		"newFeature": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
@@ -18,7 +18,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.2",
-	"appid": "wx54847eda0638538e",
+	"appid": "wx57a88640fe6eb319",
 	"projectname": "newMall",
 	"isGameTourist": false,
 	"simulatorType": "wechat",
@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
@@ -51,7 +51,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "幸运大抽奖",
 					"pathName": "pages/shop/luckyDraw/luckyDraw",
 					"query": "",
@@ -152,6 +152,7 @@
 					"id": -1,
 					"name": "提交订单",
 					"pathName": "pages/commonPage/payProductOrder/payProductOrder",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -5,18 +5,14 @@
 
 // var host = "http://localhost:9040/newMall";                //本地
 
-// var host = "https://dymapi.xiaqiu.cn/card"  //日常
-
-var host = "https://www.91caihongwang.com/newMall"  //线上
-
-// var host = "http://127.0.0.1:8080/newMall" //红旺
+var host = "https://www.91caihongwang.com/newMall"         //线上
 
 var config = {
   host,
 
-  accountId: "gh_a0f2371300f9",
-  accountName: "新商城",
-  accountsecret: "e24a1be70e14c9f04a1bb5f61e7d82e8",
+  accountName: "惠Lite",
+  accountId: "gh_051743a1ae1f",
+  accountsecret: "7bee7ff19ea5ce13333009213ddd003d",
 
   getSessionUrl: `${host}/card/getSession`,    //获取session
   addUser: `${host}/user/addUser`, //用户信息

@@ -7,7 +7,7 @@
     <view class="choose">选择加盟意愿</view>
 
     <view class='lst-warp'>
-  <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}} fz-28"data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.leagueTypeName}}</view>
+  <view  wx:for="{{list}}" class="list  {{chosseId == index? 'chosse':''}} fz-28" data-index="{{index}}" bindtap='chooseList' wx:key="listOrder">{{item.leagueTypeName}}</view>
 </view>
 
 <button class='submit' bindtap='submit'>提交</button>

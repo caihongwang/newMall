@@ -76,7 +76,7 @@ Page({
       params.uid = wx.getStorageSync("UIDKEY");
       params.foodsId = this.data.orderDetail.foodsId;
       params.wxOrderId = this.data.orderDetail.wxOrderId;
-      params.payMoney = this.data.orderDetail.payMoney;
+      params.payMoney = this.data.orderDetail.allPayAmount;
       params.shopTitle = this.data.orderDetail.shopTitle;
       params.shopId = this.data.orderDetail.shopId;
       if (this.data.orderDetail.useIntegralNum > 0) {
@@ -136,7 +136,7 @@ Page({
             duration: 2000,
             complete: function () { //支付成功后跳转到订单页面
               wx.redirectTo({
-                url: '../../my/intergralOrder/intergralOrder?chosseId=1'
+                url: '../../my/shopOrder/shopOrder?chosseId=1'
               });
               return;
             }

@@ -38,7 +38,7 @@
 
   <view class='shopDigistView fz-28'>
     <view class="shopDigistName">店铺简介:</view>
-    <view class="shopDigistContent">{{shopInformation.shopDegist}}</view>
+    <view class="shopDigistContent fz-28">{{shopInformation.shopDegist}}</view>
   </view>
 
   <view class='itemView flex fz-28' bindtap='goMap'>
