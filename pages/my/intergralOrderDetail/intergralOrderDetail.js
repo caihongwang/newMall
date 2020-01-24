@@ -13,7 +13,7 @@ Page({
   // 拨打电话
   contactPhone: function () {
     wx.makePhoneCall({
-      phoneNumber: '17701359899' // 仅为示例，并非真实的电话号码
+      phoneNumber: '13636574416' // 仅为示例，并非真实的电话号码
     });
   },
 

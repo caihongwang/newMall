@@ -19,16 +19,22 @@ Page({
    */
   purchaseProductInMiniProgram: function() {
     var that = this;
+    if (!this.data.selectedAddress.id){
+        util.toast("客官，请选择收货地址.");
+        return;
+    }
     var params = new Object();
     params.uid = wx.getStorageSync("UIDKEY");
     params.productId = this.data.productDetail.id;
     params.productNum = this.data.productDetail.productNum;
+    params.productPrice = this.data.productDetail.price;
     params.transactionProductDetail = JSON.stringify(this.data.productDetail);
     params.addressId = this.data.selectedAddress.id;
     params.useBalanceFlag = false;
     params.payBalance = 0.0;
     params.useIntegralFlag = true;
     params.payIntegral = this.data.productDetail.finalIntegral;
+      console.log(params);
     network.POST({
       params: params,
       requestUrl: requestUrl.purchaseProductInMiniProgramUrl,

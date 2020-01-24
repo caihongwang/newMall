@@ -21,211 +21,71 @@ App({
   },
   handlSystemInfo: function () {
     let that = this;
-    //  判断是否是iphonX型号
-    wx.getSystemInfo({
-      success: function (res) {
-        // console.log(res);
-        let model = res.model.substring(0, res.model.indexOf("X")) + "X";
-        // console.log(model);
-        // console.log(model == 'iPhone X');
-        if (model == 'iPhone X') {
-          that.globalData.isIpx = true  //判断是否为iPhone X 默认为值false，iPhone X 值为true
-        } else {
-          that.globalData.isIpx = false
-        }
-      }
-    })
+    //1.处理系统信息，因为iphonX是一个特殊的手机型号，设计有风险啊
+    this.handlSystemInfo();
+    //2.检测并登录：检测会话是否过期，过期则重登陆，否则正常使用
+    this.checkAndLogin();
   },
   onShow: function (options) {
     console.log('小程序进入前台啦小程序进入前台啦小程序进入前台啦小程序进入前台啦' + options.scene);
     var that = this;
     that.globalData.isRefreshTagForCardFile = true;   //每次不管小程序从哪里进入到前台，都会设置名片夹列表页刷新
   },
-  //登录方法
-  login: function () {
-
-
-      network.goLogin();
-      return;
-
-
-      var that = this;
+  handlSystemInfo: function () {
+    let that = this;                //使用严格模式
+    wx.getSystemInfo({
+      success: function (res) {
+        let model = res.model.substring(0, res.model.indexOf("X")) + "X";
+        if (model == 'iPhone X') {      //判断是否是iphonX型号
+          that.globalData.isIpx = true;  //判断是否为iPhone X 默认为值false，iPhone X 值为true
+        } else {
+          that.globalData.isIpx = false;
+        }
+      }
+    });
+  },
+  checkAndLogin: function () {              //预登录：检测是否登录
+    var that = this;
+    var isLogin = false;
     var session = wx.getStorageSync('SESSIONKEY');
     var uid = wx.getStorageSync('UIDKEY');
-    // console.log("获取本地存储的session为：" + session);
+    console.log("开始准备预登陆....");
+    console.log("uid = " + uid + " , seesion = " + session);
     //判断是否有session，如果有session，判断此session是否过期，如果没有session，则登录
-    if (session && uid) {
-      // console.log("有Session");
-      // that.firstInAuthorization();   //如果用户已经登录，还要进一步判断权限判断
+    if (session && uid) {             //已经登录过
+      // that.getPhotosAuthorization("scope.writePhotosAlbum");   //获取位置，如果用户已经登录，万一将授权取消了，所以还要获取授权
       var params = new Object();
       params.sessionKey = session;
       params.sessionCheck = 1;
-      network.POST(
-        {
-          params: params,
-          requestUrl: requestUrl.checkSession,
-          success: function (res) {
-            if (res.data.code == 10002) {   //session过期
-              that.clearInfo();
-              that.login();
-              return;
-            }
-            console.log(session, uid);
-            that.initGlobalData(session, uid);    //如果session没有过期，则初始化 数据
-            if (res.data.code != 0) {   //session检测异常
-              util.toast(res.data.message);
-              return;
-            }
-            // console.log("Session,未过期");
-
-          },
-          fail: function () {
+      network.POST({
+        params: params,
+        requestUrl: requestUrl.checkSession,
+        success: function (res) {
+          console.log("检测 res.data.code = " + res.data.code);
+          if (res.data.code == 10002) {   //session过期
+            that.clearInfo();
+            that.login();
+            return;
+          }
+          that.initGlobalData(session, uid);    //如果session没有过期，则初始化 数据
+          if (res.data.code != 0) {   //session检测异常
             util.toast(res.data.message);
+            return;
           }
-        })
-      return;
+        },
+        fail: function (res) {
+          util.toast(res.data.message);
+          isLogin = true;           //需要重新登录
+        }
+      });
+    } else {
+      that.login();
     }
-    // console.log("没有session,需要去登录");
-    wx.login({
-      success: function (res) {
-        //调用登录
-        var params = new Object();
-          //下面参数：用于登录或者注册
-          params.code = res.code;
-          params.accountId = requestUrl.accountId;
-          //下面参数：用于权限验证
-          params.client_id = requestUrl.accountId;
-          params.client_secret = requestUrl.accountsecret;
-          params.grant_type = "password";
-          params.username = res.code;
-          params.password = res.code;
-        network.POST({
-          params: params,
-          requestUrl: requestUrl.getOauthTokenUrl,    //权限认证接口已经包含登录接口
-          success: function (res) {
-            if (res.data.code != 0) {  //登录错误
-              wx.showModal({
-                title: '提示',
-                content: res.data.message,
-                showCancel: false
-              })
-              return;
-            }
-            console.log(res.data.data.sessionKey);
-            console.log(res.data.data.uid);
-            // var openid = res.data.openid;
-
-
-            console.log("登录成功");
-            //登录成功，将uid和session保存
-            saveInfo(res.data.userInfo.userInfoMap.sessionKey,
-                res.data.userInfo.userInfoMap.uid,
-                res.data.userInfo.openId,
-                res.data.access_token);
-          }
-        })
-        //请求用户授权
-        // that.authorization();
-      }
-    })
   },
-  // 再次进入对权限进行校验
-  // firstInAuthorization: function () {
-  //   var that = this;
-  //   wx.getUserInfo({   //原则上这边应该是直接走到fail的。但是为了防止刚开始没有昵称和头像权限，所有这里做了请求判断
-  //     success: function (res) {
-  //       wx.setStorageSync('isAuthorization', true);
-  //       if (that.userAuthorizationReadyCallBack){
-  //         that.userAuthorizationReadyCallBack(wx.setStorageSync('isAuthorization', true));
-  //       }
-
-  //       wx.setStorageSync("USERINFO", res.userInfo);
-  //       netool.updateUserInfo(res);
-  //       // console.log("用户允许了获取昵称和头像,并且保存了用户的信息：" + wx.getStorageSync("USERINFO"));
-  //     },
-  //     fail: function (res) {
-  //       wx.getSetting({
-  //         success: function (res) {
-  //           // console.log(res);
-  //           if (!res.authSetting['scope.userInfo']) {    //如果用户拒绝了权限，则再次弹框提醒
-  //             that.showForceToast();
-  //           } else {   //如果用户允许了权限，则将用户信息存储
-  //             wx.setStorageSync("USERINFO", res.userInfo);
-  //             netool.updateUserInfo(res);
-  //             that.globalData.userInfo = res.userInfo;
-  //           }
-  //         },
-  //         fail: function () {
-  //         }
-  //       })
-  //     }
-  //   })
-  // },
-  //授权
-  // authorization: function () {
-  //   var that = this;
-  //   wx.getUserInfo({
-  //     success: function (res) {
-  //       wx.setStorageSync('isAuthorization', true);
-  //       if (that.userAuthorizationReadyCallBack){
-  //         that.userAuthorizationReadyCallBack(wx.setStorageSync('isAuthorization', true));
-  //       }
-
-  //       wx.setStorageSync("USERINFO", res.userInfo);
-  //       // that.saveUserInfo(res);
-  //       netool.updateUserInfo(res);
-
-  //       // console.log("用户允许了获取昵称和头像,并且保存了用户的信息：" + wx.getStorageSync("USERINFO"));
-  //     },
-  //     fail: function () {   //用户拒绝了微信授权头像和昵称
-  //       // console.log("用户拒绝了微信授权");
-  //       that.openSetting();
-  //     }
-  //   })
-  // },
-  // openSetting: function () {   //打开设置
-  //   var that = this;
-  //   wx.openSetting({
-  //     success: function (res) {
-  //       if (res.authSetting["scope.userInfo"]) {   //用户打开了用户信息授权
-  //         that.authorization();
-  //       } else {    //用户没有打开用户信息授权
-  //         that.showForceToast();
-  //       }
-  //     }
-  //   })
-  // },
-  // showForceToast: function () {     //弹出强制强制授权弹框
-  //   var that = this;
-  //   wx.showModal({
-  //     title: '温馨提示',
-  //     content: '小程序需要获取用户信息权限，点击确认前往设置或者退出程序？',
-  //     showCancel: false,
-  //     success: function () {
-  //       that.openSetting();
-  //     }
-  //   })
-  // },
-  saveInfo: function (session, uid, openId, access_token) {   //将登录获取的数据保存
-    // console.log("开始保存用户信息");
-
-    try {
-      wx.setStorageSync("SESSIONKEY", session);
-      wx.setStorageSync("UIDKEY", uid);
-      wx.setStorageSync("OPENID", openId);
-      wx.setStorageSync("ACCESS_TOKEN", access_token);
-      // wx.setStorageSync("getActivityData", getActivityData);
-    } catch (e) {
-      // console.log("存储session失败");
-    }
-    this.globalData.session = session;
-    this.globalData.uid = uid;
-    this.globalData.openId = openId;
-
-    // console.log("保存用户信息成功：保存的session为：" + wx.getStorageSync('SESSIONKEY'));
-    if (this.userInfoReadyCallBack) {
-      this.userInfoReadyCallBack(uid, session);
-    }
+  //登录方法
+  login: function () {
+    network.goLogin();
+    return;
   },
   clearInfo: function () {   //将缓存的数据清空,包含uid，sessionkey，userinfo
     this.globalData.session = null;
@@ -241,7 +101,6 @@ App({
     if (this.userInfoReadyCallBack) {
       this.userInfoReadyCallBack(uid, session);
     }
-    // console.log("数据初始化完成,session:" + this.globalData.session + "uid:" + this.globalData.uid);
   },
 
   globalData: {
@@ -263,10 +122,7 @@ App({
     saveCardId: '',//被分享分打开的cardId
     getActivityData: {},//获取正在进行的活动信息
     isJoinTeamInActivityPage: false,    //是否是加入我们页面调起活动页，主要用在加团页面的我要拿iPhone8
-
-
-
-  // 新的获取经纬度
+    // 新的获取经纬度
     latitude: null,//经度
     longitude: null,//纬度
   },

@@ -44,30 +44,23 @@ Page({
       "dicName": "销量优先",
       "dicType": "orderSortType"
     }],
-    shopList: []
+    shopList: [],
+    forceNum: 1
   },
   onLoad: function(options) {
 
   },
   onShow: function(options) {
     var that = this;
-    // 是否已经授权
-    var authorization = wx.getStorageSync('USERINFO');
-    console.log("authorization = " + authorization);
-    console.log("isShowAuthorizationView = " + that.isShowAuthorizationView);
-    console.log("that.isNull(authorization) = " + that.isNull(authorization));
-    if (that.isNull(authorization)) {
-      wx.hideTabBar();
-      that.setData({
-        isShowAuthorizationView: true
-      });
-    } else {
-      wx.showTabBar();
-      that.getLocaltionAndData();
-      that.setData({
-        isShowAuthorizationView: false
-      });
-    }
+    that.screenAD(); //插屏广告
+    //显示 下面 bar
+    wx.showTabBar();
+    that.setData({
+      havePageAll: 0,
+      pageindexAll: 10,
+      isShowAuthorizationView: false
+    });
+    that.getLocaltionAndData();
   },
 
   onHide: function() {},
@@ -114,14 +107,18 @@ Page({
         that.getSortTypeList();
       },
       fail(res) {
-        wx.showModal({
-          title: '温馨提示',
-          content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
-          showCancel: false,
-          success: function() {
-            that.openSetting();
-          }
-        });
+
+        console.log("获取用户位置信息失败....");
+        that.showUserLocationForceToast("scope.userLocation", that.data.forceNum);
+
+        // wx.showModal({
+        //   title: '温馨提示',
+        //   content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
+        //   showCancel: false,
+        //   success: function() {
+        //     that.openSetting();
+        //   }
+        // });
       }
     });
   },
@@ -203,6 +200,7 @@ Page({
         console.log(res.data);
         boo ? wx.stopPullDownRefresh() : wx.hideLoading();
         if (res.data.code == 0) {
+          that.data.shopList = [];
           for (var i in res.data.data) {
             var item = res.data.data[i];
             var shopTitle_bak = item.shopTitle.length > 11 ? item.shopTitle.substring(0, 11) + "..." : item.shopTitle;
@@ -263,32 +261,57 @@ Page({
   isNull: function(str) {
     return !str && str !== 0 && typeof str !== "boolean" ? true : false;
   },
-  openSetting: function() { //打开设置
+  //获取微信的位置权限失败，弹出强制强制授权弹框
+  showUserLocationForceToast: function (authorize) {
     var that = this;
-    wx.openSetting({
-      success: function(res) {
-        console.log(res);
-        if (res.authSetting["scope.userLocation"]) { //用户打开了用户信息授权
-          wx.getLocation({
-            type: 'wgs84',
-            success(res) {
-              that.setData({
-                latitude: res.latitude,
-                longitude: res.longitude
+    console.log("第 forceNum = " + that.data.forceNum + " 次强制获取位置权限.");
+    if (that.data.forceNum >= 3) {
+      that.setData({
+        havePageAll: 0,
+        pageindexAll: 10,
+        latitude: 28.09072,
+        longitude: 108.98077
+      });
+      app.globalData.latitude = 28.09072;
+      app.globalData.longitude = 108.98077;
+      console.log("that.data.latitude ----->>>> " + that.data.latitude );
+      //获取商家排序类型和商家数据
+      that.getSortTypeList();
+      return;
+    }
+    wx.showModal({
+      title: '温馨提示',
+      content: '惠生活需要获取您的微信权限，点击确认前往设置或者退出程序？',
+      showCancel: false,
+      success: function () {
+        wx.openSetting({
+          success: function (res) {
+            if (res.authSetting[authorize]) { //用户打开了用户信息授权
+              wx.getLocation({ //原则上这边应该是直接走到fail的。但是为了防止刚开始没有昵称和头像权限，所有这里做了请求判断
+                type: 'wgs84',
+                success: function (res) {
+                  that.setData({
+                    havePageAll: 0,
+                    pageindexAll: 10,
+                    latitude: res.latitude,
+                    longitude: res.longitude
+                  });
+                  app.globalData.latitude = res.latitude;
+                  app.globalData.longitude = res.longitude;
+                  //获取商家排序类型和商家数据
+                  that.getSortTypeList();
+                }
               });
-              console.log('获取地理位置成功');
-              //获取商家排序类型和商家数据
-              that.getSortTypeList();
+            } else { //用户没有打开用户信息授权
+              that.data.forceNum = that.data.forceNum + 1;
+              console.log("forceNum ----->>>" + that.data.forceNum);
+              that.showUserLocationForceToast(authorize);
             }
-          })
-
-        } else { //用户没有打开用户信息授权
-          that.showForceToast();
-        }
+          }
+        });
       }
-    })
+    });
   },
-
   getUpdateUser: function(userInfo) { //更新用户信息
     var that = this;
     var params = new Object();
@@ -329,5 +352,27 @@ Page({
         isShowAuthorizationView: true
       });
     }
+  },
+  screenAD: function(){
+    // 在页面中定义插屏广告
+    let interstitialAd = null;
+
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-394246734e290c27'
+      });
+      interstitialAd.onLoad(() => { });
+      interstitialAd.onError((err) => { });
+      interstitialAd.onClose(() => { });
+    }
+
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      });
+    }
   }
+
 })

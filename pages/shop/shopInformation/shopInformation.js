@@ -17,7 +17,8 @@ Page({
     shopId: "",
     shopTitle: "",
     shopInformation: {},
-    isShowMenuBtn: false
+    isShowMenuBtn: false,
+    forceNum: 1
   },
 
   // 直接付款
@@ -51,7 +52,7 @@ Page({
 
   // 拨打电话
   contactPhone: function (e) {
-    var phone = "17701359899";
+    var phone = "13636574416";
     console.log(e);
     if (e.currentTarget.dataset.shopphone){
       phone = e.currentTarget.dataset.shopphone;
@@ -114,18 +115,12 @@ Page({
         app.globalData.latitude = res.latitude;
         app.globalData.longitude = res.longitude;
         console.log('获取地理位置成功');
-        //获取商家列表
+        //获取商家详情
         that.getShopCondition();
       },
       fail(res) {
-        wx.showModal({
-          title: '温馨提示',
-          content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
-          showCancel: false,
-          success: function () {
-            that.openSetting();
-          }
-        });
+        console.log("获取用户位置信息失败....");
+        that.showUserLocationForceToast("scope.userLocation", that.data.forceNum);
       }
     });
   },
@@ -138,6 +133,21 @@ Page({
     var shopId = "";
     if (options.shopId) {
       shopId = options.shopId;
+    } else if (options.scene) {
+      var scene = decodeURIComponent(options.scene);
+      console.log("scene");
+      console.log(scene);
+      //先对&进行拆分
+      var sceneArr = scene.split("&");
+      for (var i in sceneArr) {
+        var paramArr = sceneArr[i].split("=");
+        var paramKey = paramArr[0];
+        var paramValue = paramArr[1];
+        console.log(paramKey + "---------->>>" + paramValue);
+        if (paramKey == "shopId") {
+          shopId = paramValue;
+        }
+      }
     } else {
       shopId = 1;
     }
@@ -159,42 +169,52 @@ Page({
   onShow: function() {
     this.getLocaltionAndShopCondition();
   },
-
-  openSetting: function() { //打开设置
+  //获取微信的位置权限失败，弹出强制强制授权弹框
+  showUserLocationForceToast: function (authorize) {
     var that = this;
-    wx.openSetting({
-      success: function(res) {
-        console.log(res);
-        if (res.authSetting["scope.userLocation"]) { //用户打开了用户信息授权
-          wx.getLocation({
-            type: 'wgs84',
-            success(res) {
-              that.setData({
-                latitude: res.latitude,
-                longitude: res.longitude
-              });
-              app.globalData.latitude = res.latitude;
-              app.globalData.longitude = res.longitude;
-              console.log('获取地理位置成功');
-            }
-          })
-        } else { //用户没有打开用户信息授权
-          that.showForceToast();
-        }
-      }
-    })
-  },
-
-  showForceToast: function() { //弹出强制强制授权弹框
-    var that = this;
+    console.log("第 forceNum = " + that.data.forceNum + " 次强制获取位置权限.");
+    if (that.data.forceNum >= 3) {
+      that.setData({
+        latitude: 28.09072,
+        longitude: 108.98077
+      });
+      app.globalData.latitude = 28.09072;
+      app.globalData.longitude = 108.98077;
+      console.log("that.data.latitude ----->>>> " + that.data.latitude);
+      //获取商家详情
+      that.getShopCondition();
+      return;
+    }
     wx.showModal({
       title: '温馨提示',
-      content: '小程序需要获取地理位置权限，点击确认前往设置或者退出程序？',
+      content: '惠生活需要获取您的微信权限，点击确认前往设置或者退出程序？',
       showCancel: false,
-      success: function() {
-        that.openSetting();
+      success: function () {
+        wx.openSetting({
+          success: function (res) {
+            if (res.authSetting[authorize]) { //用户打开了用户信息授权
+              wx.getLocation({ //原则上这边应该是直接走到fail的。但是为了防止刚开始没有昵称和头像权限，所有这里做了请求判断
+                type: 'wgs84',
+                success: function (res) {
+                  that.setData({
+                    latitude: res.latitude,
+                    longitude: res.longitude
+                  });
+                  app.globalData.latitude = res.latitude;
+                  app.globalData.longitude = res.longitude;
+                  //获取商家详情
+                  that.getShopCondition();
+                }
+              });
+            } else { //用户没有打开用户信息授权
+              that.data.forceNum = that.data.forceNum + 1;
+              console.log("forceNum ----->>>" + that.data.forceNum);
+              that.showUserLocationForceToast(authorize);
+            }
+          }
+        });
       }
-    })
+    });
   },
 
   /**

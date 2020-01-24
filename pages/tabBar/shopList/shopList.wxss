@@ -70,7 +70,7 @@
 /* 商家列表数据 */
 .shopList{
   width: 100%;
-  height: 90%;
+  height: 70%;
   margin-top: 70rpx;
 }
 .shopListItem{

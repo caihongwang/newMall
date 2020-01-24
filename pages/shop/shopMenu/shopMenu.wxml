@@ -11,7 +11,7 @@
       <view class='list-tab fz-26'>{{item.foodTypeTitle}}</view>
       <view class='content-list' wx:for="{{item.menuList}}" wx:key="unique" wx:for-item="items" wx:for-index="indexs">
         <view class='list-image-box'>
-          <image class="list-image" mode="widthFix" src='{{items.foodHeadImgUrl}}'></image>
+          <image class="list-image" src='{{items.foodHeadImgUrl}}'></image>
         </view>
         <view class='issue-name'>
           <view class="itemNameAndPriceView">

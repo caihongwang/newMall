@@ -167,7 +167,7 @@ Page({
   // 拨打电话
   contactPhone: function (e) {
     console.log(e);
-    var phone = "17701359899";
+    var phone = "13636574416";
     if (e.currentTarget.dataset.phone){
       phone = e.currentTarget.dataset.phone;
     }
@@ -208,6 +208,7 @@ Page({
     });
   },
   onShow: function () {
+    this.screenAD(); //插屏广告
     if (wx.getStorageSync("USERINFO")) {
       this.setData({
         wxUserInfo: wx.getStorageSync("USERINFO"),
@@ -215,5 +216,26 @@ Page({
       })
     }
     this.getUserBaseInfo();
+  },
+  screenAD: function () {
+    // 在页面中定义插屏广告
+    let interstitialAd = null;
+
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-394246734e290c27'
+      });
+      interstitialAd.onLoad(() => { });
+      interstitialAd.onError((err) => { });
+      interstitialAd.onClose(() => { });
+    }
+
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      });
+    }
   }
 })
